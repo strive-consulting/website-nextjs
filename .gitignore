@@ -3,6 +3,8 @@ node_modules
 .swc/
 .*.env
 
+.contentlayer/*
+
 ### react ###
 .DS_*
 *.log
@@ -13,3 +15,4 @@ logs
 psd
 thumb
 sketch
+
