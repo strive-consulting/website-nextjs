@@ -1,0 +1,15 @@
+node_modules
+.next/
+.swc/
+.*.env
+
+### react ###
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
+psd
+thumb
+sketch
