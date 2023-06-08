@@ -6,8 +6,8 @@ export default function Process() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 mb-4" data-aos="fade-up">Built exclusively for you</h2>
-            <p className="text-xl text-gray-400" data-aos="fade-up" data-aos-delay="200">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laborum — semper quis lectus nulla.</p>
+            <h2 className="h2 mb-4" data-aos="fade-up">What We Do</h2>
+            <p className="text-xl text-gray-400" data-aos="fade-up" data-aos-delay="200">Committed to provide you with a wide range of services to facilitate your setup in the UAE</p>
           </div>
 
           {/* Items */}
