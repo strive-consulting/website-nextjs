@@ -1,25 +1,40 @@
-export const metadata : Metadata = {
-  metadataBase: new URL("https://www.strive.aeYO"),
-  title: 'Set Up a Company in Dubai Within Minutes | Strive.ae',
-  description: 'Strive is your one-stop shop for company formation and set up in UAE • Get your Mainland & Free zone company set up in Dubai today at low cost',
-  openGraph : {},
-  alternates: {
-    canonical: ""
-  }
-}
-
 import 'aos/dist/aos.css'
 import PageIllustration from '@/components/page-illustration'
 import Footer from '@/components/ui/footer'
 import { Metadata } from 'next'
 import AosInit from '@/components/aos-init'
+import { Constants } from '../constants'
+
+export const metadata : Metadata = {
+  metadataBase: new URL(Constants.SiteDomain),
+  title: Constants.SiteTitle,
+  description: Constants.SiteDescription,
+  robots: {index: true, follow: true },
+  authors: [{name: "strive.ae"}],
+  viewport: "width=device-width, initial-scale=1",
+  themeColor: "#000000",
+  alternates: {
+    canonical: Constants.SiteDomain
+  },
+  openGraph : {
+    title: Constants.SiteTitle,
+    description: Constants.SiteDescription,
+    images: [Constants.SiteDomain + Constants.OpenGraphImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: Constants.SiteTitle,
+    description: Constants.SiteDescription,
+    siteId: "",
+    images: [Constants.SiteDomain + Constants.OpenGraphImage],
+  }, 
+}
 
 export default function DefaultLayout({
   children,
 }: {
   children: React.ReactNode
 }) {  
-
 
   return (
     <>
