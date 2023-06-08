@@ -1,0 +1,64 @@
+{
+  "id": "testimonial",
+  "label": "Testimonial",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "uid",
+          "placeholder": ""
+        }
+      },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Name",
+          "placeholder": ""
+        }
+      },
+      "job_title": {
+        "type": "Text",
+        "config": {
+          "label": "Job Title",
+          "placeholder": ""
+        }
+      },
+      "avatar": {
+        "type": "Image",
+        "config": {
+          "label": "Avatar",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "Simple 2-3 lines",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "order": {
+        "type": "Number",
+        "config": {
+          "label": "Order",
+          "placeholder": "Larger number displayed first"
+        }
+      },
+      "profile_link": {
+        "type": "Link",
+        "config": {
+          "label": "Profile Link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      }
+    }
+  }
+}
