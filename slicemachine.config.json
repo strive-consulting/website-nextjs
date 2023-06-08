@@ -1,0 +1,5 @@
+{
+  "repositoryName": "strive",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./slices"]
+}

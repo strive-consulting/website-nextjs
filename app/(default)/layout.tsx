@@ -4,6 +4,8 @@ import Footer from '@/components/ui/footer'
 import { Metadata } from 'next'
 import AosInit from '@/components/aos-init'
 import { Constants } from '../constants'
+import { PrismicPreview } from '@prismicio/next'
+import { repositoryName } from '@/prismicio'
 
 export const metadata : Metadata = {
   metadataBase: new URL(Constants.SiteDomain),
@@ -46,6 +48,7 @@ export default function DefaultLayout({
 
         {children}
 
+        <PrismicPreview repositoryName={repositoryName} />
       </main>
 
       <Footer />
