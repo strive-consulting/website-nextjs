@@ -1,7 +1,7 @@
 import React from "react";
 import { PrismicRichText } from "@prismicio/react";
 import Link from "next/link";
-import Image from "next/future/image";
+import Image from "next/image";
 const CtaEnquiry = ({ slice }) => (
   <div className="row mb-5">
     <div className="col g-0">

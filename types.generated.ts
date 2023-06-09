@@ -5,6 +5,68 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
+/** Content for About documents */
+interface AboutDocumentData {
+    /**
+     * Slice Zone field in *About*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: about.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismic.SliceZone<AboutDocumentDataSlicesSlice>;
+    /**
+     * Meta Description field in *About*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A brief summary of the page
+     * - **API ID Path**: about.meta_description
+     * - **Tab**: SEO & Metadata
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    meta_description: prismic.RichTextField;
+    /**
+     * Meta Image field in *About*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: about.meta_image
+     * - **Tab**: SEO & Metadata
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    meta_image: prismic.ImageField<never>;
+    /**
+     * Meta Title field in *About*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: A title of the page used for social media and search engines
+     * - **API ID Path**: about.meta_title
+     * - **Tab**: SEO & Metadata
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    meta_title: prismic.KeyTextField;
+}
+/**
+ * Slice for *About → Slice Zone*
+ *
+ */
+type AboutDocumentDataSlicesSlice = never;
+/**
+ * About document from Prismic
+ *
+ * - **API ID**: `about`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AboutDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
 /** Content for Bank documents */
 interface BankDocumentData {
     /**
@@ -316,7 +378,64 @@ interface TestimonialDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type TestimonialDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<TestimonialDocumentData>, "testimonial", Lang>;
-export type AllDocumentTypes = BankDocument | BlogPostDocument | FreeZoneDocument | TestimonialDocument;
+/** Content for Text Page documents */
+interface TextPageDocumentData {
+    /**
+     * Title field in *Text Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: text_page.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismic.KeyTextField;
+    /**
+     * Body field in *Text Page*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: text_page.body
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    body: prismic.RichTextField;
+    /**
+     * Meta Title field in *Text Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: A title of the page used for social media and search engines
+     * - **API ID Path**: text_page.meta_title
+     * - **Tab**: SEO & Metadata
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    meta_title: prismic.KeyTextField;
+    /**
+     * Meta Description field in *Text Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: text_page.meta_description
+     * - **Tab**: SEO & Metadata
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    meta_description: prismic.KeyTextField;
+}
+/**
+ * Text Page document from Prismic
+ *
+ * - **API ID**: `text_page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TextPageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<TextPageDocumentData>, "text_page", Lang>;
+export type AllDocumentTypes = AboutDocument | BankDocument | BlogPostDocument | FreeZoneDocument | TestimonialDocument | TextPageDocument;
 /**
  * Primary content in BlogSection → Primary
  *
@@ -410,6 +529,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { BankDocumentData, BankDocument, BlogPostDocumentData, BlogPostDocumentDataSlicesSlice, BlogPostDocument, FreeZoneDocumentData, FreeZoneDocument, TestimonialDocumentData, TestimonialDocument, AllDocumentTypes, BlogSectionSliceDefaultPrimary, BlogSectionSliceDefault, BlogSectionSliceVariation, BlogSectionSlice, CtaEnquirySliceDefaultPrimary, CtaEnquirySliceDefault, CtaEnquirySliceVariation, CtaEnquirySlice };
+        export type { AboutDocumentData, AboutDocumentDataSlicesSlice, AboutDocument, BankDocumentData, BankDocument, BlogPostDocumentData, BlogPostDocumentDataSlicesSlice, BlogPostDocument, FreeZoneDocumentData, FreeZoneDocument, TestimonialDocumentData, TestimonialDocument, TextPageDocumentData, TextPageDocument, AllDocumentTypes, BlogSectionSliceDefaultPrimary, BlogSectionSliceDefault, BlogSectionSliceVariation, BlogSectionSlice, CtaEnquirySliceDefaultPrimary, CtaEnquirySliceDefault, CtaEnquirySliceVariation, CtaEnquirySlice };
     }
 }

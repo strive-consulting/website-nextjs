@@ -1,11 +1,13 @@
 import { createClient } from "@/prismicio";
-import { TextPageDocument } from "@/prismicio-types";
+// import { TextPageDocument } from "@/prismicio-types";
 import { PrismicRichText } from "@prismicio/react";
 import { Metadata, ResolvingMetadata } from "next";
 
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
+type Props = {}
+
+export async function generateMetadata({ }: Props, parent: ResolvingMetadata): Promise<Metadata> {
   const client = createClient();
-  const page : TextPageDocument = await client.getByUID("text_page", "privacy-policy");
+  const page = await client.getByUID("text_page", "privacy-policy");
   const data = page.data;
 
   return {
@@ -18,7 +20,7 @@ export async function generateMetadata(parent: ResolvingMetadata): Promise<Metad
 
 export default async function Privacy() {
   const client = createClient();
-  const page : TextPageDocument = await client.getByUID("text_page", "privacy-policy");
+  const page = await client.getByUID("text_page", "privacy-policy");
   const data = page.data;
 
   return (
@@ -30,7 +32,6 @@ export default async function Privacy() {
             {/* Page header */}
             <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
               <h1 className="h1 mb-4" data-aos="fade-up">{data.title}</h1>
-              {/* <p className="text-xl text-gray-400" data-aos="fade-up" data-aos-delay="200">We have custom plans to power your business. Tell us your needs, and we'll contact you shortly.</p> */}
             </div>
 
             <PrismicRichText
