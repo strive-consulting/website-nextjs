@@ -3,6 +3,7 @@ import './css/style.css'
 import { Inter, Architects_Daughter } from 'next/font/google'
 
 import Header from '@/components/ui/header'
+import Script from 'next/script'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -29,11 +30,55 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS}');
+        `}
+        </Script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: ` 
+            window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};   
+            heap.load('${process.env.NEXT_PUBLIC_HEAP_ANALYTICS}'); `,
+          }}
+        />
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: ` 
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "dfqe575o4n");`,
+          }}
+        />
+
+        <script
+          async
+          defer
+          src="https://static.cdn.prismic.io/prismic.js?new=true&repo=strive"></script>
+
+        <script async src="https://apps.elfsight.com/p/platform.js" defer></script>
+      </head>
       <body className={`${inter.variable} ${architects_daughter.variable} font-inter antialiased bg-gray-900 text-gray-200 tracking-tight`}>
         <div className="flex flex-col min-h-screen overflow-hidden">
           <Header />
           {children}
         </div>
+        <div className="elfsight-app-a73b12f4-a34b-4fd4-8585-b9a9aed04015"></div>
       </body>
     </html>
   )
