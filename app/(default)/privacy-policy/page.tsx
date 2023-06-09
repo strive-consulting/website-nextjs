@@ -18,10 +18,17 @@ type Props = {}
 // }
 
 
-export default  function Privacy() {
+export default async function Privacy() {
   const client = createClient();
-   const page =  client.getByUID("text_page", "privacy-policy");
-  // const data = page.data;
+  const page = await client.getByUID("text_page", "privacy-policy");
+
+   // Recommendation: handle errors
+   if (!page) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+
+  const data = page.data;
 
   return (
     <>
@@ -31,18 +38,17 @@ export default  function Privacy() {
 
             {/* Page header */}
             <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-              {/* <h1 className="h1 mb-4" data-aos="fade-up">{data.title}</h1> */}
-              TEST
+              <h1 className="h1 mb-4" data-aos="fade-up">{data.title}</h1>
             </div>
 
-            {/* <PrismicRichText
+            <PrismicRichText
               field={data.body}
               components={{
                 paragraph: ({ children }) => <p>{children}</p>,
                 heading2: ({ children }) => <h2 className="h2 my-4" >{children}</h2>,
                 heading3: ({ children }) => <h3 className="h3 my-4" >{children}</h3>,
               }}
-            /> */}
+            />
 
           </div>
         </div>
