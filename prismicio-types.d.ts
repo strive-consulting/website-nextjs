@@ -395,12 +395,75 @@ export type TestimonialDocument<Lang extends string = string> =
     "testimonial",
     Lang
   >;
+/** Content for Text Page documents */
+interface TextPageDocumentData {
+  /**
+   * Title field in *Text Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_page.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title: prismic.KeyTextField;
+  /**
+   * Body field in *Text Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_page.body
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  body: prismic.RichTextField;
+  /**
+   * Meta Title field in *Text Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: text_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  meta_title: prismic.KeyTextField;
+  /**
+   * Meta Description field in *Text Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  meta_description: prismic.KeyTextField;
+}
+/**
+ * Text Page document from Prismic
+ *
+ * - **API ID**: `text_page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TextPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<TextPageDocumentData>,
+    "text_page",
+    Lang
+  >;
 export type AllDocumentTypes =
   | AboutDocument
   | BankDocument
   | BlogPostDocument
   | FreeZoneDocument
-  | TestimonialDocument;
+  | TestimonialDocument
+  | TextPageDocument;
 /**
  * Primary content in BlogSection → Primary
  *
@@ -524,6 +587,8 @@ declare module "@prismicio/client" {
       FreeZoneDocument,
       TestimonialDocumentData,
       TestimonialDocument,
+      TextPageDocumentData,
+      TextPageDocument,
       AllDocumentTypes,
       BlogSectionSliceDefaultPrimary,
       BlogSectionSliceDefault,
