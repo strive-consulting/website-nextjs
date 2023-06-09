@@ -18,9 +18,9 @@ type Props = {}
 // }
 
 
-export default async function Privacy() {
+export default  function Privacy() {
   const client = createClient();
-  // const page = await client.getByUID("text_page", "privacy-policy");
+   const page =  client.getByUID("text_page", "privacy-policy");
   // const data = page.data;
 
   return (
