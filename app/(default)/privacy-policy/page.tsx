@@ -34,14 +34,14 @@ export default async function Privacy() {
               <h1 className="h1 mb-4" data-aos="fade-up">{data.title}</h1>
             </div>
 
-            <PrismicRichText
+            {/* <PrismicRichText
               field={data.body}
               components={{
                 paragraph: ({ children }) => <p>{children}</p>,
                 heading2: ({ children }) => <h2 className="h2 my-4" >{children}</h2>,
                 heading3: ({ children }) => <h3 className="h3 my-4" >{children}</h3>,
               }}
-            />
+            /> */}
 
           </div>
         </div>
