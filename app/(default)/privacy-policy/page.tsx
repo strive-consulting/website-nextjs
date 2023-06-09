@@ -19,9 +19,9 @@ type Props = {}
 
 
 export default async function Privacy() {
-  // const client = createClient();
-  // const page = await client.getByUID("text_page", "privacy-policy");
-  // const data = page.data;
+  const client = createClient();
+  const page = await client.getByUID("text_page", "privacy-policy");
+  const data = page.data;
 
   return (
     <>
