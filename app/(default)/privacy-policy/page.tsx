@@ -5,24 +5,22 @@ import { Metadata, ResolvingMetadata } from "next";
 
 type Props = {}
 
-// export async function generateMetadata({ }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-//   const client = createClient();
-//   const page = await client.getByUID("text_page", "privacy-policy");
-//   const data = page.data;
+export async function generateMetadata({ }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const client = createClient();
+  const page = await client.getByUID("text_page", "privacy-policy");
+  const data = page.data;
 
-//   return {
-//     title: data.meta_title,
-//     description: data.meta_description
+  return {
+    title: data.meta_title,
+    description: data.meta_description
 
-//   }
-// }
+  }
+}
 
 
 export default async function Privacy() {
   const client = createClient();
-  // const page = await client.getByUID("text_page", "privacy-policy");
-
-  const page = await client.getSingle("about");
+  const page = await client.getByUID("text_page", "privacy-policy");
 
    // Recommendation: handle errors
    if (!page) {
@@ -40,17 +38,17 @@ export default async function Privacy() {
 
             {/* Page header */}
             <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-              <h1 className="h1 mb-4" data-aos="fade-up">{data.meta_title}</h1>
+              <h1 className="h1 mb-4" data-aos="fade-up">{data.title}</h1>
             </div>
 
-            {/* <PrismicRichText
+            <PrismicRichText
               field={data.body}
               components={{
                 paragraph: ({ children }) => <p>{children}</p>,
                 heading2: ({ children }) => <h2 className="h2 my-4" >{children}</h2>,
                 heading3: ({ children }) => <h3 className="h3 my-4" >{children}</h3>,
               }}
-            /> */}
+            />
 
           </div>
         </div>
