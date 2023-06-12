@@ -22,7 +22,7 @@
     "aos": "^3.0.0-beta.6",
     "contentlayer": "^0.3.2",
     "date-fns": "^2.30.0",
-    "next": "^13.4.1",
+    "next": "^13.4.5",
     "next-contentlayer": "^0.3.2",
     "prismic-ts-codegen": "^0.1.11",
     "react": "18.2.0",
