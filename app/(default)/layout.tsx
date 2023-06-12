@@ -48,7 +48,7 @@ export default function DefaultLayout({
 
         {children}
 
-        <PrismicPreview repositoryName={repositoryName} />
+        {/* <PrismicPreview repositoryName={repositoryName} /> */}
       </main>
 
       <Footer />
