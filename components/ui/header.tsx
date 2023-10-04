@@ -23,11 +23,59 @@ export default function Header() {
           <nav className="hidden md:flex md:grow">
             {/* Desktop menu links */}
             <ul className="flex grow justify-end flex-wrap items-center">
+              <li>
+                <Link href="/about" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">
+                  About us
+                </Link>
+              </li>
               <Dropdown title="Company Formation">
                 {/* 2nd level: hover */}
                 <li>
                   <Link href="/dubai-company-set-up" className="font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight">
                     Overview
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dubai-freezone-company-formation" className="font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight">
+                    Free Zone
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dubai-mainland-company-formation" className="font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight">
+                    Mainland
+                  </Link>
+                </li>
+                
+              </Dropdown>
+              <li>
+                <Link href="/about" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">
+                  Saudi
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">
+                  Accounting
+                </Link>
+              </li>
+              <Dropdown title="Legal">
+                {/* 2nd level: hover */}
+                <li>
+                  <Link href="/dubai-company-set-up" className="font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight">
+                    Industry list
+                  </Link>
+                </li>
+                
+              </Dropdown>
+              <Dropdown title="Knowledge Hub">
+                {/* 2nd level: hover */}
+                <li>
+                  <Link href="/dubai-company-set-up" className="font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight">
+                    Videos
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dubai-company-set-up" className="font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight">
+                    Blog
                   </Link>
                 </li>
                 <li>
@@ -40,18 +88,8 @@ export default function Header() {
                     404
                   </Link>
                 </li>
+                
               </Dropdown>
-           
-              <li>
-                <Link href="/dubai-company-set-up" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">
-                  UAE Residency
-                </Link>
-              </li>
-              <li>
-                <Link href="/dubai-company-set-up" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">
-                  Business Banking
-                </Link>
-              </li>
               {/* <li>
                 <Link href="/features" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">
                   Features
@@ -67,11 +105,7 @@ export default function Header() {
                   Blog
                 </Link>
               </li> */}
-              <li>
-                <Link href="/about" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">
-                  About us
-                </Link>
-              </li>
+              
               {/* 1st level: hover */}
               {/* <Dropdown title="Support"> */}
                 {/* 2nd level: hover */}

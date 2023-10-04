@@ -20,10 +20,29 @@ export default function About() {
     <>
       <HeroAbout />
       <TeamImages />
-      <Timeline />
+      <section>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="py-12 md:py-20">
+            <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
+              <h2 className="h2 mb-4">Making setting up in Dubai easy</h2>
+              <p className="text-xl text-gray-400">At Strive we try to put service ahead of anything else. We focus on quality of service rather than the quantity of clients that we take on board. Providing clear and transparent information to clients is what we feel makes us unique.</p>
+              <p className="text-xl text-gray-400 mt-8">At Strive we try to put service ahead of anything else. We focus on quality of service rather than the quantity of clients that we take on board. Providing clear and transparent information to clients is what we feel makes us unique.</p>
+            
+              <ul className="text-xl text-gray-400 mt-8">
+              <li>Communication with a personal touch.</li>
+
+              <li>Transparency that builds trust.</li>
+
+              <li>Dedication toward support and service.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <Timeline /> */}
       <Team />
-      <TestimonialsCarousel />
-      <Career />
+      {/* <TestimonialsCarousel /> */}
+      {/* <Career /> */}
       <Clients />
       <Newsletter />
     </>
