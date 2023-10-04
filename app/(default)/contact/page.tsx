@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Contact us - Open PRO',
-  description: 'Page description',
+  title: 'Contact',
+  description: 'Contact us',
 }
 
 import EnquiryForm from '@/components/enquiry-form'
@@ -20,6 +20,26 @@ export default function Contact() {
             </div>
 
             <EnquiryForm/>
+
+
+            <div className="max-w-sm mx-auto grid gap-8 md:grid-cols-3 lg:gap-16 items-start md:max-w-none">
+              <div className="relative flex flex-col items-left" data-aos="fade-up">
+                <h4 className="h4 mb-2">Contact Us</h4>
+                <p className="text-lg text-gray-400 text-left">
+                  Phone/WhatsApp: <a href="tel:+971 4 439 6282">+971 4 439 6282</a>
+                  <br/>Email: <a href="mailto:info@strive.ae">info@strive.ae</a>
+                </p>
+              </div>
+              <div className="relative flex flex-col items-left" data-aos="fade-up">
+                <h4 className="h4 mb-2">UAE Office</h4>
+                <p className="text-lg text-gray-400 text-left"><address>21314-001 IFZA Business Park, DDP Building A2, DSO, Dubai</address></p>
+              </div>
+              <div className="relative flex flex-col items-left" data-aos="fade-up">
+                <h4 className="h4 mb-2">UK Office</h4>
+                <p className="text-lg text-gray-400 text-left"><address>128 City Road, London, EC1V 2NX</address></p>
+              </div>
+            </div>
+
 
             {/* Contact form */}
             {/* <form className="max-w-xl mx-auto">
