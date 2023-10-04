@@ -1,6 +1,6 @@
 export const metadata : Metadata = {
   title: 'Set Up a Company in Dubai Within Minutes | Strive.ae',
-  description: 'Strive is your one-stop shop for company formation and set up in UAE • Get your Mainland & Free zone company set up in Dubai today at low cost',
+  description: 'Strive is your one-stop shop for company formation and set up in UAE. Get your Mainland & Free zone company set up in Dubai today at low cost',
   alternates: {
     canonical: "/"
   },
