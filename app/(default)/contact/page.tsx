@@ -3,23 +3,26 @@ export const metadata = {
   description: 'Page description',
 }
 
-import CtaContact from '@/components/cta-contact'
+import EnquiryForm from '@/components/enquiry-form'
 
 export default function Contact() {
   return (
     <>
+    
       <section className="relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
           <div className="pt-32 pb-12 md:pt-40 md:pb-20">
 
             {/* Page header */}
-            <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-              <h1 className="h1 mb-4" data-aos="fade-up">How can we help you?</h1>
-              <p className="text-xl text-gray-400" data-aos="fade-up" data-aos-delay="200">We have custom plans to power your business. Tell us your needs, and we'll contact you shortly.</p>
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="h1 mb-4" data-aos="fade-up">Get in touch</h1>
+              <p className="text-xl text-gray-400" data-aos="fade-up" data-aos-delay="200">Complete the form and our team will be in touch usually within minutes 🚀</p>
             </div>
 
+            <EnquiryForm/>
+
             {/* Contact form */}
-            <form className="max-w-xl mx-auto">
+            {/* <form className="max-w-xl mx-auto">
               <div className="flex flex-wrap -mx-3 mb-4">
                 <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
                   <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="first-name">First Name <span className="text-red-600">*</span></label>
@@ -72,13 +75,12 @@ export default function Contact() {
                   <button className="btn text-white bg-purple-600 hover:bg-purple-700 w-full">Send</button>
                 </div>
               </div>
-            </form>
+            </form> */}
 
           </div>
         </div>
       </section>
 
-      <CtaContact />
     </>
   )
 }

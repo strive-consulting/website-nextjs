@@ -47,11 +47,30 @@ export default function Header() {
                 </li>
                 
               </Dropdown>
-              <li>
+              <Dropdown title="Residency Visa">
+                {/* 2nd level: hover */}
+                <li>
+                  <Link href="/dubai-company-set-up" className="font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight">
+                    Overview
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dubai-freezone-company-formation" className="font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight">
+                    Free Zone
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dubai-mainland-company-formation" className="font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight">
+                    Mainland
+                  </Link>
+                </li>
+                
+              </Dropdown>
+              {/* <li>
                 <Link href="/about" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">
                   Saudi
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/about" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">
                   Accounting
