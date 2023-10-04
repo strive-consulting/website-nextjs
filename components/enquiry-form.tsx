@@ -1,4 +1,6 @@
 'use client'
+
+// @ts-ignore
 import JotFormReact from 'jotform-react'
 
 export default function EnquiryForm() {
