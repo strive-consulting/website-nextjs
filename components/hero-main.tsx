@@ -13,7 +13,7 @@ interface HeroProps {
   subTitle: string;
   backgroundImagePath?: string;
   bodyImage?: string;
-  showBackgroundIllustration: boolean;
+  showBackgroundIllustration?: boolean;
   showCta?: boolean;
 }
 
