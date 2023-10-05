@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <HeroMain isHomePage={true} title='Test' subTitle='dsfhsdkfj' backgroundImagePath=''/>
-      <Hero />
+      {/* <Hero /> */}
       <Process />
       <FeaturesHome />
       <Tabs />
