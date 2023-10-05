@@ -14,7 +14,7 @@ interface HeroProps {
   backgroundImagePath?: string;
   bodyImage?: string;
   showBackgroundIllustration: boolean;
-  showCta: boolean;
+  showCta?: boolean;
 }
 
 type HeaderAlignment = "left" | "center";
