@@ -117,7 +117,7 @@ export default function Blog() {
           </div>
         </div>
       </section>  
-      <Newsletter />
+      {/* <Newsletter /> */}
     </>
   )
 }

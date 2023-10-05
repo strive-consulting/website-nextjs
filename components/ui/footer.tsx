@@ -22,7 +22,7 @@ export default function Footer() {
                   </svg> */}
                 </Link>
               </div>
-              <div className="text-gray-400">Strive specialises in Dubai company formation and residency with service at its core. Strive Consultants is your trusted advisors when it comes to company structuring and formations in Dubai and across the UAE, along with with business support, corporate banking, UAE residency and other PRO services.</div>
+              <div className="text-gray-400">Strive specialises in Dubai company formation and residency with service at its core. Strive Consultants are your trusted advisors when it comes to company structuring and formations in Dubai and across the UAE, along with with business support, corporate banking, UAE residency and other PRO services.</div>
             </div>
 
             {/* 2nd, 3rd and 4th blocks */}

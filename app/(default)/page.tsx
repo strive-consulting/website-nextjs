@@ -14,17 +14,19 @@ import Target from '@/components/target'
 import News from '@/components/news'
 import Newsletter from '@/components/newsletter'
 import { Metadata } from 'next'
+import HeroMain from '@/components/hero-main'
 
 export default function Home() {
   return (
     <>
+      <HeroMain isHomePage={true} title='Test' subTitle='dsfhsdkfj' backgroundImagePath=''/>
       <Hero />
       <Process />
       <FeaturesHome />
       <Tabs />
       <Target />
       <News />
-      <Newsletter />      
+      {/* <Newsletter />       */}
     </>
   )
 }
