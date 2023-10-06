@@ -1,6 +1,6 @@
-import IBlogData from "./IBlogData";
+import IBlogData from './IBlogData'
 
 export default interface IBlogPost {
-  uid: string;
-  data: IBlogData;
+  uid: string
+  data: IBlogData
 }

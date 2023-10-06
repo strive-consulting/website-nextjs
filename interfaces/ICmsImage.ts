@@ -1,4 +1,4 @@
 export default interface ICmsImage {
-  url: string;
-  alt: string;
+  url: string
+  alt: string
 }

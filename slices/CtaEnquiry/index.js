@@ -1,34 +1,34 @@
-import React from "react";
-import { PrismicRichText } from "@prismicio/react";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react'
+import { PrismicRichText } from '@prismicio/react'
+import Link from 'next/link'
+import Image from 'next/image'
 const CtaEnquiry = ({ slice }) => (
-  <div className="row mb-5">
-    <div className="col g-0">
-      <div className="cta-area">
-        <div className="container">
-          <div className="cta-bg bg-theme">
-            <div className="cta-number-icon">
+  <div className='row mb-5'>
+    <div className='col g-0'>
+      <div className='cta-area'>
+        <div className='container'>
+          <div className='cta-bg bg-theme'>
+            <div className='cta-number-icon'>
               <i>
                 <Image
-                  src="/assets/img/logo/square_logo.png"
-                  className="img-fluid"
-                  alt="Strive icon"
+                  src='/assets/img/logo/square_logo.png'
+                  className='img-fluid'
+                  alt='Strive icon'
                   width={60}
                 />
               </i>
             </div>
-            <div className="col cta-description">
-              <div className="cta-number-text fix">
-                <span className="uppercase">Instant Estimate</span>
+            <div className='col cta-description'>
+              <div className='cta-number-text fix'>
+                <span className='uppercase'>Instant Estimate</span>
                 <h3>
-                  <a href="tel:+97144396282">+971 4 439 6282</a>
+                  <a href='tel:+97144396282'>+971 4 439 6282</a>
                 </h3>
               </div>
             </div>
-            <div className="col cta-btn text-lg-end text-start">
-              <Link href="/dubai-company-setup-cost">
-                <a className="theme-btn black-btn">
+            <div className='col cta-btn text-lg-end text-start'>
+              <Link href='/dubai-company-setup-cost'>
+                <a className='theme-btn black-btn'>
                   <span>{slice.primary.button_text}</span>
                 </a>
               </Link>
@@ -63,6 +63,6 @@ const CtaEnquiry = ({ slice }) => (
   //       }
   //   `}</style>
   // </section>
-);
+)
 
-export default CtaEnquiry;
+export default CtaEnquiry

@@ -13,7 +13,7 @@ import Cta from '@/components/cta'
 export default function Features() {
   return (
     <>
-    <h1>Dubai company setup</h1>
+      <h1>Dubai company setup</h1>
       <Hero />
       <Stats />
       <Zigzag />

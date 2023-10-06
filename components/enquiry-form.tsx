@@ -9,13 +9,9 @@ export default function EnquiryForm() {
     //     formURL="https://form.jotform.com/232761834850359"
     //   />
 
-
-      <JotFormReact
-        formURL="https://form.jotform.com/232763029940357"
-      />
+    <JotFormReact formURL='https://form.jotform.com/232763029940357' />
   )
 }
-
 
 // import JotformEmbed from 'react-jotform-embed';
 

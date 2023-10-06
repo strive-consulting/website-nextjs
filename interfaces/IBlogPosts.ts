@@ -1,5 +1,5 @@
-import IBlogPost from "./IBlogPost";
+import IBlogPost from './IBlogPost'
 
 export default interface IBlogPosts {
-  blogPosts: IBlogPost[];
+  blogPosts: IBlogPost[]
 }

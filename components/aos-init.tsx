@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from "react"
+import { useEffect } from 'react'
 import AOS from 'aos'
 
 export default function AosInit() {
@@ -13,7 +13,5 @@ export default function AosInit() {
     })
   })
 
-  return (
-    <></>
-  )
+  return <></>
 }

@@ -8,38 +8,43 @@ import EnquiryForm from '@/components/enquiry-form'
 export default function Contact() {
   return (
     <>
-    
-      <section className="relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
-          <div className="pt-32 pb-12 md:pt-40 md:pb-20">
-
+      <section className='relative'>
+        <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>
+          <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
             {/* Page header */}
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="h1 mb-4" data-aos="fade-up">Get in touch</h1>
-              <p className="text-xl text-gray-400" data-aos="fade-up" data-aos-delay="200">Complete the form and our team will be in touch usually within minutes 🚀</p>
+            <div className='max-w-3xl mx-auto text-center'>
+              <h1 className='h1 mb-4' data-aos='fade-up'>
+                Get in touch
+              </h1>
+              <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
+                Complete the form and our team will be in touch usually within minutes 🚀
+              </p>
             </div>
 
-            <EnquiryForm/>
+            <EnquiryForm />
 
-
-            <div className="max-w-sm mx-auto grid gap-8 md:grid-cols-3 lg:gap-16 items-start md:max-w-none">
-              <div className="relative flex flex-col items-left" data-aos="fade-up">
-                <h4 className="h4 mb-2">Contact Us</h4>
-                <p className="text-lg text-gray-400 text-left">
-                  Phone/WhatsApp: <a href="tel:+971 4 439 6282">+971 4 439 6282</a>
-                  <br/>Email: <a href="mailto:info@strive.ae">info@strive.ae</a>
+            <div className='max-w-sm mx-auto grid gap-8 md:grid-cols-3 lg:gap-16 items-start md:max-w-none'>
+              <div className='relative flex flex-col items-left' data-aos='fade-up'>
+                <h4 className='h4 mb-2'>Contact Us</h4>
+                <p className='text-lg text-gray-400 text-left'>
+                  Phone/WhatsApp: <a href='tel:+971 4 439 6282'>+971 4 439 6282</a>
+                  <br />
+                  Email: <a href='mailto:info@strive.ae'>info@strive.ae</a>
                 </p>
               </div>
-              <div className="relative flex flex-col items-left" data-aos="fade-up">
-                <h4 className="h4 mb-2">UAE Office</h4>
-                <p className="text-lg text-gray-400 text-left"><address>21314-001 IFZA Business Park, DDP Building A2, DSO, Dubai</address></p>
+              <div className='relative flex flex-col items-left' data-aos='fade-up'>
+                <h4 className='h4 mb-2'>UAE Office</h4>
+                <p className='text-lg text-gray-400 text-left'>
+                  <address>21314-001 IFZA Business Park, DDP Building A2, DSO, Dubai</address>
+                </p>
               </div>
-              <div className="relative flex flex-col items-left" data-aos="fade-up">
-                <h4 className="h4 mb-2">UK Office</h4>
-                <p className="text-lg text-gray-400 text-left"><address>128 City Road, London, EC1V 2NX</address></p>
+              <div className='relative flex flex-col items-left' data-aos='fade-up'>
+                <h4 className='h4 mb-2'>UK Office</h4>
+                <p className='text-lg text-gray-400 text-left'>
+                  <address>128 City Road, London, EC1V 2NX</address>
+                </p>
               </div>
             </div>
-
 
             {/* Contact form */}
             {/* <form className="max-w-xl mx-auto">
@@ -96,11 +101,9 @@ export default function Contact() {
                 </div>
               </div>
             </form> */}
-
           </div>
         </div>
       </section>
-
     </>
   )
 }
