@@ -21,7 +21,7 @@ type HeaderAlignment = "left" | "center";
 
 export enum HeaderEnum {
   Left = "left",
-  Center = "center"
+  Center = "center",
 }
 
 export default function HeroMain({
@@ -32,9 +32,8 @@ export default function HeroMain({
   bodyImage,
   showBackgroundIllustration,
   showCta,
-  align
+  align,
 }: HeroProps) {
-
   const titleAlignClass = align === HeaderEnum.Left ? "md:text-left" : "";
   const mxAuto = align != HeaderEnum.Left ? "mx-auto" : "";
   const panelWidth = align != HeaderEnum.Left ? "max-w-6xl" : "max-w-2xl";
@@ -253,15 +252,15 @@ export default function HeroMain({
                         data-aos-delay="400"
                       />
                     )}
-
-                    
                   </div>
                 </>
               )}
 
               {!showBackgroundIllustration && (
                 <div className="pt-32 pb-12 md:pt-40 md:pb-20">
-                  <div className={`${panelWidth} ${mxAuto} text-center ${titleAlignClass}`}>
+                  <div
+                    className={`${panelWidth} ${mxAuto} text-center ${titleAlignClass}`}
+                  >
                     <h1 className="h1 mb-4" data-aos="fade-up">
                       {title}
                     </h1>
@@ -273,6 +272,33 @@ export default function HeroMain({
                       {subTitle}
                     </p>
                   </div>
+
+                  {/* CTA */}
+                  {showCta && (
+                    <>
+                      <div
+                        className={`max-w-xs ${mxAuto} sm:max-w-none sm:flex mb-20`}
+                      >
+                        <div data-aos="fade-up" data-aos-delay="400">
+                          <a
+                            className="btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0"
+                            href="/contact"
+                          >
+                            Get In Touch
+                          </a>
+                        </div>
+                        <div data-aos="fade-up" data-aos-delay="600">
+                          <Link
+                            className="btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4"
+                            href="/call-back"
+                            target="_blank"
+                          >
+                            Book Consultation
+                          </Link>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               )}
             </div>
