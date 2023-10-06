@@ -15,7 +15,7 @@ export default function Contact() {
                 Thanks
               </h1>
               <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
-                We've received your enquiry. One of our experienced consultants look forward to
+                We&apos;ve received your enquiry. One of our experienced consultants look forward to
                 discussing your plans. Thank you for Choosing Strive!
               </p>
             </div>

@@ -31,7 +31,7 @@ export default function Career() {
                   </a>
                 </div>
                 <div className='text-lg text-gray-400 mb-3'>
-                  You'll be joing the Experience Design Team as a Lead Product Designer. You'll
+                  Youll be joing the Experience Design Team as a Lead Product Designer. Youll
                   interface daily with developers - encouraging and advancing best practices in
                   software.
                 </div>
@@ -99,7 +99,7 @@ export default function Career() {
                   </a>
                 </div>
                 <div className='text-lg text-gray-400 mb-3'>
-                  You'll be joing the Experience Design Team as a Lead Product Designer. You'll
+                  Youll be joing the Experience Design Team as a Lead Product Designer. Youll
                   interface daily with developers - encouraging and advancing best practices in
                   software.
                 </div>
@@ -167,7 +167,7 @@ export default function Career() {
                   </a>
                 </div>
                 <div className='text-lg text-gray-400 mb-3'>
-                  You'll be joing the Experience Design Team as a Lead Product Designer. You'll
+                  Youll be joing the Experience Design Team as a Lead Product Designer. Youll
                   interface daily with developers - encouraging and advancing best practices in
                   software.
                 </div>

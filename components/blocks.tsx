@@ -160,7 +160,7 @@ export default function Blocks({ title, subTitle, blocks }: BlockProps) {
     const selectedIcon = icons.find((icon) => icon.name === block.icon)
 
     return (
-      <div
+      <div key={title}
         className='relative flex flex-col items-center'
         data-aos='fade-up'
         data-aos-anchor='[data-aos-id-blocks]'
