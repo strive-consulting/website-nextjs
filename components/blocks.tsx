@@ -1,27 +1,11 @@
+import { GridBlock, Icon, Icons } from '@/types'
+import Link from 'next/link'
+import TickIcon from './tickIcon'
+
 interface BlockProps {
   title?: string
   subTitle?: string
   blocks?: GridBlock[]
-}
-
-export type GridBlock = {
-  icon: Icons
-  title: string
-  description: string
-}
-
-export enum Icons {
-  Star = 'star',
-  List = 'list',
-  Globe = 'globe',
-  Person = 'person',
-  Like = 'like',
-  Thought = 'thought',
-}
-
-type Icon = {
-  name: string
-  icon: JSX.Element
 }
 
 const icons: Icon[] = [
@@ -152,22 +136,60 @@ const icons: Icon[] = [
 ]
 
 export default function Blocks({ title, subTitle, blocks }: BlockProps) {
-  // const selectedIcon = icons[blocks[0].icon];
-
-  const selectedIcon = icons.find((icon) => icon.name === blocks[0].icon)
-
   const gridItems = blocks?.map((block) => {
     const selectedIcon = icons.find((icon) => icon.name === block.icon)
 
     return (
-      <div key={title}
+      <div
+        key={title}
         className='relative flex flex-col items-center'
         data-aos='fade-up'
         data-aos-anchor='[data-aos-id-blocks]'
       >
-        {selectedIcon.icon}
+        {selectedIcon ? selectedIcon?.icon : <></>}
         <h4 className='h4 mb-2 text-center'>{block.title}</h4>
         <p className='text-lg text-gray-400 text-center'>{block.description}</p>
+
+        {block.bullets && (
+          <ul className='max-w-md space-y-2 text-gray-500 list-inside dark:text-gray-400 py-5 px-5'>
+            {block.bullets.map((bullet) => {
+              return (
+                <li key={bullet} className='flex items-center'>
+                  <TickIcon />
+                  {bullet}
+                </li>
+              )
+            })}
+          </ul>
+        )}
+
+        {block.ctaLink && (
+          <Link
+            className='btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6'
+            href={block.ctaLink}
+            target='_blank'
+          >
+            <span className='text-sm'>{block.ctaButtonText}</span>
+            <svg
+              className='w-3 h-3 fill-current text-purple-400 shrink-0 ml-2'
+              viewBox='0 0 12 12'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path d='M6 5H0v2h6v4l6-5-6-5z' />
+            </svg>
+          </Link>
+
+          // <a className='btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6' href='#0'>
+          // <span className='text-sm'>Learn more</span>
+          // <svg
+          //   className='w-3 h-3 fill-current text-purple-400 shrink-0 ml-2'
+          //   viewBox='0 0 12 12'
+          //   xmlns='http://www.w3.org/2000/svg'
+          // >
+          //   <path d='M6 5H0v2h6v4l6-5-6-5z' />
+          // </svg>
+          // </a>
+        )}
       </div>
     )
   })

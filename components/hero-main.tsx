@@ -258,7 +258,7 @@ export default function HeroMain({
                   {/* CTA */}
                   {showCta && (
                     <>
-                      <div className={`max-w-xs ${mxAuto} sm:max-w-none sm:flex mb-20`}>
+                      <div className={`max-w-xs ${mxAuto} sm:max-w-none sm:flex`}>
                         <div data-aos='fade-up' data-aos-delay='400'>
                           <a
                             className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'

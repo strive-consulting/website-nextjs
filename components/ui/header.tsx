@@ -49,6 +49,14 @@ export default function Header() {
                     Mainland
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href='/dubai-offshore-company-formation'
+                    className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
+                  >
+                    Offshore
+                  </Link>
+                </li>
               </Dropdown>
               <Dropdown title='Residency Visa'>
                 {/* 2nd level: hover */}

@@ -6,13 +6,14 @@ export const metadata = {
 import Hero from '@/components/hero-features'
 import Stats from '@/components/stats'
 import Zigzag from '@/components/zigzag'
-import Blocks, { GridBlock, Icons } from '@/components/blocks'
 import CaseStudies from '@/components/case-studies'
 import Cta from '@/components/cta'
 import HeroMain, { HeaderEnum } from '@/components/hero-main'
 import Link from 'next/link'
 import Image from 'next/image'
 import FeatImage01 from '@/public/images/features-03-image-01.png'
+import { GridBlock, Icons } from '@/types'
+import Blocks from '@/components/blocks'
 
 export default function Features() {
   const blocks: GridBlock[] = [
