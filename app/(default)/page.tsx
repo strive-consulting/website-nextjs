@@ -13,9 +13,9 @@ import FeaturesHome from '@/components/features'
 import Tabs from '@/components/tabs'
 import Target from '@/components/target'
 import News from '@/components/news'
-import Newsletter from '@/components/newsletter'
 import { Metadata } from 'next'
 import HeroMain from '@/components/hero-main'
+import Testimonials from '@/components/testimonials'
 
 export default function Home() {
   return (
@@ -23,6 +23,7 @@ export default function Home() {
       <HeroMain isHomePage={true} title='Test' subTitle='dsfhsdkfj' backgroundImagePath='' />
       {/* <Hero /> */}
       <Process />
+      <Testimonials count={3} />
       <FeaturesHome />
       <Tabs />
       <Target />
