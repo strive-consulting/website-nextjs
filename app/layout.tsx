@@ -4,6 +4,8 @@ import { Inter, Architects_Daughter } from 'next/font/google'
 
 import Header from '@/components/ui/header'
 import Script from 'next/script'
+import { PrismicPreview } from '@prismicio/next'
+import { repositoryName } from '@/prismicio'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -76,6 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className='flex flex-col min-h-screen overflow-hidden'>
           <Header />
           {children}
+          <PrismicPreview repositoryName={repositoryName} />
         </div>
         <div className='elfsight-app-a73b12f4-a34b-4fd4-8585-b9a9aed04015'></div>
       </body>

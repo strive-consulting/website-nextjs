@@ -807,12 +807,11 @@
     "@prismicio/richtext" "^2.1.5"
     imgix-url-builder "^0.0.3"
 
-"@prismicio/client@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-7.2.0.tgz#8e1aab9183e98a390bff335be4c405e04c474ea8"
-  integrity sha512-bfbs2ZMLd3ba7Bp1qI4qAz+13FIWE/JDT9+h+3hL/MVpK4iDpjz3vmOlYJs25myhryU9HP8Og7qKoaeE9hPzmA==
+"@prismicio/client@^7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-7.3.0.tgz#0dcdb9190ff1c1a6911df4da326e527463808748"
+  integrity sha512-C+CCGFBhHigvQ7Osdt495hmc16cx7XCYgGBbD5QqY89WbNQMGYfU+r408daunCH+bcxb/FHDOpxo8hp8Byjabg==
   dependencies:
-    "@prismicio/richtext" "^2.1.5"
     imgix-url-builder "^0.0.4"
 
 "@prismicio/custom-types-client@^1.1.0":
@@ -902,7 +901,7 @@
     newtype-ts "^0.3.5"
     tslib "^2.3.1"
 
-"@prismicio/types@^0.2.4", "@prismicio/types@^0.2.7", "@prismicio/types@^0.2.8":
+"@prismicio/types@^0.2.4", "@prismicio/types@^0.2.7":
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/@prismicio/types/-/types-0.2.8.tgz#76a0eb2f657a87f003ec81b654c8d72dbcd3228b"
   integrity sha512-EmuYYil56U+UtEifMD/9TmLzpWliV+X6kypwPq47GNXmIXyFK1JsP3z872fUziXwoBjd2YILj28DNdYXlLOpXg==

@@ -3,8 +3,23 @@ import Image from 'next/image'
 import TestimonialImage01 from '@/public/images/testimonial-01.jpg'
 import TestimonialImage02 from '@/public/images/testimonial-02.jpg'
 import TestimonialImage03 from '@/public/images/testimonial-03.jpg'
+import { createClient } from '@/prismicio';
 
-export default function Testimonials() {
+export async function getTestimonials() {
+  const client = createClient();
+
+  const testimonials = await client.getAllByType("testimonial", {});
+
+  console.log('TEST', testimonials);
+
+  // return testimonials;
+  return 'hey';
+}
+
+export default async function Testimonials() {
+  const testimonials = await getTestimonials();
+  console.log('TEST', testimonials);
+  
   return (
     <section>
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
