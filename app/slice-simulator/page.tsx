@@ -1,3 +1,4 @@
+// @ts-ignore
 'use client'
 
 import { SliceSimulator } from '@slicemachine/adapter-next/simulator'
