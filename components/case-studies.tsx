@@ -3,12 +3,14 @@ import Image from 'next/image'
 import NewsImage10 from '@/public/images/news-10.jpg'
 import NewsImage11 from '@/public/images/news-11.jpg'
 import NewsImage12 from '@/public/images/news-12.jpg'
+import { Divider } from './divider'
 
 export default function CaseStudies() {
   return (
     <section>
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
-        <div className='py-12 md:py-20 border-t border-gray-800'>
+        <Divider/>
+        <div>
           {/* Section header */}
           <div className='max-w-3xl mx-auto text-center pb-12 md:pb-20'>
             <h2 className='h2 mb-4'>Integrated workflow designed for product teams</h2>

@@ -190,7 +190,7 @@ export default function HeroMain({
                     </svg>
                   </div>
 
-                  <div className='relative pt-32 pb-12 md:pt-40 md:pb-20'>
+                  <div className='relative pt-32 pb-12 md:pt-40 '>
                     {/* Content */}
                     <div className='max-w-3xl mx-auto text-center pb-12 md:pb-16'>
                       <h1 className='h1 mb-4' data-aos='fade-up'>
@@ -244,7 +244,7 @@ export default function HeroMain({
               )}
 
               {!showBackgroundIllustration && (
-                <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
+                <div className='pt-32 pb-12 md:pt-40 md:pb-0'>
                   <div className='flex flex-col md:flex-row'>
                     <div className={`w-full md:w-2/3 ${mxAuto} text-center ${titleAlignClass}`}>
                       <h1 className='h1 mb-4' data-aos='fade-up'>
