@@ -5,6 +5,7 @@ import HeroImage from '@/public/images/about-hero.jpg'
 import ModalVideo from './modal-video'
 import VideoThumb from '@/public/images/hero-image-01.jpg'
 import Link from 'next/link'
+import TickIcon from './tickIcon'
 
 interface HeroProps {
   isHomePage?: boolean
@@ -15,6 +16,7 @@ interface HeroProps {
   bodyImage?: string
   showBackgroundIllustration?: boolean
   showCta?: boolean
+  bullets?: string[]
 }
 
 type HeaderAlignment = 'left' | 'center'
@@ -33,9 +35,10 @@ export default function HeroMain({
   showBackgroundIllustration,
   showCta,
   align,
+  bullets,
 }: HeroProps) {
   const titleAlignClass = align === HeaderEnum.Left ? 'md:text-left' : ''
-  const mxAuto = align != HeaderEnum.Left ? 'mx-auto' : ''
+  const mxAuto = align != HeaderEnum.Left ? '' : 'mx-auto'
   const panelWidth = align != HeaderEnum.Left ? 'max-w-6xl' : 'max-w-2xl'
 
   return (
@@ -242,7 +245,35 @@ export default function HeroMain({
 
               {!showBackgroundIllustration && (
                 <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
-                  <div className={`${panelWidth} ${mxAuto} text-center ${titleAlignClass}`}>
+                  <div className='flex flex-col md:flex-row'>
+                    <div className={`w-full md:w-2/3 ${mxAuto} text-center ${titleAlignClass}`}>
+                      <h1 className='h1 mb-4' data-aos='fade-up'>
+                        {title}
+                      </h1>
+                      <p
+                        className='text-xl text-gray-400 mb-8'
+                        data-aos='fade-up'
+                        data-aos-delay='200'
+                      >
+                        {subTitle}
+                      </p>
+                    </div>
+                    <div className='w-full md:w-1/3 md:ml-20 md:pt-20'>
+                      {bullets && (
+                        <ul className='text-lg text-gray-400 mb-6'>
+                          {bullets.map((bullet) => {
+                            return (
+                              <li key={bullet} className='flex items-center mb-2'>
+                                <TickIcon />
+                                <span>{bullet}</span>
+                              </li>
+                            )
+                          })}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                  {/* <div className={`${panelWidth} ${mxAuto} text-center ${titleAlignClass}`}>
                     <h1 className='h1 mb-4' data-aos='fade-up'>
                       {title}
                     </h1>
@@ -253,12 +284,15 @@ export default function HeroMain({
                     >
                       {subTitle}
                     </p>
-                  </div>
+                  </div> */}
 
                   {/* CTA */}
                   {showCta && (
                     <>
-                      <div className={`max-w-xs ${mxAuto} sm:max-w-none sm:flex`}>
+                      <div
+                        className={`max-w-xs ${mxAuto} sm:max-w-none sm:flex md:justify-start sm:justify-center`}
+                      >
+                        {/* <div className={'max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center'}></div> */}
                         <div data-aos='fade-up' data-aos-delay='400'>
                           <a
                             className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'

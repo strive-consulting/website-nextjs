@@ -5,11 +5,21 @@ export const metadata = {
 }
 
 import Blocks from '@/components/blocks'
+import Cta from '@/components/cta'
 import HeroMain, { HeaderEnum } from '@/components/hero-main'
+import TeamQuote from '@/components/team-quote'
 import TickIcon from '@/components/tickIcon'
 import { GridBlock } from '@/types'
+import Image from 'next/image'
 
 export default function Features() {
+  const heroBullets: string[] = [
+    'Can be opened remotely',
+    'Many cost-effective options',
+    'No requirement for a physical premises',
+    '100% foreign ownership (no local sponsor required)',
+  ]
+
   const blocks: GridBlock[] = [
     {
       title: 'Free Zone',
@@ -82,7 +92,44 @@ export default function Features() {
         // bodyImage='/images/hero-image-01.jpg'
         showCta={true}
         align={HeaderEnum.Left}
+        bullets={heroBullets}
       />
+
+      {/* <section>
+        <div className='max-w-6xl mx-auto px-4 sm:px-6'>
+        
+          <div className="flex items-center justify-center px-5 py-5 ">
+            <div className="w-full mx-auto rounded-lg bg-gray-800 shadow-lg px-5 pt-5 pb-10 text-gray-800">
+                <div className="w-full pt-1 pb-5">
+                    <div className="-mt-16 mx-auto relative">
+                        <Image
+                          className='rounded-full'
+                          src={`/images/team/raj.jpg`}
+                          width={100}
+                          height={100}
+                          alt={`Raj from Strive Consultants`}
+                        />
+                        
+                    </div>
+                </div>
+                <blockquote className='text-lg text-gray-400 grow relative'>
+                  <p className="text-center px-5 text-gray-400 grow">Choosing the correct type of company formation is vital to ensure your business is structured the correct way for your future growth plans. We&apos;re here to navigate the landmines and make sure your compliant from day one.</p>
+                </blockquote>
+                <div className='text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700'>
+                  <cite className='text-gray-200 not-italic'>Raj K</cite> -{' '}
+                  <a
+                    className='text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out'
+                    href='#0'
+                  >
+                    <div>Head of UK / CTO - Strive Consultants</div>
+                  </a>
+                </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section> */}
       <section>
         <div className='max-w-6xl mx-auto px-4 sm:px-6'>
           <div className='py-12 md:py-10 border-t border-gray-800'></div>
@@ -92,45 +139,21 @@ export default function Features() {
             <div className='md:grid md:grid-cols-12 md:gap-6 items-center'>
               {/* Image */}
               <div
-                className='max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1'
+                className='max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-5 mb-8 md:mb-0 md:order-1'
                 data-aos='fade-up'
               >
-                <p className='text-xl text-gray-400 mb-4'>
-                  The best way to know which kind of company you should open depends entirely on
-                  your needs and the future ambitions of your business. We’re here to help you
-                  navigate the landmines, which can have consequences like hefty fines.
-                </p>
-
-                <ul className='text-lg text-gray-400 mb-6'>
-                  <li className='flex items-center mb-2'>
-                    <TickIcon />
-                    <span>Can be opened remotely</span>
-                  </li>
-                  <li className='flex items-center mb-2'>
-                    <TickIcon />
-                    <span>Many cost-effective options</span>
-                  </li>
-                  <li className='flex items-center mb-2'>
-                    <TickIcon />
-                    <span>No requirement for a physical premises</span>
-                  </li>
-
-                  <li className='flex items-center'>
-                    <TickIcon />
-                    <span>100% foreign ownership (no local sponsor required)</span>
-                  </li>
-                </ul>
+                <TeamQuote />
               </div>
               {/* Content */}
               <div
-                className='max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6'
+                className='max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-7'
                 data-aos='fade-right'
               >
                 <div className='md:pr-4 lg:pr-12 xl:pr-16'>
-                  <div className='font-architects-daughter text-xl text-purple-600 mb-2'>
+                  {/* <div className='font-architects-daughter text-xl text-purple-600 mb-2'>
                     Let us take the confusion out
-                  </div>
-                  <h3 className='h3 mb-3'>Available Options</h3>
+                  </div> */}
+                  <h3 className='h3 mb-3'>Simple company formation in Dubai </h3>
                   <p className='text-xl text-gray-400 mb-4'>
                     The process of opening a business in the UAE can be daunting, but we will help
                     you avoid any major hiccups on your journey. From obtaining all necessary
@@ -157,7 +180,7 @@ export default function Features() {
 
       <Blocks blocks={blocks} title='Available formation options in the UAE' />
       {/* <CaseStudies /> */}
-      {/* <Cta /> */}
+      <Cta />
     </>
   )
 }
