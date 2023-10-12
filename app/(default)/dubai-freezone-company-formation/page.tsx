@@ -105,7 +105,7 @@ export default function Features() {
                 className='max-w-xl md:max-w-none md:w-full mx-auto col-span-12 md:col-span-5 lg:col-span-5 mb-8 md:mb-0 sm:order-2'
                 data-aos='fade-up'
               >
-                <TeamQuote />
+                {/* <TeamQuote /> */}
               </div>
             </div>
           </div>
