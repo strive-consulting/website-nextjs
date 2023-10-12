@@ -5658,7 +5658,7 @@ prismic-ts-codegen@^0.1.17:
     pascal-case "^3.1.2"
     quick-lru "^6.1.1"
 
-prismic-ts-codegen@^0.1.19:
+prismic-ts-codegen@^0.1.18:
   version "0.1.19"
   resolved "https://registry.yarnpkg.com/prismic-ts-codegen/-/prismic-ts-codegen-0.1.19.tgz#13789ec9690008c2b32ca22f653092298b742891"
   integrity sha512-FvLjF+V2zUOHYTJS++yimMTiMTiilBPBFrOdSz3M45JdYLS2BeUa3QQ2PWsrpcs4qvvtqcOM7rybKIubrS4O7w==
