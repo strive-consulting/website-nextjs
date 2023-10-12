@@ -1,14 +1,9 @@
-export const metadata = {
-  title: 'Features - Open PRO',
-  description: 'Page description',
-}
-
 import { SliceZone } from '@prismicio/react'
 
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
 import { notFound } from 'next/navigation'
-import { QuoteDocument } from '@/prismicio-types'
+import { Metadata } from 'next'
 
 type Params = { uid: string }
 
@@ -102,21 +97,21 @@ export default async function Page({ params }: { params: Params }) {
   return <SliceZone slices={page.data.slices} components={components} />
 }
 
-// export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-//   const client = createClient()
-//   const page = await client.getByUID('servicepage', params.uid).catch(() => notFound())
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const client = createClient()
+  const page = await client.getByUID('servicepage', params.uid).catch(() => notFound())
 
-//   return {
-//     title: page.data.meta_title,
-//     description: page.data.meta_description,
-//   }
-// }
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+  }
+}
 
-// export async function generateStaticParams() {
-//   const client = createClient()
-//   const pages = await client.getAllByType('servicepage')
+export async function generateStaticParams() {
+  const client = createClient()
+  const pages = await client.getAllByType('servicepage')
 
-//   return pages.map((page) => {
-//     return { uid: page.uid }
-//   })
-// }
+  return pages.map((page) => {
+    return { uid: page.uid }
+  })
+}
