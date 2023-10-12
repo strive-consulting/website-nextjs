@@ -69,6 +69,70 @@ export type AboutDocument<Lang extends string = string> = prismic.PrismicDocumen
 >
 
 /**
+ * Content for Author documents
+ */
+interface AuthorDocumentData {
+  /**
+   * Name field in *Author*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField
+
+  /**
+   * Job Title field in *Author*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.job_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  job_title: prismic.KeyTextField
+
+  /**
+   * LinkedIn Url field in *Author*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.linkedin_url
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedin_url: prismic.LinkField
+
+  /**
+   * Avatar field in *Author*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.avatar
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  avatar: prismic.ImageField<never>
+}
+
+/**
+ * Author document from Prismic
+ *
+ * - **API ID**: `author`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AuthorDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+  Simplify<AuthorDocumentData>,
+  'author',
+  Lang
+>
+
+/**
  * Content for Bank documents
  */
 interface BankDocumentData {
@@ -227,6 +291,17 @@ interface BlogPostDocumentData {
   image: prismic.ImageField<never>
 
   /**
+   * Author field in *Blog Post*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  author: prismic.ContentRelationshipField<'author'>
+
+  /**
    * Slice Zone field in *Blog Post*
    *
    * - **Field Type**: Slice Zone
@@ -315,6 +390,123 @@ interface FreeZoneDocumentData {
 export type FreeZoneDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
   Simplify<FreeZoneDocumentData>,
   'free_zone',
+  Lang
+>
+
+/**
+ * Content for Quote documents
+ */
+interface QuoteDocumentData {
+  /**
+   * Author field in *Quote*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  author: prismic.ContentRelationshipField<'author'>
+
+  /**
+   * Quote field in *Quote*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote.quote
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  quote: prismic.RichTextField
+}
+
+/**
+ * Quote document from Prismic
+ *
+ * - **API ID**: `quote`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+  Simplify<QuoteDocumentData>,
+  'quote',
+  Lang
+>
+
+type ServicepageDocumentDataSlicesSlice = DescriptionQuoteSlice
+
+/**
+ * Content for ServicePage documents
+ */
+interface ServicepageDocumentData {
+  /**
+   * Title field in *ServicePage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: servicepage.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *ServicePage*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: servicepage.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ServicepageDocumentDataSlicesSlice> /**
+   * Meta Description field in *ServicePage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: servicepage.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *ServicePage*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: servicepage.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *ServicePage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: servicepage.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * ServicePage document from Prismic
+ *
+ * - **API ID**: `servicepage`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ServicepageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+  Simplify<ServicepageDocumentData>,
+  'servicepage',
   Lang
 >
 
@@ -468,9 +660,12 @@ export type TextPageDocument<Lang extends string = string> = prismic.PrismicDocu
 
 export type AllDocumentTypes =
   | AboutDocument
+  | AuthorDocument
   | BankDocument
   | BlogPostDocument
   | FreeZoneDocument
+  | QuoteDocument
+  | ServicepageDocument
   | TestimonialDocument
   | TextPageDocument
 
@@ -568,6 +763,101 @@ type CtaEnquirySliceVariation = CtaEnquirySliceDefault
  */
 export type CtaEnquirySlice = prismic.SharedSlice<'cta_enquiry', CtaEnquirySliceVariation>
 
+/**
+ * Primary content in *DescriptionQuote → Primary*
+ */
+export interface DescriptionQuoteSliceDefaultPrimary {
+  /**
+   * Title field in *DescriptionQuote → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: description_quote.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *DescriptionQuote → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: description_quote.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Quote Author Name field in *DescriptionQuote → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: description_quote.primary.quote_author_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote_author_name: prismic.KeyTextField
+
+  /**
+   * Quote Author Job Title field in *DescriptionQuote → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: description_quote.primary.quote_author_job_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote_author_job_title: prismic.KeyTextField
+
+  /**
+   * Quote Author Avatar field in *DescriptionQuote → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: description_quote.primary.quote_author_avatar
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  quote_author_avatar: prismic.ImageField<never>
+
+  /**
+   * Quote Description field in *DescriptionQuote → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: description_quote.primary.quote_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  quote_description: prismic.RichTextField
+}
+
+/**
+ * Default variation for DescriptionQuote Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DescriptionQuoteSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<DescriptionQuoteSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *DescriptionQuote*
+ */
+type DescriptionQuoteSliceVariation = DescriptionQuoteSliceDefault
+
+/**
+ * DescriptionQuote Shared Slice
+ *
+ * - **API ID**: `description_quote`
+ * - **Description**: DescriptionQuote
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DescriptionQuoteSlice = prismic.SharedSlice<
+  'description_quote',
+  DescriptionQuoteSliceVariation
+>
+
 declare module '@prismicio/client' {
   interface CreateClient {
     (
@@ -581,6 +871,8 @@ declare module '@prismicio/client' {
       AboutDocument,
       AboutDocumentData,
       AboutDocumentDataSlicesSlice,
+      AuthorDocument,
+      AuthorDocumentData,
       BankDocument,
       BankDocumentData,
       BlogPostDocument,
@@ -588,6 +880,11 @@ declare module '@prismicio/client' {
       BlogPostDocumentDataSlicesSlice,
       FreeZoneDocument,
       FreeZoneDocumentData,
+      QuoteDocument,
+      QuoteDocumentData,
+      ServicepageDocument,
+      ServicepageDocumentData,
+      ServicepageDocumentDataSlicesSlice,
       TestimonialDocument,
       TestimonialDocumentData,
       TextPageDocument,
@@ -601,6 +898,10 @@ declare module '@prismicio/client' {
       CtaEnquirySliceDefaultPrimary,
       CtaEnquirySliceVariation,
       CtaEnquirySliceDefault,
+      DescriptionQuoteSlice,
+      DescriptionQuoteSliceDefaultPrimary,
+      DescriptionQuoteSliceVariation,
+      DescriptionQuoteSliceDefault,
     }
   }
 }

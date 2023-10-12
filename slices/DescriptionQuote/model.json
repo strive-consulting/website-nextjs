@@ -1,0 +1,66 @@
+{
+  "id": "description_quote",
+  "type": "SharedSlice",
+  "name": "DescriptionQuote",
+  "description": "DescriptionQuote",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,list-item,o-list-item"
+          }
+        },
+        "quote_author_name": {
+          "type": "Text",
+          "config": {
+            "label": "Quote Author Name",
+            "placeholder": ""
+          }
+        },
+        "quote_author_job_title": {
+          "type": "Text",
+          "config": {
+            "label": "Quote Author Job Title",
+            "placeholder": ""
+          }
+        },
+        "quote_author_avatar": {
+          "type": "Image",
+          "config": {
+            "label": "Quote Author Avatar",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "quote_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Quote Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,list-item,o-list-item"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

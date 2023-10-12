@@ -59,9 +59,7 @@ export default function MainlandCompany() {
       <HeroMain
         align={TitleAlign.Left}
         title={'Set up a Offshore Company in Dubai'}
-        subTitle={
-          'Efficiently structure your growing business with 100% ownership in the UAE'
-        }
+        subTitle={'Efficiently structure your growing business with 100% ownership in the UAE'}
         showBackgroundIllustration={false}
         showCta={true}
         bullets={heroBullets}
@@ -79,12 +77,15 @@ export default function MainlandCompany() {
                 </div> */}
                 <h3 className='h3 mb-3'>What is a Offshore company?</h3>
                 <p className='text-xl text-gray-400 mb-4'>
-                An offshore company is a non-trading company that is commonly used to own assets such as real estate and shares. They are usually incorporated for privacy and operation advantages with regard to financial, legal, and tax benefits in foreign countries.
+                  An offshore company is a non-trading company that is commonly used to own assets
+                  such as real estate and shares. They are usually incorporated for privacy and
+                  operation advantages with regard to financial, legal, and tax benefits in foreign
+                  countries.
                 </p>
                 <p className='text-xl text-gray-400 mb-4'>
-                Offshore companies are permitted to open bank accounts within the UAE, however they cannot issue work visas or have physical offices within the country.
+                  Offshore companies are permitted to open bank accounts within the UAE, however
+                  they cannot issue work visas or have physical offices within the country.
                 </p>
-                
               </div>
             </div>
             <div className='order-2 md:order-2 md:col-span-5'>

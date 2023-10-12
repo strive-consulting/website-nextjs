@@ -15,7 +15,7 @@ const BlogSection = ({ slice }) => (
     ) : (
       <p>start by editing this slice from inside Slice Machine!</p>
     )}
-    <style jsx>{`
+    {/* <style jsx>{`
       section {
         max-width: 600px;
         margin: 4em auto;
@@ -24,7 +24,7 @@ const BlogSection = ({ slice }) => (
       .title {
         color: #8592e0;
       }
-    `}</style>
+    `}</style> */}
   </section>
 )
 

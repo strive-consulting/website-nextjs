@@ -8,7 +8,7 @@ import Stats from '@/components/stats'
 import Zigzag from '@/components/zigzag'
 import CaseStudies from '@/components/case-studies'
 import Cta from '@/components/cta'
-import HeroMain, { HeaderEnum } from '@/components/hero-main'
+import HeroMain, { HeaderEnum, TitleAlign } from '@/components/hero-main'
 import Link from 'next/link'
 import Image from 'next/image'
 import FeatImage01 from '@/public/images/features-03-image-01.png'
@@ -65,7 +65,7 @@ export default function Features() {
   return (
     <>
       <HeroMain
-        align={HeaderEnum.Left}
+        align={TitleAlign.Left}
         title={'Set up a Free Zone Company in Dubai'}
         subTitle={
           '100% foreign ownership and government support for tax relief. The perfect way to start business in the UAE'

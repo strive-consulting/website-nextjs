@@ -62,7 +62,7 @@ export default function Header() {
                 {/* 2nd level: hover */}
                 <li>
                   <Link
-                    href='/dubai-company-set-up'
+                    href='/dubai-residency-visa'
                     className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
                   >
                     Dubai Residency Visa
