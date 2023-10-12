@@ -9,7 +9,7 @@ export default function CaseStudies() {
   return (
     <section>
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
-        <Divider/>
+        <Divider />
         <div>
           {/* Section header */}
           <div className='max-w-3xl mx-auto text-center pb-12 md:pb-20'>

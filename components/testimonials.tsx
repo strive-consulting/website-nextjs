@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import { getTestimonials } from '@/lib/cms'
 import { PrismicRichText } from '@prismicio/react'
+import { Divider } from './divider'
 
 interface Props {
   count?: number
@@ -13,7 +14,8 @@ export default async function Testimonials({ count }: Props) {
   return (
     <section>
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
-        <div className='py-12 md:py-20 border-t border-gray-800'>
+        <Divider />
+        <div>
           {/* Section header */}
           <div className='max-w-3xl mx-auto text-center pb-12 md:pb-20'>
             <h2 className='h2 mb-4'>Don&apos;t take our word for it</h2>

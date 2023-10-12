@@ -3,6 +3,7 @@
   "label": "Blog Post",
   "repeatable": true,
   "status": true,
+  "format": "custom",
   "json": {
     "Main": {
       "uid": {
@@ -78,6 +79,14 @@
           "label": "Image",
           "constraint": {},
           "thumbnails": []
+        }
+      },
+      "author": {
+        "type": "Link",
+        "config": {
+          "label": "Author",
+          "select": "document",
+          "customtypes": ["author"]
         }
       },
       "slices": {

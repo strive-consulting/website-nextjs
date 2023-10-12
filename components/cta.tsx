@@ -1,10 +1,10 @@
-import { Divider } from "./divider";
+import { Divider } from './divider'
 
 export default function Cta() {
   return (
     <section>
       <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>
-        <Divider/>
+        <Divider />
         <div className=''>
           <div className='max-w-3xl mx-auto text-center pb-12 md:pb-16' data-aos-id-cta>
             {/* Section header */}

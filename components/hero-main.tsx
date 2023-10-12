@@ -9,7 +9,7 @@ import TickIcon from './tickIcon'
 
 interface HeroProps {
   isHomePage?: boolean
-  align?: HeaderEnum
+  align?: TitleAlign
   title: string
   subTitle: string
   backgroundImagePath?: string
@@ -21,7 +21,7 @@ interface HeroProps {
 
 type HeaderAlignment = 'left' | 'center'
 
-export enum HeaderEnum {
+export enum TitleAlign {
   Left = 'left',
   Center = 'center',
 }
@@ -37,9 +37,9 @@ export default function HeroMain({
   align,
   bullets,
 }: HeroProps) {
-  const titleAlignClass = align === HeaderEnum.Left ? 'md:text-left' : ''
-  const mxAuto = align != HeaderEnum.Left ? '' : 'mx-auto'
-  const panelWidth = align != HeaderEnum.Left ? 'max-w-6xl' : 'max-w-2xl'
+  const titleAlignClass = align === TitleAlign.Left ? 'md:text-left' : ''
+  const mxAuto = align != TitleAlign.Left ? '' : 'mx-auto'
+  const panelWidth = align != TitleAlign.Left ? 'max-w-6xl' : 'max-w-2xl'
 
   return (
     <>

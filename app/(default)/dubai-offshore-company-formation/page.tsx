@@ -1,7 +1,7 @@
 export const metadata = {
-  title: 'Mainland Company Formation with 100% Foreign Ownership in Duba',
+  title: 'Set up an offshore company in Dubai | Get instant quotations',
   description:
-    'What is a mainland Company? The freedom to operate throughout all the emirates and internationally is one of the major reasons to consider opening a mainland company.',
+    'An offshore company is a non-trading company that is commonly used to own assets such as real estate and shares.',
 }
 
 import Cta from '@/components/cta'
@@ -23,18 +23,18 @@ export default function MainlandCompany() {
   const blocks: GridBlock[] = [
     {
       icon: Icons.Star,
-      title: '100% Foreign Ownership',
+      title: 'Hold shares in another company',
       description: 'No requirement for local sponsors giving you total control',
     },
     {
       icon: Icons.List,
-      title: 'Employ local staff',
+      title: 'Layer of privacy',
       description:
         'Unlike with other company types, there are no restrictions on employing staff from the local market',
     },
     {
       icon: Icons.Globe,
-      title: 'No visa cap',
+      title: '100% Foreign ownership',
       description: 'There is no limit on the number of visas you can have on the company',
     },
     {
@@ -58,9 +58,9 @@ export default function MainlandCompany() {
     <>
       <HeroMain
         align={TitleAlign.Left}
-        title={'Set up a Mainland Company in Dubai'}
+        title={'Set up a Offshore Company in Dubai'}
         subTitle={
-          'Trade openly across the emirates and the world. The perfect licence for growing your business in the UAE'
+          'Efficiently structure your growing business with 100% ownership in the UAE'
         }
         showBackgroundIllustration={false}
         showCta={true}
@@ -77,26 +77,14 @@ export default function MainlandCompany() {
                 {/* <div className='font-architects-daughter text-xl text-purple-600 mb-2'>
                   Let us take the confusion out
                 </div> */}
-                <h3 className='h3 mb-3'>What is a Mainland company?</h3>
+                <h3 className='h3 mb-3'>What is a Offshore company?</h3>
                 <p className='text-xl text-gray-400 mb-4'>
-                  The freedom to operate throughout all the emirates and internationally is one of
-                  the major reasons to consider opening a mainland company.
+                An offshore company is a non-trading company that is commonly used to own assets such as real estate and shares. They are usually incorporated for privacy and operation advantages with regard to financial, legal, and tax benefits in foreign countries.
                 </p>
                 <p className='text-xl text-gray-400 mb-4'>
-                  The Department of Economic Development (DED) is the regulatory body that oversees
-                  the issuance of mainland licenses. While previously restricted by the need to have
-                  a local sponsor, over 1000 commercial licenses no longer have this dependency.
+                Offshore companies are permitted to open bank accounts within the UAE, however they cannot issue work visas or have physical offices within the country.
                 </p>
-                <p className='text-xl text-gray-400 mb-4'>
-                  Mainland companies have no limitations on the number of visas issued by the
-                  company and are able to open a bank account with ease compared to Freezone and
-                  offshore entities.
-                </p>
-                <p className='text-xl text-gray-400 mb-4'>
-                  In recent years the UAE government has allowed for 100% ownership for a vast array
-                  of mainland company business activities, therefore removing the need for a local
-                  national to be a 51% shareholder.
-                </p>
+                
               </div>
             </div>
             <div className='order-2 md:order-2 md:col-span-5'>
