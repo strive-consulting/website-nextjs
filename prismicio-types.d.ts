@@ -436,23 +436,12 @@ export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumen
   Lang
 >
 
-type ServicepageDocumentDataSlicesSlice = DescriptionQuoteSlice
+type ServicepageDocumentDataSlicesSlice = Hero1Slice | DescriptionQuoteSlice
 
 /**
  * Content for ServicePage documents
  */
 interface ServicepageDocumentData {
-  /**
-   * Title field in *ServicePage*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: servicepage.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField
-
   /**
    * Slice Zone field in *ServicePage*
    *
@@ -673,100 +662,6 @@ export type AllDocumentTypes =
   | TextPageDocument
 
 /**
- * Primary content in *BlogSection → Primary*
- */
-export interface BlogSectionSliceDefaultPrimary {
-  /**
-   * Title field in *BlogSection → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: This is where it all begins...
-   * - **API ID Path**: blog_section.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.TitleField
-
-  /**
-   * Description field in *BlogSection → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: A nice description of your feature
-   * - **API ID Path**: blog_section.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField
-}
-
-/**
- * Default variation for BlogSection Slice
- *
- * - **API ID**: `default`
- * - **Description**: BlogSection
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type BlogSectionSliceDefault = prismic.SharedSliceVariation<
-  'default',
-  Simplify<BlogSectionSliceDefaultPrimary>,
-  never
->
-
-/**
- * Slice variation for *BlogSection*
- */
-type BlogSectionSliceVariation = BlogSectionSliceDefault
-
-/**
- * BlogSection Shared Slice
- *
- * - **API ID**: `blog_section`
- * - **Description**: BlogSection
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type BlogSectionSlice = prismic.SharedSlice<'blog_section', BlogSectionSliceVariation>
-
-/**
- * Primary content in *CtaEnquiry → Primary*
- */
-export interface CtaEnquirySliceDefaultPrimary {
-  /**
-   * Button Text field in *CtaEnquiry → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Placeholder Btn Text
-   * - **API ID Path**: cta_enquiry.primary.button_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_text: prismic.KeyTextField
-}
-
-/**
- * Default variation for CtaEnquiry Slice
- *
- * - **API ID**: `default`
- * - **Description**: CtaEnquiry
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type CtaEnquirySliceDefault = prismic.SharedSliceVariation<
-  'default',
-  Simplify<CtaEnquirySliceDefaultPrimary>,
-  never
->
-
-/**
- * Slice variation for *CtaEnquiry*
- */
-type CtaEnquirySliceVariation = CtaEnquirySliceDefault
-
-/**
- * CtaEnquiry Shared Slice
- *
- * - **API ID**: `cta_enquiry`
- * - **Description**: CtaEnquiry
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type CtaEnquirySlice = prismic.SharedSlice<'cta_enquiry', CtaEnquirySliceVariation>
-
-/**
  * Primary content in *DescriptionQuote → Primary*
  */
 export interface DescriptionQuoteSliceDefaultPrimary {
@@ -861,6 +756,133 @@ export type DescriptionQuoteSlice = prismic.SharedSlice<
   DescriptionQuoteSliceVariation
 >
 
+/**
+ * Primary content in *Hero1 → Primary*
+ */
+export interface Hero1SliceDefaultPrimary {
+  /**
+   * Title Align field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.primary.align
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  align: prismic.SelectField<'Left' | 'Center'>
+
+  /**
+   * Title field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Sub Text field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.primary.sub_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sub_text: prismic.KeyTextField
+
+  /**
+   * CTA 1 Text field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.primary.cta_1_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_1_text: prismic.KeyTextField
+
+  /**
+   * CTA 1 Link field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.primary.cta_1_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_1_link: prismic.LinkField
+
+  /**
+   * CTA 2 Text field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.primary.cta_2_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_2_text: prismic.KeyTextField
+
+  /**
+   * CTA 2 Link field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.primary.cta_2_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_2_link: prismic.LinkField
+
+  /**
+   * Body Image field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.primary.body_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  body_image: prismic.ImageField<never>
+}
+
+/**
+ * Primary content in *Hero1 → Items*
+ */
+export interface Hero1SliceDefaultItem {
+  /**
+   * Bullet Point field in *Hero1 → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.items[].bullet_point
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  bullet_point: prismic.KeyTextField
+}
+
+/**
+ * Default variation for Hero1 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Hero1SliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<Hero1SliceDefaultPrimary>,
+  Simplify<Hero1SliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Hero1*
+ */
+type Hero1SliceVariation = Hero1SliceDefault
+
+/**
+ * Hero1 Shared Slice
+ *
+ * - **API ID**: `hero1`
+ * - **Description**: Hero1
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Hero1Slice = prismic.SharedSlice<'hero1', Hero1SliceVariation>
+
 declare module '@prismicio/client' {
   interface CreateClient {
     (
@@ -893,18 +915,15 @@ declare module '@prismicio/client' {
       TextPageDocument,
       TextPageDocumentData,
       AllDocumentTypes,
-      BlogSectionSlice,
-      BlogSectionSliceDefaultPrimary,
-      BlogSectionSliceVariation,
-      BlogSectionSliceDefault,
-      CtaEnquirySlice,
-      CtaEnquirySliceDefaultPrimary,
-      CtaEnquirySliceVariation,
-      CtaEnquirySliceDefault,
       DescriptionQuoteSlice,
       DescriptionQuoteSliceDefaultPrimary,
       DescriptionQuoteSliceVariation,
       DescriptionQuoteSliceDefault,
+      Hero1Slice,
+      Hero1SliceDefaultPrimary,
+      Hero1SliceDefaultItem,
+      Hero1SliceVariation,
+      Hero1SliceDefault,
     }
   }
 }

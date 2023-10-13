@@ -1,0 +1,90 @@
+{
+  "id": "hero1",
+  "type": "SharedSlice",
+  "name": "Hero1",
+  "description": "Hero1",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "align": {
+          "type": "Select",
+          "config": {
+            "label": "Title Align",
+            "placeholder": "",
+            "options": [
+              "Left",
+              "Center"
+            ]
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "sub_text": {
+          "type": "Text",
+          "config": {
+            "label": "Sub Text",
+            "placeholder": ""
+          }
+        },
+        "cta_1_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA 1 Text",
+            "placeholder": ""
+          }
+        },
+        "cta_1_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA 1 Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "cta_2_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA 2 Text",
+            "placeholder": ""
+          }
+        },
+        "cta_2_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA 2 Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "body_image": {
+          "type": "Image",
+          "config": {
+            "label": "Body Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {
+        "bullet_point": {
+          "type": "Text",
+          "config": {
+            "label": "Bullet Point",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

@@ -12,18 +12,14 @@
         },
         "type": "UID"
       },
-      "title": {
-        "type": "Text",
-        "config": {
-          "label": "Title",
-          "placeholder": ""
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "hero1": {
+              "type": "SharedSlice"
+            },
             "description_quote": {
               "type": "SharedSlice"
             }

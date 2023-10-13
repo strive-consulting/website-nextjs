@@ -6,10 +6,18 @@
   "status": true,
   "json": {
     "Main": {
-      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
       "title": {
         "type": "Text",
-        "config": { "label": "Title", "placeholder": "" }
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
       },
       "body": {
         "type": "StructuredText",
@@ -31,7 +39,10 @@
       },
       "meta_description": {
         "type": "Text",
-        "config": { "label": "Meta Description", "placeholder": "" }
+        "config": {
+          "label": "Meta Description",
+          "placeholder": ""
+        }
       }
     }
   }

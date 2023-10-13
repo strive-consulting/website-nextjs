@@ -70,7 +70,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    href='/dubai-freezone-company-formation'
+                    href='/uae-golden-visa'
                     className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
                   >
                     UAE Golden Visa
@@ -84,7 +84,7 @@ export default function Header() {
               </li> */}
               <li>
                 <Link
-                  href='/about'
+                  href='/uae-accountancy-service'
                   className='text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out'
                 >
                   Accounting
