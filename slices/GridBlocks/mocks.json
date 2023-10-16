@@ -1,0 +1,87 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "teacher",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Nostrud sint sit anim aliquip occaecat est occaecat enim pariatur tempor."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "icon",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Globe",
+              "type": "Select"
+            }
+          ],
+          [
+            "title",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "structure",
+              "type": "Text"
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "method",
+              "type": "Text"
+            }
+          ],
+          [
+            "cta_text",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "thing",
+              "type": "Text"
+            }
+          ],
+          [
+            "cta_link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://twitter.com"
+              }
+            }
+          ],
+          [
+            "bullets",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Eu ullamco incididunt velit qui aute non culpa cillum in voluptate do sunt id. Do commodo culpa laborum do ad magna."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

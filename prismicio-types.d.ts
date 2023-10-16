@@ -436,7 +436,11 @@ export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumen
   Lang
 >
 
-type ServicepageDocumentDataSlicesSlice = Hero1Slice | DescriptionQuoteSlice
+type ServicepageDocumentDataSlicesSlice =
+  | Cta1Slice
+  | GridBlocksSlice
+  | Hero1Slice
+  | DescriptionQuoteSlice
 
 /**
  * Content for ServicePage documents
@@ -662,6 +666,88 @@ export type AllDocumentTypes =
   | TextPageDocument
 
 /**
+ * Primary content in *Cta1 → Primary*
+ */
+export interface Cta1SliceDefaultPrimary {
+  /**
+   * Title field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Sub Text field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.sub_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_text: prismic.RichTextField
+
+  /**
+   * Bullets field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.bullets
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  bullets: prismic.RichTextField
+
+  /**
+   * CTA Text field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField
+
+  /**
+   * CTA Link field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField
+}
+
+/**
+ * Default variation for Cta1 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Cta1SliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<Cta1SliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Cta1*
+ */
+type Cta1SliceVariation = Cta1SliceDefault
+
+/**
+ * Cta1 Shared Slice
+ *
+ * - **API ID**: `cta1`
+ * - **Description**: Cta1
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Cta1Slice = prismic.SharedSlice<'cta1', Cta1SliceVariation>
+
+/**
  * Primary content in *DescriptionQuote → Primary*
  */
 export interface DescriptionQuoteSliceDefaultPrimary {
@@ -755,6 +841,123 @@ export type DescriptionQuoteSlice = prismic.SharedSlice<
   'description_quote',
   DescriptionQuoteSliceVariation
 >
+
+/**
+ * Primary content in *GridBlocks → Primary*
+ */
+export interface GridBlocksSliceDefaultPrimary {
+  /**
+   * Title field in *GridBlocks → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_blocks.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *GridBlocks → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_blocks.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Primary content in *GridBlocks → Items*
+ */
+export interface GridBlocksSliceDefaultItem {
+  /**
+   * Icon field in *GridBlocks → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_blocks.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<'Star' | 'List' | 'Globe' | 'Person' | 'Like' | 'Thought'>
+
+  /**
+   * Title field in *GridBlocks → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_blocks.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *GridBlocks → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_blocks.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField
+
+  /**
+   * CTA Text field in *GridBlocks → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_blocks.items[].cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField
+
+  /**
+   * CTA Link field in *GridBlocks → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_blocks.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField
+
+  /**
+   * Bullets field in *GridBlocks → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_blocks.items[].bullets
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  bullets: prismic.RichTextField
+}
+
+/**
+ * Default variation for GridBlocks Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GridBlocksSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<GridBlocksSliceDefaultPrimary>,
+  Simplify<GridBlocksSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *GridBlocks*
+ */
+type GridBlocksSliceVariation = GridBlocksSliceDefault
+
+/**
+ * GridBlocks Shared Slice
+ *
+ * - **API ID**: `grid_blocks`
+ * - **Description**: GridBlocks
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GridBlocksSlice = prismic.SharedSlice<'grid_blocks', GridBlocksSliceVariation>
 
 /**
  * Primary content in *Hero1 → Primary*
@@ -915,10 +1118,19 @@ declare module '@prismicio/client' {
       TextPageDocument,
       TextPageDocumentData,
       AllDocumentTypes,
+      Cta1Slice,
+      Cta1SliceDefaultPrimary,
+      Cta1SliceVariation,
+      Cta1SliceDefault,
       DescriptionQuoteSlice,
       DescriptionQuoteSliceDefaultPrimary,
       DescriptionQuoteSliceVariation,
       DescriptionQuoteSliceDefault,
+      GridBlocksSlice,
+      GridBlocksSliceDefaultPrimary,
+      GridBlocksSliceDefaultItem,
+      GridBlocksSliceVariation,
+      GridBlocksSliceDefault,
       Hero1Slice,
       Hero1SliceDefaultPrimary,
       Hero1SliceDefaultItem,

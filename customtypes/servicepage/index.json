@@ -17,6 +17,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "cta1": {
+              "type": "SharedSlice"
+            },
+            "grid_blocks": {
+              "type": "SharedSlice"
+            },
             "hero1": {
               "type": "SharedSlice"
             },

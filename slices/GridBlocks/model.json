@@ -1,0 +1,82 @@
+{
+  "id": "grid_blocks",
+  "type": "SharedSlice",
+  "name": "GridBlocks",
+  "description": "GridBlocks",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,list-item,o-list-item"
+          }
+        }
+      },
+      "items": {
+        "icon": {
+          "type": "Select",
+          "config": {
+            "label": "Icon",
+            "placeholder": "",
+            "options": ["Star", "List", "Globe", "Person", "Like", "Thought"]
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "cta_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Text",
+            "placeholder": ""
+          }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "bullets": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Bullets",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "list-item"
+          }
+        }
+      }
+    }
+  ]
+}
