@@ -1213,21 +1213,6 @@ export interface Hero1SliceSimplePrimary {
 }
 
 /**
- * Primary content in *Hero1 → Items*
- */
-export interface Hero1SliceSimpleItem {
-  /**
-   * Bullet Point field in *Hero1 → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero1.items[].bullet_point
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  bullet_point: prismic.KeyTextField
-}
-
-/**
  * Simple variation for Hero1 Slice
  *
  * - **API ID**: `simple`
@@ -1237,7 +1222,7 @@ export interface Hero1SliceSimpleItem {
 export type Hero1SliceSimple = prismic.SharedSliceVariation<
   'simple',
   Simplify<Hero1SliceSimplePrimary>,
-  Simplify<Hero1SliceSimpleItem>
+  never
 >
 
 /**
@@ -1374,7 +1359,6 @@ declare module '@prismicio/client' {
       Hero1SliceDefaultPrimary,
       Hero1SliceDefaultItem,
       Hero1SliceSimplePrimary,
-      Hero1SliceSimpleItem,
       Hero1SliceVariation,
       Hero1SliceDefault,
       Hero1SliceSimple,
