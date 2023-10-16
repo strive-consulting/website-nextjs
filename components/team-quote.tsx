@@ -31,7 +31,7 @@ export default async function TeamQuote({ name, jobTitle, quote, avatar }: Props
           />
         </blockquote>
         <div className='text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700 flex flex-col items-end'>
-          <cite className='text-gray-200 not-italic'>{name} - Strive Consultants</cite>
+          <cite className='text-gray-200 not-italic'>{name}</cite>
           <a
             className='text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out'
             href='#0'

@@ -594,69 +594,6 @@ export type TestimonialDocument<Lang extends string = string> = prismic.PrismicD
   Lang
 >
 
-/**
- * Content for Text Page documents
- */
-interface TextPageDocumentData {
-  /**
-   * Title field in *Text Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_page.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField
-
-  /**
-   * Body field in *Text Page*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_page.body
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  body: prismic.RichTextField
-  /**
-   * Meta Title field in *Text Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: text_page.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField
-
-  /**
-   * Meta Description field in *Text Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_page.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField
-}
-
-/**
- * Text Page document from Prismic
- *
- * - **API ID**: `text_page`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type TextPageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
-  Simplify<TextPageDocumentData>,
-  'text_page',
-  Lang
->
-
 export type AllDocumentTypes =
   | AboutDocument
   | AuthorDocument
@@ -666,7 +603,6 @@ export type AllDocumentTypes =
   | QuoteDocument
   | ServicepageDocument
   | TestimonialDocument
-  | TextPageDocument
 
 /**
  * Primary content in *Cta1 → Primary*
@@ -1330,8 +1266,6 @@ declare module '@prismicio/client' {
       ServicepageDocumentDataSlicesSlice,
       TestimonialDocument,
       TestimonialDocumentData,
-      TextPageDocument,
-      TextPageDocumentData,
       AllDocumentTypes,
       Cta1Slice,
       Cta1SliceDefaultPrimary,
