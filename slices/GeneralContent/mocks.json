@@ -1,0 +1,20 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "body": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Adipisicing culpa et qui mollit sunt esse enim elit sit occaecat eu eiusmod incididunt et nostrud."
+            }
+          }
+        ]
+      }
+    },
+    "items": []
+  }
+]

@@ -81,5 +81,36 @@
         ]
       }
     ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "simple",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "aloud",
+        "type": "Text"
+      },
+      "sub_text": {
+        "__TYPE__": "FieldContent",
+        "value": "already",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "bullet_point",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "sick",
+              "type": "Text"
+            }
+          ]
+        ]
+      }
+    ]
   }
 ]

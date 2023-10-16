@@ -105,6 +105,22 @@ export default function Footer() {
                       Help Center
                     </Link>
                   </li>
+                  <li className='mb-1'>
+                    <Link
+                      href='/privacy-policy'
+                      className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'
+                    >
+                      Privacy Policy
+                    </Link>
+                  </li>
+                  <li className='mb-1'>
+                    <Link
+                      href='/terms-and-conditions'
+                      className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'
+                    >
+                      Terms and conditions
+                    </Link>
+                  </li>
                 </ul>
               </div>
 

@@ -23,13 +23,18 @@ export default function Contact() {
 
             <EnquiryForm />
 
-            <div className='max-w-sm mx-auto grid gap-8 md:grid-cols-3 lg:gap-16 items-start md:max-w-none'>
+            <div className='max-w-sm mx-auto grid gap-8 md:grid-cols-3 lg:gap-16 items-start md:max-w-none bg-gray-800 py-10 px-8 md:py-16 md:px-12'>
               <div className='relative flex flex-col items-left' data-aos='fade-up'>
                 <h4 className='h4 mb-2'>Contact Us</h4>
                 <p className='text-lg text-gray-400 text-left'>
-                  Phone/WhatsApp: <a href='tel:+971 4 439 6282'>+971 4 439 6282</a>
+                  <strong>Phone/WhatsApp</strong>
                   <br />
-                  Email: <a href='mailto:info@strive.ae'>info@strive.ae</a>
+                  <a href='tel:+971 4 439 6282'>+971 4 439 6282</a>
+                  <br />
+                  <br />
+                  <strong>Email</strong>
+                  <br />
+                  <a href='mailto:info@strive.ae'>info@strive.ae</a>
                 </p>
               </div>
               <div className='relative flex flex-col items-left' data-aos='fade-up'>

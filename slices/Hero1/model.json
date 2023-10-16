@@ -82,6 +82,39 @@
           }
         }
       }
+    },
+    {
+      "id": "simple",
+      "name": "Simple",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "sub_text": {
+          "type": "Text",
+          "config": {
+            "label": "Sub Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "bullet_point": {
+          "type": "Text",
+          "config": {
+            "label": "Bullet Point",
+            "placeholder": ""
+          }
+        }
+      }
     }
   ]
 }

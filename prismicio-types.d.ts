@@ -437,6 +437,9 @@ export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumen
 >
 
 type ServicepageDocumentDataSlicesSlice =
+  | GeneralContentSlice
+  | FaqSlice
+  | TestimonialsSlice
   | Cta1Slice
   | GridBlocksSlice
   | Hero1Slice
@@ -843,6 +846,118 @@ export type DescriptionQuoteSlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *Faq → Primary*
+ */
+export interface FaqSliceDefaultPrimary {
+  /**
+   * Title field in *Faq → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *Faq → Items*
+ */
+export interface FaqSliceDefaultItem {
+  /**
+   * Question field in *Faq → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  question: prismic.KeyTextField
+
+  /**
+   * Answer field in *Faq → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField
+}
+
+/**
+ * Default variation for Faq Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<FaqSliceDefaultPrimary>,
+  Simplify<FaqSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Faq*
+ */
+type FaqSliceVariation = FaqSliceDefault
+
+/**
+ * Faq Shared Slice
+ *
+ * - **API ID**: `faq`
+ * - **Description**: Faq
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSlice = prismic.SharedSlice<'faq', FaqSliceVariation>
+
+/**
+ * Primary content in *GeneralContent → Primary*
+ */
+export interface GeneralContentSliceDefaultPrimary {
+  /**
+   * Body field in *GeneralContent → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: general_content.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField
+}
+
+/**
+ * Default variation for GeneralContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GeneralContentSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<GeneralContentSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *GeneralContent*
+ */
+type GeneralContentSliceVariation = GeneralContentSliceDefault
+
+/**
+ * GeneralContent Shared Slice
+ *
+ * - **API ID**: `general_content`
+ * - **Description**: GeneralContent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GeneralContentSlice = prismic.SharedSlice<
+  'general_content',
+  GeneralContentSliceVariation
+>
+
+/**
  * Primary content in *GridBlocks → Primary*
  */
 export interface GridBlocksSliceDefaultPrimary {
@@ -1073,9 +1188,62 @@ export type Hero1SliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Hero1 → Primary*
+ */
+export interface Hero1SliceSimplePrimary {
+  /**
+   * Title field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Sub Text field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.primary.sub_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sub_text: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *Hero1 → Items*
+ */
+export interface Hero1SliceSimpleItem {
+  /**
+   * Bullet Point field in *Hero1 → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.items[].bullet_point
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  bullet_point: prismic.KeyTextField
+}
+
+/**
+ * Simple variation for Hero1 Slice
+ *
+ * - **API ID**: `simple`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Hero1SliceSimple = prismic.SharedSliceVariation<
+  'simple',
+  Simplify<Hero1SliceSimplePrimary>,
+  Simplify<Hero1SliceSimpleItem>
+>
+
+/**
  * Slice variation for *Hero1*
  */
-type Hero1SliceVariation = Hero1SliceDefault
+type Hero1SliceVariation = Hero1SliceDefault | Hero1SliceSimple
 
 /**
  * Hero1 Shared Slice
@@ -1085,6 +1253,68 @@ type Hero1SliceVariation = Hero1SliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type Hero1Slice = prismic.SharedSlice<'hero1', Hero1SliceVariation>
+
+/**
+ * Primary content in *Testimonials → Primary*
+ */
+export interface TestimonialsSliceDefaultPrimary {
+  /**
+   * Title field in *Testimonials → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Sub Text field in *Testimonials → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.primary.sub_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_text: prismic.RichTextField
+
+  /**
+   * Number to show field in *Testimonials → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Leave unselected to show all
+   * - **API ID Path**: testimonials.primary.number_to_show
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  number_to_show: prismic.SelectField<'3' | '6' | '9'>
+}
+
+/**
+ * Default variation for Testimonials Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<TestimonialsSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Testimonials*
+ */
+type TestimonialsSliceVariation = TestimonialsSliceDefault
+
+/**
+ * Testimonials Shared Slice
+ *
+ * - **API ID**: `testimonials`
+ * - **Description**: Testimonials
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialsSlice = prismic.SharedSlice<'testimonials', TestimonialsSliceVariation>
 
 declare module '@prismicio/client' {
   interface CreateClient {
@@ -1126,6 +1356,15 @@ declare module '@prismicio/client' {
       DescriptionQuoteSliceDefaultPrimary,
       DescriptionQuoteSliceVariation,
       DescriptionQuoteSliceDefault,
+      FaqSlice,
+      FaqSliceDefaultPrimary,
+      FaqSliceDefaultItem,
+      FaqSliceVariation,
+      FaqSliceDefault,
+      GeneralContentSlice,
+      GeneralContentSliceDefaultPrimary,
+      GeneralContentSliceVariation,
+      GeneralContentSliceDefault,
       GridBlocksSlice,
       GridBlocksSliceDefaultPrimary,
       GridBlocksSliceDefaultItem,
@@ -1134,8 +1373,15 @@ declare module '@prismicio/client' {
       Hero1Slice,
       Hero1SliceDefaultPrimary,
       Hero1SliceDefaultItem,
+      Hero1SliceSimplePrimary,
+      Hero1SliceSimpleItem,
       Hero1SliceVariation,
       Hero1SliceDefault,
+      Hero1SliceSimple,
+      TestimonialsSlice,
+      TestimonialsSliceDefaultPrimary,
+      TestimonialsSliceVariation,
+      TestimonialsSliceDefault,
     }
   }
 }
