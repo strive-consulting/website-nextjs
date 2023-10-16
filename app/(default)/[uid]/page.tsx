@@ -52,13 +52,7 @@ export default async function Page({ params }: { params: Params }) {
   //   },
   // ]
 
-  const client = createClient()
-  const page = await client
-    .getByUID('servicepage', params.uid, {
-      // fetchLinks: ["author", ],
-    })
-    .catch(() => notFound())
-  console.log(page)
+  
 
   // const query = {
   //   graphQuery: `
@@ -94,18 +88,26 @@ export default async function Page({ params }: { params: Params }) {
   //   console.log(slice)
   // })
 
+  const client = createClient()
+  const page = await client
+    .getByUID('servicepage', params.uid, {
+      // fetchLinks: ["author", ],
+    })
+    .catch(() => notFound())
+  console.log(page)
+
   return <SliceZone slices={page.data.slices} components={components} />
 }
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const client = createClient()
-  const page = await client.getByUID('servicepage', params.uid).catch(() => notFound())
+// export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+//   const client = createClient()
+//   const page = await client.getByUID('servicepage', params.uid).catch(() => notFound())
 
-  return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
-  }
-}
+//   return {
+//     title: page.data.meta_title,
+//     description: page.data.meta_description,
+//   }
+// }
 
 export async function generateStaticParams() {
   const client = createClient()
