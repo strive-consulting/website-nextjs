@@ -10,6 +10,9 @@ export enum Icons {
   Person = 'person',
   Like = 'like',
   Thought = 'thought',
+  Tick = 'tick',
+  Bookmark = 'bookmark'
+
 }
 
 export type GridBlock = {

@@ -9,5 +9,6 @@ export const components = {
   general_content: dynamic(() => import('./GeneralContent')),
   grid_blocks: dynamic(() => import('./GridBlocks')),
   hero1: dynamic(() => import('./Hero1')),
+  process_steps: dynamic(() => import('./ProcessSteps')),
   testimonials: dynamic(() => import('./Testimonials')),
 }

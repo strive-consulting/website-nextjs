@@ -437,6 +437,7 @@ export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumen
 >
 
 type ServicepageDocumentDataSlicesSlice =
+  | ProcessStepsSlice
   | GeneralContentSlice
   | FaqSlice
   | TestimonialsSlice
@@ -1176,6 +1177,118 @@ type Hero1SliceVariation = Hero1SliceDefault | Hero1SliceSimple
 export type Hero1Slice = prismic.SharedSlice<'hero1', Hero1SliceVariation>
 
 /**
+ * Primary content in *ProcessSteps → Primary*
+ */
+export interface ProcessStepsSliceDefaultPrimary {
+  /**
+   * Title field in *ProcessSteps → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Sub Text field in *ProcessSteps → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.primary.sub_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_text: prismic.RichTextField
+
+  /**
+   * Step 1 Title field in *ProcessSteps → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.primary.step_1_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  step_1_title: prismic.KeyTextField
+
+  /**
+   * Step 1 Text field in *ProcessSteps → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.primary.step_1_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  step_1_text: prismic.KeyTextField
+
+  /**
+   * Step 2 Title field in *ProcessSteps → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.primary.step_2_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  step_2_title: prismic.KeyTextField
+
+  /**
+   * Step 2 Text field in *ProcessSteps → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.primary.step_2_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  step_2_text: prismic.KeyTextField
+
+  /**
+   * Step 3 Title field in *ProcessSteps → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.primary.step_3_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  step_3_title: prismic.KeyTextField
+
+  /**
+   * Step 3 Text field in *ProcessSteps → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_steps.primary.step_3_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  step_3_text: prismic.KeyTextField
+}
+
+/**
+ * Default variation for ProcessSteps Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProcessStepsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<ProcessStepsSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *ProcessSteps*
+ */
+type ProcessStepsSliceVariation = ProcessStepsSliceDefault
+
+/**
+ * ProcessSteps Shared Slice
+ *
+ * - **API ID**: `process_steps`
+ * - **Description**: ProcessSteps
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProcessStepsSlice = prismic.SharedSlice<'process_steps', ProcessStepsSliceVariation>
+
+/**
  * Primary content in *Testimonials → Primary*
  */
 export interface TestimonialsSliceDefaultPrimary {
@@ -1296,6 +1409,10 @@ declare module '@prismicio/client' {
       Hero1SliceVariation,
       Hero1SliceDefault,
       Hero1SliceSimple,
+      ProcessStepsSlice,
+      ProcessStepsSliceDefaultPrimary,
+      ProcessStepsSliceVariation,
+      ProcessStepsSliceDefault,
       TestimonialsSlice,
       TestimonialsSliceDefaultPrimary,
       TestimonialsSliceVariation,
