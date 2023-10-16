@@ -1,6 +1,6 @@
 {
   "id": "servicepage",
-  "label": "ServicePage",
+  "label": "GeneralPage",
   "format": "page",
   "repeatable": true,
   "status": true,

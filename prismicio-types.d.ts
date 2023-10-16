@@ -446,11 +446,11 @@ type ServicepageDocumentDataSlicesSlice =
   | DescriptionQuoteSlice
 
 /**
- * Content for ServicePage documents
+ * Content for GeneralPage documents
  */
 interface ServicepageDocumentData {
   /**
-   * Slice Zone field in *ServicePage*
+   * Slice Zone field in *GeneralPage*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -460,7 +460,7 @@ interface ServicepageDocumentData {
    */
   slices: prismic.SliceZone<ServicepageDocumentDataSlicesSlice>
   /**
-   * Meta Description field in *ServicePage*
+   * Meta Description field in *GeneralPage*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
@@ -471,7 +471,7 @@ interface ServicepageDocumentData {
   meta_description: prismic.KeyTextField
 
   /**
-   * Meta Image field in *ServicePage*
+   * Meta Image field in *GeneralPage*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -482,7 +482,7 @@ interface ServicepageDocumentData {
   meta_image: prismic.ImageField<never>
 
   /**
-   * Meta Title field in *ServicePage*
+   * Meta Title field in *GeneralPage*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
@@ -494,7 +494,7 @@ interface ServicepageDocumentData {
 }
 
 /**
- * ServicePage document from Prismic
+ * GeneralPage document from Prismic
  *
  * - **API ID**: `servicepage`
  * - **Repeatable**: `true`

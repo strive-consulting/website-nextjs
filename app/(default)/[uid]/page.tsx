@@ -57,7 +57,7 @@ export default async function Page({ params }: { params: Params }) {
   // const query = {
   //   graphQuery: `
   //     {
-  //       servicepage {
+  //       generalpage {
   //         title
   //         slices {
   //           ...on description_quote {
@@ -77,7 +77,7 @@ export default async function Page({ params }: { params: Params }) {
   //     }
   //   `
   // }
-  // const page = await client.getByUID('servicepage', params.uid, query);
+  // const page = await client.getByUID('generalpage', params.uid, query);
   // console.log("page")
   // console.log(page)
 
@@ -101,7 +101,7 @@ export default async function Page({ params }: { params: Params }) {
 
 // export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
 //   const client = createClient()
-//   const page = await client.getByUID('servicepage', params.uid).catch(() => notFound())
+//   const page = await client.getByUID('generalpage', params.uid).catch(() => notFound())
 
 //   return {
 //     title: page.data.meta_title,
@@ -111,7 +111,7 @@ export default async function Page({ params }: { params: Params }) {
 
 export async function generateStaticParams() {
   const client = createClient()
-  const pages = await client.getAllByType('servicepage')
+  const pages = await client.getAllByType('generalpage')
 
   return pages.map((page) => {
     return { uid: page.uid }
