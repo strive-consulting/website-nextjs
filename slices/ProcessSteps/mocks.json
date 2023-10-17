@@ -1,55 +1,55 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"title": {
-				"__TYPE__": "FieldContent",
-				"value": "stand",
-				"type": "Text"
-			},
-			"sub_text": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Adipisicing ut est aliqua cillum magna id veniam aliqua commodo sunt eu do aliqua. Sunt sint aliquip mollit. Dolore deserunt velit sit anim labore aute incididunt quis anim in duis."
-						}
-					}
-				]
-			},
-			"step_1_title": {
-				"__TYPE__": "FieldContent",
-				"value": "world",
-				"type": "Text"
-			},
-			"step_1_text": {
-				"__TYPE__": "FieldContent",
-				"value": "film",
-				"type": "Text"
-			},
-			"step_2_title": {
-				"__TYPE__": "FieldContent",
-				"value": "valuable",
-				"type": "Text"
-			},
-			"step_2_text": {
-				"__TYPE__": "FieldContent",
-				"value": "range",
-				"type": "Text"
-			},
-			"step_3_title": {
-				"__TYPE__": "FieldContent",
-				"value": "made",
-				"type": "Text"
-			},
-			"step_3_text": {
-				"__TYPE__": "FieldContent",
-				"value": "trade",
-				"type": "Text"
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "stand",
+        "type": "Text"
+      },
+      "sub_text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Adipisicing ut est aliqua cillum magna id veniam aliqua commodo sunt eu do aliqua. Sunt sint aliquip mollit. Dolore deserunt velit sit anim labore aute incididunt quis anim in duis."
+            }
+          }
+        ]
+      },
+      "step_1_title": {
+        "__TYPE__": "FieldContent",
+        "value": "world",
+        "type": "Text"
+      },
+      "step_1_text": {
+        "__TYPE__": "FieldContent",
+        "value": "film",
+        "type": "Text"
+      },
+      "step_2_title": {
+        "__TYPE__": "FieldContent",
+        "value": "valuable",
+        "type": "Text"
+      },
+      "step_2_text": {
+        "__TYPE__": "FieldContent",
+        "value": "range",
+        "type": "Text"
+      },
+      "step_3_title": {
+        "__TYPE__": "FieldContent",
+        "value": "made",
+        "type": "Text"
+      },
+      "step_3_text": {
+        "__TYPE__": "FieldContent",
+        "value": "trade",
+        "type": "Text"
+      }
+    },
+    "items": []
+  }
 ]

@@ -12,11 +12,10 @@ export type ProcessStepsProps = SliceComponentProps<Content.ProcessStepsSlice>
  * Component for "ProcessSteps" Slices.
  */
 const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
-
   const step1Icon = icons.find((icon) => icon.name === Icons.List.toLowerCase())
   const step2Icon = icons.find((icon) => icon.name === Icons.Bookmark.toLowerCase()) //bookmark
   const step3Icon = icons.find((icon) => icon.name === Icons.Tick.toLowerCase()) //tick
-  
+
   return (
     <section>
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
@@ -30,7 +29,9 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
               field={slice.primary.sub_text}
               components={{
                 paragraph: ({ children }) => (
-                  <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>{children}</p>
+                  <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
+                    {children}
+                  </p>
                 ),
               }}
             />
@@ -71,9 +72,7 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
               <h4 className='h4 mb-2'>
                 <span className='text-gray-400'>1</span>. {slice.primary.step_1_title}
               </h4>
-              <p className='text-lg text-gray-400 text-center'>
-                {slice.primary.step_1_text}
-              </p>
+              <p className='text-lg text-gray-400 text-center'>{slice.primary.step_1_text}</p>
             </div>
 
             {/* 2nd item */}
@@ -92,9 +91,7 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
               <h4 className='h4 mb-2'>
                 <span className='text-gray-400'>2</span>. {slice.primary.step_2_title}
               </h4>
-              <p className='text-lg text-gray-400 text-center'>
-              {slice.primary.step_2_text}
-              </p>
+              <p className='text-lg text-gray-400 text-center'>{slice.primary.step_2_text}</p>
             </div>
 
             {/* 3rd item */}
@@ -107,9 +104,7 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
               <h4 className='h4 mb-2'>
                 <span className='text-gray-400'>3</span>. {slice.primary.step_3_title}
               </h4>
-              <p className='text-lg text-gray-400 text-center'>
-              {slice.primary.step_3_text}
-              </p>
+              <p className='text-lg text-gray-400 text-center'>{slice.primary.step_3_text}</p>
             </div>
           </div>
         </div>

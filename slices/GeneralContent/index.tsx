@@ -17,9 +17,9 @@ const GeneralContent = ({ slice }: GeneralContentProps): JSX.Element => {
           <PrismicRichText
             field={slice.primary.body}
             components={{
-              paragraph: ({ children }) => <p>{children}</p>,
-              heading2: ({ children }) => <h2 className='h2 my-4'>{children}</h2>,
-              heading3: ({ children }) => <h3 className='h3 my-4'>{children}</h3>,
+              paragraph: ({ children }) => <p className='mb-6'>{children}</p>,
+              heading2: ({ children }) => <h2 className='h2 my-6'>{children}</h2>,
+              heading3: ({ children }) => <h3 className='h3 my-6'>{children}</h3>,
             }}
           />
         </div>

@@ -17,10 +17,7 @@
           "config": {
             "label": "Title Align",
             "placeholder": "",
-            "options": [
-              "Left",
-              "Center"
-            ]
+            "options": ["Left", "Center"]
           }
         },
         "title": {

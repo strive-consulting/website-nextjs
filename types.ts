@@ -11,8 +11,7 @@ export enum Icons {
   Like = 'like',
   Thought = 'thought',
   Tick = 'tick',
-  Bookmark = 'bookmark'
-
+  Bookmark = 'bookmark',
 }
 
 export type GridBlock = {

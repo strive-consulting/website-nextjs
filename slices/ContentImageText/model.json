@@ -41,10 +41,7 @@
           "config": {
             "label": "Image Align",
             "placeholder": "",
-            "options": [
-              "Left",
-              "Right"
-            ]
+            "options": ["Left", "Right"]
           }
         }
       },
