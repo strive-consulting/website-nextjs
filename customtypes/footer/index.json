@@ -1,0 +1,73 @@
+{
+  "id": "footer",
+  "label": "Footer",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "footer",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "business_activities_items": {
+        "type": "Group",
+        "config": {
+          "label": "Business Activities Items",
+          "fields": {
+            "menu_label": {
+              "type": "Text",
+              "config": {
+                "label": "Menu Label",
+                "placeholder": ""
+              }
+            },
+            "menu_link": {
+              "type": "Link",
+              "config": {
+                "label": "Menu Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "company_items": {
+        "type": "Group",
+        "config": {
+          "label": "Company Items",
+          "fields": {
+            "menu_label": {
+              "type": "Text",
+              "config": {
+                "label": "Menu Label",
+                "placeholder": ""
+              }
+            },
+            "menu_link": {
+              "type": "Link",
+              "config": {
+                "label": "Menu Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

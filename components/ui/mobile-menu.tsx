@@ -2,8 +2,14 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import { GlobalNavDocument } from '@/prismicio-types'
+import { PrismicLink } from '@prismicio/react'
 
-export default function MobileMenu() {
+interface MobileNavProps {
+  navigation: GlobalNavDocument<string>
+}
+
+export default function MobileMenu({ navigation }: MobileNavProps) {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false)
 
   const trigger = useRef<HTMLButtonElement>(null)
@@ -70,39 +76,48 @@ export default function MobileMenu() {
       >
         <ul className='bg-gray-800 px-4 py-2'>
           <li>
+            <PrismicLink
+              field={navigation.data.cta_link}
+              className='font-medium w-full inline-flex items-center justify-center border border-transparent px-4 py-2 my-2 rounded-sm text-white bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out'
+              onClick={() => setMobileNavOpen(false)}
+            >
+              {navigation.data.cta_text}
+            </PrismicLink>
+          </li>
+          <li>
             <Link
-              href='/features'
+              href='/dubai-company-set-up'
               className='flex text-gray-300 hover:text-gray-200 py-2'
               onClick={() => setMobileNavOpen(false)}
             >
-              Features
+              Company Formation
             </Link>
           </li>
           <li>
             <Link
-              href='/pricing'
+              href='/dubai-residency-visa'
               className='flex text-gray-300 hover:text-gray-200 py-2'
               onClick={() => setMobileNavOpen(false)}
             >
-              Pricing
+              Residency Visa
             </Link>
           </li>
           <li>
             <Link
-              href='/blog'
+              href='/uae-accountancy-service'
               className='flex text-gray-300 hover:text-gray-200 py-2'
               onClick={() => setMobileNavOpen(false)}
             >
-              Blog
+              Accounting
             </Link>
           </li>
           <li>
             <Link
-              href='/about'
+              href='/uae-business-bank-account'
               className='flex text-gray-300 hover:text-gray-200 py-2'
               onClick={() => setMobileNavOpen(false)}
             >
-              About us
+              Business Banking
             </Link>
           </li>
           <li className='py-2 my-2 border-t border-b border-gray-700'>
@@ -126,34 +141,7 @@ export default function MobileMenu() {
                   Help center
                 </Link>
               </li>
-              <li>
-                <Link
-                  href='/404'
-                  className='text-sm flex font-medium text-gray-400 hover:text-gray-200 py-2'
-                  onClick={() => setMobileNavOpen(false)}
-                >
-                  404
-                </Link>
-              </li>
             </ul>
-          </li>
-          <li>
-            <Link
-              href='/signin'
-              className='flex font-medium w-full text-purple-600 hover:text-gray-200 py-2 justify-center'
-              onClick={() => setMobileNavOpen(false)}
-            >
-              Sign in
-            </Link>
-          </li>
-          <li>
-            <Link
-              href='/signup'
-              className='font-medium w-full inline-flex items-center justify-center border border-transparent px-4 py-2 my-2 rounded-sm text-white bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out'
-              onClick={() => setMobileNavOpen(false)}
-            >
-              Sign up
-            </Link>
           </li>
         </ul>
       </nav>

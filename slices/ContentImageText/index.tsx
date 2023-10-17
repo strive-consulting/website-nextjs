@@ -67,7 +67,7 @@ const ContentImageText = ({ slice }: ContentImageTextProps): JSX.Element => {
                     field={slice.primary.sub_text}
                     components={{
                       paragraph: ({ children }) => (
-                        <p className='text-lg text-gray-400'>{children}</p>
+                        <p className='text-lg text-gray-400 mb-6'>{children}</p>
                       ),
                     }}
                   />

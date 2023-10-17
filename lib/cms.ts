@@ -26,3 +26,17 @@ export async function getAllCmsPages() {
 
   return pages
 }
+
+export async function getGlobalNav() {
+  const client = createClient()
+  const nav = await client.getSingle('global_nav')
+
+  return nav
+}
+
+export async function getFooter() {
+  const client = createClient()
+  const footer = await client.getSingle('footer')
+
+  return footer
+}

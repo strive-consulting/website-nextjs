@@ -161,7 +161,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                   </div>
                   <div className='w-full md:w-1/3 md:ml-20 md:pt-20'>
                     {slice.items && (
-                      <ul className='text-lg text-gray-400 mb-6'>
+                      <ul className='text-lg text-gray-400 mb-6' data-aos='fade-up'>
                         {slice.items.map((bullet) => {
                           return (
                             <li key={bullet.bullet_point} className='flex items-center mb-2'>

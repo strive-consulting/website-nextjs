@@ -330,6 +330,111 @@ export type BlogPostDocument<Lang extends string = string> = prismic.PrismicDocu
 >
 
 /**
+ * Item in *Footer → Business Activities Items*
+ */
+export interface FooterDocumentDataBusinessActivitiesItemsItem {
+  /**
+   * Menu Label field in *Footer → Business Activities Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.business_activities_items[].menu_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  menu_label: prismic.KeyTextField
+
+  /**
+   * Menu Link field in *Footer → Business Activities Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.business_activities_items[].menu_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  menu_link: prismic.LinkField
+}
+
+/**
+ * Item in *Footer → Company Items*
+ */
+export interface FooterDocumentDataCompanyItemsItem {
+  /**
+   * Menu Label field in *Footer → Company Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.company_items[].menu_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  menu_label: prismic.KeyTextField
+
+  /**
+   * Menu Link field in *Footer → Company Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.company_items[].menu_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  menu_link: prismic.LinkField
+}
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Description field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Business Activities Items field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.business_activities_items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  business_activities_items: prismic.GroupField<
+    Simplify<FooterDocumentDataBusinessActivitiesItemsItem>
+  >
+
+  /**
+   * Company Items field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.company_items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  company_items: prismic.GroupField<Simplify<FooterDocumentDataCompanyItemsItem>>
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+  Simplify<FooterDocumentData>,
+  'footer',
+  Lang
+>
+
+/**
  * Content for Free Zone documents
  */
 interface FreeZoneDocumentData {
@@ -391,6 +496,160 @@ interface FreeZoneDocumentData {
 export type FreeZoneDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
   Simplify<FreeZoneDocumentData>,
   'free_zone',
+  Lang
+>
+
+/**
+ * Item in *Global Nav → Company Formation Items*
+ */
+export interface GlobalNavDocumentDataCompanyFormationItemsItem {
+  /**
+   * Menu Link field in *Global Nav → Company Formation Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.company_formation_items[].menu_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  menu_link: prismic.LinkField
+
+  /**
+   * Menu Label field in *Global Nav → Company Formation Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.company_formation_items[].menu_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  menu_label: prismic.KeyTextField
+}
+
+/**
+ * Item in *Global Nav → Residency Visa Items*
+ */
+export interface GlobalNavDocumentDataResidencyVisaItemsItem {
+  /**
+   * Menu Link field in *Global Nav → Residency Visa Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.residency_visa_items[].menu_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  menu_link: prismic.LinkField
+
+  /**
+   * Menu Label field in *Global Nav → Residency Visa Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.residency_visa_items[].menu_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  menu_label: prismic.KeyTextField
+}
+
+/**
+ * Item in *Global Nav → Business Services Items*
+ */
+export interface GlobalNavDocumentDataBusinessServicesItemsItem {
+  /**
+   * Menu Link field in *Global Nav → Business Services Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.business_services_items[].menu_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  menu_link: prismic.LinkField
+
+  /**
+   * Menu Label field in *Global Nav → Business Services Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.business_services_items[].menu_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  menu_label: prismic.KeyTextField
+}
+
+/**
+ * Content for Global Nav documents
+ */
+interface GlobalNavDocumentData {
+  /**
+   * Company Formation Items field in *Global Nav*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.company_formation_items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  company_formation_items: prismic.GroupField<
+    Simplify<GlobalNavDocumentDataCompanyFormationItemsItem>
+  >
+
+  /**
+   * Residency Visa Items field in *Global Nav*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.residency_visa_items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  residency_visa_items: prismic.GroupField<Simplify<GlobalNavDocumentDataResidencyVisaItemsItem>>
+
+  /**
+   * Business Services Items field in *Global Nav*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.business_services_items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  business_services_items: prismic.GroupField<
+    Simplify<GlobalNavDocumentDataBusinessServicesItemsItem>
+  >
+
+  /**
+   * CTA Text field in *Global Nav*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.cta_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField
+
+  /**
+   * CTA Link field in *Global Nav*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.cta_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField
+}
+
+/**
+ * Global Nav document from Prismic
+ *
+ * - **API ID**: `global_nav`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GlobalNavDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+  Simplify<GlobalNavDocumentData>,
+  'global_nav',
   Lang
 >
 
@@ -601,7 +860,9 @@ export type AllDocumentTypes =
   | AuthorDocument
   | BankDocument
   | BlogPostDocument
+  | FooterDocument
   | FreeZoneDocument
+  | GlobalNavDocument
   | QuoteDocument
   | ServicepageDocument
   | TestimonialDocument
@@ -1471,8 +1732,17 @@ declare module '@prismicio/client' {
       BlogPostDocument,
       BlogPostDocumentData,
       BlogPostDocumentDataSlicesSlice,
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataBusinessActivitiesItemsItem,
+      FooterDocumentDataCompanyItemsItem,
       FreeZoneDocument,
       FreeZoneDocumentData,
+      GlobalNavDocument,
+      GlobalNavDocumentData,
+      GlobalNavDocumentDataCompanyFormationItemsItem,
+      GlobalNavDocumentDataResidencyVisaItemsItem,
+      GlobalNavDocumentDataBusinessServicesItemsItem,
       QuoteDocument,
       QuoteDocumentData,
       ServicepageDocument,
