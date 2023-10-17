@@ -437,6 +437,7 @@ export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumen
 >
 
 type ServicepageDocumentDataSlicesSlice =
+  | ContentImageTextSlice
   | ProcessStepsSlice
   | GeneralContentSlice
   | FaqSlice
@@ -604,6 +605,106 @@ export type AllDocumentTypes =
   | QuoteDocument
   | ServicepageDocument
   | TestimonialDocument
+
+/**
+ * Primary content in *ContentImageText → Primary*
+ */
+export interface ContentImageTextSliceDefaultPrimary {
+  /**
+   * Title field in *ContentImageText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_image_text.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Sub Text field in *ContentImageText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_image_text.primary.sub_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_text: prismic.RichTextField
+
+  /**
+   * Image field in *ContentImageText → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_image_text.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+
+  /**
+   * Image Align field in *ContentImageText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_image_text.primary.image_align
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  image_align: prismic.SelectField<'Left' | 'Right'>
+}
+
+/**
+ * Primary content in *ContentImageText → Items*
+ */
+export interface ContentImageTextSliceDefaultItem {
+  /**
+   * Bullet Title field in *ContentImageText → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_image_text.items[].bullet_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  bullet_title: prismic.KeyTextField
+
+  /**
+   * Bullet Text field in *ContentImageText → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_image_text.items[].bullet_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  bullet_text: prismic.KeyTextField
+}
+
+/**
+ * Default variation for ContentImageText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentImageTextSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<ContentImageTextSliceDefaultPrimary>,
+  Simplify<ContentImageTextSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *ContentImageText*
+ */
+type ContentImageTextSliceVariation = ContentImageTextSliceDefault
+
+/**
+ * ContentImageText Shared Slice
+ *
+ * - **API ID**: `content_image_text`
+ * - **Description**: ContentImageText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentImageTextSlice = prismic.SharedSlice<
+  'content_image_text',
+  ContentImageTextSliceVariation
+>
 
 /**
  * Primary content in *Cta1 → Primary*
@@ -1380,6 +1481,11 @@ declare module '@prismicio/client' {
       TestimonialDocument,
       TestimonialDocumentData,
       AllDocumentTypes,
+      ContentImageTextSlice,
+      ContentImageTextSliceDefaultPrimary,
+      ContentImageTextSliceDefaultItem,
+      ContentImageTextSliceVariation,
+      ContentImageTextSliceDefault,
       Cta1Slice,
       Cta1SliceDefaultPrimary,
       Cta1SliceVariation,
