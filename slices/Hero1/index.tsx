@@ -1,7 +1,9 @@
+import ModalVideo from '@/components/modal-video'
 import TickIcon from '@/components/tickIcon'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import { SliceComponentProps } from '@prismicio/react'
+import VideoThumb from '@/public/videos/video_thumb.png'
 
 export enum TitleAlign {
   Left = 'Left',
@@ -50,6 +52,9 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
     return (
       <>
         <section className='relative'>
+          
+          
+          
           <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>
             {slice.items.length === 0 && (
               <>
@@ -128,8 +133,18 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                     </>
                   )}
 
+                  {slice.primary.show_video && <ModalVideo
+                    thumb={VideoThumb}
+                    thumbWidth={1024}
+                    thumbHeight={576}
+                    thumbAlt='Modal video thumbnail'
+                    video='/videos/home_intro_2.mp4'
+                    videoWidth={1920}
+                    videoHeight={1080}
+                  />}
+
                   {/* Image */}
-                  {slice.primary.body_image && (
+                  {slice.primary.body_image && !slice.primary.show_video && (
                     <PrismicNextImage
                       className='mx-auto'
                       field={slice.primary.body_image}

@@ -17,7 +17,10 @@
           "config": {
             "label": "Title Align",
             "placeholder": "",
-            "options": ["Left", "Center"]
+            "options": [
+              "Left",
+              "Center"
+            ]
           }
         },
         "title": {
@@ -70,6 +73,15 @@
             "label": "Body Image",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "show_video": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Video",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
           }
         }
       },

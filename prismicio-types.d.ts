@@ -1456,6 +1456,17 @@ export interface Hero1SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   body_image: prismic.ImageField<never>
+
+  /**
+   * Show Video field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: hero1.primary.show_video
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_video: prismic.BooleanField
 }
 
 /**
