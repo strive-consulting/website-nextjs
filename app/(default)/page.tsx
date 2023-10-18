@@ -35,5 +35,17 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: '/',
     },
+    openGraph: {
+      title: page.data.meta_title ?? Constants.SiteTitle,
+      description: page.data.meta_description ?? Constants.SiteDescription,
+      images: [Constants.SiteDomain + Constants.OpenGraphImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: page.data.meta_title ?? Constants.SiteTitle,
+      description: page.data.meta_description ?? Constants.SiteDescription,
+      siteId: '',
+      images: [Constants.SiteDomain + Constants.OpenGraphImage],
+    },
   }
 }

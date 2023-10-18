@@ -69,7 +69,7 @@ export default function DefaultLayout({ children }: { children: React.ReactNode 
 
       <Footer />
 
-      <SchemaTag mainEntity='' schemaJson={schema} />
+      <SchemaTag schemaJson={schema} />
     </>
   )
 }
