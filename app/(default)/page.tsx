@@ -12,6 +12,7 @@ export default async function Home() {
 
   let schema = [
     {
+      '@context': 'https://schema.org',
       '@type': 'WebPage',
       url: Constants.SiteDomain + linkResolver(page),
       name: page.data.meta_title,

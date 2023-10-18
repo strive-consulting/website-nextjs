@@ -12,13 +12,12 @@ type Params = { uid: string }
 export default async function Page({ params }: { params: Params }) {
   const page = await getCmsPage(params.uid)
 
-  let schema = [
-    {
-      '@type': 'WebPage',
-      url: Constants.SiteDomain + linkResolver(page),
-      name: page.data.meta_title,
-    },
-  ]
+  let schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    url: Constants.SiteDomain + linkResolver(page),
+    name: page.data.meta_title,
+  }
 
   return (
     <>

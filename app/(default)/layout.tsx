@@ -32,31 +32,32 @@ export const metadata: Metadata = {
 }
 
 export default function DefaultLayout({ children }: { children: React.ReactNode }) {
-  let schema = [
-    {
-      '@type': 'Organization',
-      url: Constants.SiteDomain,
-      name: Constants.SiteTitle,
-      logo: {
-        '@type': 'ImageObject',
-        url: Constants.SiteDomain + Constants.OpenGraphImage,
-        height: 60,
-        width: 60,
-      },
+  let schemaOrg = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    url: Constants.SiteDomain,
+    name: Constants.SiteTitle,
+    logo: {
+      '@type': 'ImageObject',
+      url: Constants.SiteDomain + Constants.OpenGraphImage,
+      height: 60,
+      width: 60,
     },
-    {
-      '@type': 'WebSite',
-      url: Constants.SiteDomain,
-      name: Constants.SiteTitle,
-      encoding: 'UTF-8',
-      image: {
-        '@type': 'ImageObject',
-        url: Constants.SiteDomain + Constants.OpenGraphImage,
-        height: 60,
-        width: 60,
-      },
+  }
+
+  let schemaWeb = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: Constants.SiteDomain,
+    name: Constants.SiteTitle,
+    encoding: 'UTF-8',
+    image: {
+      '@type': 'ImageObject',
+      url: Constants.SiteDomain + Constants.OpenGraphImage,
+      height: 60,
+      width: 60,
     },
-  ]
+  }
 
   return (
     <>
@@ -69,7 +70,8 @@ export default function DefaultLayout({ children }: { children: React.ReactNode 
 
       <Footer />
 
-      <SchemaTag schemaJson={schema} />
+      <SchemaTag schemaJson={schemaOrg} />
+      <SchemaTag schemaJson={schemaWeb} />
     </>
   )
 }

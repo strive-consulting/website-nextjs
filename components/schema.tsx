@@ -1,21 +1,12 @@
 export interface ISchema {
-  mainType?: string
-  schemaJson?: Array<any>
+  schemaJson?: any
 }
 
-const SchemaTag = ({ mainType = 'WebPage', schemaJson }: ISchema) => {
-  const schemaOutput = {
-    '@context': 'https://schema.org',
-    '@type': mainType,
-    mainEntity: schemaJson,
-  }
-
-  console.log(schemaOutput)
-
+const SchemaTag = ({ schemaJson }: ISchema) => {
   const schemaTag = schemaJson ? (
     <script
       type='application/ld+json'
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOutput) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJson) }}
     ></script>
   ) : (
     <></>
