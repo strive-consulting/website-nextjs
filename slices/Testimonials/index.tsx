@@ -22,7 +22,7 @@ const Testimonials = async ({ slice }: TestimonialsProps): Promise<JSX.Element> 
         <div>
           {/* Section header */}
           <div className='max-w-3xl mx-auto text-center pb-12 md:pb-20'>
-            <h2 className='h2 mb-4'>{slice.primary.title}</h2>
+            <h3 className='h2 mb-4'>{slice.primary.title}</h3>
 
             <PrismicRichText
               field={slice.primary.sub_text}

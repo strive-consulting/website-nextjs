@@ -11,10 +11,10 @@ export function linkResolver(doc: any) {
   switch (doc.type) {
     // case "blog_post":
     //   return "/blog/" + doc.uid;
-    case "servicepage":
-      return `/${doc.uid}`;
+    case 'servicepage':
+      return `/${doc.uid}`
     default:
-      return null;
+      return null
   }
 }
 /**

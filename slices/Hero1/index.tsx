@@ -42,10 +42,10 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
       : ''
     const mxAuto = slice.primary.align === TitleAlign.Center ? '' : 'mx-auto'
 
-    console.log(slice)
+    // console.log(slice)
 
-    console.log(slice.primary.align)
-    console.log(titleAlignClass)
+    // console.log(slice.primary.align)
+    // console.log(titleAlignClass)
 
     return (
       <>

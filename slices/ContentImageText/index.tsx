@@ -27,7 +27,7 @@ const ContentImageText = ({ slice }: ContentImageTextProps): JSX.Element => {
       : 'md:pr-4 lg:pr-12 xl:pr-16'
     : 'md:pl-4 lg:pl-12 xl:pl-16'
 
-  console.log(slice.primary.image_align)
+  // console.log(slice.primary.image_align)
   return (
     <section>
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
@@ -82,9 +82,9 @@ const ContentImageText = ({ slice }: ContentImageTextProps): JSX.Element => {
                             data-aos-delay='200'
                             data-aos-anchor='[data-aos-id-target]'
                           >
-                            <h4 className='h4 mb-2'>
+                            <h3 className='h4 mb-2'>
                               <span className='text-purple-600'>.</span> {item.bullet_title}
-                            </h4>
+                            </h3>
                             <p className='text-lg text-gray-400'>{item.bullet_text}</p>
                           </div>
                         </>

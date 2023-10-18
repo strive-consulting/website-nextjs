@@ -19,9 +19,9 @@ const Cta1 = ({ slice }: Cta1Props): JSX.Element => {
         <div className=''>
           <div className='max-w-3xl mx-auto text-center pb-12 md:pb-16' data-aos-id-cta>
             {/* Section header */}
-            <h1 className='h2 mb-4' data-aos='fade-up' data-aos-anchor='[data-aos-id-cta]'>
+            <h4 className='h2 mb-4' data-aos='fade-up' data-aos-anchor='[data-aos-id-cta]'>
               {slice.primary.title}
-            </h1>
+            </h4>
 
             <PrismicRichText
               field={slice.primary.sub_text}

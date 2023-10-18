@@ -69,9 +69,9 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
                   strokeLinecap='square'
                 />
               </svg> */}
-              <h4 className='h4 mb-2'>
+              <h3 className='h4 mb-2'>
                 <span className='text-gray-400'>1</span>. {slice.primary.step_1_title}
-              </h4>
+              </h3>
               <p className='text-lg text-gray-400 text-center'>{slice.primary.step_1_text}</p>
             </div>
 
