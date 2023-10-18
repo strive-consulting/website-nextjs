@@ -10,7 +10,7 @@ export default async function Home() {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getCmsPage('home-test')
+  const page = await getCmsPage('home')
 
   return {
     title: page.data.meta_title,

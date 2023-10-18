@@ -8,6 +8,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/home', //ensure prismic service page is only rendered in the default home location
+        destination: '/',
+        permanent: true,
+      },
+      {
         source: '/client-information-request-form',
         destination: 'https://form.jotform.com/striveconsultants/client-information-request-form',
         permanent: true,

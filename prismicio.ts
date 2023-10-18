@@ -7,6 +7,16 @@ import config from './slicemachine.config.json'
  */
 export const repositoryName = config.repositoryName
 
+export function linkResolver(doc: any) {
+  switch (doc.type) {
+    // case "blog_post":
+    //   return "/blog/" + doc.uid;
+    case "servicepage":
+      return `/${doc.uid}`;
+    default:
+      return null;
+  }
+}
 /**
  * A list of Route Resolver objects that define how a document's `url` field is resolved.
  *
