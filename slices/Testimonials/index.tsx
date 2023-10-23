@@ -82,7 +82,8 @@ const Testimonials = async ({ slice }: TestimonialsProps): Promise<JSX.Element> 
                   </blockquote>
                   <div className='text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700'>
                     <cite className='text-gray-200 not-italic'>{testimonial.data.name}</cite> -{' '}
-                    <PrismicLink field={testimonial.data.profile_link}
+                    <PrismicLink
+                      field={testimonial.data.profile_link}
                       className='text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out'
                     >
                       <div>{testimonial.data.job_title}</div>

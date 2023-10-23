@@ -34,8 +34,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=dM2yaDXG1IpYkI7OfXFq9w&gtm_preview=env-31&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');`}</Script>
 
-
-{/* <Script
+        {/* <Script
           id='google-analytics222'
           strategy='afterInteractive'
         >{`

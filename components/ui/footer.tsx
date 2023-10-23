@@ -40,7 +40,7 @@ export default async function Footer() {
             <div className='md:col-span-8 lg:col-span-7 grid sm:grid-cols-2 gap-8'>
               {/* 2nd block */}
               <div className='text-sm'>
-                <h5 className='text-gray-200 font-medium mb-1'>Business Activities</h5>
+                <div className='text-gray-200 font-medium mb-1'>Business Activities</div>
                 <ul>
                   {footer.data.business_activities_items.map((item) => {
                     return (
@@ -106,7 +106,7 @@ export default async function Footer() {
 
               {/* 4th block */}
               <div className='text-sm'>
-                <h5 className='text-gray-200 font-medium mb-1'>Company</h5>
+                <div className='text-gray-200 font-medium mb-1'>Company</div>
                 <ul>
                   {footer.data.company_items.map((item) => {
                     return (

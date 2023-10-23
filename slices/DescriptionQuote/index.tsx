@@ -26,7 +26,7 @@ const DescriptionQuote = ({ slice }: DescriptionQuoteProps): JSX.Element => {
               {/* <div className='font-architects-daughter text-xl text-purple-600 mb-2'>
           Let us take the confusion out
         </div> */}
-              <h3 className='h3 mb-3'>{slice.primary.title}</h3>
+              <h2 className='h3 mb-3'>{slice.primary.title}</h2>
               {/* <PrismicRichText field={slice.primary.description} /> */}
 
               <PrismicRichText

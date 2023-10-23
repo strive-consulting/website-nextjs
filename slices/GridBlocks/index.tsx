@@ -24,7 +24,7 @@ const GridBlocks = ({ slice }: GridBlocksProps): JSX.Element => {
         data-aos-anchor='[data-aos-id-blocks]'
       >
         {selectedIcon ? selectedIcon?.icon : <></>}
-        <h4 className='h4 mb-2 text-center'>{block.title}</h4>
+        <h3 className='h4 mb-2 text-center'>{block.title}</h3>
         <p className='text-lg text-gray-400 text-center'>{block.description}</p>
 
         {block.bullets && (

@@ -1,4 +1,4 @@
-import { allPosts } from 'contentlayer/generated'
+// import { allPosts } from 'contentlayer/generated'
 import Link from 'next/link'
 import Image from 'next/image'
 import PostDate from '@/components/post-date'
@@ -11,15 +11,19 @@ export const metadata = {
 }
 
 import Newsletter from '@/components/newsletter'
+import { getBlogPosts } from '@/lib/cms'
+import { PrismicImage, PrismicRichText } from '@prismicio/react'
 
-export default function Blog() {
+export default async function Blog() {
+  const blogPosts = await getBlogPosts()
+
   // Sort posts by date
-  allPosts.sort((a, b) => {
-    return new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1
-  })
+  // allPosts.sort((a, b) => {
+  //   return new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1
+  // })
 
-  const featuredPost = allPosts[0]
-  const posts = allPosts.slice(1)
+  const featuredPost = blogPosts[0] //allPosts[0]
+  const posts = blogPosts //.slice[1];//allPosts.slice(1)
 
   return (
     <>
@@ -29,7 +33,7 @@ export default function Blog() {
             {/*  Page header */}
             <div className='max-w-3xl pb-12 md:pb-20 text-center md:text-left'>
               <h1 className='h1' data-aos='fade-up'>
-                Refreshing news for developers and designers
+                Blog
               </h1>
             </div>
 
@@ -37,7 +41,7 @@ export default function Blog() {
             <div className='pb-12 md:pb-20'>
               <article className='max-w-sm mx-auto md:max-w-none grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-center'>
                 <Link
-                  href={`/blog/${featuredPost.slug}`}
+                  href={`/blog/${featuredPost.uid}`}
                   className='relative block group'
                   data-aos='fade-right'
                   data-aos-delay='200'
@@ -46,15 +50,24 @@ export default function Blog() {
                     className='absolute inset-0 bg-gray-800 hidden md:block transform md:translate-y-2 md:translate-x-4 xl:translate-y-4 xl:translate-x-8 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out pointer-events-none'
                     aria-hidden='true'
                   ></div>
-                  {featuredPost.image && (
+                  {featuredPost.data.image && (
                     <figure className='relative h-0 pb-9/16 md:pb-3/4 lg:pb-9/16 overflow-hidden transform md:-translate-y-2 xl:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out'>
-                      <Image
-                        className='absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out'
-                        src={featuredPost.image}
-                        width='540'
-                        height='303'
-                        alt={featuredPost.title}
-                      />
+                      {!featuredPost.data.youtube_video && (
+                        <PrismicImage
+                          className='absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out'
+                          field={featuredPost.data.image}
+                          width='540'
+                          height='303'
+                        />
+                      )}
+                      {featuredPost.data.youtube_video && (
+                        <Image
+                          alt={featuredPost.data.youtube_video.title ?? ''}
+                          src={featuredPost.data.youtube_video.thumbnail_url ?? ''}
+                          width={featuredPost.data.youtube_video.thumbnail_width ?? 540}
+                          height={featuredPost.data.youtube_video.thumbnail_height ?? 303}
+                        />
+                      )}
                     </figure>
                   )}
                 </Link>
@@ -69,34 +82,45 @@ export default function Blog() {
                     </div>
                     <h3 className='h3 text-2xl lg:text-3xl mb-2'>
                       <Link
-                        href={`/blog/${featuredPost.slug}`}
+                        href={`/blog/${featuredPost.uid}`}
                         className='hover:text-gray-100 transition duration-150 ease-in-out'
                       >
-                        {featuredPost.title}
+                        {featuredPost.data.title}
                       </Link>
                     </h3>
                   </header>
-                  <p className='text-lg text-gray-400 grow'>{featuredPost.summary}</p>
+                  <PrismicRichText
+                    field={featuredPost.data.introduction}
+                    components={{
+                      paragraph: ({ children }) => (
+                        <p className='text-lg text-gray-400 grow'>{children}</p>
+                      ),
+                    }}
+                  />
+
                   <footer className='flex items-center mt-4'>
-                    <Link href='#'>
-                      <img
+                    {/* <Link href='#'>
+                      <PrismicImage
                         className='rounded-full shrink-0 mr-4'
-                        src={featuredPost.authorImg}
+                        field={featuredPost.authorImg}
                         width={40}
                         height={40}
                         alt={featuredPost.author}
                       />
-                    </Link>
+                    </Link> */}
+
                     <div>
                       <Link
                         href='#'
                         className='font-medium text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out'
                       >
-                        {featuredPost.author}
+                        author
+                        {/* {featuredPost.author} */}
                       </Link>
                       <span className='text-gray-700'> - </span>
                       <span className='text-gray-500'>
-                        <PostDate dateString={featuredPost.publishedAt} />
+                        date
+                        {/* <PostDate dateString={featuredPost.data.published_date} /> */}
                       </span>
                     </div>
                   </footer>
@@ -112,11 +136,11 @@ export default function Blog() {
               </h4>
 
               {/*  Articles container */}
-              <div className='grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start'>
+              {/* <div className='grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start'>
                 {posts.map((post, postIndex) => (
                   <PostItem key={postIndex} {...post} />
                 ))}
-              </div>
+              </div> */}
             </div>
 
             {/*  Pagination */}

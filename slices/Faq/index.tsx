@@ -24,7 +24,7 @@ const Faq = ({ slice }: FaqProps): JSX.Element => {
             {slice.items.map((item) => {
               return (
                 <li key={item.question}>
-                  <h4 className='text-xl font-medium mb-2'>{item.question}</h4>
+                  <h3 className='text-xl font-medium mb-2'>{item.question}</h3>
                   <p className='text-lg text-gray-400'>
                     <PrismicRichText
                       field={item.answer}
