@@ -19,6 +19,7 @@ export default async function Header() {
                 alt='Strive Consultants'
                 width={150}
                 height={55}
+                priority={true}
               />
             </Link>
           </div>

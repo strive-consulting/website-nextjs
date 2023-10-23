@@ -1,7 +1,7 @@
 import { Divider } from '@/components/divider'
 import { getTestimonials } from '@/lib/cms'
 import { Content } from '@prismicio/client'
-import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
+import { PrismicLink, PrismicRichText, SliceComponentProps } from '@prismicio/react'
 import Image from 'next/image'
 /**
  * Props for `Testimonials`.
@@ -31,7 +31,7 @@ const Testimonials = async ({ slice }: TestimonialsProps): Promise<JSX.Element> 
               }}
             />
             <p className='text-xl text-gray-400 my-3'>
-              We&apos;re proud to be rated 4.5 stars on Trustpilot
+              We&apos;re proud to be rated 4.8 stars on Trustpilot
             </p>
             <div className='flex justify-center items-center'>
               <Image
@@ -82,12 +82,11 @@ const Testimonials = async ({ slice }: TestimonialsProps): Promise<JSX.Element> 
                   </blockquote>
                   <div className='text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700'>
                     <cite className='text-gray-200 not-italic'>{testimonial.data.name}</cite> -{' '}
-                    <a
+                    <PrismicLink field={testimonial.data.profile_link}
                       className='text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out'
-                      href='#0'
                     >
                       <div>{testimonial.data.job_title}</div>
-                    </a>
+                    </PrismicLink>
                   </div>
                 </div>
               )

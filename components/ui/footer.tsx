@@ -37,7 +37,7 @@ export default async function Footer() {
             </div>
 
             {/* 2nd, 3rd and 4th blocks */}
-            <div className='md:col-span-8 lg:col-span-7 grid sm:grid-cols-3 gap-8'>
+            <div className='md:col-span-8 lg:col-span-7 grid sm:grid-cols-2 gap-8'>
               {/* 2nd block */}
               <div className='text-sm'>
                 <h5 className='text-gray-200 font-medium mb-1'>Business Activities</h5>
@@ -58,7 +58,7 @@ export default async function Footer() {
               </div>
 
               {/* 3rd block */}
-              <div className='text-sm'>
+              {/* <div className='text-sm'>
                 <h5 className='text-gray-200 font-medium mb-1'>Knowledge Hub</h5>
                 <ul>
                   <li className='mb-1'>
@@ -102,7 +102,7 @@ export default async function Footer() {
                     </Link>
                   </li>
                 </ul>
-              </div>
+              </div> */}
 
               {/* 4th block */}
               <div className='text-sm'>

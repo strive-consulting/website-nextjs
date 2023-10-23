@@ -6,6 +6,7 @@ import Header from '@/components/ui/header'
 import Script from 'next/script'
 import { PrismicPreview } from '@prismicio/next'
 import { repositoryName } from '@/prismicio'
+import WhatsAppClickHandler from '@/components/whatsapp'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -32,6 +33,16 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=dM2yaDXG1IpYkI7OfXFq9w&gtm_preview=env-31&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');`}</Script>
+
+
+{/* <Script
+          id='google-analytics222'
+          strategy='afterInteractive'
+        >{`
+          window.addEventListener('load', function() {
+            console.log('LOADED);
+          });
+        `}</Script> */}
 
         {/* <script
           dangerouslySetInnerHTML={{
@@ -69,6 +80,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <PrismicPreview repositoryName={repositoryName} />
         </div>
         <div className='elfsight-app-a73b12f4-a34b-4fd4-8585-b9a9aed04015'></div>
+
+        {/* <WhatsAppClickHandler/> */}
       </body>
     </html>
   )
