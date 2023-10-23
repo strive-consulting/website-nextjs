@@ -89,6 +89,13 @@
           "customtypes": ["author"]
         }
       },
+      "youtube_video": {
+        "type": "Embed",
+        "config": {
+          "label": "YouTube Video",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

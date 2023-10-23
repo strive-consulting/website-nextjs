@@ -303,6 +303,17 @@ interface BlogPostDocumentData {
   author: prismic.ContentRelationshipField<'author'>
 
   /**
+   * YouTube Video field in *Blog Post*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.youtube_video
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  youtube_video: prismic.EmbedField
+
+  /**
    * Slice Zone field in *Blog Post*
    *
    * - **Field Type**: Slice Zone

@@ -40,3 +40,12 @@ export async function getFooter() {
 
   return footer
 }
+
+export async function getBlogPosts() {
+  const client = createClient()
+  const blogPosts = await client.getAllByType('blog_post', {
+    orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
+  })
+
+  return blogPosts
+}

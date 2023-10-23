@@ -3,7 +3,7 @@ const { withContentlayer } = require('next-contentlayer')
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['images.prismic.io'],
+    domains: ['images.prismic.io', 'i.ytimg.com'],
   },
   async redirects() {
     return [
