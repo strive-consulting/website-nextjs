@@ -1,42 +1,42 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"title": {
-				"__TYPE__": "FieldContent",
-				"value": "moving",
-				"type": "Text"
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"question",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "class",
-							"type": "Text"
-						}
-					],
-					[
-						"answer",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Sunt deserunt et ea mollit velit est elit duis non. Cillum mollit ullamco cillum minim."
-									}
-								}
-							]
-						}
-					]
-				]
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "moving",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "question",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "class",
+              "type": "Text"
+            }
+          ],
+          [
+            "answer",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Sunt deserunt et ea mollit velit est elit duis non. Cillum mollit ullamco cillum minim."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  }
 ]

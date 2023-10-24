@@ -707,6 +707,8 @@ export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumen
 >
 
 type ServicepageDocumentDataSlicesSlice =
+  | TeamImagesSlice
+  | TeamSlice
   | ContentImageTextSlice
   | ProcessStepsSlice
   | GeneralContentSlice
@@ -1683,6 +1685,175 @@ type ProcessStepsSliceVariation = ProcessStepsSliceDefault
 export type ProcessStepsSlice = prismic.SharedSlice<'process_steps', ProcessStepsSliceVariation>
 
 /**
+ * Primary content in *Team → Primary*
+ */
+export interface TeamSliceDefaultPrimary {
+  /**
+   * Title field in *Team → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *Team → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Primary content in *Team → Items*
+ */
+export interface TeamSliceDefaultItem {
+  /**
+   * Team Member Name field in *Team → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.items[].team_member_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  team_member_name: prismic.KeyTextField
+
+  /**
+   * Team Member Title field in *Team → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.items[].team_member_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  team_member_title: prismic.KeyTextField
+
+  /**
+   * Team Member Avatar field in *Team → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.items[].team_member_avatar
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  team_member_avatar: prismic.ImageField<never>
+
+  /**
+   * Team Member LinkedIn field in *Team → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.items[].team_member_linkedin
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  team_member_linkedin: prismic.LinkField
+}
+
+/**
+ * Default variation for Team Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<TeamSliceDefaultPrimary>,
+  Simplify<TeamSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Team*
+ */
+type TeamSliceVariation = TeamSliceDefault
+
+/**
+ * Team Shared Slice
+ *
+ * - **API ID**: `team`
+ * - **Description**: Team
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamSlice = prismic.SharedSlice<'team', TeamSliceVariation>
+
+/**
+ * Primary content in *TeamImages → Primary*
+ */
+export interface TeamImagesSliceDefaultPrimary {
+  /**
+   * Image 1 field in *TeamImages → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_images.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>
+
+  /**
+   * Image 2 field in *TeamImages → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_images.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>
+
+  /**
+   * Image 3 field in *TeamImages → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_images.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>
+
+  /**
+   * Image 4 field in *TeamImages → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_images.primary.image_4
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_4: prismic.ImageField<never>
+}
+
+/**
+ * Default variation for TeamImages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamImagesSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<TeamImagesSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *TeamImages*
+ */
+type TeamImagesSliceVariation = TeamImagesSliceDefault
+
+/**
+ * TeamImages Shared Slice
+ *
+ * - **API ID**: `team_images`
+ * - **Description**: TeamImages
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamImagesSlice = prismic.SharedSlice<'team_images', TeamImagesSliceVariation>
+
+/**
  * Primary content in *Testimonials → Primary*
  */
 export interface TestimonialsSliceDefaultPrimary {
@@ -1821,6 +1992,15 @@ declare module '@prismicio/client' {
       ProcessStepsSliceDefaultPrimary,
       ProcessStepsSliceVariation,
       ProcessStepsSliceDefault,
+      TeamSlice,
+      TeamSliceDefaultPrimary,
+      TeamSliceDefaultItem,
+      TeamSliceVariation,
+      TeamSliceDefault,
+      TeamImagesSlice,
+      TeamImagesSliceDefaultPrimary,
+      TeamImagesSliceVariation,
+      TeamImagesSliceDefault,
       TestimonialsSlice,
       TestimonialsSliceDefaultPrimary,
       TestimonialsSliceVariation,

@@ -1,8 +1,8 @@
 {
-  "id": "content_image_text",
+  "id": "team",
   "type": "SharedSlice",
-  "name": "ContentImageText",
-  "description": "ContentImageText",
+  "name": "Team",
+  "description": "Team",
   "variations": [
     {
       "id": "default",
@@ -19,45 +19,45 @@
             "placeholder": ""
           }
         },
-        "sub_text": {
+        "description": {
           "type": "StructuredText",
           "config": {
-            "label": "Sub Text",
+            "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,list-item,o-list-item,hyperlink"
-          }
-        },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "image_align": {
-          "type": "Select",
-          "config": {
-            "label": "Image Align",
-            "placeholder": "",
-            "options": ["Left", "Right"]
+            "single": "paragraph,hyperlink,o-list-item,list-item"
           }
         }
       },
       "items": {
-        "bullet_title": {
+        "team_member_name": {
           "type": "Text",
           "config": {
-            "label": "Bullet Title",
+            "label": "Team Member Name",
             "placeholder": ""
           }
         },
-        "bullet_text": {
+        "team_member_title": {
           "type": "Text",
           "config": {
-            "label": "Bullet Text",
+            "label": "Team Member Title",
             "placeholder": ""
+          }
+        },
+        "team_member_avatar": {
+          "type": "Image",
+          "config": {
+            "label": "Team Member Avatar",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "team_member_linkedin": {
+          "type": "Link",
+          "config": {
+            "label": "Team Member LinkedIn",
+            "placeholder": "",
+            "select": null
           }
         }
       }

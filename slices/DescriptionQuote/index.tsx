@@ -38,7 +38,9 @@ const DescriptionQuote = ({ slice }: DescriptionQuoteProps): JSX.Element => {
                 field={slice.primary.description}
                 components={{
                   paragraph: ({ children }) => (
-                    <p className='text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline mb-4'>{children}</p>
+                    <p className='text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline mb-4'>
+                      {children}
+                    </p>
                   ),
                 }}
               />
