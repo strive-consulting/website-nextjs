@@ -28,7 +28,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
               <h1 className='h1 mb-4' data-aos='fade-up'>
                 {slice.primary.title}
               </h1>
-              <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
+              <p className='mb-5 text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
                 {slice.primary.sub_text}
               </p>
             </div>
@@ -106,7 +106,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                     <PrismicRichText
                       field={slice.primary.description}
                       components={{
-                        paragraph: ({ children }) => <p className='text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline' data-aos='fade-up' data-aos-delay='200'>{children}</p>,
+                        paragraph: ({ children }) => <p className='mb-5 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline' data-aos='fade-up' data-aos-delay='200'>{children}</p>,
                         // hyperlink: ({ children }) => <a className='text-xl text-gray-100 hover:underline hover:bg-purple-700'>{children}</a>,
                       }}
                     />
@@ -182,7 +182,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                     <PrismicRichText
                       field={slice.primary.description}
                       components={{
-                        paragraph: ({ children }) => <p className='mb-5 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline' data-aos='fade-up' data-aos-delay='200'>{children}</p>,
+                        paragraph: ({ children }) => <p className='mb-10 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline' data-aos='fade-up' data-aos-delay='200'>{children}</p>,
                         // hyperlink: ({ children }) => <a className='text-xl text-gray-100 hover:underline hover:bg-purple-700'>{children}</a>,
                       }}
                     />
