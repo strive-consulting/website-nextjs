@@ -18,6 +18,37 @@ export async function getCmsPage(uid: string) {
   const page = await client.getByUID('servicepage', uid).catch(() => notFound())
 
   return page
+
+  //WORKS!
+  //how to fetch
+  /// ...primaryFields  //this gets all the fields of the slice. Or you can fetch each one
+  // const page = await client.getByUID('servicepage', uid, {
+  //   graphQuery: `{
+  //     servicepage {
+  //       slices {
+  //         ...on description_quote {
+  //           variation {
+  //             ...on default {
+  //               primary {
+  //                 title
+  //                 description
+  //                 quote_author {
+  //                   ...on author {
+  //                     ...authorFields
+  //                   }
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }`
+  // });
+
+  //console.log(page)
+
+  //return page
 }
 
 export async function getAllCmsPages() {
