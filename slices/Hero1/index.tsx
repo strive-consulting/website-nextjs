@@ -150,7 +150,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                       thumb={VideoThumb}
                       thumbWidth={1024}
                       thumbHeight={576}
-                      thumbAlt='Modal video thumbnail'
+                      thumbAlt='Company formation Dubai'
                       video='/videos/home_intro_3.mp4'
                       videoWidth={1920}
                       videoHeight={1080}
