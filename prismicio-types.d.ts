@@ -1123,6 +1123,16 @@ export interface DescriptionQuoteSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   quote_description: prismic.RichTextField
+
+  /**
+   * Quote Author field in *DescriptionQuote → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: description_quote.primary.quote_author
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  quote_author: prismic.ContentRelationshipField<'author'>
 }
 
 /**
@@ -1409,14 +1419,14 @@ export interface Hero1SliceDefaultPrimary {
   title: prismic.KeyTextField
 
   /**
-   * Sub Text field in *Hero1 → Primary*
+   * Description field in *Hero1 → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero1.primary.sub_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: hero1.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  sub_text: prismic.KeyTextField
+  description: prismic.RichTextField
 
   /**
    * CTA 1 Text field in *Hero1 → Primary*

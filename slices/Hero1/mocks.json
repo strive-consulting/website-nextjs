@@ -1,111 +1,117 @@
 [
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "default",
-    "primary": {
-      "title": {
-        "__TYPE__": "FieldContent",
-        "value": "discuss",
-        "type": "Text"
-      },
-      "sub_text": {
-        "__TYPE__": "FieldContent",
-        "value": "pick",
-        "type": "Text"
-      },
-      "cta_1_text": {
-        "__TYPE__": "FieldContent",
-        "value": "food",
-        "type": "Text"
-      },
-      "cta_1_link": {
-        "__TYPE__": "LinkContent",
-        "value": {
-          "__TYPE__": "ExternalLink",
-          "url": "https://prismic.io"
-        }
-      },
-      "cta_2_text": {
-        "__TYPE__": "FieldContent",
-        "value": "trade",
-        "type": "Text"
-      },
-      "cta_2_link": {
-        "__TYPE__": "LinkContent",
-        "value": {
-          "__TYPE__": "ExternalLink",
-          "url": "http://google.com"
-        }
-      },
-      "body_image": {
-        "origin": {
-          "id": "main",
-          "url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
-          "width": 4480,
-          "height": 4480
-        },
-        "url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
-        "width": 4480,
-        "height": 4480,
-        "edit": {
-          "zoom": 1,
-          "crop": {
-            "x": 0,
-            "y": 0
-          },
-          "background": "transparent"
-        },
-        "credits": null,
-        "alt": null,
-        "__TYPE__": "ImageContent",
-        "thumbnails": {}
-      },
-      "align": {
-        "__TYPE__": "FieldContent",
-        "value": "Left",
-        "type": "Select"
-      },
-      "show_video": {
-        "__TYPE__": "BooleanContent",
-        "value": true
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "bullet_point",
-            {
-              "__TYPE__": "FieldContent",
-              "value": "attack",
-              "type": "Text"
-            }
-          ]
-        ]
-      }
-    ]
-  },
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "simple",
-    "primary": {
-      "title": {
-        "__TYPE__": "FieldContent",
-        "value": "aloud",
-        "type": "Text"
-      },
-      "sub_text": {
-        "__TYPE__": "FieldContent",
-        "value": "already",
-        "type": "Text"
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  }
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "discuss",
+				"type": "Text"
+			},
+			"cta_1_text": {
+				"__TYPE__": "FieldContent",
+				"value": "food",
+				"type": "Text"
+			},
+			"cta_1_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"cta_2_text": {
+				"__TYPE__": "FieldContent",
+				"value": "trade",
+				"type": "Text"
+			},
+			"cta_2_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			},
+			"body_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+					"width": 4480,
+					"height": 4480
+				},
+				"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+				"width": 4480,
+				"height": 4480,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"align": {
+				"__TYPE__": "FieldContent",
+				"value": "Left",
+				"type": "Select"
+			},
+			"show_video": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Mollit laboris et eiusmod fugiat. Elit do et ullamco et ipsum eu ipsum minim aute duis enim commodo laborum sit."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"bullet_point",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "attack",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "simple",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "aloud",
+				"type": "Text"
+			},
+			"sub_text": {
+				"__TYPE__": "FieldContent",
+				"value": "already",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
 ]

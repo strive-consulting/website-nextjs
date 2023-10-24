@@ -30,7 +30,7 @@ export default async function Footer() {
                 <PrismicRichText
                   field={footer.data.description}
                   components={{
-                    paragraph: ({ children }) => <p className='mb-6'>{children}</p>,
+                    paragraph: ({ children }) => <p className='mb-6 text-sm'>{children}</p>,
                   }}
                 />
               </div>

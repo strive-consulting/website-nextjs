@@ -17,7 +17,10 @@
           "config": {
             "label": "Title Align",
             "placeholder": "",
-            "options": ["Left", "Center"]
+            "options": [
+              "Left",
+              "Center"
+            ]
           }
         },
         "title": {
@@ -27,11 +30,13 @@
             "placeholder": ""
           }
         },
-        "sub_text": {
-          "type": "Text",
+        "description": {
+          "type": "StructuredText",
           "config": {
-            "label": "Sub Text",
-            "placeholder": ""
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,hyperlink"
           }
         },
         "cta_1_text": {

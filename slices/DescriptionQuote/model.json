@@ -25,7 +25,7 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,list-item,o-list-item"
+            "multi": "paragraph,list-item,o-list-item,hyperlink"
           }
         },
         "quote_author_name": {
@@ -57,6 +57,16 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,list-item,o-list-item"
+          }
+        },
+        "quote_author": {
+          "type": "Link",
+          "config": {
+            "label": "Quote Author",
+            "select": "document",
+            "customtypes": [
+              "author"
+            ]
           }
         }
       },

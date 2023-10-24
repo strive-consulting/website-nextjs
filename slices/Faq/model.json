@@ -34,7 +34,7 @@
             "label": "Answer",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong,hyperlink"
           }
         }
       }

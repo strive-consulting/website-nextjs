@@ -25,7 +25,7 @@
             "label": "Sub Text",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,list-item,o-list-item,strong"
+            "multi": "paragraph,strong,list-item,o-list-item,hyperlink"
           }
         },
         "image": {
@@ -41,7 +41,10 @@
           "config": {
             "label": "Image Align",
             "placeholder": "",
-            "options": ["Left", "Right"]
+            "options": [
+              "Left",
+              "Right"
+            ]
           }
         }
       },

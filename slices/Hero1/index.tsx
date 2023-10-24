@@ -2,7 +2,7 @@ import ModalVideo from '@/components/modal-video'
 import TickIcon from '@/components/tickIcon'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
-import { SliceComponentProps } from '@prismicio/react'
+import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
 import VideoThumb from '@/public/videos/video_thumb.png'
 
 export enum TitleAlign {
@@ -100,9 +100,16 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                     <h1 className='h1 mb-4' data-aos='fade-up'>
                       {slice.primary.title}
                     </h1>
-                    <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
+                    {/* <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
                       {slice.primary.sub_text}
-                    </p>
+                    </p> */}
+                    <PrismicRichText
+                      field={slice.primary.description}
+                      components={{
+                        paragraph: ({ children }) => <p className='text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline' data-aos='fade-up' data-aos-delay='200'>{children}</p>,
+                        // hyperlink: ({ children }) => <a className='text-xl text-gray-100 hover:underline hover:bg-purple-700'>{children}</a>,
+                      }}
+                    />
                   </div>
 
                   {/* CTA */}
@@ -165,13 +172,20 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                     <h1 className='h1 mb-4' data-aos='fade-up'>
                       {slice.primary.title}
                     </h1>
-                    <p
+                    {/* <p
                       className='text-xl text-gray-400 mb-8'
                       data-aos='fade-up'
                       data-aos-delay='200'
                     >
                       {slice.primary.sub_text}
-                    </p>
+                    </p> */}
+                    <PrismicRichText
+                      field={slice.primary.description}
+                      components={{
+                        paragraph: ({ children }) => <p className='mb-5 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline' data-aos='fade-up' data-aos-delay='200'>{children}</p>,
+                        // hyperlink: ({ children }) => <a className='text-xl text-gray-100 hover:underline hover:bg-purple-700'>{children}</a>,
+                      }}
+                    />
                   </div>
                   <div className='w-full md:w-1/3 md:ml-20 md:pt-20'>
                     {slice.items && (

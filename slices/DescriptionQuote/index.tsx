@@ -33,13 +33,13 @@ const DescriptionQuote = ({ slice }: DescriptionQuoteProps): JSX.Element => {
                 field={slice.primary.description}
                 components={{
                   paragraph: ({ children }) => (
-                    <p className='text-xl text-gray-400 mb-4'>{children}</p>
+                    <p className='text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline mb-4'>{children}</p>
                   ),
                 }}
               />
             </div>
           </div>
-          <div className='order-2 md:order-2 md:col-span-5'>
+          <div className='order-2 md:order-2 md:col-span-5 pt-10'>
             <div
               className='max-w-xl md:max-w-none md:w-full mx-auto col-span-12 md:col-span-5 lg:col-span-5 mb-8 md:mb-0 sm:order-2'
               data-aos='fade-up'
