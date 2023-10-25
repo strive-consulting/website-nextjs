@@ -30,6 +30,10 @@ const routes: prismic.ClientConfig['routes'] = [
     type: 'servicepage',
     path: '/:uid',
   },
+  {
+    type: 'blog_post',
+    path: '/blog/:uid',
+  },
   // Examples:
   // {
   // 	type: "homepage",
