@@ -23,9 +23,9 @@ export default function News() {
           {/* Articles list */}
           <div className='max-w-sm mx-auto md:max-w-none'>
             <div className='grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start'>
-              {posts.map((post, postIndex) => (
+              {/* {posts.map((post, postIndex) => (
                 <PostItem key={postIndex} {...post} />
-              ))}
+              ))} */}
             </div>
           </div>
         </div>
