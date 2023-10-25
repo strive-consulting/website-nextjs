@@ -34,12 +34,37 @@ export const metadata: Metadata = {
 export default function DefaultLayout({ children }: { children: React.ReactNode }) {
   let schemaOrg = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': ['Organization', 'LegalService'],
     url: Constants.SiteDomain,
     name: Constants.SiteTitle,
+    description:
+      'Dubai company formation consultancy based in the UAE. We help businesses of all sizes to set up and operate in the UAE. We offer a wide range of services, including company registration, visa processing, business setup consulting, and accounting.',
+    email: 'info@strive.ae',
+    phone: '+971581073581',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '21314-001 IFZA Business Park',
+      addressLocality: 'Dubai',
+      addressRegion: 'AE',
+      addressCountry: 'United Arab Emirates',
+    },
+    openingHours: 'Mo,Tu,We,Th,Fr 09:00-18:00',
+    sameAs: [
+      'https://www.facebook.com/strivedubai',
+      'https://www.instagram.com/strive_dubai/',
+      'https://www.linkedin.com/company/strive-consultants/',
+    ],
+    industry: 'Legal Services',
+    serviceArea: 'United Arab Emirates',
+    serviceOfferings: [
+      'Company Registration',
+      'Visa Processing',
+      'Business Setup Consulting',
+      'Accounting',
+    ],
     logo: {
       '@type': 'ImageObject',
-      url: Constants.SiteDomain + Constants.OpenGraphImage,
+      url: Constants.SiteDomain + '/' + Constants.OpenGraphImage,
       height: 60,
       width: 60,
     },
@@ -53,7 +78,7 @@ export default function DefaultLayout({ children }: { children: React.ReactNode 
     encoding: 'UTF-8',
     image: {
       '@type': 'ImageObject',
-      url: Constants.SiteDomain + Constants.OpenGraphImage,
+      url: Constants.SiteDomain + '/' + Constants.OpenGraphImage,
       height: 60,
       width: 60,
     },
