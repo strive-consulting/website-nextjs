@@ -107,7 +107,7 @@ export default async function Blog({ params }: { params: { pagenum: string } }) 
                       }}
                     />
 
-                    <footer className='flex items-center mt-4'>
+                    {/* <footer className='flex items-center mt-4'>
                       <Link href='#'>
                         <PrismicImage
                           className='rounded-full shrink-0 mr-4'
@@ -132,7 +132,7 @@ export default async function Blog({ params }: { params: { pagenum: string } }) 
                           />
                         </span>
                       </div>
-                    </footer>
+                    </footer> */}
                   </div>
                 </article>
               </div>

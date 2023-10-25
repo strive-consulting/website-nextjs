@@ -99,7 +99,7 @@ export default async function Blog() {
                     }}
                   />
 
-                  <footer className='flex items-center mt-4'>
+                  {/* <footer className='flex items-center mt-4'>
                     <Link href='#'>
                       <PrismicImage
                         className='rounded-full shrink-0 mr-4'
@@ -122,7 +122,7 @@ export default async function Blog() {
                         <PostDate dateString={featuredPost.data.published_date?.toString() || ''} />
                       </span>
                     </div>
-                  </footer>
+                  </footer> */}
                 </div>
               </article>
             </div>

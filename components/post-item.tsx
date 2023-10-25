@@ -73,7 +73,7 @@ export default function PostItem({ post }: Props) {
           paragraph: ({ children }) => <p className='text-lg text-gray-400 grow'>{children}</p>,
         }}
       />
-      <footer className='flex items-center mt-4'>
+      {/* <footer className='flex items-center mt-4'>
         <Link href='#'>
           <PrismicImage
             className='rounded-full shrink-0 mr-4'
@@ -82,7 +82,6 @@ export default function PostItem({ post }: Props) {
             height={40}
           />
         </Link>
-        {/* {loadAuthor(post)} */}
         <div className='font-medium'>
           <Link
             href='#'
@@ -95,7 +94,7 @@ export default function PostItem({ post }: Props) {
             <PostDate dateString={post.data.published_date?.toString() || ''} />
           </span>
         </div>
-      </footer>
+      </footer> */}
     </article>
   )
 }
