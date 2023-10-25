@@ -6,32 +6,45 @@ import Image from 'next/image'
 import PostDate from '@/components/post-date'
 import PostTags from '@/components/post-tags'
 import { PostMdx } from '@/components/mdx/post-mdx'
+import { getBlogPost, getBlogPostsAll } from '@/lib/cms'
+
+// export async function generateStaticParams() {
+//   return allPosts.map((post) => ({
+//     slug: post.slug,
+//   }))
+// }
 
 export async function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post.slug,
-  }))
+  const pages = await getBlogPostsAll()
+
+  return pages.map((page) => {
+    return { slug: page.uid }
+  })
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string }
-}): Promise<Metadata | undefined> {
-  const post = allPosts.find((post) => post.slug === params.slug)
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: { slug: string }
+// }): Promise<Metadata | undefined> {
+//   const post = allPosts.find((post) => post.slug === params.slug)
 
-  if (!post) return
+//   if (!post) return
 
-  const { title, summary: description } = post
+//   const { title, summary: description } = post
 
-  return {
-    title,
-    description,
-  }
-}
+//   return {
+//     title,
+//     description,
+//   }
+// }
 
 export default async function SinglePost({ params }: { params: { slug: string } }) {
-  const post = allPosts.find((post) => post.slug === params.slug)
+  // const post = allPosts.find((post) => post.slug === params.slug)
+
+  const post = await getBlogPost(params.slug)
+
+  console.log(post)
 
   if (!post) notFound()
 
@@ -45,10 +58,11 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                 {/* Title and excerpt */}
                 <div className='text-center md:text-left'>
                   <h1 className='h1 mb-4' data-aos='fade-up'>
-                    {post.title}
+                    {post.data.title}
                   </h1>
                   <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
-                    {post.summary}
+                    intro
+                    {/* {post.data.introduction} */}
                   </p>
                 </div>
                 {/* Article meta */}
@@ -59,7 +73,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                     data-aos='fade-up'
                     data-aos-delay='400'
                   >
-                    <Link href='#'>
+                    {/* <Link href='#'>
                       <Image
                         className='rounded-full shrink-0 mr-4'
                         src={post.authorImg}
@@ -67,8 +81,8 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                         height={40}
                         alt={post.author}
                       />
-                    </Link>
-                    <div>
+                    </Link> */}
+                    {/* <div>
                       <Link
                         href='#'
                         className='font-medium text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out'
@@ -79,7 +93,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                       <span className='text-gray-500'>
                         <PostDate dateString={post.publishedAt} />
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                   {/* Article tags */}
                   {post.tags && (
@@ -95,7 +109,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
               </header>
 
               {/* Article image */}
-              {post.image && (
+              {/* {post.image && (
                 <figure
                   className='mb-8 lg:-ml-32 lg:-mr-32'
                   data-aos='fade-up'
@@ -110,10 +124,10 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                     priority
                   />
                 </figure>
-              )}
+              )} */}
 
               {/* Article content */}
-              <PostMdx code={post.body.code} />
+              {/* <PostMdx code={post.body.code} /> */}
 
               {/* Article footer */}
               <footer>

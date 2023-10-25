@@ -27,34 +27,6 @@
           "placeholder": ""
         }
       },
-      "meta_title": {
-        "type": "Text",
-        "config": {
-          "label": "Meta Title",
-          "placeholder": ""
-        }
-      },
-      "meta_description": {
-        "type": "Text",
-        "config": {
-          "label": "Meta Description",
-          "placeholder": ""
-        }
-      },
-      "meta_keywords": {
-        "type": "Text",
-        "config": {
-          "label": "Meta Keywords",
-          "placeholder": ""
-        }
-      },
-      "introduction_header": {
-        "type": "Text",
-        "config": {
-          "label": "Introduction Header",
-          "placeholder": ""
-        }
-      },
       "introduction": {
         "type": "StructuredText",
         "config": {
@@ -81,6 +53,13 @@
           "thumbnails": []
         }
       },
+      "youtube_video": {
+        "type": "Embed",
+        "config": {
+          "label": "YouTube Video",
+          "placeholder": ""
+        }
+      },
       "author": {
         "type": "Link",
         "config": {
@@ -89,18 +68,27 @@
           "customtypes": ["author"]
         }
       },
-      "youtube_video": {
-        "type": "Embed",
-        "config": {
-          "label": "YouTube Video",
-          "placeholder": ""
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {}
+        }
+      }
+    },
+    "Meta": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": ""
         }
       }
     }

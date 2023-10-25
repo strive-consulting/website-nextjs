@@ -80,3 +80,58 @@ export async function getBlogPosts() {
 
   return blogPosts
 }
+
+export async function getBlogPostsPaged(pagenum: number = 1) {
+  const client = createClient()
+
+  const communityPosts = await client.getByType('blog_post', {
+    fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+    orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
+
+    // predicates: [predicate.at("my.community.most_popular",
+    // {
+    //   { orderings : '[document.first_publication_date desc]' }
+    // })],
+    pageSize: 4,
+    page: pagenum,
+  })
+
+  //   Note, non paged
+  // const popularPosts = await client.getAllByType("community", {
+  //   predicates: [predicate.at("my.community.most_popular", true)],
+  //   orderings: [{ field: "my.community.published_date", direction: "desc" }],
+  // });
+
+  // console.log(communityPosts.results);
+
+  return {
+    generalPosts: communityPosts.results,
+    // popularPosts,
+
+    active_page: pagenum,
+    total_pages: communityPosts.total_pages,
+    next_page: communityPosts.next_page ? true : false,
+    prev_page: communityPosts.prev_page ? true : false,
+  }
+}
+
+export async function getBlogPost(name: string) {
+  const client = createClient()
+
+  const communityPost = await client.getByUID('blog_post', name, {
+    fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+  })
+
+  return communityPost
+}
+
+export async function getBlogPostsAll() {
+  const client = createClient()
+
+  const communityPosts = await client.getByType('blog_post', {
+    fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+    orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
+  })
+
+  return communityPosts.results
+}

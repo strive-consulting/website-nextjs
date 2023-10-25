@@ -3,9 +3,9 @@ import Link from 'next/link'
 export default function PostTags({ tags }: { tags: string[] }) {
   const tagColor = (tag: string) => {
     switch (tag) {
-      case 'Engineering':
+      case 'Tax':
         return 'text-gray-100 bg-blue-500 hover:bg-blue-600'
-      case 'Design':
+      case 'Education':
         return 'text-gray-100 bg-pink-500 hover:bg-pink-600'
       case 'Tutorials and articles':
         return 'text-gray-100 bg-teal-500 hover:bg-teal-600'

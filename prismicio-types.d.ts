@@ -4,71 +4,6 @@ import type * as prismic from '@prismicio/client'
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
-type AboutDocumentDataSlicesSlice = never
-
-/**
- * Content for About documents
- */
-interface AboutDocumentData {
-  /**
-   * Slice Zone field in *About*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice>
-  /**
-   * Meta Description field in *About*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: about.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  meta_description: prismic.RichTextField
-
-  /**
-   * Meta Image field in *About*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>
-
-  /**
-   * Meta Title field in *About*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: about.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField
-}
-
-/**
- * About document from Prismic
- *
- * - **API ID**: `about`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type AboutDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
-  Simplify<AboutDocumentData>,
-  'about',
-  Lang
->
-
 /**
  * Content for Author documents
  */
@@ -215,50 +150,6 @@ interface BlogPostDocumentData {
   published_date: prismic.DateField
 
   /**
-   * Meta Title field in *Blog Post*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog_post.meta_title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField
-
-  /**
-   * Meta Description field in *Blog Post*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog_post.meta_description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField
-
-  /**
-   * Meta Keywords field in *Blog Post*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog_post.meta_keywords
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_keywords: prismic.KeyTextField
-
-  /**
-   * Introduction Header field in *Blog Post*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog_post.introduction_header
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  introduction_header: prismic.KeyTextField
-
-  /**
    * Introduction field in *Blog Post*
    *
    * - **Field Type**: Rich Text
@@ -292,17 +183,6 @@ interface BlogPostDocumentData {
   image: prismic.ImageField<never>
 
   /**
-   * Author field in *Blog Post*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog_post.author
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  author: prismic.ContentRelationshipField<'author'>
-
-  /**
    * YouTube Video field in *Blog Post*
    *
    * - **Field Type**: Embed
@@ -314,6 +194,17 @@ interface BlogPostDocumentData {
   youtube_video: prismic.EmbedField
 
   /**
+   * Author field in *Blog Post*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  author: prismic.ContentRelationshipField<'author'>
+
+  /**
    * Slice Zone field in *Blog Post*
    *
    * - **Field Type**: Slice Zone
@@ -323,6 +214,27 @@ interface BlogPostDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice>
+  /**
+   * Meta Title field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.meta_title
+   * - **Tab**: Meta
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.meta_description
+   * - **Tab**: Meta
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
 }
 
 /**
@@ -869,7 +781,6 @@ export type TestimonialDocument<Lang extends string = string> = prismic.PrismicD
 >
 
 export type AllDocumentTypes =
-  | AboutDocument
   | AuthorDocument
   | BankDocument
   | BlogPostDocument
@@ -1925,9 +1836,6 @@ declare module '@prismicio/client' {
 
   namespace Content {
     export type {
-      AboutDocument,
-      AboutDocumentData,
-      AboutDocumentDataSlicesSlice,
       AuthorDocument,
       AuthorDocumentData,
       BankDocument,

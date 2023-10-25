@@ -11,19 +11,20 @@ export const metadata = {
 }
 
 import Newsletter from '@/components/newsletter'
-import { getBlogPosts } from '@/lib/cms'
+import { getBlogPosts, getBlogPostsPaged } from '@/lib/cms'
 import { PrismicImage, PrismicRichText } from '@prismicio/react'
+import BlogPagination from '@/components/blog-pagination'
 
 export default async function Blog() {
-  const blogPosts = await getBlogPosts()
+  const blogPosts = await getBlogPostsPaged()
 
   // Sort posts by date
   // allPosts.sort((a, b) => {
   //   return new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1
   // })
 
-  const featuredPost = blogPosts[0] //allPosts[0]
-  const posts = blogPosts //.slice[1];//allPosts.slice(1)
+  const featuredPost = blogPosts.generalPosts[0]
+  const posts = blogPosts.generalPosts.slice(1)
 
   return (
     <>
@@ -60,7 +61,7 @@ export default async function Blog() {
                           height='303'
                         />
                       )}
-                      {featuredPost.data.youtube_video && (
+                      {featuredPost.data.youtube_video.embed_url != null && (
                         <Image
                           alt={featuredPost.data.youtube_video.title ?? ''}
                           src={featuredPost.data.youtube_video.thumbnail_url ?? ''}
@@ -99,28 +100,26 @@ export default async function Blog() {
                   />
 
                   <footer className='flex items-center mt-4'>
-                    {/* <Link href='#'>
+                    <Link href='#'>
                       <PrismicImage
                         className='rounded-full shrink-0 mr-4'
-                        field={featuredPost.authorImg}
+                        field={featuredPost.data.author.data?.avatar}
                         width={40}
                         height={40}
-                        alt={featuredPost.author}
                       />
-                    </Link> */}
+                    </Link>
 
                     <div>
                       <Link
                         href='#'
                         className='font-medium text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out'
                       >
-                        author
-                        {/* {featuredPost.author} */}
+                        {featuredPost.data.author.data?.name}
                       </Link>
                       <span className='text-gray-700'> - </span>
                       <span className='text-gray-500'>
                         date
-                        {/* <PostDate dateString={featuredPost.data.published_date} /> */}
+                        <PostDate dateString={featuredPost.data.published_date?.toString() || ''} />
                       </span>
                     </div>
                   </footer>
@@ -136,72 +135,14 @@ export default async function Blog() {
               </h4>
 
               {/*  Articles container */}
-              {/* <div className='grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start'>
+              <div className='grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start'>
                 {posts.map((post, postIndex) => (
-                  <PostItem key={postIndex} {...post} />
+                  <PostItem key={postIndex} post={post} />
                 ))}
-              </div> */}
+              </div>
             </div>
 
-            {/*  Pagination */}
-            <nav
-              className='flex justify-center pt-16'
-              role='navigation'
-              aria-label='Pagination Navigation'
-            >
-              <ul className='inline-flex flex-wrap font-medium text-sm -m-1'>
-                <li className='m-1'>
-                  <span className='inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-4 rounded-full text-gray-500'>
-                    Prev
-                  </span>
-                </li>
-                <li className='m-1'>
-                  <Link
-                    href='#'
-                    className='inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-purple-600 transition-colors duration-150 ease-in-out'
-                  >
-                    1
-                  </Link>
-                </li>
-                <li className='m-1'>
-                  <Link
-                    href='#'
-                    className='inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-purple-600 transition-colors duration-150 ease-in-out'
-                  >
-                    2
-                  </Link>
-                </li>
-                <li className='m-1'>
-                  <Link
-                    href='#'
-                    className='inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-purple-600 transition-colors duration-150 ease-in-out'
-                  >
-                    3
-                  </Link>
-                </li>
-                <li className='m-1'>
-                  <span className='inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-2 rounded-full text-gray-500'>
-                    ...
-                  </span>
-                </li>
-                <li className='m-1'>
-                  <Link
-                    href='#'
-                    className='inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-purple-600 transition-colors duration-150 ease-in-out'
-                  >
-                    12
-                  </Link>
-                </li>
-                <li className='m-1'>
-                  <Link
-                    href='#'
-                    className='inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-4 rounded-full text-gray-300 hover:bg-purple-600 transition-colors duration-150 ease-in-out'
-                  >
-                    Next
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+            <BlogPagination totalpages={blogPosts.total_pages} activepage={blogPosts.active_page} />
           </div>
         </div>
       </section>

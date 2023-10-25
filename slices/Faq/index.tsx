@@ -12,22 +12,21 @@ export type FaqProps = SliceComponentProps<Content.FaqSlice>
  * Component for "Faq" Slices.
  */
 const Faq = ({ slice }: FaqProps): JSX.Element => {
-
-  const questionAnswers = slice.items?.map(item => {
+  const questionAnswers = slice.items?.map((item) => {
     return {
       '@type': 'Question',
       name: item.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        'text': item.answer,
-      }
+        text: item.answer,
+      },
     }
-  });
+  })
 
   let schemaFaq = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: questionAnswers
+    mainEntity: questionAnswers,
   }
 
   return (
