@@ -1,18 +1,11 @@
 import type { Metadata } from 'next'
-import { allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import Image from 'next/image'
-import PostDate from '@/components/post-date'
 import PostTags from '@/components/post-tags'
-import { PostMdx } from '@/components/mdx/post-mdx'
 import { getBlogPost, getBlogPostsAll } from '@/lib/cms'
-
-// export async function generateStaticParams() {
-//   return allPosts.map((post) => ({
-//     slug: post.slug,
-//   }))
-// }
+import { PrismicImage, PrismicRichText } from '@prismicio/react'
+import { Constants } from '@/app/constants'
+import { linkResolver } from '@/prismicio'
+import SchemaTag from '@/components/schema'
 
 export async function generateStaticParams() {
   const pages = await getBlogPostsAll()
@@ -22,31 +15,64 @@ export async function generateStaticParams() {
   })
 }
 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: { slug: string }
-// }): Promise<Metadata | undefined> {
-//   const post = allPosts.find((post) => post.slug === params.slug)
-
-//   if (!post) return
-
-//   const { title, summary: description } = post
-
-//   return {
-//     title,
-//     description,
-//   }
-// }
-
-export default async function SinglePost({ params }: { params: { slug: string } }) {
-  // const post = allPosts.find((post) => post.slug === params.slug)
-
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
   const post = await getBlogPost(params.slug)
 
-  console.log(post)
+  return {
+    title: post.data.meta_title,
+    description: post.data.meta_description,
+    alternates: {
+      canonical: Constants.SiteDomain + linkResolver(post),
+    },
+    openGraph: {
+      title: post.data.meta_title ?? Constants.SiteTitle,
+      description: post.data.meta_description ?? Constants.SiteDescription,
+      images: [Constants.SiteDomain + Constants.OpenGraphImage],
+      url: Constants.SiteDomain + linkResolver(post),
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.data.meta_title ?? Constants.SiteTitle,
+      description: post.data.meta_description ?? Constants.SiteDescription,
+      siteId: '',
+      images: [Constants.SiteDomain + Constants.OpenGraphImage],
+    },
+  }
+}
+
+export default async function SinglePost({ params }: { params: { slug: string } }) {
+  const post = await getBlogPost(params.slug)
 
   if (!post) notFound()
+
+  let schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': Constants.SiteDomain + linkResolver(post),
+    },
+    headline: post.data.meta_title,
+    description: post.data.meta_description,
+    image: post.data.youtube_video?.thumbnail_url,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Strive',
+      logo: {
+        '@type': 'ImageObject',
+        url: Constants.SiteDomain + '/' + Constants.OpenGraphImage,
+        height: 60,
+        width: 60,
+      },
+    },
+    datePublished: post.data.published_date,
+    dateModified: post.data.published_date,
+  }
 
   return (
     <section className='relative'>
@@ -60,10 +86,20 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                   <h1 className='h1 mb-4' data-aos='fade-up'>
                     {post.data.title}
                   </h1>
-                  <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
-                    intro
-                    {/* {post.data.introduction} */}
-                  </p>
+                  <PrismicRichText
+                    field={post.data.introduction}
+                    components={{
+                      paragraph: ({ children }) => (
+                        <p
+                          className='text-xl text-gray-400'
+                          data-aos='fade-up'
+                          data-aos-delay='200'
+                        >
+                          {children}
+                        </p>
+                      ),
+                    }}
+                  />
                 </div>
                 {/* Article meta */}
                 <div className='md:flex md:items-center md:justify-between mt-3'>
@@ -109,28 +145,47 @@ export default async function SinglePost({ params }: { params: { slug: string } 
               </header>
 
               {/* Article image */}
-              {/* {post.image && (
+              {post.data.image && (
                 <figure
                   className='mb-8 lg:-ml-32 lg:-mr-32'
                   data-aos='fade-up'
                   data-aos-delay='600'
                 >
-                  <Image
+                  <PrismicImage
                     className='w-full'
-                    src={post.image}
+                    field={post.data.image}
                     width={1024}
                     height={576}
-                    alt={post.title}
-                    priority
                   />
                 </figure>
-              )} */}
+              )}
+              {post.data.youtube_video.embed_url != null && (
+                <div className='relative videoWrapper'>
+                  <iframe
+                    className='absolute top-0 left-0 w-full h-full'
+                    src={post.data.youtube_video.embed_url.replace('watch?v=', 'embed/')}
+                    title={post.data.title?.toString()}
+                    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                    allowFullScreen={true}
+                  ></iframe>
+                </div>
+              )}
 
-              {/* Article content */}
-              {/* <PostMdx code={post.body.code} /> */}
+              <PrismicRichText
+                field={post.data.body}
+                components={{
+                  heading2: ({ children }) => <h2 className='h3 my-5'>{children}</h2>,
+                  heading3: ({ children }) => <h3 className='h4 my-5'>{children}</h3>,
+                  paragraph: ({ children }) => (
+                    <p className='prose text-gray-400 max-w-none prose-lg prose-invert prose-p:leading-normal prose-headings:text-gray-200 prose-a:text-gray-200 prose-a:underline hover:prose-a:no-underline prose-a:font-normal prose-strong:font-medium prose-strong:text-gray-200 prose-blockquote:italic prose-blockquote:pl-4 prose-blockquote:border-l-2 prose-blockquote:border-gray-200 prose-blockquote:font-normal prose-blockquote:text-gray-400'>
+                      {children}
+                    </p>
+                  ),
+                }}
+              />
 
               {/* Article footer */}
-              <footer>
+              {/* <footer>
                 <div className='md:flex md:items-center md:justify-between text-center md:text-left'>
                   <div className='text-lg text-gray-400 italic'>
                     Originally published at{' '}
@@ -184,11 +239,13 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                     </li>
                   </ul>
                 </div>
-              </footer>
+              </footer> */}
             </article>
           </div>
         </div>
       </div>
+
+      <SchemaTag schemaJson={schema} />
     </section>
   )
 }

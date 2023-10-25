@@ -13,6 +13,8 @@ export function linkResolver(doc: any) {
     //   return "/blog/" + doc.uid;
     case 'servicepage':
       return `/${doc.uid}`
+    case 'blog_post':
+      return `/blog/${doc.uid}`
     default:
       return null
   }
