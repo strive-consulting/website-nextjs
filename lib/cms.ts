@@ -85,7 +85,7 @@ export async function getBlogPostsPaged(pagenum: number = 1) {
   const client = createClient()
 
   const communityPosts = await client.getByType('blog_post', {
-    fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+    fetchLinks: ["author.name", "author.job_title", "author.avatar", "author.linkedin_url"],
     orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
 
     // predicates: [predicate.at("my.community.most_popular",
@@ -116,22 +116,22 @@ export async function getBlogPostsPaged(pagenum: number = 1) {
 }
 
 export async function getBlogPost(name: string) {
-  const client = createClient()
+  const client = createClient();
 
-  const communityPost = await client.getByUID('blog_post', name, {
-    fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
-  })
+  const communityPost = await client.getByUID("blog_post", name, {
+    fetchLinks: ["author.name", "author.job_title", "author.avatar", "author.linkedin_url"],
+  });
 
-  return communityPost
+  return communityPost;
 }
 
 export async function getBlogPostsAll() {
   const client = createClient()
 
   const communityPosts = await client.getByType('blog_post', {
-    fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+    fetchLinks: ["author.name", "author.job_title", "author.avatar", "author.linkedin_url"],
     orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
   })
 
-  return communityPosts.results
+  return communityPosts.results;  
 }
