@@ -1,30 +1,53 @@
-// import { allPosts } from 'contentlayer/generated'
 import Link from 'next/link'
 import Image from 'next/image'
-import PostDate from '@/components/post-date'
 import PostTags from '@/components/post-tags'
 import PostItem from '@/components/post-item'
 
-export const metadata = {
-  title: 'Blog - Open PRO',
-  description: 'Page description',
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Blog - Business Setup in Dubai, UAE',
+    description: 'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+    alternates: {
+      canonical: Constants.SiteDomain + '/blog',
+    },
+    openGraph: {
+      title: 'Blog - Business Setup in Dubai, UAE',
+      description: 'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+      images: [Constants.SiteDomain + Constants.OpenGraphImage],
+      url: Constants.SiteDomain + '/blog',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Blog - Business Setup in Dubai, UAE',
+      description: 'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+      siteId: '',
+      images: [Constants.SiteDomain + Constants.OpenGraphImage],
+    },
+  }
 }
 
-import Newsletter from '@/components/newsletter'
-import { getBlogPosts, getBlogPostsPaged } from '@/lib/cms'
+import { getBlogPostsPaged } from '@/lib/cms'
 import { PrismicImage, PrismicRichText } from '@prismicio/react'
 import BlogPagination from '@/components/blog-pagination'
+import BlogPostAuthorFooter from '@/components/blog-post-author-footer'
+import { Metadata } from 'next'
+import { Constants } from '@/app/constants'
+import { linkResolver } from '@/prismicio'
+import SchemaTag from '@/components/schema'
 
 export default async function Blog() {
   const blogPosts = await getBlogPostsPaged()
-
-  // Sort posts by date
-  // allPosts.sort((a, b) => {
-  //   return new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1
-  // })
-
   const featuredPost = blogPosts.generalPosts[0]
   const posts = blogPosts.generalPosts.slice(1)
+
+  let schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    url: Constants.SiteDomain + '/blog',
+    name: 'Blog - Business Setup in Dubai, UAE',
+  }
+
 
   return (
     <>
@@ -98,31 +121,7 @@ export default async function Blog() {
                       ),
                     }}
                   />
-
-                  {/* <footer className='flex items-center mt-4'>
-                    <Link href='#'>
-                      <PrismicImage
-                        className='rounded-full shrink-0 mr-4'
-                        field={featuredPost.data.author.data?.avatar}
-                        width={40}
-                        height={40}
-                      />
-                    </Link>
-
-                    <div>
-                      <Link
-                        href='#'
-                        className='font-medium text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out'
-                      >
-                        {featuredPost.data.author.data?.name}
-                      </Link>
-                      <span className='text-gray-700'> - </span>
-                      <span className='text-gray-500'>
-                        date
-                        <PostDate dateString={featuredPost.data.published_date?.toString() || ''} />
-                      </span>
-                    </div>
-                  </footer> */}
+                  <BlogPostAuthorFooter post={featuredPost}/>
                 </div>
               </article>
             </div>
@@ -145,8 +144,9 @@ export default async function Blog() {
             <BlogPagination totalpages={blogPosts.total_pages} activepage={blogPosts.active_page} />
           </div>
         </div>
+
+        <SchemaTag schemaJson={schema} />
       </section>
-      {/* <Newsletter /> */}
     </>
   )
 }

@@ -1,5 +1,3 @@
-// import Pagination from "react-bootstrap/Pagination";
-
 import Link from 'next/link'
 
 interface Props {
