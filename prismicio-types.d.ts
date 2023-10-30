@@ -619,6 +619,7 @@ export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumen
 >
 
 type ServicepageDocumentDataSlicesSlice =
+  | BlogFeedSlice
   | TeamImagesSlice
   | TeamSlice
   | ContentImageTextSlice
@@ -790,6 +791,68 @@ export type AllDocumentTypes =
   | QuoteDocument
   | ServicepageDocument
   | TestimonialDocument
+
+/**
+ * Primary content in *BlogFeed → Primary*
+ */
+export interface BlogFeedSliceDefaultPrimary {
+  /**
+   * Title field in *BlogFeed → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_feed.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *BlogFeed → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_feed.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Number to show field in *BlogFeed → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_feed.primary.number_to_show
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  number_to_show: prismic.SelectField<'3' | '6' | '9'>
+}
+
+/**
+ * Default variation for BlogFeed Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogFeedSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<BlogFeedSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *BlogFeed*
+ */
+type BlogFeedSliceVariation = BlogFeedSliceDefault
+
+/**
+ * BlogFeed Shared Slice
+ *
+ * - **API ID**: `blog_feed`
+ * - **Description**: BlogFeed
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogFeedSlice = prismic.SharedSlice<'blog_feed', BlogFeedSliceVariation>
 
 /**
  * Primary content in *ContentImageText → Primary*
@@ -1832,6 +1895,10 @@ declare module '@prismicio/client' {
       TestimonialDocument,
       TestimonialDocumentData,
       AllDocumentTypes,
+      BlogFeedSlice,
+      BlogFeedSliceDefaultPrimary,
+      BlogFeedSliceVariation,
+      BlogFeedSliceDefault,
       ContentImageTextSlice,
       ContentImageTextSliceDefaultPrimary,
       ContentImageTextSliceDefaultItem,

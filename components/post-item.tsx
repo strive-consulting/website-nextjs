@@ -7,8 +7,9 @@ import BlogPostAuthorFooter from './blog-post-author-footer'
 
 interface Props {
   post: BlogPostDocument
+  mini?: boolean
 }
-export default function PostItem({ post }: Props) {
+export default function PostItem({ post, mini }: Props) {
   return (
     <article className='flex flex-col h-full' data-aos='fade-up'>
       <header>
@@ -33,7 +34,7 @@ export default function PostItem({ post }: Props) {
             )}
           </figure>
         </Link>
-        {post.tags && (
+        {!mini && post.tags && (
           <div className='mb-3'>
             <PostTags tags={post.tags} />
           </div>
@@ -47,13 +48,17 @@ export default function PostItem({ post }: Props) {
           </Link>
         </h3>
       </header>
-      <PrismicRichText
-        field={post.data.introduction}
-        components={{
-          paragraph: ({ children }) => <p className='text-lg text-gray-400 grow'>{children}</p>,
-        }}
-      />
-      <BlogPostAuthorFooter post={post} />
+      {!mini && (
+        <>
+          <PrismicRichText
+            field={post.data.introduction}
+            components={{
+              paragraph: ({ children }) => <p className='text-lg text-gray-400 grow'>{children}</p>,
+            }}
+          />
+          <BlogPostAuthorFooter post={post} />
+        </>
+      )}
     </article>
   )
 }

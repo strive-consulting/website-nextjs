@@ -1,3 +1,4 @@
+import { Divider } from '@/components/divider'
 import { icons } from '@/lib/icons'
 import { Icons } from '@/types'
 import { Content } from '@prismicio/client'
@@ -19,7 +20,8 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
   return (
     <section>
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
-        <div className='pt-10 pb-12 md:pt-16 md:pb-20'>
+        <Divider />
+        <div>
           {/* Section header */}
           <div className='max-w-3xl mx-auto text-center pb-12 md:pb-20'>
             <h2 className='h2 mb-4' data-aos='fade-up'>

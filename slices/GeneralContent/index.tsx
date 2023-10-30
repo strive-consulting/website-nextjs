@@ -12,14 +12,15 @@ export type GeneralContentProps = SliceComponentProps<Content.GeneralContentSlic
 const GeneralContent = ({ slice }: GeneralContentProps): JSX.Element => {
   return (
     <section className='relative'>
-      <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>
-        <div className='pt-1 pb-12 md:pt-1 md:pb-20'>
+      <div className='max-w-3xl mx-auto px-4 sm:px-6 relative'>
+        <div className='pt-5 pb-5'>
           <PrismicRichText
             field={slice.primary.body}
             components={{
               paragraph: ({ children }) => <p className='mb-6'>{children}</p>,
               heading2: ({ children }) => <h2 className='h2 my-6'>{children}</h2>,
               heading3: ({ children }) => <h3 className='h3 my-6'>{children}</h3>,
+              heading4: ({ children }) => <h4 className='h4 my-6'>{children}</h4>,
             }}
           />
         </div>

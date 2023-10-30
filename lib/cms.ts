@@ -85,10 +85,11 @@ export async function getBlogPosts() {
   return blogPosts
 }
 
-export async function getBlogPostsPaged(pagenum: number = 1) {
+export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number) {
   const client = createClient()
 
-  const pageSize = pagenum === 1 ? 7 : 6
+  //PageSize is only set when we are fetching a few posts for a slice.
+  pageSize = pageSize ? pageSize : pagenum === 1 ? 7 : 6
 
   const communityPosts = await client.getByType('blog_post', {
     fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],

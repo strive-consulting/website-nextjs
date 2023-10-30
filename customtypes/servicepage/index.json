@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "blog_feed": {
+              "type": "SharedSlice"
+            },
             "team_images": {
               "type": "SharedSlice"
             },

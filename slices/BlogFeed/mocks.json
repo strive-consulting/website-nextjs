@@ -1,0 +1,30 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "noted",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Excepteur labore proident occaecat minim excepteur ut nulla nulla amet ipsum excepteur. Nulla laboris elit nisi ullamco aute velit laborum nisi tempor dolore esse esse ea ad. Et duis occaecat enim anim quis id amet qui velit amet dolore Lorem nostrud nostrud sint."
+            }
+          }
+        ]
+      },
+      "number_to_show": {
+        "__TYPE__": "FieldContent",
+        "value": "6",
+        "type": "Select"
+      }
+    },
+    "items": []
+  }
+]
