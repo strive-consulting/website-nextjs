@@ -8,7 +8,7 @@ interface Props {
   name: KeyTextField
   jobTitle: KeyTextField
   quote: RichTextField
-  avatar: ImageField
+  avatar?: ImageField
 }
 
 export default async function TeamQuote({ name, jobTitle, quote, avatar }: Props) {
@@ -17,7 +17,9 @@ export default async function TeamQuote({ name, jobTitle, quote, avatar }: Props
       <div className='w-full mx-auto rounded-lg bg-gray-800 shadow-lg px-5 pt-5 pb-7 text-gray-800'>
         <div className='w-full pt-1 pb-5'>
           <div className='-mt-20 mx-auto flex justify-center'>
-            <PrismicNextImage field={avatar} className='rounded-full' width={100} height={100} />
+            {avatar && (
+              <PrismicNextImage field={avatar} className='rounded-full' width={100} height={100} />
+            )}
           </div>
         </div>
         <blockquote className='text-lg text-gray-400 grow relative'>

@@ -4,13 +4,15 @@ import PostItem from '@/components/post-item'
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Blog - Business Setup in Dubai, UAE',
-    description: 'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+    description:
+      'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
     alternates: {
       canonical: Constants.SiteDomain + '/blog',
     },
     openGraph: {
       title: 'Blog - Business Setup in Dubai, UAE',
-      description: 'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+      description:
+        'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
       images: [Constants.SiteDomain + Constants.OpenGraphImage],
       url: Constants.SiteDomain + '/blog',
       type: 'website',
@@ -18,7 +20,8 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: 'Blog - Business Setup in Dubai, UAE',
-      description: 'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+      description:
+        'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
       siteId: '',
       images: [Constants.SiteDomain + Constants.OpenGraphImage],
     },

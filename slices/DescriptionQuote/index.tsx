@@ -1,25 +1,44 @@
 import { Divider } from '@/components/divider'
 import TeamQuote from '@/components/team-quote'
 import { createClient } from '@/prismicio'
-import { AuthorDocument, AuthorDocumentData } from '@/prismicio-types'
-import { Content, ContentRelationshipField } from '@prismicio/client'
+import { AuthorDocument, AuthorDocumentData, DescriptionQuoteSlice } from '@/prismicio-types'
+import { Content, ContentRelationshipField, isFilled } from '@prismicio/client'
 import { PrismicNextLink } from '@prismicio/next'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
 import { PrismicContext } from '@prismicio/react/dist/PrismicProvider'
+import { JsxFragment } from 'typescript'
 
 /**
  * Props for `DescriptionQuote`.
  */
 export type DescriptionQuoteProps = SliceComponentProps<Content.DescriptionQuoteSlice>
 
+function loadAuthorWithQuote(slice: DescriptionQuoteSlice) {
+  if (
+    isFilled.contentRelationship<
+      'author',
+      string,
+      Pick<AuthorDocument['data'], 'name' | 'job_title' | 'linkedin_url' | 'avatar'>
+    >(slice.primary.quote_author)
+  ) {
+    //console.log("NAME", slice.primary.quote_author.data?.name)
+
+    return (
+      <TeamQuote
+        name={slice.primary.quote_author.data?.name ?? ''}
+        jobTitle={slice.primary.quote_author.data?.job_title ?? ''}
+        quote={slice.primary.quote_description}
+        avatar={slice.primary.quote_author.data?.avatar}
+      />
+    )
+  }
+
+  return <></>
+}
 /**
  * Component for "DescriptionQuote" Slices.
  */
 const DescriptionQuote = ({ slice }: DescriptionQuoteProps): JSX.Element => {
-  // console.log(slice.primary.quote_author.link_type)
-
-  // const author : AuthorDocumentData = slice.primary.quote_author;
-
   return (
     <section>
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
@@ -51,14 +70,7 @@ const DescriptionQuote = ({ slice }: DescriptionQuoteProps): JSX.Element => {
               className='max-w-xl md:max-w-none md:w-full mx-auto col-span-12 md:col-span-5 lg:col-span-5 mb-8 md:mb-0 sm:order-2'
               data-aos='fade-up'
             >
-              <TeamQuote
-                name={slice.primary.quote_author_name}
-                jobTitle={slice.primary.quote_author_job_title}
-                quote={slice.primary.quote_description}
-                avatar={slice.primary.quote_author_avatar}
-              />
-
-              {/* {slice.primary} */}
+              {loadAuthorWithQuote(slice)}
             </div>
           </div>
         </div>

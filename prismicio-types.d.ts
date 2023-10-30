@@ -998,34 +998,14 @@ export interface DescriptionQuoteSliceDefaultPrimary {
   description: prismic.RichTextField
 
   /**
-   * Quote Author Name field in *DescriptionQuote → Primary*
+   * Quote Author field in *DescriptionQuote → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: description_quote.primary.quote_author_name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: description_quote.primary.quote_author
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  quote_author_name: prismic.KeyTextField
-
-  /**
-   * Quote Author Job Title field in *DescriptionQuote → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: description_quote.primary.quote_author_job_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  quote_author_job_title: prismic.KeyTextField
-
-  /**
-   * Quote Author Avatar field in *DescriptionQuote → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: description_quote.primary.quote_author_avatar
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  quote_author_avatar: prismic.ImageField<never>
+  quote_author: prismic.ContentRelationshipField<'author'>
 
   /**
    * Quote Description field in *DescriptionQuote → Primary*
@@ -1036,16 +1016,6 @@ export interface DescriptionQuoteSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   quote_description: prismic.RichTextField
-
-  /**
-   * Quote Author field in *DescriptionQuote → Primary*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: description_quote.primary.quote_author
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  quote_author: prismic.ContentRelationshipField<'author'>
 }
 
 /**

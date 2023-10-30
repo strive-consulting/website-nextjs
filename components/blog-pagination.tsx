@@ -8,26 +8,17 @@ interface Props {
 const BlogPagination: React.FC<Props> = ({ totalpages, activepage }) => {
   let items = []
   for (let number = 1; number <= totalpages; number++) {
+    const onClass = activepage === number ? 'bg-purple-600' : ''
+
     items.push(
-      // <li key={number} className='m-1'>
-      //   <span className='inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-4 rounded-full text-gray-500'>
-      //     Prev
-      //   </span>
-      // </li>
       <li key={number} className='m-1'>
         <Link
           href={`/blog/page/${number}`}
-          className='inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-purple-600 transition-colors duration-150 ease-in-out'
+          className={`inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 ${onClass} hover:bg-purple-600 transition-colors duration-150 ease-in-out`}
         >
           {number}
         </Link>
       </li>,
-      //   <Pagination.Item
-      //     key={number}
-      //     active={number === activepage}
-      //     href={`/community/page/${number}`}>
-      //     {number}
-      //   </Pagination.Item>,
     )
   }
 

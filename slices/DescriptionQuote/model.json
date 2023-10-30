@@ -28,26 +28,12 @@
             "multi": "paragraph,list-item,o-list-item,hyperlink"
           }
         },
-        "quote_author_name": {
-          "type": "Text",
+        "quote_author": {
+          "type": "Link",
           "config": {
-            "label": "Quote Author Name",
-            "placeholder": ""
-          }
-        },
-        "quote_author_job_title": {
-          "type": "Text",
-          "config": {
-            "label": "Quote Author Job Title",
-            "placeholder": ""
-          }
-        },
-        "quote_author_avatar": {
-          "type": "Image",
-          "config": {
-            "label": "Quote Author Avatar",
-            "constraint": {},
-            "thumbnails": []
+            "label": "Quote Author",
+            "select": "document",
+            "customtypes": ["author"]
           }
         },
         "quote_description": {
@@ -57,14 +43,6 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,list-item,o-list-item"
-          }
-        },
-        "quote_author": {
-          "type": "Link",
-          "config": {
-            "label": "Quote Author",
-            "select": "document",
-            "customtypes": ["author"]
           }
         }
       },

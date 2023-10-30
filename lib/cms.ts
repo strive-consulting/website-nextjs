@@ -15,7 +15,11 @@ export async function getTestimonials(maxcount?: number) {
 //Note, servicepage is the name of our general cms page
 export async function getCmsPage(uid: string) {
   const client = createClient()
-  const page = await client.getByUID('servicepage', uid).catch(() => notFound())
+  const page = await client
+    .getByUID('servicepage', uid, {
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+    })
+    .catch(() => notFound())
 
   return page
 
@@ -84,15 +88,17 @@ export async function getBlogPosts() {
 export async function getBlogPostsPaged(pagenum: number = 1) {
   const client = createClient()
 
+  const pageSize = pagenum === 1 ? 7 : 6
+
   const communityPosts = await client.getByType('blog_post', {
-    fetchLinks: ["author.name", "author.job_title", "author.avatar", "author.linkedin_url"],
+    fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
     orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
 
     // predicates: [predicate.at("my.community.most_popular",
     // {
     //   { orderings : '[document.first_publication_date desc]' }
     // })],
-    pageSize: 4,
+    pageSize: pageSize,
     page: pagenum,
   })
 
@@ -103,6 +109,8 @@ export async function getBlogPostsPaged(pagenum: number = 1) {
   // });
 
   // console.log(communityPosts.results);
+
+  console.log('pages=', communityPosts.results.length)
 
   return {
     generalPosts: communityPosts.results,
@@ -116,22 +124,22 @@ export async function getBlogPostsPaged(pagenum: number = 1) {
 }
 
 export async function getBlogPost(name: string) {
-  const client = createClient();
+  const client = createClient()
 
-  const communityPost = await client.getByUID("blog_post", name, {
-    fetchLinks: ["author.name", "author.job_title", "author.avatar", "author.linkedin_url"],
-  });
+  const communityPost = await client.getByUID('blog_post', name, {
+    fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+  })
 
-  return communityPost;
+  return communityPost
 }
 
 export async function getBlogPostsAll() {
   const client = createClient()
 
   const communityPosts = await client.getByType('blog_post', {
-    fetchLinks: ["author.name", "author.job_title", "author.avatar", "author.linkedin_url"],
+    fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
     orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
   })
 
-  return communityPosts.results;  
+  return communityPosts.results
 }

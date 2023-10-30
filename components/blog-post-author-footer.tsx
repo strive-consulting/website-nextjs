@@ -8,7 +8,13 @@ interface Props {
   post: BlogPostDocument
 }
 const BlogPostAuthorFooter: React.FC<Props> = ({ post }: Props) => {
-  if(isFilled.contentRelationship<'author', string, Pick<AuthorDocument['data'], 'name' | 'job_title' | 'linkedin_url' | 'avatar'>>(post.data.author) ) {
+  if (
+    isFilled.contentRelationship<
+      'author',
+      string,
+      Pick<AuthorDocument['data'], 'name' | 'job_title' | 'linkedin_url' | 'avatar'>
+    >(post.data.author)
+  ) {
     //console.log("NAME", post.data.author.data?.job_title) // It's working well!
 
     return (

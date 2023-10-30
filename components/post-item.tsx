@@ -53,7 +53,7 @@ export default function PostItem({ post }: Props) {
           paragraph: ({ children }) => <p className='text-lg text-gray-400 grow'>{children}</p>,
         }}
       />
-      <BlogPostAuthorFooter post={post}/>
+      <BlogPostAuthorFooter post={post} />
     </article>
   )
 }
