@@ -30,3 +30,14 @@
 .videoWrapper {
     padding-top: 56.25%;
 }
+
+address {
+    font-style: normal;
+}
+
+.h5 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.375;
+    letter-spacing: -0.01em
+}

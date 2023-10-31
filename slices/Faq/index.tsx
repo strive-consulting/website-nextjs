@@ -44,14 +44,15 @@ const Faq = ({ slice }: FaqProps): JSX.Element => {
                 return (
                   <li key={item.question}>
                     <h3 className='text-xl font-medium mb-2'>{item.question}</h3>
-                    <p className='text-lg text-gray-400'>
-                      <PrismicRichText
-                        field={item.answer}
-                        components={{
-                          paragraph: ({ children }) => <p>{children}</p>,
-                        }}
-                      />
-                    </p>
+
+                    <PrismicRichText
+                      field={item.answer}
+                      components={{
+                        paragraph: ({ children }) => (
+                          <p className='text-lg text-gray-400'>{children}</p>
+                        ),
+                      }}
+                    />
                   </li>
                 )
               })}

@@ -86,11 +86,11 @@ export default function DefaultLayout({ children }: { children: React.ReactNode 
 
   return (
     <>
-      <AosInit />
-
       <main className='grow'>
         <PageIllustration />
         {children}
+        {/* This seems to need to be here for animations from slicezone (loaded in Children) to work. Doesn't like it from the layout pages */}
+        <AosInit />
       </main>
 
       <Footer />

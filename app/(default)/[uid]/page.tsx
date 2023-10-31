@@ -1,4 +1,5 @@
 import { SliceZone } from '@prismicio/react'
+// const SliceZone = dynamic(() => import('@prismicio/react').then((module) => module.SliceZone));
 
 import { components } from '@/slices'
 import { Metadata } from 'next'
@@ -7,6 +8,7 @@ import { Constants } from '@/app/constants'
 import { linkResolver } from '@/prismicio'
 import SchemaTag, { ISchema } from '@/components/schema'
 import { notFound } from 'next/navigation'
+import dynamic from 'next/dynamic'
 
 type Params = { uid: string }
 

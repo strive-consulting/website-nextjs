@@ -1,18 +1,39 @@
 export const metadata = {
-  title: 'Contact',
-  description: 'Contact us',
+  title: 'Contact Us',
+  description:
+    'Contact Strive Consultants to discuss your company formation and residency visa plans for the UAE',
+  alternates: {
+    canonical: Constants.SiteDomain + '/contact',
+  },
+  openGraph: {
+    title: 'Contact Us',
+    description:
+      'Contact Strive Consultants to discuss your company formation and residency visa plans for the UAE',
+    images: [Constants.SiteDomain + Constants.OpenGraphImage],
+    url: Constants.SiteDomain + '/contact',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Us',
+    description:
+      'Contact Strive Consultants to discuss your company formation and residency visa plans for the UAE',
+    siteId: '',
+    images: [Constants.SiteDomain + Constants.OpenGraphImage],
+  },
 }
 
+import { Constants } from '@/app/constants'
 import EnquiryForm from '@/components/enquiry-form'
 
 export default function Contact() {
   return (
     <>
       <section className='relative'>
-        <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>
+        <div className='max-w-3xl mx-auto px-4 sm:px-6 relative'>
           <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
             {/* Page header */}
-            <div className='max-w-3xl mx-auto text-center'>
+            <div className='max-w-3xl mx-auto text-center mb-5'>
               <h1 className='h1 mb-4' data-aos='fade-up'>
                 Get in touch
               </h1>
@@ -23,10 +44,10 @@ export default function Contact() {
 
             <EnquiryForm />
 
-            <div className='max-w-sm mx-auto grid gap-8 md:grid-cols-3 lg:gap-16 items-start md:max-w-none bg-gray-800 py-10 px-8 md:py-16 md:px-12'>
+            <div className='max-w-sm mx-auto grid gap-8 md:grid-cols-3 lg:gap-16 items-start md:max-w-none bg-gray-800 py-10 px-8'>
               <div className='relative flex flex-col items-left' data-aos='fade-up'>
-                <h4 className='h4 mb-2'>Contact Us</h4>
-                <p className='text-lg text-gray-400 text-left'>
+                <h5 className='h5 mb-2'>Contact Us</h5>
+                <p className='text-lg text-gray-400 text-left text-base'>
                   <strong>Phone/WhatsApp</strong>
                   <br />
                   <a href='tel:+971 4 439 6282'>+971 4 439 6282</a>
@@ -38,14 +59,14 @@ export default function Contact() {
                 </p>
               </div>
               <div className='relative flex flex-col items-left' data-aos='fade-up'>
-                <h4 className='h4 mb-2'>UAE Office</h4>
-                <p className='text-lg text-gray-400 text-left'>
+                <h5 className='h5 mb-2'>UAE Office</h5>
+                <p className='text-lg text-gray-400 text-left text-base'>
                   <address>21314-001 IFZA Business Park, DDP Building A2, DSO, Dubai</address>
                 </p>
               </div>
               <div className='relative flex flex-col items-left' data-aos='fade-up'>
-                <h4 className='h4 mb-2'>UK Office</h4>
-                <p className='text-lg text-gray-400 text-left'>
+                <h5 className='h5 mb-2'>UK Office</h5>
+                <p className='text-lg text-gray-400 text-left text-base'>
                   <address>128 City Road, London, EC1V 2NX</address>
                 </p>
               </div>
