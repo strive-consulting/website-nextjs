@@ -2,14 +2,15 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { GlobalNavDocument } from '@/prismicio-types'
+import { FooterDocument, GlobalNavDocument } from '@/prismicio-types'
 import { PrismicLink } from '@prismicio/react'
 
 interface MobileNavProps {
   navigation: GlobalNavDocument<string>
+  footer: FooterDocument<string>
 }
 
-export default function MobileMenu({ navigation }: MobileNavProps) {
+export default function MobileMenu({ navigation, footer }: MobileNavProps) {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false)
 
   const trigger = useRef<HTMLButtonElement>(null)
@@ -121,26 +122,20 @@ export default function MobileMenu({ navigation }: MobileNavProps) {
             </Link>
           </li>
           <li className='py-2 my-2 border-t border-b border-gray-700'>
-            <span className='flex text-gray-300 py-2'>Support</span>
-            <ul className='pl-4'>
-              <li>
-                <Link
-                  href='/contact'
-                  className='text-sm flex font-medium text-gray-400 hover:text-gray-200 py-2'
-                  onClick={() => setMobileNavOpen(false)}
-                >
-                  Contact us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='/help/frequently-asked-questions'
-                  className='text-sm flex font-medium text-gray-400 hover:text-gray-200 py-2'
-                  onClick={() => setMobileNavOpen(false)}
-                >
-                  Help center
-                </Link>
-              </li>
+            {/* <span className='flex text-gray-300 py-2'>Support</span> */}
+            <ul className='pl-2'>
+              {footer.data.company_items.map((item) => {
+                return (
+                  <li key={item.menu_label}>
+                    <PrismicLink
+                      field={item.menu_link}
+                      className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'
+                    >
+                      {item.menu_label}
+                    </PrismicLink>
+                  </li>
+                )
+              })}
             </ul>
           </li>
         </ul>

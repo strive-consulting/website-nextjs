@@ -2,11 +2,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Dropdown from '@/components/utils/dropdown'
 import MobileMenu from './mobile-menu'
-import { getGlobalNav } from '@/lib/cms'
+import { getFooter, getGlobalNav } from '@/lib/cms'
 import { PrismicLink } from '@prismicio/react'
 
 export default async function Header() {
   const nav = await getGlobalNav()
+  const footer = await getFooter()
 
   return (
     <header className='absolute w-full z-30'>
@@ -90,7 +91,7 @@ export default async function Header() {
             </ul>
           </nav>
 
-          <MobileMenu navigation={nav} />
+          <MobileMenu navigation={nav} footer={footer} />
         </div>
       </div>
     </header>

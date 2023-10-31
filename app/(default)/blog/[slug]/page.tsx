@@ -48,7 +48,7 @@ export async function generateMetadata({
 export default async function SinglePost({ params }: { params: { slug: string } }) {
   const post = await getBlogPost(params.slug)
 
-  if (!post) notFound()
+  if (post === undefined) return notFound()
 
   let schema = {
     '@context': 'https://schema.org',

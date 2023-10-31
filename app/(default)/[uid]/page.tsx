@@ -6,11 +6,14 @@ import { getAllCmsPages, getCmsPage } from '@/lib/cms'
 import { Constants } from '@/app/constants'
 import { linkResolver } from '@/prismicio'
 import SchemaTag, { ISchema } from '@/components/schema'
+import { notFound } from 'next/navigation'
 
 type Params = { uid: string }
 
 export default async function Page({ params }: { params: Params }) {
   const page = await getCmsPage(params.uid)
+
+  if (page === undefined) return notFound()
 
   let schema = {
     '@context': 'https://schema.org',
@@ -31,6 +34,8 @@ export default async function Page({ params }: { params: Params }) {
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const page = await getCmsPage(params.uid)
+
+  if (!page) return {}
 
   return {
     title: page.data.meta_title,

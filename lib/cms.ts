@@ -4,10 +4,12 @@ import { notFound } from 'next/navigation'
 export async function getTestimonials(maxcount?: number) {
   const client = createClient()
 
-  const testimonials = await client.getAllByType('testimonial', {
-    orderings: [{ field: 'my.testimonial.order', direction: 'desc' }],
-    limit: maxcount ? maxcount : undefined,
-  })
+  const testimonials = await client
+    .getAllByType('testimonial', {
+      orderings: [{ field: 'my.testimonial.order', direction: 'desc' }],
+      limit: maxcount ? maxcount : undefined,
+    })
+    .catch(() => notFound())
 
   return testimonials
 }
@@ -57,30 +59,32 @@ export async function getCmsPage(uid: string) {
 
 export async function getAllCmsPages() {
   const client = createClient()
-  const pages = await client.getAllByType('servicepage')
+  const pages = await client.getAllByType('servicepage').catch(() => notFound())
 
   return pages
 }
 
 export async function getGlobalNav() {
   const client = createClient()
-  const nav = await client.getSingle('global_nav')
+  const nav = await client.getSingle('global_nav').catch(() => notFound())
 
   return nav
 }
 
 export async function getFooter() {
   const client = createClient()
-  const footer = await client.getSingle('footer')
+  const footer = await client.getSingle('footer').catch(() => notFound())
 
   return footer
 }
 
 export async function getBlogPosts() {
   const client = createClient()
-  const blogPosts = await client.getAllByType('blog_post', {
-    orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
-  })
+  const blogPosts = await client
+    .getAllByType('blog_post', {
+      orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
+    })
+    .catch(() => notFound())
 
   return blogPosts
 }
@@ -91,17 +95,19 @@ export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number) 
   //PageSize is only set when we are fetching a few posts for a slice.
   pageSize = pageSize ? pageSize : pagenum === 1 ? 7 : 6
 
-  const communityPosts = await client.getByType('blog_post', {
-    fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
-    orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
+  const communityPosts = await client
+    .getByType('blog_post', {
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+      orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
 
-    // predicates: [predicate.at("my.community.most_popular",
-    // {
-    //   { orderings : '[document.first_publication_date desc]' }
-    // })],
-    pageSize: pageSize,
-    page: pagenum,
-  })
+      // predicates: [predicate.at("my.community.most_popular",
+      // {
+      //   { orderings : '[document.first_publication_date desc]' }
+      // })],
+      pageSize: pageSize,
+      page: pagenum,
+    })
+    .catch(() => notFound())
 
   //   Note, non paged
   // const popularPosts = await client.getAllByType("community", {
@@ -127,9 +133,11 @@ export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number) 
 export async function getBlogPost(name: string) {
   const client = createClient()
 
-  const communityPost = await client.getByUID('blog_post', name, {
-    fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
-  })
+  const communityPost = await client
+    .getByUID('blog_post', name, {
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+    })
+    .catch(() => notFound())
 
   return communityPost
 }
@@ -137,10 +145,12 @@ export async function getBlogPost(name: string) {
 export async function getBlogPostsAll() {
   const client = createClient()
 
-  const communityPosts = await client.getByType('blog_post', {
-    fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
-    orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
-  })
+  const communityPosts = await client
+    .getByType('blog_post', {
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+      orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
+    })
+    .catch(() => notFound())
 
   return communityPosts.results
 }

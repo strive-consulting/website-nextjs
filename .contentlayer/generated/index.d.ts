@@ -9,5 +9,3 @@ export declare const allPosts: Post[]
 export declare const allHelp: Help[]
 
 export declare const allDocuments: DocumentTypes[]
-
-

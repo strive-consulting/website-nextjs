@@ -36,10 +36,9 @@ export type Post = {
   /** MDX file body */
   body: MDX
   slug: string
-}  
+}
 
 /** Nested types */
-  
 
 /** Helper types */
 
@@ -57,7 +56,6 @@ export type DataExports = {
   allPosts: Post[]
   allHelp: Help[]
 }
-
 
 export interface ContentlayerGenTypes {
   documentTypes: DocumentTypes
@@ -79,8 +77,4 @@ export type DocumentTypeMap = {
   Post: Post
 }
 
-export type NestedTypeMap = {
-
-}
-
- 
+export type NestedTypeMap = {}
