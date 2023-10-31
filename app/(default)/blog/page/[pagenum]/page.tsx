@@ -1,4 +1,3 @@
-// import { allPosts } from 'contentlayer/generated'
 import PostItem from '@/components/post-item'
 
 export async function generateMetadata(): Promise<Metadata> {
