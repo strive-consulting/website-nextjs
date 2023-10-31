@@ -17,3 +17,6 @@ sketch
 
 # Local Netlify folder
 .netlify
+
+# Generated Netlify redirects script
+public/_redirects
