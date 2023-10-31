@@ -111,7 +111,7 @@ export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number) 
 
   // console.log(communityPosts.results);
 
-  console.log('pages=', communityPosts.results.length)
+  //console.log('pages=', communityPosts.results.length)
 
   return {
     generalPosts: communityPosts.results,
