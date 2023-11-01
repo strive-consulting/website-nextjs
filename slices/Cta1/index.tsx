@@ -1,6 +1,7 @@
 import { Divider } from '@/components/divider'
 import TickIcon from '@/components/tickIcon'
 import { Content } from '@prismicio/client'
+import { PrismicNextLink } from '@prismicio/next'
 import { PrismicLink, PrismicRichText, SliceComponentProps } from '@prismicio/react'
 
 /**
@@ -46,13 +47,14 @@ const Cta1 = ({ slice }: Cta1Props): JSX.Element => {
               data-aos-delay='400'
               data-aos-anchor='[data-aos-id-cta]'
             >
-              <PrismicLink
+              <PrismicNextLink
                 className='btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6'
                 field={slice.primary.cta_link}
                 target='_blank'
+                prefetch={slice.primary.cta_link.link_type == 'Web' ?? false}
               >
                 {slice.primary.cta_text}
-              </PrismicLink>
+              </PrismicNextLink>
             </div>
 
             {slice.primary.bullets && (
