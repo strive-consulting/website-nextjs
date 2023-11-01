@@ -128,6 +128,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                           <PrismicNextLink
                             field={slice.primary.cta_1_link}
                             className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'
+                            prefetch={slice.primary.cta_1_link.link_type === 'Web' ?? false}
                           >
                             {slice.primary.cta_1_text}
                           </PrismicNextLink>
@@ -137,6 +138,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                             className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
                             field={slice.primary.cta_2_link}
                             target='_blank'
+                            prefetch={slice.primary.cta_1_link.link_type === 'Web' ?? false}
                           >
                             {slice.primary.cta_2_text}
                           </PrismicNextLink>
@@ -228,6 +230,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                         <PrismicNextLink
                           className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'
                           field={slice.primary.cta_1_link}
+                          prefetch={slice.primary.cta_2_link.link_type === 'Web' ?? false}
                         >
                           {slice.primary.cta_1_text}
                         </PrismicNextLink>
@@ -236,6 +239,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                         <PrismicNextLink
                           className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
                           field={slice.primary.cta_2_link}
+                          prefetch={slice.primary.cta_2_link.link_type === 'Web' ?? false}
                         >
                           {slice.primary.cta_2_text}
                         </PrismicNextLink>
