@@ -1,3 +1,4 @@
+import TickIcon from '@/components/tickIcon'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
 
@@ -21,6 +22,13 @@ const GeneralContent = ({ slice }: GeneralContentProps): JSX.Element => {
               heading2: ({ children }) => <h2 className='h2 my-6'>{children}</h2>,
               heading3: ({ children }) => <h3 className='h3 my-6'>{children}</h3>,
               heading4: ({ children }) => <h4 className='h4 my-6'>{children}</h4>,
+              list: ({ children }) => <ul>{children}</ul>,
+              listItem: ({ children }) => (
+                <li className='flex items-center'>
+                  <TickIcon />
+                  {children}
+                </li>
+              ),
             }}
           />
         </div>

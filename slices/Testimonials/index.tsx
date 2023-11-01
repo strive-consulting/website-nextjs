@@ -1,8 +1,10 @@
 import { Divider } from '@/components/divider'
+import SchemaTag from '@/components/schema'
 import { getTestimonials } from '@/lib/cms'
 import { Content } from '@prismicio/client'
 import { PrismicLink, PrismicRichText, SliceComponentProps } from '@prismicio/react'
 import Image from 'next/image'
+import { parseISO, format } from 'date-fns'
 /**
  * Props for `Testimonials`.
  */
@@ -14,6 +16,37 @@ export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>
 const Testimonials = async ({ slice }: TestimonialsProps): Promise<JSX.Element> => {
   const count = slice.primary.number_to_show ? parseInt(slice.primary.number_to_show) : undefined
   const testimonials = await getTestimonials(count)
+
+  const testimonialsSchema = testimonials?.map((item, index) => {
+    return {
+      '@type': 'ListItem',
+      position: index,
+      item: {
+        '@type': 'Review',
+        itemReviewed: {
+          '@type': 'Organization',
+          name: item.data.job_title,
+        },
+        author: {
+          '@type': 'Person',
+          name: item.data.name,
+        },
+        reviewBody: item.data.description,
+        reviewRating: {
+          '@type': 'Rating',
+          ratingValue: '5',
+        },
+        datePublished:format(Date.now(), 'yyyy-MM-dd'),
+      },
+    }
+  })
+
+  let schemaTestimonials = {
+    '@context': 'http://schema.org',
+    '@type': 'ItemList',
+    name: 'Client Testimonials',
+    itemListElement: testimonialsSchema,
+  }
 
   return (
     <section>
@@ -95,6 +128,7 @@ const Testimonials = async ({ slice }: TestimonialsProps): Promise<JSX.Element> 
           </div>
         </div>
       </div>
+      <SchemaTag schemaJson={schemaTestimonials} />
     </section>
   )
 }
