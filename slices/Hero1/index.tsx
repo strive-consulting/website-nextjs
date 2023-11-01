@@ -2,8 +2,8 @@ import ModalVideo from '@/components/modal-video'
 import TickIcon from '@/components/tickIcon'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
-import { PrismicLink, PrismicRichText, SliceComponentProps } from '@prismicio/react'
-import VideoThumb from '@/public/videos/video_thumb.png'
+import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
+import VideoThumb from '@/public/videos/video_thumb.jpg'
 
 export enum TitleAlign {
   Left = 'Left',
