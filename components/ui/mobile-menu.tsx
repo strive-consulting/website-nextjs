@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { FooterDocument, GlobalNavDocument } from '@/prismicio-types'
 import { PrismicLink } from '@prismicio/react'
-import { PrismicNextLink } from '@prismicio/next'
 
 interface MobileNavProps {
   navigation: GlobalNavDocument<string>
@@ -78,14 +77,13 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
       >
         <ul className='bg-gray-800 px-4 py-2'>
           <li>
-            <PrismicNextLink
+            <PrismicLink
               field={navigation.data.cta_link}
               className='font-medium w-full inline-flex items-center justify-center border border-transparent px-4 py-2 my-2 rounded-sm text-white bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out'
               onClick={() => setMobileNavOpen(false)}
-              prefetch={false}
             >
               {navigation.data.cta_text}
-            </PrismicNextLink>
+            </PrismicLink>
           </li>
           <li>
             <Link

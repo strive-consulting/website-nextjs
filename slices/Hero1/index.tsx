@@ -2,7 +2,7 @@ import ModalVideo from '@/components/modal-video'
 import TickIcon from '@/components/tickIcon'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
-import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
+import { PrismicLink, PrismicRichText, SliceComponentProps } from '@prismicio/react'
 import VideoThumb from '@/public/videos/video_thumb.png'
 
 export enum TitleAlign {
@@ -25,7 +25,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
         <div className='max-w-6xl mx-auto px-4 sm:px-6'>
           <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
             <div className='max-w-3xl mx-auto text-center pb-2'>
-              <h1 className='h1 mb-4' data-aos='fade-up'>
+              <h1 className='h1 mb-4' data-aos={`fade-up`}>
                 {slice.primary.title}
               </h1>
               <p className='mb-5 text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
@@ -128,7 +128,6 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                           <PrismicNextLink
                             field={slice.primary.cta_1_link}
                             className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'
-                            prefetch={slice.primary.cta_1_link.link_type == 'Web' ?? false}
                           >
                             {slice.primary.cta_1_text}
                           </PrismicNextLink>
@@ -138,7 +137,6 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                             className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
                             field={slice.primary.cta_2_link}
                             target='_blank'
-                            prefetch={slice.primary.cta_1_link.link_type == 'Web' ?? false}
                           >
                             {slice.primary.cta_2_text}
                           </PrismicNextLink>
@@ -230,7 +228,6 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                         <PrismicNextLink
                           className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'
                           field={slice.primary.cta_1_link}
-                          prefetch={slice.primary.cta_2_link.link_type == 'Web' ?? false}
                         >
                           {slice.primary.cta_1_text}
                         </PrismicNextLink>
@@ -239,7 +236,6 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                         <PrismicNextLink
                           className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
                           field={slice.primary.cta_2_link}
-                          prefetch={slice.primary.cta_2_link.link_type == 'Web' ?? false}
                         >
                           {slice.primary.cta_2_text}
                         </PrismicNextLink>

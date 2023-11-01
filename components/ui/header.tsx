@@ -4,7 +4,6 @@ import Dropdown from '@/components/utils/dropdown'
 import MobileMenu from './mobile-menu'
 import { getFooter, getGlobalNav } from '@/lib/cms'
 import { PrismicLink } from '@prismicio/react'
-import { PrismicNextLink } from '@prismicio/next'
 
 export default async function Header() {
   const nav = await getGlobalNav()
@@ -82,13 +81,12 @@ export default async function Header() {
 
             <ul className='flex grow justify-end flex-wrap items-center'>
               <li>
-                <PrismicNextLink
+                <PrismicLink
                   field={nav.data.cta_link}
                   className='btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3'
-                  prefetch={false}
                 >
                   {nav.data.cta_text}
-                </PrismicNextLink>
+                </PrismicLink>
               </li>
             </ul>
           </nav>
