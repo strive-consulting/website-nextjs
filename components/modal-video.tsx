@@ -36,7 +36,7 @@ export default function ModalVideo({
           data-aos='fade-up'
           data-aos-delay='200'
         >
-          <Image src={thumb} width={thumbWidth} height={thumbHeight} alt={thumbAlt} />
+          <Image src={thumb} width={thumbWidth} height={thumbHeight} alt={thumbAlt} priority={true} />
           <button
             className='absolute group'
             onClick={() => {
