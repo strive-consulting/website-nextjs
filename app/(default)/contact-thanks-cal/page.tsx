@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export const metadata = {
   title: 'Thanks',
   description: 'Thanks for booking your consultation',
@@ -16,8 +18,18 @@ export default function Contact() {
               </h1>
               <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
                 Your meeting is booked. One of our experienced consultants look forward to
-                discussing your plans. Thank you for Choosing Strive!
+                discussing your plans. Thank you for choosing Strive!
               </p>
+            </div>
+            <div
+              className='flex justify-center mb-8'
+              data-aos='fade-up'
+              data-aos-delay='400'
+              data-aos-anchor='[data-aos-id-cta]'
+            >
+              <Link className='btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6' href='/'>
+                Back to home
+              </Link>
             </div>
           </div>
         </div>
