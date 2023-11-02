@@ -36,7 +36,7 @@ const Testimonials = async ({ slice }: TestimonialsProps): Promise<JSX.Element> 
           '@type': 'Rating',
           ratingValue: '5',
         },
-        datePublished: format(Date.now(), 'yyyy-MM-dd'),
+        datePublished: format(item.data.date_received ? parseISO(item.data.date_received.toString()) : Date.now(), 'yyyy-MM-dd'),
       },
     }
   })

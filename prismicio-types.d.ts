@@ -764,6 +764,17 @@ interface TestimonialDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   profile_link: prismic.LinkField
+
+  /**
+   * Date Received field in *Testimonial*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.date_received
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date_received: prismic.DateField
 }
 
 /**
