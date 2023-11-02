@@ -121,9 +121,9 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
               Business Banking
             </Link>
           </li>
-          <li className='py-2 my-2 border-t border-b border-gray-700'>
+          <li className='py-2 my-2 border-t border-gray-700'>
             {/* <span className='flex text-gray-300 py-2'>Support</span> */}
-            <ul className='pl-2'>
+            <ul className='space-y-2'>
               {footer.data.company_items.map((item) => {
                 return (
                   <li key={item.menu_label}>

@@ -36,7 +36,6 @@ import BlogPagination from '@/components/blog-pagination'
 import BlogPostAuthorFooter from '@/components/blog-post-author-footer'
 import { Metadata } from 'next'
 import { Constants } from '@/app/constants'
-import { linkResolver } from '@/prismicio'
 import SchemaTag from '@/components/schema'
 
 export default async function Blog() {
@@ -78,7 +77,7 @@ export default async function Blog() {
                   ></div>
                   {featuredPost.data.image && (
                     <figure className='relative h-0 pb-9/16 md:pb-3/4 lg:pb-9/16 overflow-hidden transform md:-translate-y-2 xl:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out'>
-                      {!featuredPost.data.youtube_video && (
+                      {featuredPost.data.youtube_video?.url === undefined && (
                         <PrismicImage
                           className='absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out'
                           field={featuredPost.data.image}
