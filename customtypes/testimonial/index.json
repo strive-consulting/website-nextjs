@@ -3,6 +3,7 @@
   "label": "Testimonial",
   "repeatable": true,
   "status": true,
+  "format": "custom",
   "json": {
     "Main": {
       "uid": {
@@ -58,8 +59,14 @@
           "allowTargetBlank": true,
           "select": null
         }
+      },
+      "date_received": {
+        "type": "Date",
+        "config": {
+          "label": "Date Received",
+          "placeholder": ""
+        }
       }
     }
-  },
-  "format": "custom"
+  }
 }

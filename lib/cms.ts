@@ -6,7 +6,7 @@ export async function getTestimonials(maxcount?: number) {
 
   const testimonials = await client
     .getAllByType('testimonial', {
-      orderings: [{ field: 'my.testimonial.order', direction: 'desc' }],
+      orderings: [{ field: 'my.testimonial.date_received', direction: 'desc' },{ field: 'my.testimonial.order', direction: 'desc' }],
       limit: maxcount ? maxcount : undefined,
     })
     .catch(() => notFound())
