@@ -207,7 +207,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                     {slice.items && (
                       <ul className='text-lg text-gray-400 mb-6' data-aos='fade-up'>
                         {slice.items.map((bullet) => {
-                          if(bullet.bullet_point != null) {                            
+                          if (bullet.bullet_point != null) {
                             return (
                               <li key={bullet.bullet_point} className='flex items-center mb-2'>
                                 <TickIcon />
