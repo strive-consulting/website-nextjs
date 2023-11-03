@@ -59,6 +59,29 @@
           }
         }
       },
+      "accountancy_items": {
+        "type": "Group",
+        "config": {
+          "label": "Accountancy Items",
+          "fields": {
+            "menu_label": {
+              "type": "Text",
+              "config": {
+                "label": "Menu Label",
+                "placeholder": ""
+              }
+            },
+            "menu_link": {
+              "type": "Link",
+              "config": {
+                "label": "Menu Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
       "business_services_items": {
         "type": "Group",
         "config": {

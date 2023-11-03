@@ -27,7 +27,7 @@ export default async function Header() {
 
           <nav className='hidden md:flex md:grow'>
             <ul className='flex grow justify-end flex-wrap items-center'>
-              <Dropdown title='Company Formation'>
+              <Dropdown title='Business Setup'>
                 {nav.data.company_formation_items.map((item) => {
                   return (
                     <li key={item.menu_label}>
@@ -63,14 +63,28 @@ export default async function Header() {
                   Residency Visa
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href='/uae-accountancy-service'
                   className='text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out'
                 >
                   Accounting
                 </Link>
-              </li>
+              </li> */}
+              <Dropdown title='Accounting'>
+                {nav.data.accountancy_items.map((item) => {
+                  return (
+                    <li key={item.menu_label}>
+                      <PrismicLink
+                        field={item.menu_link}
+                        className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
+                      >
+                        {item.menu_label}
+                      </PrismicLink>
+                    </li>
+                  )
+                })}
+              </Dropdown>
               <Dropdown title='Business Services'>
                 {nav.data.business_services_items.map((item) => {
                   return (
