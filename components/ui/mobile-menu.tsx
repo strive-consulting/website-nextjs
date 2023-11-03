@@ -91,7 +91,7 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
               className='flex text-gray-300 hover:text-gray-200 py-2'
               onClick={() => setMobileNavOpen(false)}
             >
-              Business <Setup></Setup>
+              Business Setup
             </Link>
           </li>
           <li>
