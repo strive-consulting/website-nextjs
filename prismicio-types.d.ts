@@ -473,6 +473,31 @@ export interface GlobalNavDocumentDataResidencyVisaItemsItem {
 }
 
 /**
+ * Item in *Global Nav → Accountancy Items*
+ */
+export interface GlobalNavDocumentDataAccountancyItemsItem {
+  /**
+   * Menu Label field in *Global Nav → Accountancy Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.accountancy_items[].menu_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  menu_label: prismic.KeyTextField
+
+  /**
+   * Menu Link field in *Global Nav → Accountancy Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.accountancy_items[].menu_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  menu_link: prismic.LinkField
+}
+
+/**
  * Item in *Global Nav → Business Services Items*
  */
 export interface GlobalNavDocumentDataBusinessServicesItemsItem {
@@ -524,6 +549,17 @@ interface GlobalNavDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   residency_visa_items: prismic.GroupField<Simplify<GlobalNavDocumentDataResidencyVisaItemsItem>>
+
+  /**
+   * Accountancy Items field in *Global Nav*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_nav.accountancy_items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  accountancy_items: prismic.GroupField<Simplify<GlobalNavDocumentDataAccountancyItemsItem>>
 
   /**
    * Business Services Items field in *Global Nav*
@@ -1897,6 +1933,7 @@ declare module '@prismicio/client' {
       GlobalNavDocumentData,
       GlobalNavDocumentDataCompanyFormationItemsItem,
       GlobalNavDocumentDataResidencyVisaItemsItem,
+      GlobalNavDocumentDataAccountancyItemsItem,
       GlobalNavDocumentDataBusinessServicesItemsItem,
       QuoteDocument,
       QuoteDocumentData,
