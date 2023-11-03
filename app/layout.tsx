@@ -7,6 +7,7 @@ import Script from 'next/script'
 import { PrismicPreview } from '@prismicio/next'
 import { repositoryName } from '@/prismicio'
 import WhatsAppClickHandler from '@/components/whatsapp'
+import { CalculatorContextProvider } from '@/context/CalculatorContext'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -75,7 +76,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       >
         <div className='flex flex-col min-h-screen overflow-hidden'>
           <Header />
-          {children}
+          <CalculatorContextProvider>
+            {children}
+          </CalculatorContextProvider>
           <PrismicPreview repositoryName={repositoryName} />
         </div>
         <div className='elfsight-app-a73b12f4-a34b-4fd4-8585-b9a9aed04015'></div>
