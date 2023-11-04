@@ -19,7 +19,7 @@ const BlogFeed = async ({ slice }: BlogFeedProps): Promise<JSX.Element> => {
 
   return (
     <section>
-      <div className='max-w-6xl mx-auto px-4 sm:px-6 md:pb-20'>
+      <div className='max-w-6xl mx-auto px-4 sm:px-6'>
         <Divider />
 
         <div className='max-w-sm mx-auto md:max-w-none text-center pb-5'>
