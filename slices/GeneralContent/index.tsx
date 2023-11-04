@@ -18,13 +18,20 @@ const GeneralContent = ({ slice }: GeneralContentProps): JSX.Element => {
           <PrismicRichText
             field={slice.primary.body}
             components={{
-              paragraph: ({ children }) => <p className='mb-6'>{children}</p>,
+              paragraph: ({ children }) => <p className='my-6 text-lg'>{children}</p>,
               heading2: ({ children }) => <h2 className='h2 my-6'>{children}</h2>,
               heading3: ({ children }) => <h3 className='h3 my-6'>{children}</h3>,
               heading4: ({ children }) => <h4 className='h4 my-6'>{children}</h4>,
               list: ({ children }) => <ul>{children}</ul>,
               listItem: ({ children }) => (
-                <li className='flex items-center'>
+                <li className='flex items-center text-lg'>
+                  <TickIcon />
+                  {children}
+                </li>
+              ),
+              oList: ({ children }) => <ul>{children}</ul>,
+              oListItem: ({ children }) => (
+                <li className='flex items-center text-lg'>
                   <TickIcon />
                   {children}
                 </li>
