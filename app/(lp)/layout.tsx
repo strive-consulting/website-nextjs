@@ -5,7 +5,6 @@ import { Metadata } from 'next'
 import AosInit from '@/components/aos-init'
 import { Constants } from '../constants'
 import SchemaTag from '@/components/schema'
-import Header from '@/components/ui/header'
 
 export const metadata: Metadata = {
   metadataBase: new URL(Constants.SiteDomain),
@@ -88,14 +87,13 @@ export default function DefaultLayout({ children }: { children: React.ReactNode 
   return (
     <>
       <main className='grow'>
-        <Header />
         <PageIllustration />
         {children}
         {/* This seems to need to be here for animations from slicezone (loaded in Children) to work. Doesn't like it from the layout pages */}
         <AosInit />
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
 
       <SchemaTag schemaJson={schemaOrg} />
       <SchemaTag schemaJson={schemaWeb} />

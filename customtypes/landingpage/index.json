@@ -1,6 +1,6 @@
 {
-  "id": "servicepage",
-  "label": "ServicePage",
+  "id": "landingpage",
+  "label": "LandingPage",
   "format": "page",
   "repeatable": true,
   "status": true,
@@ -20,40 +20,7 @@
             "calendly": {
               "type": "SharedSlice"
             },
-            "blog_feed": {
-              "type": "SharedSlice"
-            },
-            "team_images": {
-              "type": "SharedSlice"
-            },
-            "team": {
-              "type": "SharedSlice"
-            },
-            "content_image_text": {
-              "type": "SharedSlice"
-            },
-            "process_steps": {
-              "type": "SharedSlice"
-            },
-            "general_content": {
-              "type": "SharedSlice"
-            },
-            "faq": {
-              "type": "SharedSlice"
-            },
-            "testimonials": {
-              "type": "SharedSlice"
-            },
-            "cta1": {
-              "type": "SharedSlice"
-            },
-            "grid_blocks": {
-              "type": "SharedSlice"
-            },
             "hero1": {
-              "type": "SharedSlice"
-            },
-            "description_quote": {
               "type": "SharedSlice"
             }
           }

@@ -157,3 +157,14 @@ export async function getBlogPostsAll() {
 
   return communityPosts.results
 }
+
+export async function getLandingPage(uid: string) {
+  const client = createClient()
+  const page = await client
+    .getByUID('landingpage', uid, {
+      // fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+    })
+    .catch(() => notFound())
+
+  return page
+}
