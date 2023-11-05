@@ -99,6 +99,7 @@ export default function DefaultLayout({ children }: { children: React.ReactNode 
 
       <SchemaTag schemaJson={schemaOrg} />
       <SchemaTag schemaJson={schemaWeb} />
+      <div className='elfsight-app-a73b12f4-a34b-4fd4-8585-b9a9aed04015'></div>
     </>
   )
 }

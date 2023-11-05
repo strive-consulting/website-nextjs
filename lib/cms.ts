@@ -168,3 +168,10 @@ export async function getLandingPage(uid: string) {
 
   return page
 }
+
+export async function getAllLandingPages() {
+  const client = createClient()
+  const pages = await client.getAllByType('landingpage').catch(() => notFound())
+
+  return pages
+}

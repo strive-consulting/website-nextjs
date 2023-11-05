@@ -2,7 +2,7 @@ import { components } from '@/slices'
 
 import { Metadata } from 'next'
 import { SliceZone } from '@prismicio/react'
-import { getCmsPage, getLandingPage } from '@/lib/cms'
+import { getAllLandingPages, getLandingPage } from '@/lib/cms'
 import { linkResolver } from '@/prismicio'
 import SchemaTag from '@/components/schema'
 import { Constants } from '@/app/constants'
@@ -29,6 +29,15 @@ export default async function Page({ params }: { params: Params }) {
     </>
   )
 }
+
+export async function generateStaticParams() {
+  const pages = await getAllLandingPages()
+
+  return pages.map((page) => {
+    return { uid: page.uid }
+  })
+}
+
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const page = await getLandingPage(params.uid)

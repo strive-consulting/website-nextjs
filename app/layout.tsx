@@ -77,7 +77,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           {children}
           <PrismicPreview repositoryName={repositoryName} />
         </div>
-        <div className='elfsight-app-a73b12f4-a34b-4fd4-8585-b9a9aed04015'></div>
+        
 
         {/* <WhatsAppClickHandler/> */}
       </body>

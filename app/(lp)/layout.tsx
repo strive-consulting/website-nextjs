@@ -1,6 +1,5 @@
 import 'aos/dist/aos.css'
 import PageIllustration from '@/components/page-illustration'
-import Footer from '@/components/ui/footer'
 import { Metadata } from 'next'
 import AosInit from '@/components/aos-init'
 import { Constants } from '../constants'
