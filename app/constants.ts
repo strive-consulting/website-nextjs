@@ -3,5 +3,5 @@ export namespace Constants {
   export const SiteTitle: string = 'Strive'
   export const SiteDescription: string =
     'Dubai company formation specialists. Get your Mainland & Free Zone company set up in Dubai today at low cost'
-  export const OpenGraphImage: string = 'public/opengraph/1000.png'
+  export const OpenGraphImage: string = '/public/opengraph/1000.png'
 }
