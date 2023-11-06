@@ -33,11 +33,7 @@
           "config": {
             "label": "Number to show",
             "placeholder": "Leave unselected to show all",
-            "options": [
-              "3",
-              "6",
-              "9"
-            ]
+            "options": ["3", "6", "9"]
           }
         }
       },
@@ -72,9 +68,7 @@
           "config": {
             "label": "Testimonial",
             "select": "document",
-            "customtypes": [
-              "testimonial"
-            ]
+            "customtypes": ["testimonial"]
           }
         }
       },

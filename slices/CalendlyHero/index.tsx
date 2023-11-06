@@ -53,7 +53,7 @@ const Calendly = ({ slice }: CalendlyProps): JSX.Element => {
           </svg>
         </div>
 
-        <div className='relative pt-10 pb-12 md:pt-16 '>
+        <div className='relative pt-10 pb-10 md:pt-16 '>
           {/* Content */}
           <div className={`max-w-3xl mx-auto text-center pb-12 md:pb-16`}>
             <h1 className='h1 mb-4' data-aos='fade-up'>

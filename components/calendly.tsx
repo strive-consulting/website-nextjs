@@ -21,12 +21,7 @@ export default function Calendly({ url, popup, ctaid }: CalendarProps) {
     <>
       {popup === false && <InlineWidget url={url} />}
       {popup === true && (
-        <div
-          className='flex justify-center mb-8'
-          data-aos='fade-up'
-          data-aos-delay='400'
-          data-aos-anchor='[data-aos-id-cta]'
-        >
+        <div className='flex justify-center mb-8'>
           <PopupButton
             className={`${ctaid} btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4`}
             url={url}

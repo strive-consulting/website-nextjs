@@ -18,7 +18,6 @@ import {
 export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>
 
 function loadSingleTestimonial(slice: TestimonialsSliceSingle) {
-  console.log(slice.primary.testimonial)
   if (
     isFilled.contentRelationship<
       'testimonial',
@@ -26,8 +25,6 @@ function loadSingleTestimonial(slice: TestimonialsSliceSingle) {
       Pick<TestimonialDocument['data'], 'name' | 'job_title' | 'avatar' | 'description'>
     >(slice.primary.testimonial)
   ) {
-    console.log('NAME', slice.primary.testimonial.data?.job_title)
-
     return (
       <>
         <div className='flex flex-col h-full p-6 bg-gray-800' data-aos='fade-up'>
