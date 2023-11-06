@@ -51,7 +51,7 @@ function loadSingleTestimonial(slice: TestimonialsSliceSingle) {
           </div>
           <blockquote className='text-lg text-gray-400 grow'>
             <PrismicRichText
-              field={slice.primary.testimonial.data?.description ?? ''}
+              field={slice.primary.testimonial.data?.description}
               components={{
                 paragraph: ({ children }) => <p>{children}</p>,
               }}

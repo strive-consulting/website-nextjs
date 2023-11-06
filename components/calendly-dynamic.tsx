@@ -5,9 +5,9 @@ const Calendly = dynamic(() => import('./calendly'), {
 })
 
 interface CalendarProps {
-  url: string
+  url?: string
   popup: boolean
-  ctaid: string
+  ctaid?: string
 }
 
 export default function CalendlyWrapper({ url, popup, ctaid }: CalendarProps) {
