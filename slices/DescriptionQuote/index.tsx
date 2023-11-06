@@ -1,5 +1,6 @@
 import { Divider } from '@/components/divider'
 import TeamQuote from '@/components/team-quote'
+import TickIcon from '@/components/tickIcon'
 import { createClient } from '@/prismicio'
 import { AuthorDocument, AuthorDocumentData, DescriptionQuoteSlice } from '@/prismicio-types'
 import { Content, ContentRelationshipField, isFilled } from '@prismicio/client'
@@ -57,9 +58,23 @@ const DescriptionQuote = ({ slice }: DescriptionQuoteProps): JSX.Element => {
                 field={slice.primary.description}
                 components={{
                   paragraph: ({ children }) => (
-                    <p className='text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline mb-4'>
+                    <p className='my-6 text-lg text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline mb-4'>
                       {children}
                     </p>
+                  ),
+                  list: ({ children }) => <ul>{children}</ul>,
+                  listItem: ({ children }) => (
+                    <li className='flex items-center text-lg'>
+                      <TickIcon />
+                      {children}
+                    </li>
+                  ),
+                  oList: ({ children }) => <ul>{children}</ul>,
+                  oListItem: ({ children }) => (
+                    <li className='flex items-center text-lg'>
+                      <TickIcon />
+                      {children}
+                    </li>
                   ),
                 }}
               />

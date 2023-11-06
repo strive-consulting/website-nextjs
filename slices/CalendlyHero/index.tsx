@@ -1,5 +1,6 @@
 'use client'
 import CalendlyDynamic from '@/components/calendly-dynamic'
+import Trustpilot from '@/components/trustpilot'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
 
@@ -52,7 +53,7 @@ const Calendly = ({ slice }: CalendlyProps): JSX.Element => {
           </svg>
         </div>
 
-        <div className='relative pt-32 pb-12 md:pt-40 '>
+        <div className='relative pt-10 pb-12 md:pt-16 '>
           {/* Content */}
           <div className={`max-w-3xl mx-auto text-center pb-12 md:pb-16`}>
             <h1 className='h1 mb-4' data-aos='fade-up'>
@@ -73,14 +74,19 @@ const Calendly = ({ slice }: CalendlyProps): JSX.Element => {
                 ),
               }}
             />
+
+            <Trustpilot/>
           </div>
 
-          {/* CTA */}
+          {/* We use 3 components to dynamically load the Calendly widget due to its popups etc */}
           <CalendlyDynamic
             url={slice.primary.calendar_url?.toString()}
             popup={slice.primary.pop_up}
+            ctaid={slice.primary.cta_id?.toString()}
           />
           <div id='__next'></div>
+
+          
         </div>
       </div>
     </section>

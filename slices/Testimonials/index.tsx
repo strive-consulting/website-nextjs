@@ -5,6 +5,7 @@ import { Content } from '@prismicio/client'
 import { PrismicLink, PrismicRichText, SliceComponentProps } from '@prismicio/react'
 import Image from 'next/image'
 import { parseISO, format } from 'date-fns'
+import Trustpilot from '@/components/trustpilot'
 /**
  * Props for `Testimonials`.
  */
@@ -66,17 +67,7 @@ const Testimonials = async ({ slice }: TestimonialsProps): Promise<JSX.Element> 
                 paragraph: ({ children }) => <p className='text-xl text-gray-400'>{children}</p>,
               }}
             />
-            <p className='text-xl text-gray-400 my-3'>
-              We&apos;re proud to be rated 4.8 stars on Trustpilot
-            </p>
-            <div className='flex justify-center items-center'>
-              <Image
-                src='/images/trustpilot.png'
-                alt='Strive on Trustpilot'
-                width={300}
-                height={43}
-              />
-            </div>
+            <Trustpilot/>
           </div>
 
           <div className='max-w-sm mx-auto grid gap-8 lg:grid-cols-3 lg:gap-6 items-start lg:max-w-none'>

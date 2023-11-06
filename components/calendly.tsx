@@ -5,9 +5,10 @@ import { useEffect, useState } from 'react'
 interface CalendarProps {
   url: string
   popup: boolean
+  ctaid: string
 }
 
-export default function Calendly({ url, popup }: CalendarProps) {
+export default function Calendly({ url, popup, ctaid }: CalendarProps) {
   const [rootElement, setRootElement] = useState(null)
 
   useEffect(() => {
@@ -27,7 +28,7 @@ export default function Calendly({ url, popup }: CalendarProps) {
           data-aos-anchor='[data-aos-id-cta]'
         >
           <PopupButton
-            className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
+            className={`${ctaid} btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4`}
             url={url}
             rootElement={rootElement}
             text='Book Call Back'

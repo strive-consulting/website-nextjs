@@ -612,7 +612,7 @@ export type GlobalNavDocument<Lang extends string = string> = prismic.PrismicDoc
   Lang
 >
 
-type LandingpageDocumentDataSlicesSlice = CalendlySlice | Hero1Slice
+type LandingpageDocumentDataSlicesSlice = VideoSlice | CalendlySlice | Hero1Slice
 
 /**
  * Content for LandingPage documents
@@ -720,6 +720,7 @@ export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumen
 >
 
 type ServicepageDocumentDataSlicesSlice =
+  | VideoSlice
   | CalendlySlice
   | BlogFeedSlice
   | TeamImagesSlice
@@ -1012,6 +1013,16 @@ export interface CalendlySliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField
+
+  /**
+   * CTA Id field in *CalendlyHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: If specified will add it as a class to CTA button
+   * - **API ID Path**: calendly.primary.cta_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_id: prismic.KeyTextField
 }
 
 /**
@@ -2046,6 +2057,48 @@ type TestimonialsSliceVariation = TestimonialsSliceDefault
  */
 export type TestimonialsSlice = prismic.SharedSlice<'testimonials', TestimonialsSliceVariation>
 
+/**
+ * Primary content in *Video → Primary*
+ */
+export interface VideoSliceDefaultPrimary {
+  /**
+   * YouTube Video field in *Video → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.youtube_video
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  youtube_video: prismic.EmbedField
+}
+
+/**
+ * Default variation for Video Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<VideoSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Video*
+ */
+type VideoSliceVariation = VideoSliceDefault
+
+/**
+ * Video Shared Slice
+ *
+ * - **API ID**: `video`
+ * - **Description**: Video
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoSlice = prismic.SharedSlice<'video', VideoSliceVariation>
+
 declare module '@prismicio/client' {
   interface CreateClient {
     (
@@ -2145,6 +2198,10 @@ declare module '@prismicio/client' {
       TestimonialsSliceDefaultPrimary,
       TestimonialsSliceVariation,
       TestimonialsSliceDefault,
+      VideoSlice,
+      VideoSliceDefaultPrimary,
+      VideoSliceVariation,
+      VideoSliceDefault,
     }
   }
 }

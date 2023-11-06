@@ -16,4 +16,5 @@ export const components = {
   team: dynamic(() => import('./Team')),
   team_images: dynamic(() => import('./TeamImages')),
   testimonials: dynamic(() => import('./Testimonials')),
+  video: dynamic(() => import('./Video')),
 }
