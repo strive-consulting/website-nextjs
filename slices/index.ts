@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 
 export const components = {
   blog_feed: dynamic(() => import('./BlogFeed')),
+  calendly: dynamic(() => import('./CalendlyHero')),
   content_image_text: dynamic(() => import('./ContentImageText')),
   cta1: dynamic(() => import('./Cta1')),
   description_quote: dynamic(() => import('./DescriptionQuote')),
@@ -15,4 +16,5 @@ export const components = {
   team: dynamic(() => import('./Team')),
   team_images: dynamic(() => import('./TeamImages')),
   testimonials: dynamic(() => import('./Testimonials')),
+  video: dynamic(() => import('./Video')),
 }

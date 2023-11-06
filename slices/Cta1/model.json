@@ -51,6 +51,13 @@
             "placeholder": "",
             "select": null
           }
+        },
+        "cta_id": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Id",
+            "placeholder": "If specified will add it as a class to CTA button"
+          }
         }
       },
       "items": {}

@@ -27,6 +27,15 @@
             "allowTargetBlank": true,
             "single": "paragraph,hyperlink,o-list-item,list-item"
           }
+        },
+        "show_linkedin_links": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show LinkedIn Links",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       },
       "items": {
