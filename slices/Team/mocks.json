@@ -18,6 +18,10 @@
             }
           }
         ]
+      },
+      "show_linkedin_links": {
+        "__TYPE__": "BooleanContent",
+        "value": false
       }
     },
     "items": [
@@ -43,7 +47,6 @@
           [
             "team_member_avatar",
             {
-              "__TYPE__": "ImageContent",
               "origin": {
                 "id": "main",
                 "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
@@ -61,6 +64,9 @@
                 },
                 "background": "transparent"
               },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
               "thumbnails": {}
             }
           ],

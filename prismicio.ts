@@ -13,6 +13,8 @@ export function linkResolver(doc: any) {
     //   return "/blog/" + doc.uid;
     case 'servicepage':
       return `/${doc.uid}`
+    case 'landingpage':
+      return `/lp/${doc.uid}`
     case 'blog_post':
       return `/blog/${doc.uid}`
     default:
@@ -29,6 +31,10 @@ const routes: prismic.ClientConfig['routes'] = [
   {
     type: 'servicepage',
     path: '/:uid',
+  },
+  {
+    type: 'landingpage',
+    path: '/lp/:uid',
   },
   {
     type: 'blog_post',

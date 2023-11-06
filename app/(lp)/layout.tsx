@@ -1,11 +1,9 @@
 import 'aos/dist/aos.css'
 import PageIllustration from '@/components/page-illustration'
-import Footer from '@/components/ui/footer'
 import { Metadata } from 'next'
 import AosInit from '@/components/aos-init'
 import { Constants } from '../constants'
 import SchemaTag from '@/components/schema'
-import Header from '@/components/ui/header'
 
 export const metadata: Metadata = {
   metadataBase: new URL(Constants.SiteDomain),
@@ -88,18 +86,16 @@ export default function DefaultLayout({ children }: { children: React.ReactNode 
   return (
     <>
       <main className='grow'>
-        <Header />
         <PageIllustration />
         {children}
         {/* This seems to need to be here for animations from slicezone (loaded in Children) to work. Doesn't like it from the layout pages */}
         <AosInit />
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
 
       <SchemaTag schemaJson={schemaOrg} />
       <SchemaTag schemaJson={schemaWeb} />
-      <div className='elfsight-app-a73b12f4-a34b-4fd4-8585-b9a9aed04015'></div>
     </>
   )
 }
