@@ -1,13 +1,9 @@
 import { Divider } from '@/components/divider'
 import TeamQuote from '@/components/team-quote'
 import TickIcon from '@/components/tickIcon'
-import { createClient } from '@/prismicio'
-import { AuthorDocument, AuthorDocumentData, DescriptionQuoteSlice } from '@/prismicio-types'
-import { Content, ContentRelationshipField, isFilled } from '@prismicio/client'
-import { PrismicNextLink } from '@prismicio/next'
+import { AuthorDocument, DescriptionQuoteSlice } from '@/prismicio-types'
+import { Content, isFilled } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-import { PrismicContext } from '@prismicio/react/dist/PrismicProvider'
-import { JsxFragment } from 'typescript'
 
 /**
  * Props for `DescriptionQuote`.

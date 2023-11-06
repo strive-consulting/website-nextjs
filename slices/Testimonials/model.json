@@ -33,7 +33,48 @@
           "config": {
             "label": "Number to show",
             "placeholder": "Leave unselected to show all",
-            "options": ["3", "6", "9"]
+            "options": [
+              "3",
+              "6",
+              "9"
+            ]
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "single",
+      "name": "Single",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "sub_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Sub Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "testimonial": {
+          "type": "Link",
+          "config": {
+            "label": "Testimonial",
+            "select": "document",
+            "customtypes": [
+              "testimonial"
+            ]
           }
         }
       },

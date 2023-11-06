@@ -38,7 +38,6 @@ export async function generateStaticParams() {
   })
 }
 
-
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const page = await getLandingPage(params.uid)
 

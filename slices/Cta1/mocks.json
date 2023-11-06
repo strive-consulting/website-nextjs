@@ -41,6 +41,11 @@
           "__TYPE__": "ExternalLink",
           "url": "https://slicemachine.dev"
         }
+      },
+      "cta_id": {
+        "__TYPE__": "FieldContent",
+        "value": "poetry",
+        "type": "Text"
       }
     },
     "items": []

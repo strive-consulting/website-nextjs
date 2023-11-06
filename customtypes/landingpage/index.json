@@ -17,6 +17,27 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "team": {
+              "type": "SharedSlice"
+            },
+            "cta1": {
+              "type": "SharedSlice"
+            },
+            "description_quote": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
+              "type": "SharedSlice"
+            },
+            "faq": {
+              "type": "SharedSlice"
+            },
+            "general_content": {
+              "type": "SharedSlice"
+            },
+            "process_steps": {
+              "type": "SharedSlice"
+            },
             "video": {
               "type": "SharedSlice"
             },

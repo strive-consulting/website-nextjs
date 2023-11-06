@@ -1,30 +1,65 @@
 [
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "default",
-    "primary": {
-      "title": {
-        "__TYPE__": "FieldContent",
-        "value": "ancient",
-        "type": "Text"
-      },
-      "sub_text": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Labore veniam laboris voluptate culpa anim. Culpa nisi excepteur consequat aute."
-            }
-          }
-        ]
-      },
-      "number_to_show": {
-        "__TYPE__": "FieldContent",
-        "value": "6",
-        "type": "Select"
-      }
-    },
-    "items": []
-  }
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "ancient",
+				"type": "Text"
+			},
+			"sub_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Labore veniam laboris voluptate culpa anim. Culpa nisi excepteur consequat aute."
+						}
+					}
+				]
+			},
+			"number_to_show": {
+				"__TYPE__": "FieldContent",
+				"value": "6",
+				"type": "Select"
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "single",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "seed",
+				"type": "Text"
+			},
+			"sub_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Pariatur id dolore enim laborum."
+						}
+					}
+				]
+			},
+			"testimonial": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
 ]

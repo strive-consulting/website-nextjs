@@ -75,7 +75,7 @@ const Calendly = ({ slice }: CalendlyProps): JSX.Element => {
               }}
             />
 
-            <Trustpilot/>
+            <Trustpilot />
           </div>
 
           {/* We use 3 components to dynamically load the Calendly widget due to its popups etc */}
@@ -85,8 +85,6 @@ const Calendly = ({ slice }: CalendlyProps): JSX.Element => {
             ctaid={slice.primary.cta_id?.toString()}
           />
           <div id='__next'></div>
-
-          
         </div>
       </div>
     </section>

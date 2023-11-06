@@ -1,7 +1,6 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 export default function Trustpilot() {
-  
   return (
     <>
       <p className='text-md text-gray-400 my-3'>
@@ -13,8 +12,9 @@ export default function Trustpilot() {
           alt='Strive on Trustpilot'
           width={300}
           height={43}
+          priority={true}
         />
       </div>
     </>
-  );
-};
+  )
+}

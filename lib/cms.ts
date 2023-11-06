@@ -162,7 +162,16 @@ export async function getLandingPage(uid: string) {
   const client = createClient()
   const page = await client
     .getByUID('landingpage', uid, {
-      // fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+      fetchLinks: [
+        'author.name',
+        'author.job_title',
+        'author.avatar',
+        'author.linkedin_url',
+        'testimonial.name',
+        'testimonial.job_title',
+        'testimonial.avatar',
+        'testimonial.description',
+      ],
     })
     .catch(() => notFound())
 

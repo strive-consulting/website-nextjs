@@ -612,7 +612,17 @@ export type GlobalNavDocument<Lang extends string = string> = prismic.PrismicDoc
   Lang
 >
 
-type LandingpageDocumentDataSlicesSlice = VideoSlice | CalendlySlice | Hero1Slice
+type LandingpageDocumentDataSlicesSlice =
+  | TeamSlice
+  | Cta1Slice
+  | DescriptionQuoteSlice
+  | TestimonialsSlice
+  | FaqSlice
+  | GeneralContentSlice
+  | ProcessStepsSlice
+  | VideoSlice
+  | CalendlySlice
+  | Hero1Slice
 
 /**
  * Content for LandingPage documents
@@ -1205,6 +1215,16 @@ export interface Cta1SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   cta_link: prismic.LinkField
+
+  /**
+   * CTA Id field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: If specified will add it as a class to CTA button
+   * - **API ID Path**: cta1.primary.cta_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_id: prismic.KeyTextField
 }
 
 /**
@@ -1849,6 +1869,17 @@ export interface TeamSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField
+
+  /**
+   * Show LinkedIn Links field in *Team → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: team.primary.show_linkedin_links
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_linkedin_links: prismic.BooleanField
 }
 
 /**
@@ -2044,9 +2075,57 @@ export type TestimonialsSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Testimonials → Primary*
+ */
+export interface TestimonialsSliceSinglePrimary {
+  /**
+   * Title field in *Testimonials → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Sub Text field in *Testimonials → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.primary.sub_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_text: prismic.RichTextField
+
+  /**
+   * Testimonial field in *Testimonials → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.primary.testimonial
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  testimonial: prismic.ContentRelationshipField<'testimonial'>
+}
+
+/**
+ * Single variation for Testimonials Slice
+ *
+ * - **API ID**: `single`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialsSliceSingle = prismic.SharedSliceVariation<
+  'single',
+  Simplify<TestimonialsSliceSinglePrimary>,
+  never
+>
+
+/**
  * Slice variation for *Testimonials*
  */
-type TestimonialsSliceVariation = TestimonialsSliceDefault
+type TestimonialsSliceVariation = TestimonialsSliceDefault | TestimonialsSliceSingle
 
 /**
  * Testimonials Shared Slice
@@ -2196,8 +2275,10 @@ declare module '@prismicio/client' {
       TeamImagesSliceDefault,
       TestimonialsSlice,
       TestimonialsSliceDefaultPrimary,
+      TestimonialsSliceSinglePrimary,
       TestimonialsSliceVariation,
       TestimonialsSliceDefault,
+      TestimonialsSliceSingle,
       VideoSlice,
       VideoSliceDefaultPrimary,
       VideoSliceVariation,
