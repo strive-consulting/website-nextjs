@@ -41,3 +41,7 @@ address {
     line-height: 1.375;
     letter-spacing: -0.01em
 }
+
+.youtube-icon {
+    transform: translate(4px, 3px) scale(0.8);
+}
