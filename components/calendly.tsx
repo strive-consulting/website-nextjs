@@ -9,12 +9,11 @@ interface CalendarProps {
 }
 
 export default function Calendly({ url, popup, ctaid }: CalendarProps) {
-
-  const input = document.getElementById('__next');
-  const el1: HTMLElement = input as HTMLElement;
+  const input = document.getElementById('__next')
+  const el1: HTMLElement = input as HTMLElement
 
   const [rootElement, setRootElement] = useState(el1)
-  
+
   useEffect(() => {
     // Wait for the component to be mounted before setting the rootElement
     if (typeof window !== 'undefined') {
@@ -24,12 +23,12 @@ export default function Calendly({ url, popup, ctaid }: CalendarProps) {
   }, [input])
   return (
     <>
-      {popup === false && <InlineWidget url={url ?? ""} />}
+      {popup === false && <InlineWidget url={url ?? ''} />}
       {popup === true && (
         <div className='flex justify-center mb-8'>
           <PopupButton
             className={`${ctaid} btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4`}
-            url={url ?? ""}
+            url={url ?? ''}
             rootElement={rootElement}
             text='Book Call Back'
           />

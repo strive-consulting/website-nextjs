@@ -1,0 +1,26 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "cta_id": {
+        "__TYPE__": "FieldContent",
+        "value": "standard",
+        "type": "Text"
+      },
+      "cta_text": {
+        "__TYPE__": "FieldContent",
+        "value": "mail",
+        "type": "Text"
+      },
+      "cta_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://prismic.io"
+        }
+      }
+    },
+    "items": []
+  }
+]

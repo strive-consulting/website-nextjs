@@ -13,6 +13,7 @@ export const components = {
   grid_blocks: dynamic(() => import('./GridBlocks')),
   hero1: dynamic(() => import('./Hero1')),
   process_steps: dynamic(() => import('./ProcessSteps')),
+  sticky_navigation: dynamic(() => import('./StickyNavigation')),
   team: dynamic(() => import('./Team')),
   team_images: dynamic(() => import('./TeamImages')),
   testimonials: dynamic(() => import('./Testimonials')),
