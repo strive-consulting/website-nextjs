@@ -20,6 +20,11 @@ const nextConfig = {
         destination: 'https://calendly.com/d/4cz-qzm-kdp/strive-consultants-dubai-discovery-call',
         permanent: true,
       },
+      {
+        source: '/accounting-information-request-form',
+        destination: 'https://form.jotform.com/striveconsultants/accounting-information-request-form',
+        permanent: true,
+      },
     ]
   },
 }
