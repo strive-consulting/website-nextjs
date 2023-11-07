@@ -85,7 +85,7 @@ export default function DefaultLayout({ children }: { children: React.ReactNode 
 
   return (
     <>
-      <main className='grow'>
+      <main className='grow mt-10'>
         <PageIllustration />
         {children}
         {/* This seems to need to be here for animations from slicezone (loaded in Children) to work. Doesn't like it from the layout pages */}

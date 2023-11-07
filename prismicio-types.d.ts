@@ -613,6 +613,7 @@ export type GlobalNavDocument<Lang extends string = string> = prismic.PrismicDoc
 >
 
 type LandingpageDocumentDataSlicesSlice =
+  | StickyNavigationSlice
   | TeamSlice
   | Cta1Slice
   | DescriptionQuoteSlice
@@ -1847,6 +1848,71 @@ type ProcessStepsSliceVariation = ProcessStepsSliceDefault
 export type ProcessStepsSlice = prismic.SharedSlice<'process_steps', ProcessStepsSliceVariation>
 
 /**
+ * Primary content in *StickyNavigation → Primary*
+ */
+export interface StickyNavigationSliceDefaultPrimary {
+  /**
+   * CTA Text field in *StickyNavigation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sticky_navigation.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField
+
+  /**
+   * CTA Link field in *StickyNavigation → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sticky_navigation.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField
+
+  /**
+   * CTA Id field in *StickyNavigation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sticky_navigation.primary.cta_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_id: prismic.KeyTextField
+}
+
+/**
+ * Default variation for StickyNavigation Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StickyNavigationSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<StickyNavigationSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *StickyNavigation*
+ */
+type StickyNavigationSliceVariation = StickyNavigationSliceDefault
+
+/**
+ * StickyNavigation Shared Slice
+ *
+ * - **API ID**: `sticky_navigation`
+ * - **Description**: StickyNavigation
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StickyNavigationSlice = prismic.SharedSlice<
+  'sticky_navigation',
+  StickyNavigationSliceVariation
+>
+
+/**
  * Primary content in *Team → Primary*
  */
 export interface TeamSliceDefaultPrimary {
@@ -2264,6 +2330,10 @@ declare module '@prismicio/client' {
       ProcessStepsSliceDefaultPrimary,
       ProcessStepsSliceVariation,
       ProcessStepsSliceDefault,
+      StickyNavigationSlice,
+      StickyNavigationSliceDefaultPrimary,
+      StickyNavigationSliceVariation,
+      StickyNavigationSliceDefault,
       TeamSlice,
       TeamSliceDefaultPrimary,
       TeamSliceDefaultItem,
