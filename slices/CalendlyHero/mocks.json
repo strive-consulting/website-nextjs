@@ -1,43 +1,43 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"calendar_url": {
-				"__TYPE__": "FieldContent",
-				"value": "quick",
-				"type": "Text"
-			},
-			"pop_up": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			},
-			"title": {
-				"__TYPE__": "FieldContent",
-				"value": "sent",
-				"type": "Text"
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Esse cillum consequat quis velit consectetur anim dolor commodo consectetur esse ullamco. Ipsum veniam ea irure officia magna occaecat."
-						}
-					}
-				]
-			},
-			"cta_id": {
-				"__TYPE__": "FieldContent",
-				"value": "volume",
-				"type": "Text"
-			},
-			"show_prefill_form": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "calendar_url": {
+        "__TYPE__": "FieldContent",
+        "value": "quick",
+        "type": "Text"
+      },
+      "pop_up": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "sent",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Esse cillum consequat quis velit consectetur anim dolor commodo consectetur esse ullamco. Ipsum veniam ea irure officia magna occaecat."
+            }
+          }
+        ]
+      },
+      "cta_id": {
+        "__TYPE__": "FieldContent",
+        "value": "volume",
+        "type": "Text"
+      },
+      "show_prefill_form": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      }
+    },
+    "items": []
+  }
 ]
