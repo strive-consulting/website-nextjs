@@ -50,6 +50,15 @@
             "label": "CTA Id",
             "placeholder": "If specified will add it as a class to CTA button"
           }
+        },
+        "show_prefill_form": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Pre-fill Form",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       },
       "items": {}

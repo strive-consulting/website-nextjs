@@ -1034,6 +1034,17 @@ export interface CalendlySliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   cta_id: prismic.KeyTextField
+
+  /**
+   * Show Pre-fill Form field in *CalendlyHero → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: calendly.primary.show_prefill_form
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_prefill_form: prismic.BooleanField
 }
 
 /**
