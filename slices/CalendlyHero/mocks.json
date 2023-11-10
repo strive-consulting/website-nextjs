@@ -32,6 +32,10 @@
         "__TYPE__": "FieldContent",
         "value": "volume",
         "type": "Text"
+      },
+      "show_prefill_form": {
+        "__TYPE__": "BooleanContent",
+        "value": true
       }
     },
     "items": []

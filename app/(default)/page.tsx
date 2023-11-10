@@ -6,6 +6,7 @@ import { getCmsPage } from '@/lib/cms'
 import { Constants } from '../constants'
 import { linkResolver } from '@/prismicio'
 import SchemaTag from '@/components/schema'
+import CalendlyFormPrefill from '@/components/calendly-form-prefill'
 
 export default async function Home() {
   const page = await getCmsPage('home')
@@ -22,6 +23,7 @@ export default async function Home() {
   return (
     <>
       <SliceZone slices={page.data.slices} components={components} />
+      <CalendlyFormPrefill />
       <SchemaTag schemaJson={schema} />
     </>
   )

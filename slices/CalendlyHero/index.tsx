@@ -1,5 +1,6 @@
 'use client'
 import CalendlyDynamic from '@/components/calendly-dynamic'
+import CalendlyFormPrefill from '@/components/calendly-form-prefill'
 import Trustpilot from '@/components/trustpilot'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
@@ -55,7 +56,7 @@ const Calendly = ({ slice }: CalendlyProps): JSX.Element => {
 
         <div className='relative pt-10 pb-10 md:pt-16 '>
           {/* Content */}
-          <div className={`max-w-3xl mx-auto text-center pb-12 md:pb-16`}>
+          <div className={`max-w-3xl mx-auto text-center mb-6`}>
             <h1 className='h1 mb-4' data-aos='fade-up'>
               {slice.primary.title}
             </h1>
@@ -75,15 +76,22 @@ const Calendly = ({ slice }: CalendlyProps): JSX.Element => {
               }}
             />
 
-            <Trustpilot />
+            {!slice.primary.show_prefill_form && <Trustpilot />}
           </div>
 
+          {slice.primary.show_prefill_form && (
+            <CalendlyFormPrefill calendarUrl={slice.primary.calendar_url?.toString()} />
+          )}
+
           {/* We use 3 components to dynamically load the Calendly widget due to its popups etc */}
-          <CalendlyDynamic
-            url={slice.primary.calendar_url?.toString()}
-            popup={slice.primary.pop_up}
-            ctaid={slice.primary.cta_id?.toString()}
-          />
+          {!slice.primary.show_prefill_form && (
+            <CalendlyDynamic
+              url={slice.primary.calendar_url?.toString()}
+              popup={slice.primary.pop_up}
+              ctaid={slice.primary.cta_id?.toString()}
+            />
+          )}
+
           <div id='__next'></div>
         </div>
       </div>
