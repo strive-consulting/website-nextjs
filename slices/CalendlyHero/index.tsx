@@ -79,14 +79,18 @@ const Calendly = ({ slice }: CalendlyProps): JSX.Element => {
             {!slice.primary.show_prefill_form && <Trustpilot />}
           </div>
 
-          {slice.primary.show_prefill_form && <CalendlyFormPrefill calendarUrl={slice.primary.calendar_url?.toString()}/>}
+          {slice.primary.show_prefill_form && (
+            <CalendlyFormPrefill calendarUrl={slice.primary.calendar_url?.toString()} />
+          )}
 
           {/* We use 3 components to dynamically load the Calendly widget due to its popups etc */}
-          {!slice.primary.show_prefill_form && <CalendlyDynamic
-            url={slice.primary.calendar_url?.toString()}
-            popup={slice.primary.pop_up}
-            ctaid={slice.primary.cta_id?.toString()}
-          />}
+          {!slice.primary.show_prefill_form && (
+            <CalendlyDynamic
+              url={slice.primary.calendar_url?.toString()}
+              popup={slice.primary.pop_up}
+              ctaid={slice.primary.cta_id?.toString()}
+            />
+          )}
 
           <div id='__next'></div>
         </div>
