@@ -71,7 +71,7 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
                   strokeLinecap='square'
                 />
               </svg> */}
-              <h3 className='h4 mb-2'>
+              <h3 className='h5 mb-2'>
                 <span className='text-gray-400'>1</span>. {slice.primary.step_1_title}
               </h3>
               <p className='text-lg text-gray-400 text-center'>{slice.primary.step_1_text}</p>
@@ -90,7 +90,7 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
                 data-aos-delay='400'
               ></div>
               {step2Icon ? step2Icon?.icon : <></>}
-              <h4 className='h4 mb-2'>
+              <h4 className='h5 mb-2'>
                 <span className='text-gray-400'>2</span>. {slice.primary.step_2_title}
               </h4>
               <p className='text-lg text-gray-400 text-center'>{slice.primary.step_2_text}</p>
@@ -103,7 +103,7 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
               data-aos-delay='400'
             >
               {step3Icon ? step3Icon?.icon : <></>}
-              <h4 className='h4 mb-2'>
+              <h4 className='h5 mb-2'>
                 <span className='text-gray-400'>3</span>. {slice.primary.step_3_title}
               </h4>
               <p className='text-lg text-gray-400 text-center'>{slice.primary.step_3_text}</p>

@@ -23,7 +23,6 @@ export default async function Home() {
   return (
     <>
       <SliceZone slices={page.data.slices} components={components} />
-      <CalendlyFormPrefill />
       <SchemaTag schemaJson={schema} />
     </>
   )
