@@ -4,8 +4,9 @@ import { useState } from 'react'
 
 interface CalendlyFormPrefillProps {
   calendarUrl?: string
+  ctaid?: string
 }
-export default function CalendlyFormPrefill({ calendarUrl }: CalendlyFormPrefillProps) {
+export default function CalendlyFormPrefill({ calendarUrl, ctaid }: CalendlyFormPrefillProps) {
   const router = useRouter()
 
   const [formData, setFormData] = useState({
@@ -69,7 +70,7 @@ export default function CalendlyFormPrefill({ calendarUrl }: CalendlyFormPrefill
           </label>
           <button
             type='submit'
-            className='btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-2'
+            className={`${ctaid} btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-2`}
           >
             Schedule Call
           </button>
