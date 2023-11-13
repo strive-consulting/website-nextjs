@@ -80,7 +80,10 @@ const Calendly = ({ slice }: CalendlyProps): JSX.Element => {
           </div>
 
           {slice.primary.show_prefill_form && (
-            <CalendlyFormPrefill calendarUrl={slice.primary.calendar_url?.toString()} />
+            <CalendlyFormPrefill
+              calendarUrl={slice.primary.calendar_url?.toString()}
+              ctaid={slice.primary.cta_id?.toString()}
+            />
           )}
 
           {/* We use 3 components to dynamically load the Calendly widget due to its popups etc */}
