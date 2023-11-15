@@ -1,5 +1,5 @@
 'use client'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
 interface CalendlyFormPrefillProps {
@@ -15,6 +15,14 @@ export default function CalendlyFormPrefill({ calendarUrl, ctaid }: CalendlyForm
     phoneNumber: '',
   })
 
+  const searchParams = useSearchParams()
+
+  const utm = {
+    utmCampaign: searchParams.get('utm_campaign') ?? undefined,
+    utmMedium: searchParams.get('utm_medium') ?? undefined,
+    utmSource: searchParams.get('utm_source') ?? undefined,
+  }
+
   const handleChange = (e: any) => {
     setFormData({
       ...formData,
@@ -29,7 +37,9 @@ export default function CalendlyFormPrefill({ calendarUrl, ctaid }: CalendlyForm
     // Note 'a1' is the first custom question in this Calendly form
     const url = `${calendarUrl}?name=${encodeURIComponent(
       formData.name,
-    )}&email=${encodeURIComponent(formData.email)}&a1=${encodeURIComponent(formData.phoneNumber)}`
+    )}&email=${encodeURIComponent(formData.email)}&a1=${encodeURIComponent(
+      formData.phoneNumber,
+    )}&utm_campaign=${utm.utmCampaign}&utm_medium=${utm.utmMedium}&utm_source=${utm.utmSource}`
 
     router.push(url)
   }
