@@ -1,6 +1,8 @@
 'use client'
 import { PopupButton, InlineWidget } from 'react-calendly'
 import { useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { Utm } from 'react-calendly/typings/calendly'
 
 interface CalendarProps {
   url?: string
@@ -14,6 +16,17 @@ export default function Calendly({ url, popup, ctaid }: CalendarProps) {
 
   const [rootElement, setRootElement] = useState(el1)
 
+  //Get UTM params and force in rather than relying on the plugin to detect them
+  const searchParams = useSearchParams()
+
+  const utm: Utm = {
+    utmCampaign: searchParams.get('utm_campaign') ?? undefined,
+    utmContent: '',
+    utmMedium: searchParams.get('utm_medium') ?? undefined,
+    utmSource: searchParams.get('utm_source') ?? undefined,
+    utmTerm: '',
+  }
+
   useEffect(() => {
     // Wait for the component to be mounted before setting the rootElement
     if (typeof window !== 'undefined') {
@@ -21,9 +34,11 @@ export default function Calendly({ url, popup, ctaid }: CalendarProps) {
       setRootElement(input)
     }
   }, [input])
+
+  console.log('popup', popup)
   return (
     <>
-      {popup === false && <InlineWidget url={url ?? ''} />}
+      {popup === false || (popup === null && <InlineWidget url={url ?? ''} utm={utm} />)}
       {popup === true && (
         <div className='flex justify-center mb-8'>
           <PopupButton
@@ -31,6 +46,7 @@ export default function Calendly({ url, popup, ctaid }: CalendarProps) {
             url={url ?? ''}
             rootElement={rootElement}
             text='Book Call Back'
+            utm={utm}
           />
         </div>
       )}
