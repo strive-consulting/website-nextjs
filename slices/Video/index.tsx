@@ -20,7 +20,6 @@ function loadVideoIframe(url: string, title?: string): JSX.Element {
         className='wistia_embed absolute top-0 left-0 w-full h-full'
         name='wistia_embed'
         allowFullScreen={true}
-        
       ></iframe>
     )
   } else {
