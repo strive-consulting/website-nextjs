@@ -17,6 +17,18 @@ export async function getTestimonials(maxcount?: number) {
   return testimonials
 }
 
+export async function getFreeZones() {
+  const client = createClient()
+
+  const freeZones = await client
+    .getAllByType('free_zone', {
+      orderings: [{ field: 'my.free_zone.order', direction: 'asc' }],
+    })
+    .catch(() => notFound())
+
+  return freeZones
+}
+
 //Note, servicepage is the name of our general cms page
 export async function getCmsPage(uid: string) {
   const client = createClient()

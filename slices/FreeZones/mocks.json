@@ -1,0 +1,25 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "central",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Excepteur eu mollit nulla excepteur mollit nostrud. Enim cupidatat fugiat consequat minim culpa ipsum consectetur et dolore mollit ullamco nostrud sint. Enim incididunt ullamco incididunt aliqua sunt cupidatat amet."
+            }
+          }
+        ]
+      }
+    },
+    "items": []
+  }
+]
