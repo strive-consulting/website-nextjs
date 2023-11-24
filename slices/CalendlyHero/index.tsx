@@ -94,8 +94,6 @@ const Calendly = ({ slice }: CalendlyProps): JSX.Element => {
               ctaid={slice.primary.cta_id?.toString()}
             />
           )}
-
-          <div id='__next'></div>
         </div>
       </div>
     </section>
