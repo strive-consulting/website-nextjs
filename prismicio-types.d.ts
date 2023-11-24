@@ -405,6 +405,17 @@ interface FreeZoneDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   popular: prismic.BooleanField
+
+  /**
+   * Link field in *Free Zone*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: free_zone.link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField
 }
 
 /**
@@ -731,6 +742,7 @@ export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumen
 >
 
 type ServicepageDocumentDataSlicesSlice =
+  | FreeZonesSlice
   | VideoSlice
   | CalendlySlice
   | BlogFeedSlice
@@ -1407,6 +1419,58 @@ type FaqSliceVariation = FaqSliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type FaqSlice = prismic.SharedSlice<'faq', FaqSliceVariation>
+
+/**
+ * Primary content in *FreeZones → Primary*
+ */
+export interface FreeZonesSliceDefaultPrimary {
+  /**
+   * Title field in *FreeZones → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: free_zones.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *FreeZones → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: free_zones.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Default variation for FreeZones Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FreeZonesSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<FreeZonesSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *FreeZones*
+ */
+type FreeZonesSliceVariation = FreeZonesSliceDefault
+
+/**
+ * FreeZones Shared Slice
+ *
+ * - **API ID**: `free_zones`
+ * - **Description**: FreeZones
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FreeZonesSlice = prismic.SharedSlice<'free_zones', FreeZonesSliceVariation>
 
 /**
  * Primary content in *GeneralContent → Primary*
@@ -2321,6 +2385,10 @@ declare module '@prismicio/client' {
       FaqSliceDefaultItem,
       FaqSliceVariation,
       FaqSliceDefault,
+      FreeZonesSlice,
+      FreeZonesSliceDefaultPrimary,
+      FreeZonesSliceVariation,
+      FreeZonesSliceDefault,
       GeneralContentSlice,
       GeneralContentSliceDefaultPrimary,
       GeneralContentSliceVariation,
