@@ -6,7 +6,7 @@ import { Utm } from 'react-calendly/typings/calendly'
 
 interface CalendarProps {
   url?: string
-  popup: boolean
+  popup?: boolean
   ctaid?: string
 }
 
@@ -35,10 +35,19 @@ export default function Calendly({ url, popup, ctaid }: CalendarProps) {
     }
   }, [input])
 
-  console.log('popup', popup)
+  // console.log('popup', popup)
+  // console.log('popup', popup==false)
   return (
     <>
-      {popup === false || (popup === null && <InlineWidget url={url ?? ''} utm={utm} />)}
+      {popup === false ||
+        (popup == undefined && (
+          <InlineWidget
+            url={url ?? ''}
+            utm={utm}
+            styles={{ height: '750px' }}
+            pageSettings={{ hideEventTypeDetails: true }}
+          />
+        ))}
       {popup === true && (
         <div className='flex justify-center mb-8'>
           <PopupButton
