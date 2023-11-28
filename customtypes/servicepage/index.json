@@ -17,6 +17,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "free_zones": {
+              "type": "SharedSlice"
+            },
+            "video": {
+              "type": "SharedSlice"
+            },
+            "calendly": {
+              "type": "SharedSlice"
+            },
             "blog_feed": {
               "type": "SharedSlice"
             },

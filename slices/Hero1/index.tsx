@@ -136,7 +136,6 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                           <PrismicNextLink
                             className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
                             field={slice.primary.cta_2_link}
-                            target='_blank'
                           >
                             {slice.primary.cta_2_text}
                           </PrismicNextLink>

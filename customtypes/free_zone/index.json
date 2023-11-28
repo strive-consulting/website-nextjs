@@ -3,6 +3,7 @@
   "label": "Free Zone",
   "repeatable": true,
   "status": true,
+  "format": "custom",
   "json": {
     "Main": {
       "uid": {
@@ -42,8 +43,15 @@
           "placeholder_true": "true",
           "placeholder_false": "false"
         }
+      },
+      "link": {
+        "type": "Link",
+        "config": {
+          "label": "Link",
+          "placeholder": "",
+          "select": null
+        }
       }
     }
-  },
-  "format": "custom"
+  }
 }

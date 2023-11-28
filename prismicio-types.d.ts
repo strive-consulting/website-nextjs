@@ -405,6 +405,17 @@ interface FreeZoneDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   popular: prismic.BooleanField
+
+  /**
+   * Link field in *Free Zone*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: free_zone.link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField
 }
 
 /**
@@ -612,6 +623,82 @@ export type GlobalNavDocument<Lang extends string = string> = prismic.PrismicDoc
   Lang
 >
 
+type LandingpageDocumentDataSlicesSlice =
+  | StickyNavigationSlice
+  | TeamSlice
+  | Cta1Slice
+  | DescriptionQuoteSlice
+  | TestimonialsSlice
+  | FaqSlice
+  | GeneralContentSlice
+  | ProcessStepsSlice
+  | VideoSlice
+  | CalendlySlice
+  | Hero1Slice
+
+/**
+ * Content for LandingPage documents
+ */
+interface LandingpageDocumentData {
+  /**
+   * Slice Zone field in *LandingPage*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landingpage.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<LandingpageDocumentDataSlicesSlice>
+  /**
+   * Meta Description field in *LandingPage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: landingpage.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *LandingPage*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landingpage.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *LandingPage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: landingpage.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * LandingPage document from Prismic
+ *
+ * - **API ID**: `landingpage`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LandingpageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+  Simplify<LandingpageDocumentData>,
+  'landingpage',
+  Lang
+>
+
 /**
  * Content for Quote documents
  */
@@ -655,6 +742,9 @@ export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumen
 >
 
 type ServicepageDocumentDataSlicesSlice =
+  | FreeZonesSlice
+  | VideoSlice
+  | CalendlySlice
   | BlogFeedSlice
   | TeamImagesSlice
   | TeamSlice
@@ -835,6 +925,7 @@ export type AllDocumentTypes =
   | FooterDocument
   | FreeZoneDocument
   | GlobalNavDocument
+  | LandingpageDocument
   | QuoteDocument
   | ServicepageDocument
   | TestimonialDocument
@@ -900,6 +991,100 @@ type BlogFeedSliceVariation = BlogFeedSliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type BlogFeedSlice = prismic.SharedSlice<'blog_feed', BlogFeedSliceVariation>
+
+/**
+ * Primary content in *CalendlyHero → Primary*
+ */
+export interface CalendlySliceDefaultPrimary {
+  /**
+   * Calendar Url field in *CalendlyHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: calendly.primary.calendar_url
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  calendar_url: prismic.KeyTextField
+
+  /**
+   * Pop up field in *CalendlyHero → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: calendly.primary.pop_up
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  pop_up: prismic.BooleanField
+
+  /**
+   * Title field in *CalendlyHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: calendly.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *CalendlyHero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: calendly.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * CTA Id field in *CalendlyHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: If specified will add it as a class to CTA button
+   * - **API ID Path**: calendly.primary.cta_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_id: prismic.KeyTextField
+
+  /**
+   * Show Pre-fill Form field in *CalendlyHero → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: calendly.primary.show_prefill_form
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_prefill_form: prismic.BooleanField
+}
+
+/**
+ * Default variation for CalendlyHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CalendlySliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<CalendlySliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *CalendlyHero*
+ */
+type CalendlySliceVariation = CalendlySliceDefault
+
+/**
+ * CalendlyHero Shared Slice
+ *
+ * - **API ID**: `calendly`
+ * - **Description**: Calendly
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CalendlySlice = prismic.SharedSlice<'calendly', CalendlySliceVariation>
 
 /**
  * Primary content in *ContentImageText → Primary*
@@ -1054,6 +1239,16 @@ export interface Cta1SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   cta_link: prismic.LinkField
+
+  /**
+   * CTA Id field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: If specified will add it as a class to CTA button
+   * - **API ID Path**: cta1.primary.cta_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_id: prismic.KeyTextField
 }
 
 /**
@@ -1224,6 +1419,58 @@ type FaqSliceVariation = FaqSliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type FaqSlice = prismic.SharedSlice<'faq', FaqSliceVariation>
+
+/**
+ * Primary content in *FreeZones → Primary*
+ */
+export interface FreeZonesSliceDefaultPrimary {
+  /**
+   * Title field in *FreeZones → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: free_zones.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *FreeZones → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: free_zones.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Default variation for FreeZones Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FreeZonesSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<FreeZonesSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *FreeZones*
+ */
+type FreeZonesSliceVariation = FreeZonesSliceDefault
+
+/**
+ * FreeZones Shared Slice
+ *
+ * - **API ID**: `free_zones`
+ * - **Description**: FreeZones
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FreeZonesSlice = prismic.SharedSlice<'free_zones', FreeZonesSliceVariation>
 
 /**
  * Primary content in *GeneralContent → Primary*
@@ -1676,6 +1923,71 @@ type ProcessStepsSliceVariation = ProcessStepsSliceDefault
 export type ProcessStepsSlice = prismic.SharedSlice<'process_steps', ProcessStepsSliceVariation>
 
 /**
+ * Primary content in *StickyNavigation → Primary*
+ */
+export interface StickyNavigationSliceDefaultPrimary {
+  /**
+   * CTA Text field in *StickyNavigation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sticky_navigation.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField
+
+  /**
+   * CTA Link field in *StickyNavigation → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sticky_navigation.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField
+
+  /**
+   * CTA Id field in *StickyNavigation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sticky_navigation.primary.cta_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_id: prismic.KeyTextField
+}
+
+/**
+ * Default variation for StickyNavigation Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StickyNavigationSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<StickyNavigationSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *StickyNavigation*
+ */
+type StickyNavigationSliceVariation = StickyNavigationSliceDefault
+
+/**
+ * StickyNavigation Shared Slice
+ *
+ * - **API ID**: `sticky_navigation`
+ * - **Description**: StickyNavigation
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StickyNavigationSlice = prismic.SharedSlice<
+  'sticky_navigation',
+  StickyNavigationSliceVariation
+>
+
+/**
  * Primary content in *Team → Primary*
  */
 export interface TeamSliceDefaultPrimary {
@@ -1698,6 +2010,17 @@ export interface TeamSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField
+
+  /**
+   * Show LinkedIn Links field in *Team → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: team.primary.show_linkedin_links
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_linkedin_links: prismic.BooleanField
 }
 
 /**
@@ -1893,9 +2216,57 @@ export type TestimonialsSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Testimonials → Primary*
+ */
+export interface TestimonialsSliceSinglePrimary {
+  /**
+   * Title field in *Testimonials → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Sub Text field in *Testimonials → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.primary.sub_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_text: prismic.RichTextField
+
+  /**
+   * Testimonial field in *Testimonials → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.primary.testimonial
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  testimonial: prismic.ContentRelationshipField<'testimonial'>
+}
+
+/**
+ * Single variation for Testimonials Slice
+ *
+ * - **API ID**: `single`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialsSliceSingle = prismic.SharedSliceVariation<
+  'single',
+  Simplify<TestimonialsSliceSinglePrimary>,
+  never
+>
+
+/**
  * Slice variation for *Testimonials*
  */
-type TestimonialsSliceVariation = TestimonialsSliceDefault
+type TestimonialsSliceVariation = TestimonialsSliceDefault | TestimonialsSliceSingle
 
 /**
  * Testimonials Shared Slice
@@ -1905,6 +2276,48 @@ type TestimonialsSliceVariation = TestimonialsSliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type TestimonialsSlice = prismic.SharedSlice<'testimonials', TestimonialsSliceVariation>
+
+/**
+ * Primary content in *Video → Primary*
+ */
+export interface VideoSliceDefaultPrimary {
+  /**
+   * YouTube Video field in *Video → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.youtube_video
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  youtube_video: prismic.EmbedField
+}
+
+/**
+ * Default variation for Video Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<VideoSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Video*
+ */
+type VideoSliceVariation = VideoSliceDefault
+
+/**
+ * Video Shared Slice
+ *
+ * - **API ID**: `video`
+ * - **Description**: Video
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoSlice = prismic.SharedSlice<'video', VideoSliceVariation>
 
 declare module '@prismicio/client' {
   interface CreateClient {
@@ -1935,6 +2348,9 @@ declare module '@prismicio/client' {
       GlobalNavDocumentDataResidencyVisaItemsItem,
       GlobalNavDocumentDataAccountancyItemsItem,
       GlobalNavDocumentDataBusinessServicesItemsItem,
+      LandingpageDocument,
+      LandingpageDocumentData,
+      LandingpageDocumentDataSlicesSlice,
       QuoteDocument,
       QuoteDocumentData,
       ServicepageDocument,
@@ -1947,6 +2363,10 @@ declare module '@prismicio/client' {
       BlogFeedSliceDefaultPrimary,
       BlogFeedSliceVariation,
       BlogFeedSliceDefault,
+      CalendlySlice,
+      CalendlySliceDefaultPrimary,
+      CalendlySliceVariation,
+      CalendlySliceDefault,
       ContentImageTextSlice,
       ContentImageTextSliceDefaultPrimary,
       ContentImageTextSliceDefaultItem,
@@ -1965,6 +2385,10 @@ declare module '@prismicio/client' {
       FaqSliceDefaultItem,
       FaqSliceVariation,
       FaqSliceDefault,
+      FreeZonesSlice,
+      FreeZonesSliceDefaultPrimary,
+      FreeZonesSliceVariation,
+      FreeZonesSliceDefault,
       GeneralContentSlice,
       GeneralContentSliceDefaultPrimary,
       GeneralContentSliceVariation,
@@ -1985,6 +2409,10 @@ declare module '@prismicio/client' {
       ProcessStepsSliceDefaultPrimary,
       ProcessStepsSliceVariation,
       ProcessStepsSliceDefault,
+      StickyNavigationSlice,
+      StickyNavigationSliceDefaultPrimary,
+      StickyNavigationSliceVariation,
+      StickyNavigationSliceDefault,
       TeamSlice,
       TeamSliceDefaultPrimary,
       TeamSliceDefaultItem,
@@ -1996,8 +2424,14 @@ declare module '@prismicio/client' {
       TeamImagesSliceDefault,
       TestimonialsSlice,
       TestimonialsSliceDefaultPrimary,
+      TestimonialsSliceSinglePrimary,
       TestimonialsSliceVariation,
       TestimonialsSliceDefault,
+      TestimonialsSliceSingle,
+      VideoSlice,
+      VideoSliceDefaultPrimary,
+      VideoSliceVariation,
+      VideoSliceDefault,
     }
   }
 }

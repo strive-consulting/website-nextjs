@@ -41,7 +41,7 @@ export default async function Header() {
                   )
                 })}
               </Dropdown>
-              {/* <Dropdown title='Residency Visa'>
+              <Dropdown title='Residency Visa'>
                 {nav.data.residency_visa_items.map((item) => {
                   return (
                     <li key={item.menu_label}>
@@ -54,15 +54,15 @@ export default async function Header() {
                     </li>
                   )
                 })}
-              </Dropdown> */}
-              <li>
+              </Dropdown>
+              {/* <li>
                 <Link
                   href='/dubai-residency-visa'
                   className='text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out'
                 >
                   Residency Visa
                 </Link>
-              </li>
+              </li> */}
               {/* <li>
                 <Link
                   href='/uae-accountancy-service'

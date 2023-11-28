@@ -25,6 +25,7 @@
     "next": "^13.5.4",
     "postcss-import-url": "^7.2.0",
     "react": "18.2.0",
+    "react-calendly": "^4.3.0",
     "react-country-region-selector": "^3.6.1",
     "react-dom": "18.2.0",
     "react-jotform-embed": "^1.1.3",

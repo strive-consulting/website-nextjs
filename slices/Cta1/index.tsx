@@ -48,7 +48,7 @@ const Cta1 = ({ slice }: Cta1Props): JSX.Element => {
               data-aos-anchor='[data-aos-id-cta]'
             >
               <PrismicNextLink
-                className='btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6'
+                className={`${slice.primary.cta_id} btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6`}
                 field={slice.primary.cta_link}
                 target='_blank'
                 prefetch={slice.primary.cta_link.link_type == 'Web' ?? false}

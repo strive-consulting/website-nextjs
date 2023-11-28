@@ -10,7 +10,8 @@ import SchemaTag, { ISchema } from '@/components/schema'
 import { notFound } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import Calculator from '@/components/calculator'
-
+import BusinessSetupCalculator from '@/components/calculators/business-setup'
+import CompanyNameChecker from '@/components/calculators/company-name-checker'
 
 export default async function Home() {
   // const page = await getCmsPage(params.uid)
@@ -26,7 +27,6 @@ export default async function Home() {
 
   return (
     <>
-      
       <section className='relative'>
         <div className='max-w-3xl mx-auto px-4 sm:px-6 relative'>
           <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
@@ -40,16 +40,16 @@ export default async function Home() {
               </p>
             </div>
 
-            <Calculator embed={true} />
+            {/* <Calculator embed={true} /> */}
 
-            
+            <BusinessSetupCalculator />
 
+            <h3>Company name check</h3>
+            <CompanyNameChecker/>
           </div>
         </div>
       </section>
 
-        
-      
       {/* <SliceZone slices={page.data.slices} components={components} />
       <SchemaTag schemaJson={schema} /> */}
     </>
@@ -57,6 +57,3 @@ export default async function Home() {
 
   //Schema = organiszation, website, person (author), webpage (plus sitenavigationelement), artcticle breadcrumblist
 }
-
-
-

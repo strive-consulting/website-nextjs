@@ -17,6 +17,18 @@ export async function getTestimonials(maxcount?: number) {
   return testimonials
 }
 
+export async function getFreeZones() {
+  const client = createClient()
+
+  const freeZones = await client
+    .getAllByType('free_zone', {
+      orderings: [{ field: 'my.free_zone.order', direction: 'asc' }],
+    })
+    .catch(() => notFound())
+
+  return freeZones
+}
+
 //Note, servicepage is the name of our general cms page
 export async function getCmsPage(uid: string) {
   const client = createClient()
@@ -156,4 +168,31 @@ export async function getBlogPostsAll() {
     .catch(() => notFound())
 
   return communityPosts.results
+}
+
+export async function getLandingPage(uid: string) {
+  const client = createClient()
+  const page = await client
+    .getByUID('landingpage', uid, {
+      fetchLinks: [
+        'author.name',
+        'author.job_title',
+        'author.avatar',
+        'author.linkedin_url',
+        'testimonial.name',
+        'testimonial.job_title',
+        'testimonial.avatar',
+        'testimonial.description',
+      ],
+    })
+    .catch(() => notFound())
+
+  return page
+}
+
+export async function getAllLandingPages() {
+  const client = createClient()
+  const pages = await client.getAllByType('landingpage').catch(() => notFound())
+
+  return pages
 }

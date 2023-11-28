@@ -1,0 +1,67 @@
+{
+  "id": "calendly",
+  "type": "SharedSlice",
+  "name": "CalendlyHero",
+  "description": "Calendly",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "calendar_url": {
+          "type": "Text",
+          "config": {
+            "label": "Calendar Url",
+            "placeholder": ""
+          }
+        },
+        "pop_up": {
+          "type": "Boolean",
+          "config": {
+            "label": "Pop up",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "cta_id": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Id",
+            "placeholder": "If specified will add it as a class to CTA button"
+          }
+        },
+        "show_prefill_form": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Pre-fill Form",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

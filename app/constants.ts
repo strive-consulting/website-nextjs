@@ -3,257 +3,254 @@ export namespace Constants {
   export const SiteTitle: string = 'Strive'
   export const SiteDescription: string =
     'Dubai company formation specialists. Get your Mainland & Free Zone company set up in Dubai today at low cost'
-  export const OpenGraphImage: string = 'public/opengraph/1000.png'
-
-  
+  export const OpenGraphImage: string = '/opengraph/1000.png'
 }
-
 
 export const businessActivities = [
   {
-    label: "General Trading",
-    value: 1,
+    label: 'General Trading',
+    id: 1,
     mainlandPrice: 40000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
   {
-    label: "IT Trading",
-    value: 2,
+    label: 'IT Trading',
+    id: 2,
     mainlandPrice: 25000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
   {
-    label: "Automobile Trading",
-    value: 3,
+    label: 'Automobile Trading',
+    id: 3,
     mainlandPrice: 25000,
     freeZonePrice: 11900,
     additionalVisaPrice: 4000,
   },
   {
-    label: "Management Consultancy",
-    value: 4,
+    label: 'Management Consultancy',
+    id: 4,
     mainlandPrice: 25000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
   {
-    label: "Jewellry Trading",
-    value: 5,
+    label: 'Jewellry Trading',
+    id: 5,
     mainlandPrice: 35000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
   {
-    label: "Food Trading",
-    value: 6,
+    label: 'Food Trading',
+    id: 6,
     mainlandPrice: 25000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
   {
-    label: "Acccounting and Audit",
-    value: 7,
+    label: 'Acccounting and Audit',
+    id: 7,
     mainlandPrice: 30000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
   {
-    label: "HR Consultancy",
-    value: 8,
+    label: 'HR Consultancy',
+    id: 8,
     mainlandPrice: 25000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
   {
-    label: "Legal Consultancy",
-    value: 9,
+    label: 'Legal Consultancy',
+    id: 9,
     mainlandPrice: 25000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
   {
-    label: "Marketing Agency",
-    value: 10,
+    label: 'Marketing Agency',
+    id: 10,
     mainlandPrice: 24000,
     freeZonePrice: 5750,
     additionalVisaPrice: 4000,
   },
-{
-    label: "E-commerce",
-    value: 11,
+  {
+    label: 'E-commerce',
+    id: 11,
     mainlandPrice: 24000,
     freeZonePrice: 5750,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Software Development",
-    value: 12,
+  {
+    label: 'Software Development',
+    id: 12,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Commodities Trading",
-    value: 13,
+  {
+    label: 'Commodities Trading',
+    id: 13,
     mainlandPrice: 35000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Project Management Consultancy",
-    value: 14,
+  {
+    label: 'Project Management Consultancy',
+    id: 14,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Educational Institute",
-    value: 15,
+  {
+    label: 'Educational Institute',
+    id: 15,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Coaching Consultancy",
-    value: 16,
+  {
+    label: 'Coaching Consultancy',
+    id: 16,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Event Management",
-    value: 17,
+  {
+    label: 'Event Management',
+    id: 17,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Recreational Services",
-    value: 18,
+  {
+    label: 'Recreational Services',
+    id: 18,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Travel Agents",
-    value: 19,
+  {
+    label: 'Travel Agents',
+    id: 19,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Robotics",
-    value: 20,
+  {
+    label: 'Robotics',
+    id: 20,
     mainlandPrice: 26000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Crypto/Metaverse",
-    value: 21,
+  {
+    label: 'Crypto/Metaverse',
+    id: 21,
     mainlandPrice: 24000,
     freeZonePrice: 11900,
     additionalVisaPrice: 4000,
   },
-{
-    label: "IT Consultancy",
-    value: 22,
+  {
+    label: 'IT Consultancy',
+    id: 22,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Salon",
-    value: 23,
+  {
+    label: 'Salon',
+    id: 23,
     mainlandPrice: 34000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Restaurant/Cafeteria",
-    value: 24,
+  {
+    label: 'Restaurant/Cafeteria',
+    id: 24,
     mainlandPrice: 32000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Sports Management",
-    value: 25,
+  {
+    label: 'Sports Management',
+    id: 25,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Financial Advisors",
-    value: 26,
+  {
+    label: 'Financial Advisors',
+    id: 26,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Web-Design",
-    value: 27,
+  {
+    label: 'Web-Design',
+    id: 27,
     mainlandPrice: 24000,
     freeZonePrice: 5750,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Real Estate",
-    value: 28,
+  {
+    label: 'Real Estate',
+    id: 28,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Aviation Consultancy",
-    value: 29,
+  {
+    label: 'Aviation Consultancy',
+    id: 29,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Agricultural Consultancy",
-    value: 30,
+  {
+    label: 'Agricultural Consultancy',
+    id: 30,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Logistics Consultancy",
-    value: 31,
+  {
+    label: 'Logistics Consultancy',
+    id: 31,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Immigration Consultancy",
-    value: 32,
+  {
+    label: 'Immigration Consultancy',
+    id: 32,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-{
-    label: "Engineering Consultancy",
-    value: 33,
+  {
+    label: 'Engineering Consultancy',
+    id: 33,
     mainlandPrice: 24000,
     freeZonePrice: 6500,
     additionalVisaPrice: 4000,
   },
-];
+]
 
 export const premisesTypes = [
-  { label: "Virtual Office", value: 1 },
-  { label: "Warehouse", value: 2 },
-  { label: "Business Centre", value: 3 },
-  { label: "Physical Office", value: 4 },
-  { label: "Shop Front", value: 5 },
-];
+  { label: 'Virtual Office', id: 1 },
+  { label: 'Warehouse', id: 2 },
+  { label: 'Business Centre', id: 3 },
+  { label: 'Physical Office', id: 4 },
+  { label: 'Shop Front', id: 5 },
+]
 
 export const timelineOptions = [
-  { label: "Immediately", value: 1 },
-  { label: "1-3 months", value: 2 },
-  { label: "3-6 months", value: 3 },
-  { label: "more than 6 months", value: 4 },
-];
+  { label: 'Immediately', id: 1 },
+  { label: '1-3 months', id: 2 },
+  { label: '3-6 months', id: 3 },
+  { label: 'more than 6 months', id: 4 },
+]
