@@ -59,6 +59,20 @@
             "placeholder_true": "true",
             "placeholder_false": "false"
           }
+        },
+        "form_name": {
+          "type": "Text",
+          "config": {
+            "label": "Form Name",
+            "placeholder": "This will be used to identify the source form of a registration"
+          }
+        },
+        "redirect_url": {
+          "type": "Text",
+          "config": {
+            "label": "Redirect Url",
+            "placeholder": "Redirect to this URL instead of Calendly after form submission. e.g. /thanks"
+          }
         }
       },
       "items": {}

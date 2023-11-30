@@ -1057,6 +1057,26 @@ export interface CalendlySliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   show_prefill_form: prismic.BooleanField
+
+  /**
+   * Form Name field in *CalendlyHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: This will be used to identify the source form of a registration
+   * - **API ID Path**: calendly.primary.form_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  form_name: prismic.KeyTextField
+
+  /**
+   * Redirect Url field in *CalendlyHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Redirect to this URL instead of Calendly after form submission. e.g. /thanks
+   * - **API ID Path**: calendly.primary.redirect_url
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  redirect_url: prismic.KeyTextField
 }
 
 /**
