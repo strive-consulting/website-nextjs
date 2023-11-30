@@ -51,8 +51,10 @@ export default function CalendlyFormPrefill({
       formData.phoneNumber,
     )}&utm_campaign=${utm.utmCampaign}&utm_medium=${utm.utmMedium}&utm_source=${utm.utmSource}`
 
-    //Important step to store the details as a deal, particularly if the user does not complete the Calendly form.
-    await postToZapier(formData)
+    await fetch('/api/forms/prefill', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+    })
 
     if (redirectUrl) {
       router.push(redirectUrl)
@@ -61,22 +63,6 @@ export default function CalendlyFormPrefill({
     }
   }
 
-  const postToZapier = async (data: any) => {
-    try {
-      const response = await fetch(process.env.NEXT_PUBLIC_WEBHOOK_FORM_PREFILL ?? '', {
-        method: 'POST',
-        body: JSON.stringify(data),
-      })
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`)
-      }
-
-      const jsonResponse = await response.json()
-    } catch (error: any) {
-      console.error('Error:', error.message)
-    }
-  }
 
   return (
     <div className='max-w-xl mx-auto p-4'>
