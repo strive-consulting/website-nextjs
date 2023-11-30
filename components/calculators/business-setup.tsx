@@ -61,7 +61,9 @@ const Step1: React.FC<{
             })}
           </select>
 
-          {!data.businessActivityValid && <div className='text-red-500 text-sm mt-2'>Please select a business activity</div>}
+          {!data.businessActivityValid && (
+            <div className='text-red-500 text-sm mt-2'>Please select a business activity</div>
+          )}
         </div>
 
         <div className='w-full md:w-1/2 pr-3 mb-3 '>
@@ -77,7 +79,9 @@ const Step1: React.FC<{
             type='number'
             required
           />
-          {!data.numberOfVisasValid && <div className='text-red-500 text-sm mt-2'>Please enter 0 or more visas</div>}
+          {!data.numberOfVisasValid && (
+            <div className='text-red-500 text-sm mt-2'>Please enter 0 or more visas</div>
+          )}
         </div>
 
         <div className='w-full md:w-1/2 pl-3 mb-3 '>
@@ -93,7 +97,9 @@ const Step1: React.FC<{
             type='number'
             required
           />
-          {!data.numberOfPartnersValid && <div className='text-red-500 text-sm mt-2'>Please enter 1 or more shareholders</div>}
+          {!data.numberOfPartnersValid && (
+            <div className='text-red-500 text-sm mt-2'>Please enter 1 or more shareholders</div>
+          )}
         </div>
         <button
           type='submit'

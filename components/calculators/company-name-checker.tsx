@@ -34,7 +34,6 @@ const Step1: React.FC<{
   return (
     <form onSubmit={handleNext}>
       <div className='flex flex-wrap lg:w-3/4'>
-        
         <div className='w-full md:w-1/2 pr-3 mb-3 '>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             Company name
@@ -45,9 +44,10 @@ const Step1: React.FC<{
             value={data.companyName}
             onChange={onChange}
             className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
-            required
           />
-          {!data.companyNameValid && <div className='text-red-500 text-sm mt-2'>Please enter a company name</div>}
+          {!data.companyNameValid && (
+            <div className='text-red-500 text-sm mt-2'>Please enter a company name</div>
+          )}
         </div>
         <div className='md:w-1/2 mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
@@ -71,12 +71,11 @@ const Step1: React.FC<{
             })}
           </select>
 
-          {!data.businessActivityValid && <div className='text-red-500 text-sm mt-2'>Please select a business activity</div>}
+          {!data.businessActivityValid && (
+            <div className='text-red-500 text-sm mt-2'>Please select a business activity</div>
+          )}
         </div>
 
-        
-
-        
         <button
           type='submit'
           className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'

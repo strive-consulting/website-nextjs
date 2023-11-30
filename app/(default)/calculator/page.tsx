@@ -45,7 +45,7 @@ export default async function Home() {
             <BusinessSetupCalculator />
 
             <h3>Company name check</h3>
-            <CompanyNameChecker/>
+            <CompanyNameChecker />
           </div>
         </div>
       </section>
