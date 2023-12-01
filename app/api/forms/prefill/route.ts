@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function POST(data: NextRequest) {
   try {
     let formData = await data.json()
-    
+
     const response = await fetch(process.env.WEBHOOK_FORM_PREFILL ?? '', {
       method: 'POST',
       body: JSON.stringify(formData),

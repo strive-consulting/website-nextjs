@@ -63,54 +63,57 @@ export default function CalendlyFormPrefill({
     }
   }
 
-
   return (
     <div className='max-w-xl mx-auto p-4'>
       <form onSubmit={handleSubmit}>
-        <div className='flex flex-wrap -mx-3 mb-4'>
-          <h2 className='h5 px-3 mb-3 text-center md:text-left w-full mt-5 md:mt-0'>
-            Talk to an Expert
-          </h2>
-          <div className='w-full px-3 mb-4 md:mb-0'>
-            <label>
-              <input
-                type='text'
-                name='name'
-                value={formData.name}
-                onChange={handleChange}
-                className='mt-2 form-input w-full text-gray-900'
-                placeholder='e.g. Peter Jones'
-                required
-              />
+        <div className='flex flex-wrap -mx-3 mb-4 border border-4 py-4 px-2'>
+          <h3 className='h3 mb-3 text-center w-full'>Talk to an Expert</h3>
+          <div className='w-full px-3 mb-4 '>
+            <label className='block text-gray-300 text-sm font-medium' htmlFor='name'>
+              Name
             </label>
+            <input
+              type='text'
+              name='name'
+              value={formData.name}
+              onChange={handleChange}
+              className='mt-1 form-input w-full text-gray-900'
+              placeholder='e.g. Peter Jones'
+              required
+              autoComplete='true'
+            />
           </div>
-          <div className='w-full px-3 mb-4 md:mb-0'>
-            <label className=''>
-              <input
-                type='email'
-                name='email'
-                value={formData.email}
-                onChange={handleChange}
-                className='mt-2 form-input w-full text-gray-900'
-                placeholder='e.g. name@domain.com'
-                required
-              />
+          <div className='w-full px-3 mb-4'>
+            <label className='block text-gray-300 text-sm font-medium' htmlFor='email'>
+              Email address
             </label>
+            <input
+              type='email'
+              name='email'
+              value={formData.email}
+              onChange={handleChange}
+              className='mt-1 form-input w-full text-gray-900'
+              placeholder='e.g. name@domain.com'
+              required
+              autoComplete='true'
+            />
           </div>
-          <div className='w-full px-3 mb-4 md:mb-0'>
-            <label className='flex-1'>
-              <input
-                type='tel'
-                name='phoneNumber'
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                className='mt-2 form-input w-full text-gray-900'
-                placeholder='e.g. 447961543221'
-                required
-              />
+          <div className='w-full px-3 mb-4'>
+            <label className='block text-gray-300 text-sm font-medium' htmlFor='phoneNumber'>
+              Phone
             </label>
+            <input
+              type='tel'
+              name='phoneNumber'
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              className='mt-1 form-input w-full text-gray-900'
+              placeholder='e.g. 447961543221'
+              required
+              autoComplete='true'
+            />
           </div>
-          <div className='w-full px-3 mb-4 md:mb-0'>
+          <div className='w-full px-3 mb-4'>
             <button
               type='submit'
               className={`${ctaid} btn-sm text-white bg-purple-600 hover:bg-purple-700 w-full mt-2`}

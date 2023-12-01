@@ -18,7 +18,9 @@ const Calendly = ({ slice }: CalendlyProps): JSX.Element => {
       <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>
         <div className='pt-32 pb-12 md:pt-30 md:pb-0'>
           <div className='flex flex-col md:flex-row'>
-            <div className={`w-full md:w-2/3 mx-auto text-center md:text-left`}>
+            <div
+              className={`w-full md:w-2/3 mx-auto text-center md:text-left items-center mt-0 md:mt-16`}
+            >
               <h1 className='h1 mb-4' data-aos='fade-up'>
                 {slice.primary.title}
               </h1>
@@ -37,7 +39,7 @@ const Calendly = ({ slice }: CalendlyProps): JSX.Element => {
                 }}
               />
             </div>
-            <div className='w-full md:w-1/3 md:ml-20 '>
+            <div className='w-full md:w-1/3 md:ml-20'>
               {slice.primary.show_prefill_form && (
                 <CalendlyFormPrefill
                   calendarUrl={slice.primary.calendar_url?.toString()}
