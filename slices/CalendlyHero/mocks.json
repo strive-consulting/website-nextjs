@@ -36,6 +36,16 @@
       "show_prefill_form": {
         "__TYPE__": "BooleanContent",
         "value": true
+      },
+      "form_name": {
+        "__TYPE__": "FieldContent",
+        "value": "character",
+        "type": "Text"
+      },
+      "redirect_url": {
+        "__TYPE__": "FieldContent",
+        "value": "dear",
+        "type": "Text"
       }
     },
     "items": []

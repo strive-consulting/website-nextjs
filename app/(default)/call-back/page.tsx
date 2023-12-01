@@ -1,6 +1,7 @@
 export const metadata = {
   title: 'Call Back',
-  description: 'Talk to an expert about your UAE business formation and residency visa plans for Dubai',
+  description:
+    'Talk to an expert about your UAE business formation and residency visa plans for Dubai',
   alternates: {
     canonical: Constants.SiteDomain + '/call-back',
   },

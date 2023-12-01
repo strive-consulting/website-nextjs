@@ -5,15 +5,16 @@ import { useState } from 'react'
 interface CalendlyFormPrefillProps {
   calendarUrl?: string
   ctaid?: string
+  formName?: string
+  redirectUrl?: string
 }
-export default function CalendlyFormPrefill({ calendarUrl, ctaid }: CalendlyFormPrefillProps) {
+export default function CalendlyFormPrefill({
+  calendarUrl,
+  ctaid,
+  formName,
+  redirectUrl,
+}: CalendlyFormPrefillProps) {
   const router = useRouter()
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phoneNumber: '',
-  })
 
   const searchParams = useSearchParams()
 
@@ -23,6 +24,15 @@ export default function CalendlyFormPrefill({ calendarUrl, ctaid }: CalendlyForm
     utmSource: searchParams.get('utm_source') ?? undefined,
   }
 
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    formName: formName,
+    dateTime: new Date().toISOString(),
+    utm: utm,
+  })
+
   const handleChange = (e: any) => {
     setFormData({
       ...formData,
@@ -30,7 +40,7 @@ export default function CalendlyFormPrefill({ calendarUrl, ctaid }: CalendlyForm
     })
   }
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault()
 
     // Build the URL using form values
@@ -41,49 +51,76 @@ export default function CalendlyFormPrefill({ calendarUrl, ctaid }: CalendlyForm
       formData.phoneNumber,
     )}&utm_campaign=${utm.utmCampaign}&utm_medium=${utm.utmMedium}&utm_source=${utm.utmSource}`
 
-    router.push(url)
+    await fetch('/api/forms/prefill', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+    })
+
+    if (redirectUrl) {
+      router.push(redirectUrl)
+    } else {
+      router.push(url)
+    }
   }
 
   return (
-    <div className='max-w-3xl mx-auto mt-8 p-4'>
-      <form onSubmit={handleSubmit} className='space-y-4'>
-        <div className='flex flex-col md:flex-row md:space-x-4'>
-          <label className='flex-1'>
+    <div className='max-w-xl mx-auto p-4'>
+      <form onSubmit={handleSubmit}>
+        <div className='flex flex-wrap -mx-3 mb-4 border border-4 py-4 px-2'>
+          <h3 className='h3 mb-3 text-center w-full'>Talk to an Expert</h3>
+          <div className='w-full px-3 mb-4 '>
+            <label className='block text-gray-300 text-sm font-medium' htmlFor='name'>
+              Name
+            </label>
             <input
               type='text'
               name='name'
               value={formData.name}
               onChange={handleChange}
-              className='mt-2 form-input w-full text-gray-900'
+              className='mt-1 form-input w-full text-gray-900'
               placeholder='e.g. Peter Jones'
+              required
+              autoComplete='true'
             />
-          </label>
-          <label className=''>
+          </div>
+          <div className='w-full px-3 mb-4'>
+            <label className='block text-gray-300 text-sm font-medium' htmlFor='email'>
+              Email address
+            </label>
             <input
               type='email'
               name='email'
               value={formData.email}
               onChange={handleChange}
-              className='mt-2 form-input w-full text-gray-900'
+              className='mt-1 form-input w-full text-gray-900'
               placeholder='e.g. name@domain.com'
+              required
+              autoComplete='true'
             />
-          </label>
-          <label className='flex-1'>
+          </div>
+          <div className='w-full px-3 mb-4'>
+            <label className='block text-gray-300 text-sm font-medium' htmlFor='phoneNumber'>
+              Phone
+            </label>
             <input
               type='tel'
               name='phoneNumber'
               value={formData.phoneNumber}
               onChange={handleChange}
-              className='mt-2 form-input w-full text-gray-900'
+              className='mt-1 form-input w-full text-gray-900'
               placeholder='e.g. 447961543221'
+              required
+              autoComplete='true'
             />
-          </label>
-          <button
-            type='submit'
-            className={`${ctaid} btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-2`}
-          >
-            Schedule Call
-          </button>
+          </div>
+          <div className='w-full px-3 mb-4'>
+            <button
+              type='submit'
+              className={`${ctaid} btn-sm text-white bg-purple-600 hover:bg-purple-700 w-full mt-2`}
+            >
+              Schedule Call
+            </button>
+          </div>
         </div>
       </form>
     </div>
