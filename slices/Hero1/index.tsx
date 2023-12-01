@@ -23,7 +23,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
     return (
       <section className='relative'>
         <div className='max-w-6xl mx-auto px-4 sm:px-6'>
-          <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
+          <div className='pt-12 md:pt-30 md:pb-5'>
             <div className='max-w-3xl mx-auto text-center pb-2'>
               <h1 className='h1 mb-4' data-aos={`fade-up`}>
                 {slice.primary.title}
