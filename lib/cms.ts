@@ -1,5 +1,6 @@
 import { createClient } from '@/prismicio'
 import { notFound } from 'next/navigation'
+import * as prismic from '@prismicio/client'
 
 export async function getTestimonials(maxcount?: number) {
   const client = createClient()
@@ -76,6 +77,16 @@ export async function getAllCmsPages() {
   const client = createClient()
   const pages = await client.getAllByType('servicepage').catch(() => notFound())
 
+  return pages
+}
+
+export async function getAllCmsPagesForSiteMap() {
+  const client = createClient()
+  const pages = await client
+    .getAllByType('servicepage', {
+      filters: [prismic.filter.not('my.servicepage.exclude_from_sitemap', true)],
+    })
+    .catch(() => notFound())
   return pages
 }
 

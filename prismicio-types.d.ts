@@ -763,6 +763,18 @@ type ServicepageDocumentDataSlicesSlice =
  */
 interface ServicepageDocumentData {
   /**
+   * Exclude from sitemap field in *ServicePage*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: servicepage.exclude_from_sitemap
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  exclude_from_sitemap: prismic.BooleanField
+
+  /**
    * Slice Zone field in *ServicePage*
    *
    * - **Field Type**: Slice Zone
