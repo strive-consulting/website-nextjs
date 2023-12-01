@@ -624,6 +624,7 @@ export type GlobalNavDocument<Lang extends string = string> = prismic.PrismicDoc
 >
 
 type LandingpageDocumentDataSlicesSlice =
+  | ContactFormSlice
   | StickyNavigationSlice
   | TeamSlice
   | Cta1Slice
@@ -742,6 +743,7 @@ export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumen
 >
 
 type ServicepageDocumentDataSlicesSlice =
+  | ContactFormSlice
   | FreeZonesSlice
   | VideoSlice
   | CalendlySlice
@@ -1117,6 +1119,33 @@ type CalendlySliceVariation = CalendlySliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type CalendlySlice = prismic.SharedSlice<'calendly', CalendlySliceVariation>
+
+/**
+ * Default variation for ContactForm Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  never
+>
+
+/**
+ * Slice variation for *ContactForm*
+ */
+type ContactFormSliceVariation = ContactFormSliceDefault
+
+/**
+ * ContactForm Shared Slice
+ *
+ * - **API ID**: `contact_form`
+ * - **Description**: ContactForm
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSlice = prismic.SharedSlice<'contact_form', ContactFormSliceVariation>
 
 /**
  * Primary content in *ContentImageText → Primary*
@@ -2399,6 +2428,9 @@ declare module '@prismicio/client' {
       CalendlySliceDefaultPrimary,
       CalendlySliceVariation,
       CalendlySliceDefault,
+      ContactFormSlice,
+      ContactFormSliceVariation,
+      ContactFormSliceDefault,
       ContentImageTextSlice,
       ContentImageTextSliceDefaultPrimary,
       ContentImageTextSliceDefaultItem,
