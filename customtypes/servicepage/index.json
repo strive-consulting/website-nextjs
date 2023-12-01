@@ -26,6 +26,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "contact_form": {
+              "type": "SharedSlice"
+            },
             "free_zones": {
               "type": "SharedSlice"
             },
