@@ -624,6 +624,7 @@ export type GlobalNavDocument<Lang extends string = string> = prismic.PrismicDoc
 >
 
 type LandingpageDocumentDataSlicesSlice =
+  | FooterSimpleSlice
   | ContactFormSlice
   | StickyNavigationSlice
   | TeamSlice
@@ -1480,6 +1481,33 @@ type FaqSliceVariation = FaqSliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type FaqSlice = prismic.SharedSlice<'faq', FaqSliceVariation>
+
+/**
+ * Default variation for FooterSimple Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSimpleSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  never
+>
+
+/**
+ * Slice variation for *FooterSimple*
+ */
+type FooterSimpleSliceVariation = FooterSimpleSliceDefault
+
+/**
+ * FooterSimple Shared Slice
+ *
+ * - **API ID**: `footer_simple`
+ * - **Description**: FooterSimple
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSimpleSlice = prismic.SharedSlice<'footer_simple', FooterSimpleSliceVariation>
 
 /**
  * Primary content in *FreeZones → Primary*
@@ -2449,6 +2477,9 @@ declare module '@prismicio/client' {
       FaqSliceDefaultItem,
       FaqSliceVariation,
       FaqSliceDefault,
+      FooterSimpleSlice,
+      FooterSimpleSliceVariation,
+      FooterSimpleSliceDefault,
       FreeZonesSlice,
       FreeZonesSliceDefaultPrimary,
       FreeZonesSliceVariation,
