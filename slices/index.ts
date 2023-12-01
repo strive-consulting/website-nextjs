@@ -10,6 +10,7 @@ export const components = {
   cta1: dynamic(() => import('./Cta1')),
   description_quote: dynamic(() => import('./DescriptionQuote')),
   faq: dynamic(() => import('./Faq')),
+  footer_simple: dynamic(() => import('./FooterSimple')),
   free_zones: dynamic(() => import('./FreeZones')),
   general_content: dynamic(() => import('./GeneralContent')),
   grid_blocks: dynamic(() => import('./GridBlocks')),
