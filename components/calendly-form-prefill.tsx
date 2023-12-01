@@ -67,7 +67,7 @@ export default function CalendlyFormPrefill({
     <div className='max-w-xl mx-auto p-4'>
       <form onSubmit={handleSubmit}>
         <div className='flex flex-wrap -mx-3 mb-4 border border-4 py-4 px-2'>
-          <h3 className='h3 mb-3 text-center w-full'>Talk to an Expert</h3>
+          <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
           <div className='w-full px-3 mb-4 '>
             <label className='block text-gray-300 text-sm font-medium' htmlFor='name'>
               Name
@@ -118,7 +118,7 @@ export default function CalendlyFormPrefill({
               type='submit'
               className={`${ctaid} btn-sm text-white bg-purple-600 hover:bg-purple-700 w-full mt-2`}
             >
-              Schedule Call
+              Submit
             </button>
           </div>
         </div>

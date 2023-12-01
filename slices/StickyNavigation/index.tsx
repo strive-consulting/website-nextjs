@@ -28,18 +28,20 @@ const StickyNavigation = ({ slice }: StickyNavigationProps): JSX.Element => {
             </Link>
           </div>
 
-          <nav>
-            <ul className='flex grow justify-end flex-wrap items-center'>
-              <li>
-                <PrismicLink
-                  field={slice.primary.cta_link}
-                  className={`${slice.primary.cta_id} btn-sm text-white text-sm bg-purple-600 hover:bg-purple-700 ml-3`}
-                >
-                  {slice.primary.cta_text}
-                </PrismicLink>
-              </li>
-            </ul>
-          </nav>
+          {slice.primary.cta_text && (
+            <nav>
+              <ul className='flex grow justify-end flex-wrap items-center'>
+                <li>
+                  <PrismicLink
+                    field={slice.primary.cta_link}
+                    className={`${slice.primary.cta_id} btn-sm text-white text-sm bg-purple-600 hover:bg-purple-700 ml-3`}
+                  >
+                    {slice.primary.cta_text}
+                  </PrismicLink>
+                </li>
+              </ul>
+            </nav>
+          )}
         </div>
       </div>
     </header>
