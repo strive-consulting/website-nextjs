@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { businessActivities } from '@/app/constants'
+import { objectToQueryString } from '@/lib/helpers'
 
 interface FormData {
   businessActivity: string
@@ -257,18 +258,6 @@ const CompanyNameChecker: React.FC = () => {
 
     //All form data on the querystring
     router.push('/calculator/company-name-checker/results?' + objectToQueryString(formData))
-  }
-
-  function objectToQueryString(obj) {
-    const params = new URLSearchParams()
-
-    for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        params.append(key, obj[key])
-      }
-    }
-
-    return params.toString()
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

@@ -7,7 +7,6 @@ import Script from 'next/script'
 import { PrismicPreview } from '@prismicio/next'
 import { repositoryName } from '@/prismicio'
 import WhatsAppClickHandler from '@/components/whatsapp'
-import { CalculatorContextProvider } from '@/context/CalculatorContext'
 
 const inter = Inter({
   subsets: ['latin'],
