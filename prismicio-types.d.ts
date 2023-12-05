@@ -624,6 +624,7 @@ export type GlobalNavDocument<Lang extends string = string> = prismic.PrismicDoc
 >
 
 type LandingpageDocumentDataSlicesSlice =
+  | LandingPageHeroSlice
   | FooterSimpleSlice
   | ContactFormSlice
   | StickyNavigationSlice
@@ -1900,6 +1901,81 @@ type Hero1SliceVariation = Hero1SliceDefault | Hero1SliceSimple
 export type Hero1Slice = prismic.SharedSlice<'hero1', Hero1SliceVariation>
 
 /**
+ * Primary content in *LandingPageHero → Primary*
+ */
+export interface LandingPageHeroSliceDefaultPrimary {
+  /**
+   * Title field in *LandingPageHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing_page_hero.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *LandingPageHero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing_page_hero.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Form field in *LandingPageHero → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing_page_hero.primary.form
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  form: prismic.SelectField<'Business Setup Calculator' | 'Calendly Prefill'>
+
+  /**
+   * Redirect Url field in *LandingPageHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing_page_hero.primary.redirect_url
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  redirect_url: prismic.KeyTextField
+}
+
+/**
+ * Default variation for LandingPageHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LandingPageHeroSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<LandingPageHeroSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *LandingPageHero*
+ */
+type LandingPageHeroSliceVariation = LandingPageHeroSliceDefault
+
+/**
+ * LandingPageHero Shared Slice
+ *
+ * - **API ID**: `landing_page_hero`
+ * - **Description**: LandingPageHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LandingPageHeroSlice = prismic.SharedSlice<
+  'landing_page_hero',
+  LandingPageHeroSliceVariation
+>
+
+/**
  * Primary content in *ProcessSteps → Primary*
  */
 export interface ProcessStepsSliceDefaultPrimary {
@@ -2500,6 +2576,10 @@ declare module '@prismicio/client' {
       Hero1SliceVariation,
       Hero1SliceDefault,
       Hero1SliceSimple,
+      LandingPageHeroSlice,
+      LandingPageHeroSliceDefaultPrimary,
+      LandingPageHeroSliceVariation,
+      LandingPageHeroSliceDefault,
       ProcessStepsSlice,
       ProcessStepsSliceDefaultPrimary,
       ProcessStepsSliceVariation,
