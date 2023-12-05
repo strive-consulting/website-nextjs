@@ -1,10 +1,13 @@
 'use client'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { businessActivities } from '@/app/constants'
+import { objectToQueryString } from '@/lib/helpers'
+import { Loader } from '../loader'
 
-// Define types for form data
 interface FormData {
+  formName: string
+
   businessActivity: string
   businessActivityValid: boolean
   //   premisesType: string
@@ -12,15 +15,20 @@ interface FormData {
   numberOfVisasValid: boolean
   numberOfPartners: number
   numberOfPartnersValid: boolean
-  firstName: string
-  firstNameValid: boolean
-  lastName: string
-  lastNameValid: boolean
+  // firstName: string
+  // firstNameValid: boolean
+  // lastName: string
+  // lastNameValid: boolean
+  name: string
+  nameValid: boolean
   email: string
   emailValid: boolean
   phoneNumber: string
   phoneNumberValid: boolean
   //   nationality: string
+  utmCampaign?: string
+  utmMedium?: string
+  utmSource?: string
 }
 
 // Step 1 component
@@ -38,7 +46,7 @@ const Step1: React.FC<{
 
   return (
     <form onSubmit={handleNext}>
-      <div className='flex flex-wrap lg:w-3/4'>
+      <div className='flex flex-wrap w-1/2 mx-auto lg:w-3/4'>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             Your Business Activity
@@ -66,9 +74,9 @@ const Step1: React.FC<{
           )}
         </div>
 
-        <div className='w-full md:w-1/2 pr-3 mb-3 '>
+        <div className='w-1/2 pr-3 mb-3 '>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
-            Number of visas required
+            Number of visas
           </label>
           <input
             name='numberOfVisas'
@@ -84,7 +92,7 @@ const Step1: React.FC<{
           )}
         </div>
 
-        <div className='w-full md:w-1/2 pl-3 mb-3 '>
+        <div className='w-1/2 pl-3 mb-3 '>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             Number of shareholders
           </label>
@@ -126,8 +134,8 @@ const Step2: React.FC<{
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='flex flex-wrap lg:w-3/4'>
-        <div className='w-full mb-3'>
+      <div className='flex flex-wrap w-1/2 mx-auto lg:w-3/4'>
+        {/* <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             First Name
           </label>
@@ -136,9 +144,10 @@ const Step2: React.FC<{
             name='firstName'
             value={data.firstName}
             onChange={onChange}
+            placeholder='e.g. Peter'
             className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
           />
-          {!data.firstNameValid && <div style={{ color: 'red' }}>Invalid</div>}
+          {!data.firstNameValid && <div className='text-red-500 text-sm mt-2'>Please enter your first name</div>}
         </div>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
@@ -150,8 +159,25 @@ const Step2: React.FC<{
             value={data.lastName}
             onChange={onChange}
             className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
+            placeholder='e.g Jones'
           />
-          {!data.lastNameValid && <div style={{ color: 'red' }}>Invalid</div>}
+          {!data.lastNameValid && <div className='text-red-500 text-sm mt-2'>Please enter your last name</div>}
+        </div> */}
+        <div className='w-full mb-3'>
+          <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='name'>
+            Name
+          </label>
+          <input
+            type='text'
+            name='name'
+            value={data.name}
+            onChange={onChange}
+            className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
+            placeholder='e.g Peter Jones'
+          />
+          {!data.nameValid && (
+            <div className='text-red-500 text-sm mt-2'>Please enter your name</div>
+          )}
         </div>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
@@ -163,8 +189,11 @@ const Step2: React.FC<{
             value={data.email}
             onChange={onChange}
             className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
+            placeholder='e.g name@domain.com'
           />
-          {!data.emailValid && <div style={{ color: 'red' }}>Invalid</div>}
+          {!data.emailValid && (
+            <div className='text-red-500 text-sm mt-2'>Please enter your email address</div>
+          )}
         </div>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
@@ -176,23 +205,23 @@ const Step2: React.FC<{
             value={data.phoneNumber}
             onChange={onChange}
             className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
+            placeholder='e.g. 447961543221'
           />
-          {!data.phoneNumberValid && <div style={{ color: 'red' }}>Invalid</div>}
+          {!data.phoneNumberValid && (
+            <div className='text-red-500 text-sm mt-2'>Please enter your phone number</div>
+          )}
+        </div>
+        <button
+          type='submit'
+          className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'
+        >
+          Get Estimate
+        </button>
+
+        <div onClick={onPrevious} className='mt-5 text-sm'>
+          Back
         </div>
       </div>
-
-      <button
-        onClick={onPrevious}
-        className='mt-3 btn text-white bg-gray-600 hover:bg-purple-700 w-1/2'
-      >
-        Previous
-      </button>
-      <button
-        type='submit'
-        className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-1/2 ml-3'
-      >
-        Get Estimate
-      </button>
     </form>
   )
 }
@@ -200,7 +229,16 @@ const Step2: React.FC<{
 // Main Form Component
 const BusinessSetupCalculator: React.FC = () => {
   const router = useRouter()
+
+  const searchParams = useSearchParams()
+  const utm = {
+    utmCampaign: searchParams.get('utm_campaign') ?? undefined,
+    utmMedium: searchParams.get('utm_medium') ?? undefined,
+    utmSource: searchParams.get('utm_source') ?? undefined,
+  }
+
   const [formData, setFormData] = useState<FormData>({
+    formName: 'business-setup-calculator',
     businessActivity: '',
     businessActivityValid: true,
     // premisesType: '',
@@ -208,19 +246,25 @@ const BusinessSetupCalculator: React.FC = () => {
     numberOfVisasValid: true,
     numberOfPartners: 1,
     numberOfPartnersValid: true,
-    firstName: '',
-    firstNameValid: true,
-    lastName: '',
-    lastNameValid: true,
+    // firstName: '',
+    // firstNameValid: true,
+    // lastName: '',
+    // lastNameValid: true,
+    name: '',
+    nameValid: true,
     email: '',
     emailValid: true,
     phoneNumber: '',
     phoneNumberValid: true,
     // nationality: '',
+    utmCampaign: utm.utmCampaign,
+    utmMedium: utm.utmMedium,
+    utmSource: utm.utmSource,
   })
 
   // State to track completion of Step 1
   const [step1Completed, setStep1Completed] = useState<boolean>(false)
+  const [step2Completed, setStep2Completed] = useState<boolean>(false)
 
   const handleStep1Submit = () => {
     setFormData({ ...formData })
@@ -257,21 +301,27 @@ const BusinessSetupCalculator: React.FC = () => {
     setStep1Completed(false)
   }
 
-  const handleStep2Submit = () => {
+  const handleStep2Submit = async () => {
     console.log('submit step 2')
     setFormData({ ...formData })
     console.log(formData)
 
     let error = false
 
-    if (formData.firstName === '') {
-      formData.firstNameValid = false
-      setFormData({ ...formData })
-      error = true
-    }
+    // if (formData.firstName === '') {
+    //   formData.firstNameValid = false
+    //   setFormData({ ...formData })
+    //   error = true
+    // }
 
-    if (formData.lastName === '') {
-      formData.lastNameValid = false
+    // if (formData.lastName === '') {
+    //   formData.lastNameValid = false
+    //   setFormData({ ...formData })
+    //   error = true
+    // }
+
+    if (formData.name === '') {
+      formData.nameValid = false
       setFormData({ ...formData })
       error = true
     }
@@ -290,20 +340,11 @@ const BusinessSetupCalculator: React.FC = () => {
 
     if (error) return
 
+    setStep2Completed(true)
+
+    await new Promise((f) => setTimeout(f, 5000))
     //All form data on the querystring
     router.push('/calculator/business-setup/results?' + objectToQueryString(formData))
-  }
-
-  function objectToQueryString(obj) {
-    const params = new URLSearchParams()
-
-    for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        params.append(key, obj[key])
-      }
-    }
-
-    return params.toString()
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -320,11 +361,14 @@ const BusinessSetupCalculator: React.FC = () => {
       formData.numberOfPartnersValid = true
     }
 
-    if (name === 'firstName') {
-      formData.firstNameValid = true
-    }
-    if (name === 'lastName') {
-      formData.lastNameValid = true
+    // if (name === 'firstName') {
+    //   formData.firstNameValid = true
+    // }
+    // if (name === 'lastName') {
+    //   formData.lastNameValid = true
+    // }
+    if (name === 'name') {
+      formData.nameValid = true
     }
     if (name === 'email') {
       formData.emailValid = true
@@ -337,13 +381,12 @@ const BusinessSetupCalculator: React.FC = () => {
   }
 
   return (
-    <div>
-      {/* Render Step 1 */}
+    <>
       {!step1Completed && (
         <Step1 onNext={handleStep1Submit} data={formData} onChange={handleChange} />
       )}
 
-      {step1Completed && (
+      {step1Completed && !step2Completed && (
         <Step2
           onSubmit={handleStep2Submit}
           data={formData}
@@ -351,7 +394,9 @@ const BusinessSetupCalculator: React.FC = () => {
           onPrevious={handleBack}
         />
       )}
-    </div>
+
+      {step2Completed && <Loader />}
+    </>
   )
 }
 
