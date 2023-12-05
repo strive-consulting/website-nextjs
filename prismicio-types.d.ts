@@ -624,6 +624,8 @@ export type GlobalNavDocument<Lang extends string = string> = prismic.PrismicDoc
 >
 
 type LandingpageDocumentDataSlicesSlice =
+  | FooterSimpleSlice
+  | ContactFormSlice
   | StickyNavigationSlice
   | TeamSlice
   | Cta1Slice
@@ -742,6 +744,7 @@ export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumen
 >
 
 type ServicepageDocumentDataSlicesSlice =
+  | ContactFormSlice
   | FreeZonesSlice
   | VideoSlice
   | CalendlySlice
@@ -762,6 +765,18 @@ type ServicepageDocumentDataSlicesSlice =
  * Content for ServicePage documents
  */
 interface ServicepageDocumentData {
+  /**
+   * Exclude from sitemap field in *ServicePage*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: servicepage.exclude_from_sitemap
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  exclude_from_sitemap: prismic.BooleanField
+
   /**
    * Slice Zone field in *ServicePage*
    *
@@ -1057,6 +1072,26 @@ export interface CalendlySliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   show_prefill_form: prismic.BooleanField
+
+  /**
+   * Form Name field in *CalendlyHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: This will be used to identify the source form of a registration
+   * - **API ID Path**: calendly.primary.form_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  form_name: prismic.KeyTextField
+
+  /**
+   * Redirect Url field in *CalendlyHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Redirect to this URL instead of Calendly after form submission. e.g. /thanks
+   * - **API ID Path**: calendly.primary.redirect_url
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  redirect_url: prismic.KeyTextField
 }
 
 /**
@@ -1085,6 +1120,33 @@ type CalendlySliceVariation = CalendlySliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type CalendlySlice = prismic.SharedSlice<'calendly', CalendlySliceVariation>
+
+/**
+ * Default variation for ContactForm Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  never
+>
+
+/**
+ * Slice variation for *ContactForm*
+ */
+type ContactFormSliceVariation = ContactFormSliceDefault
+
+/**
+ * ContactForm Shared Slice
+ *
+ * - **API ID**: `contact_form`
+ * - **Description**: ContactForm
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSlice = prismic.SharedSlice<'contact_form', ContactFormSliceVariation>
 
 /**
  * Primary content in *ContentImageText → Primary*
@@ -1419,6 +1481,33 @@ type FaqSliceVariation = FaqSliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type FaqSlice = prismic.SharedSlice<'faq', FaqSliceVariation>
+
+/**
+ * Default variation for FooterSimple Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSimpleSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  never
+>
+
+/**
+ * Slice variation for *FooterSimple*
+ */
+type FooterSimpleSliceVariation = FooterSimpleSliceDefault
+
+/**
+ * FooterSimple Shared Slice
+ *
+ * - **API ID**: `footer_simple`
+ * - **Description**: FooterSimple
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSimpleSlice = prismic.SharedSlice<'footer_simple', FooterSimpleSliceVariation>
 
 /**
  * Primary content in *FreeZones → Primary*
@@ -2367,6 +2456,9 @@ declare module '@prismicio/client' {
       CalendlySliceDefaultPrimary,
       CalendlySliceVariation,
       CalendlySliceDefault,
+      ContactFormSlice,
+      ContactFormSliceVariation,
+      ContactFormSliceDefault,
       ContentImageTextSlice,
       ContentImageTextSliceDefaultPrimary,
       ContentImageTextSliceDefaultItem,
@@ -2385,6 +2477,9 @@ declare module '@prismicio/client' {
       FaqSliceDefaultItem,
       FaqSliceVariation,
       FaqSliceDefault,
+      FooterSimpleSlice,
+      FooterSimpleSliceVariation,
+      FooterSimpleSliceDefault,
       FreeZonesSlice,
       FreeZonesSliceDefaultPrimary,
       FreeZonesSliceVariation,

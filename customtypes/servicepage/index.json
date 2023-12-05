@@ -12,11 +12,23 @@
         },
         "type": "UID"
       },
+      "exclude_from_sitemap": {
+        "type": "Boolean",
+        "config": {
+          "label": "Exclude from sitemap",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "contact_form": {
+              "type": "SharedSlice"
+            },
             "free_zones": {
               "type": "SharedSlice"
             },

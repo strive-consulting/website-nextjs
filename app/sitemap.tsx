@@ -1,9 +1,9 @@
-import { getAllCmsPages, getBlogPostsAll } from '@/lib/cms'
+import { getAllCmsPages, getAllCmsPagesForSiteMap, getBlogPostsAll } from '@/lib/cms'
 import { linkResolver } from '@/prismicio'
 import { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const cmsPages = await getAllCmsPages()
+  const cmsPages = await getAllCmsPagesForSiteMap()
   const blogPosts = await getBlogPostsAll()
   const baseUrl = process.env.BASE_URL ?? ''
 

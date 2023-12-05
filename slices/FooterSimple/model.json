@@ -1,0 +1,16 @@
+{
+  "id": "footer_simple",
+  "type": "SharedSlice",
+  "name": "FooterSimple",
+  "description": "FooterSimple",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}
