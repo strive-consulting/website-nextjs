@@ -15,6 +15,7 @@ export const components = {
   general_content: dynamic(() => import('./GeneralContent')),
   grid_blocks: dynamic(() => import('./GridBlocks')),
   hero1: dynamic(() => import('./Hero1')),
+  landing_page_hero: dynamic(() => import('./LandingPageHero')),
   process_steps: dynamic(() => import('./ProcessSteps')),
   sticky_navigation: dynamic(() => import('./StickyNavigation')),
   team: dynamic(() => import('./Team')),
