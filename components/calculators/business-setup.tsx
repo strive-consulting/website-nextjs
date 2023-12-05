@@ -46,7 +46,7 @@ const Step1: React.FC<{
 
   return (
     <form onSubmit={handleNext}>
-      <div className='flex flex-wrap w-1/2 mx-auto lg:w-3/4'>
+      <div className='flex flex-wrap'>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             Your Business Activity
@@ -94,7 +94,7 @@ const Step1: React.FC<{
 
         <div className='w-1/2 pl-3 mb-3 '>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
-            Number of shareholders
+            Shareholders
           </label>
           <input
             name='numberOfPartners'
@@ -134,7 +134,7 @@ const Step2: React.FC<{
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='flex flex-wrap w-1/2 mx-auto lg:w-3/4'>
+      <div className='flex flex-wrap'>
         {/* <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             First Name

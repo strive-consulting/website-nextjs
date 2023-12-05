@@ -52,8 +52,9 @@ export default async function Home() {
                 setup along with your UAE residency.
               </p>
             </div>
-
-            <BusinessSetupCalculator />
+            <div className='w-1/2 lg:w-3/4 mx-auto'>
+              <BusinessSetupCalculator />
+            </div>
           </div>
         </div>
       </section>

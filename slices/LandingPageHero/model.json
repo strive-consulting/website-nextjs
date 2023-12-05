@@ -1,0 +1,50 @@
+{
+  "id": "landing_page_hero",
+  "type": "SharedSlice",
+  "name": "LandingPageHero",
+  "description": "LandingPageHero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "form": {
+          "type": "Select",
+          "config": {
+            "label": "Form",
+            "placeholder": "",
+            "options": ["Business Setup Calculator", "Calendly Prefill"]
+          }
+        },
+        "redirect_url": {
+          "type": "Text",
+          "config": {
+            "label": "Redirect Url",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

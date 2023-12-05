@@ -1,0 +1,35 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "summer",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Sint aliquip ex ipsum do qui eu. Duis mollit nisi anim dolore ad sit irure consectetur enim adipisicing ipsum do adipisicing. Aliquip ea do reprehenderit elit consectetur laboris non reprehenderit proident ad laboris mollit fugiat officia."
+            }
+          }
+        ]
+      },
+      "form": {
+        "__TYPE__": "FieldContent",
+        "value": "Calendly Prefill",
+        "type": "Select"
+      },
+      "redirect_url": {
+        "__TYPE__": "FieldContent",
+        "value": "maybe",
+        "type": "Text"
+      }
+    },
+    "items": []
+  }
+]
