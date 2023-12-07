@@ -44,6 +44,8 @@ export default function EnquiryForm() {
   ) => {
     const { name, value } = e.target
 
+    //console.log(name, value)
+
     if (name === 'name') {
       formData.nameValid = true
     }
@@ -53,8 +55,16 @@ export default function EnquiryForm() {
     if (name === 'phoneNumber') {
       formData.phoneNumberValid = true
     }
-
     setFormData({ ...formData, [name]: value })
+  }
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { checked, name, value } = e.target
+
+    // console.log(name, value, checked)
+    // console.log('val', checked)
+
+    setFormData({ ...formData, [name]: checked })
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -90,7 +100,7 @@ export default function EnquiryForm() {
     note = formData.interested_banking ? note + ', interested_banking' : note
     note = formData.interested_accounting ? note + ', interested_accounting' : note
     note = formData.interested_other ? note + ', interested_other' : note
-    console.log(note)
+    //console.log(note)
 
     if (error) return
 
@@ -104,6 +114,7 @@ export default function EnquiryForm() {
       note: note,
     }
 
+    console.log(formSubmissionData)
     await fetch('/api/forms/prefill', {
       method: 'POST',
       body: JSON.stringify(formSubmissionData),
@@ -169,23 +180,27 @@ export default function EnquiryForm() {
             <label className='block text-gray-300 text-sm font-medium mb-1'>
               I am interested in
             </label>
+
             <label className='flex items-center mb-2'>
+              {formData.interested_company_formation}
               <input
                 type='checkbox'
                 className='form-checkbox'
                 name='interested_company_formation'
-                onChange={handleChange}
-                checked={formData.interested_company_formation}
+                onChange={handleCheckboxChange}
+                defaultChecked={false}
               />
+
               <span className='text-gray-300 ml-2'>UAE Company Formation</span>
             </label>
+
             <label className='flex items-center mb-2'>
               <input
                 type='checkbox'
                 className='form-checkbox'
                 name='interested_residency'
-                onChange={handleChange}
-                checked={formData.interested_residency}
+                onChange={handleCheckboxChange}
+                defaultChecked={false}
               />
               <span className='text-gray-300 ml-2'>UAE Residency &amp; Visa</span>
             </label>
@@ -194,7 +209,7 @@ export default function EnquiryForm() {
                 type='checkbox'
                 className='form-checkbox'
                 name='interested_banking'
-                onChange={handleChange}
+                onChange={handleCheckboxChange}
                 checked={formData.interested_banking}
               />
               <span className='text-gray-300 ml-2'>UAE Business Banking</span>
@@ -204,7 +219,7 @@ export default function EnquiryForm() {
                 type='checkbox'
                 className='form-checkbox'
                 name='interested_accounting'
-                onChange={handleChange}
+                onChange={handleCheckboxChange}
                 checked={formData.interested_accounting}
               />
               <span className='text-gray-300 ml-2'>UAE Accounting Services</span>
@@ -214,7 +229,7 @@ export default function EnquiryForm() {
                 type='checkbox'
                 className='form-checkbox'
                 name='interested_other'
-                onChange={handleChange}
+                onChange={handleCheckboxChange}
                 checked={formData.interested_other}
               />
               <span className='text-gray-300 ml-2'>Other</span>
@@ -232,10 +247,8 @@ export default function EnquiryForm() {
               className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
               placeholder='Please provide any other relevant information which could be useful for our team to help with your enquiry'
               onChange={handleChange}
-              value={formData.message} 
-            >
-             
-            </textarea>
+              value={formData.message}
+            ></textarea>
           </div>
 
           <button
