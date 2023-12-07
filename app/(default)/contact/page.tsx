@@ -44,7 +44,7 @@ export default function Contact() {
 
             <EnquiryForm />
 
-            <div className='max-w-sm mx-auto grid gap-8 md:grid-cols-3 lg:gap-16 items-start md:max-w-none bg-gray-800 py-10 px-8'>
+            <div className='mt-5 max-w-sm mx-auto grid gap-8 md:grid-cols-3 lg:gap-16 items-start md:max-w-none bg-gray-800 py-10 px-8'>
               <div className='relative flex flex-col items-left' data-aos='fade-up'>
                 <h5 className='h5 mb-2'>Contact Us</h5>
                 <p className='text-lg text-gray-400 text-left text-base'>
@@ -61,7 +61,7 @@ export default function Contact() {
               <div className='relative flex flex-col items-left' data-aos='fade-up'>
                 <h5 className='h5 mb-2'>UAE Office</h5>
                 <p className='text-lg text-gray-400 text-left text-base'>
-                  <address>21314-001 IFZA Business Park, DDP Building A2, DSO, Dubai</address>
+                  <address>Office No. 104-118, Khalid Shaban, Al Garhoud, Dubai</address>
                 </p>
               </div>
               <div className='relative flex flex-col items-left' data-aos='fade-up'>
