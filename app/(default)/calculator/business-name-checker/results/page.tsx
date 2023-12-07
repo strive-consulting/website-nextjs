@@ -20,9 +20,7 @@ export default async function Page({
   searchParams?: {
     formName: string
     businessActivity: string
-    numberOfVisas: number
-    // firstName: string
-    // lastName: string
+    companyName: number
     name: string
     phoneNumber: string
     email: string
@@ -32,12 +30,14 @@ export default async function Page({
     complete?: string
   }
 }) {
+  let businessActivityName
+  let companyName
+
   let mainlandPrice = 0.0
   let mainlandPriceConverted: number | string = 0.0
   let freezonePrice = 0.0
   let freezonePriceConverted: number | string = 0.0
-  let businessActivityName
-  let visaCount
+  const visaCount = 1
 
   //Load any UTMs into an object for the form submission
   const utm = {
@@ -50,13 +50,14 @@ export default async function Page({
   const calendarUrl = 'https://calendly.com/d/4cz-qzm-kdp/strive-consultants-dubai-discovery-call'
   const ctaUrl = `${calendarUrl}?name=${searchParams?.name}&email=${searchParams?.email}&a1=${searchParams?.phoneNumber}&utm_campaign=${utm.utmCampaign}&utm_medium=${utm.utmMedium}&utm_source=${utm.utmSource}`
 
-  //Create a lead
+  //Create a lead contaning some notes
   const formData = {
     name: searchParams?.name,
     email: searchParams?.email,
     phoneNumber: searchParams?.phoneNumber,
     formName: searchParams?.formName,
     dateTime: new Date().toISOString(),
+    note: 'Company name: ' + searchParams?.companyName,
     utm: utm,
   }
 
@@ -76,12 +77,12 @@ export default async function Page({
     const businessactivity = parseInt(searchParams?.businessActivity ?? '0')
     const businessActivity = businessActivities.find((obj) => obj.id === businessactivity)
     businessActivityName = businessActivity?.label
-    const visas: number = searchParams?.numberOfVisas ?? 1
-    visaCount = visas
+
+    companyName = searchParams?.companyName + ' ' + businessActivityName?.toLowerCase().replace('consultancy', '')
 
     if (businessActivity) {
-      mainlandPrice = businessActivity.mainlandPrice + visas * businessActivity.additionalVisaPrice
-      freezonePrice = businessActivity.freeZonePrice + visas * businessActivity.additionalVisaPrice
+      mainlandPrice = businessActivity.mainlandPrice + visaCount * businessActivity.additionalVisaPrice
+      freezonePrice = businessActivity.freeZonePrice + visaCount * businessActivity.additionalVisaPrice
 
       //currency convert
       mainlandPriceConverted = await convertCurrency(mainlandPrice, 'AED', 'GBP')
@@ -97,7 +98,7 @@ export default async function Page({
             <div className='flex flex-col md:flex-row'>
               <div className={`w-full mx-auto`}>
                 <h1 className='h1 mb-4 text-center' data-aos='fade-up'>
-                  Your Estimate
+                  Your Company Name Is Available
                 </h1>
 
                 {isComplete && (
@@ -107,7 +108,7 @@ export default async function Page({
                       data-aos='fade-up'
                       data-aos-delay='200'
                     >
-                      Here is your estimate for getting your business set up in the UAE 🚀
+                      Great news! Your company name is available in a few  🚀
                     </p>
 
                     <div className='max-w-3xl mx-auto px-4 sm:px-6 relative'>
@@ -117,10 +118,13 @@ export default async function Page({
                           data-aos='fade-up'
                           data-aos-delay='600'
                         >
+                          
+                          <div className='h4 md:h3 mb-1 uppercase'>{companyName}</div>
                           <p className='mb-2'>
-                            <span className='text-purple-600'>{businessActivityName}</span> business
-                            licence and{' '}
-                            <span className='text-purple-600'>{visaCount} residence visa(s)</span>
+                            Available as an <span className='text-purple-600'>LLC (limited liability company)</span> or a 
+                            {' '}<span className='text-purple-600'>FZCO (free zone company)</span>
+                            {' '}{businessActivityName} business for as low as
+                            
                           </p>
                           <div className='h4 md:h3 mb-1'>
                             Mainland: AED {mainlandPrice.toLocaleString()}
@@ -137,7 +141,7 @@ export default async function Page({
                           </div>
 
                           <div className='text-sm'>
-                            Prices shown are indicative. Service fees apply
+                            *Final company name subject to company registry check during application
                           </div>
                         </div>
 

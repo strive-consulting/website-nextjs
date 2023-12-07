@@ -46,3 +46,18 @@ export async function convertCurrency(
     return `Error: ${error.message}`
   }
 }
+
+export function extractNames(fullName?: string): { firstName: string | undefined; lastName: string | undefined } {
+  if (!fullName) {
+    return { firstName: undefined, lastName: undefined };
+  }
+  const names = fullName.split(' ');
+
+  // The first element will always be the first name
+  const firstName = names[0];
+
+  // If there is a last name, join the remaining elements to get it; otherwise, set it to null
+  const lastName = names.length > 1 ? names.slice(1).join(' ') : undefined;
+
+  return { firstName, lastName };
+}
