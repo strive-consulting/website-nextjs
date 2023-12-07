@@ -280,7 +280,7 @@ const CompanyNameChecker: React.FC = () => {
     if (error) return
 
     setStep2Completed(true)
-    
+
     await new Promise((f) => setTimeout(f, 5000))
 
     //All form data on the querystring

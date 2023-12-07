@@ -78,11 +78,16 @@ export default async function Page({
     const businessActivity = businessActivities.find((obj) => obj.id === businessactivity)
     businessActivityName = businessActivity?.label
 
-    companyName = searchParams?.companyName + ' ' + businessActivityName?.toLowerCase().replace('consultancy', '')
+    companyName =
+      searchParams?.companyName +
+      ' ' +
+      businessActivityName?.toLowerCase().replace('consultancy', '')
 
     if (businessActivity) {
-      mainlandPrice = businessActivity.mainlandPrice + visaCount * businessActivity.additionalVisaPrice
-      freezonePrice = businessActivity.freeZonePrice + visaCount * businessActivity.additionalVisaPrice
+      mainlandPrice =
+        businessActivity.mainlandPrice + visaCount * businessActivity.additionalVisaPrice
+      freezonePrice =
+        businessActivity.freeZonePrice + visaCount * businessActivity.additionalVisaPrice
 
       //currency convert
       mainlandPriceConverted = await convertCurrency(mainlandPrice, 'AED', 'GBP')
@@ -108,7 +113,7 @@ export default async function Page({
                       data-aos='fade-up'
                       data-aos-delay='200'
                     >
-                      Great news! Your company name is available in a few  🚀
+                      Great news! Your company name is available in a few 🚀
                     </p>
 
                     <div className='max-w-3xl mx-auto px-4 sm:px-6 relative'>
@@ -118,13 +123,12 @@ export default async function Page({
                           data-aos='fade-up'
                           data-aos-delay='600'
                         >
-                          
                           <div className='h4 md:h3 mb-1 uppercase'>{companyName}</div>
                           <p className='mb-2'>
-                            Available as an <span className='text-purple-600'>LLC (limited liability company)</span> or a 
-                            {' '}<span className='text-purple-600'>FZCO (free zone company)</span>
-                            {' '}{businessActivityName} business for as low as
-                            
+                            Available as an{' '}
+                            <span className='text-purple-600'>LLC (limited liability company)</span>{' '}
+                            or a <span className='text-purple-600'>FZCO (free zone company)</span>{' '}
+                            {businessActivityName} business for as low as
                           </p>
                           <div className='h4 md:h3 mb-1'>
                             Mainland: AED {mainlandPrice.toLocaleString()}
