@@ -1,6 +1,7 @@
 import { createClient } from '@/prismicio'
 import { notFound } from 'next/navigation'
 import * as prismic from '@prismicio/client'
+import { toTitleCase } from './helpers'
 
 export async function getTestimonials(maxcount?: number) {
   const client = createClient()
@@ -115,16 +116,19 @@ export async function getBlogPosts() {
   return blogPosts
 }
 
-export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number) {
+export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number, tag?: string) {
   const client = createClient()
 
   //PageSize is only set when we are fetching a few posts for a slice.
   pageSize = pageSize ? pageSize : pagenum === 1 ? 7 : 6
 
+  //note, Tags are case sensitive in Prismic so we must follow the title case convention to make this work.
+
   const communityPosts = await client
     .getByType('blog_post', {
       fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
       orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
+      filters: tag && [prismic.filter.at('document.tags', [toTitleCase(tag)])],
 
       // predicates: [predicate.at("my.community.most_popular",
       // {
