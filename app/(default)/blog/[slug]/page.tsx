@@ -10,6 +10,7 @@ import BreadCrumbs from '@/components/breadcrumbs'
 import Link from 'next/link'
 import PostItem from '@/components/post-item'
 import ShareBar from '@/components/share-bar'
+import BlogPostAuthorFooter from '@/components/blog-post-author-footer'
 
 export async function generateStaticParams() {
   const pages = await getBlogPostsAll()
@@ -51,6 +52,8 @@ export async function generateMetadata({
 
 export default async function SinglePost({ params }: { params: { slug: string } }) {
   const post = await getBlogPost(params.slug)
+
+  console.log(post.tags?.[0])
 
   const blogPosts = await getBlogPostsPaged(1, 3, post.tags?.[0], post.uid)
 
@@ -123,27 +126,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                       data-aos='fade-up'
                       data-aos-delay='400'
                     >
-                      {/* <Link href='#'>
-                      <Image
-                        className='rounded-full shrink-0 mr-4'
-                        src={post.authorImg}
-                        width={40}
-                        height={40}
-                        alt={post.author}
-                      />
-                    </Link> */}
-                      {/* <div>
-                      <Link
-                        href='#'
-                        className='font-medium text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out'
-                      >
-                        {post.author}
-                      </Link>
-                      <span className='text-gray-700'> - </span>
-                      <span className='text-gray-500'>
-                        <PostDate dateString={post.publishedAt} />
-                      </span>
-                    </div> */}
+                      <BlogPostAuthorFooter post={post} />
                     </div>
                     {/* Article tags */}
                     {post.tags && (
@@ -212,28 +195,30 @@ export default async function SinglePost({ params }: { params: { slug: string } 
 
         <SchemaTag schemaJson={schema} />
       </section>
-      <section className='relative'>
-        <div className='max-w-6xl mx-auto px-4 sm:px-6'>
-          <div className='pt-5 md:pb-20'>
-            {/*  Page header */}
-            <div className='max-w-3xl pb-12 md:pb-10 text-center md:text-left'>
-              <h3 className='h3' data-aos='fade-up'>
-                Explore more
-              </h3>
-            </div>
+      {blogPosts.generalPosts?.length > 0 && (
+        <section className='relative'>
+          <div className='max-w-6xl mx-auto px-4 sm:px-6'>
+            <div className='pt-5 md:pb-20'>
+              {/*  Page header */}
+              <div className='max-w-3xl pb-12 md:pb-10 text-center md:text-left'>
+                <h3 className='h3' data-aos='fade-up'>
+                  Explore more
+                </h3>
+              </div>
 
-            <div className='max-w-sm mx-auto md:max-w-none border-t border-gray-700 py-10'>
-              <div className='grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start'>
-                {blogPosts.generalPosts.map((post, postIndex) => (
-                  <PostItem key={postIndex} post={post} />
-                ))}
+              <div className='max-w-sm mx-auto md:max-w-none border-t border-gray-700 py-10'>
+                <div className='grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start'>
+                  {blogPosts.generalPosts.map((post, postIndex) => (
+                    <PostItem key={postIndex} post={post} />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <SchemaTag schemaJson={schema} />
-      </section>
+          <SchemaTag schemaJson={schema} />
+        </section>
+      )}
     </>
   )
 }

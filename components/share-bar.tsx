@@ -6,11 +6,13 @@ import {
   LinkedinShareButton,
   TwitterShareButton,
   WhatsappShareButton,
+  TelegramShareButton,
   XIcon,
   FacebookIcon,
   LinkedinIcon,
   EmailIcon,
-  WhatsappIcon
+  WhatsappIcon,
+  TelegramIcon,
 } from 'react-share'
 
 interface ShareBarProps {
@@ -24,6 +26,11 @@ export default function ShareBar({ url, title }: ShareBarProps) {
   return (
     <ul className='inline-flex mt-4 md:ml-4 md:mb-0'>
       <li>
+        <WhatsappShareButton url={url} title={title} className='twitter'>
+          <WhatsappIcon size={32} iconFillColor={striveRed} round bgStyle={bgStyle} />
+        </WhatsappShareButton>
+      </li>
+      <li className='ml-4'>
         <TwitterShareButton url={url} title={title} className='twitter'>
           <XIcon size={32} iconFillColor={striveRed} round bgStyle={bgStyle} />
         </TwitterShareButton>
@@ -39,14 +46,14 @@ export default function ShareBar({ url, title }: ShareBarProps) {
         </LinkedinShareButton>
       </li>
       <li className='ml-4'>
+        <TelegramShareButton url={url} title={title} className='twitter'>
+          <TelegramIcon size={32} iconFillColor={striveRed} round bgStyle={bgStyle} />
+        </TelegramShareButton>
+      </li>
+      <li className='ml-4'>
         <EmailShareButton url={url} title={title} className='twitter'>
           <EmailIcon size={32} iconFillColor={striveRed} round bgStyle={bgStyle} />
         </EmailShareButton>
-      </li>
-      <li className='ml-4'>
-        <WhatsappShareButton url={url} title={title} className='twitter'>
-          <WhatsappIcon size={32} iconFillColor={striveRed} round bgStyle={bgStyle} />
-        </WhatsappShareButton>
       </li>
     </ul>
   )

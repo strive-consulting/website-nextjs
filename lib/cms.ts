@@ -116,7 +116,12 @@ export async function getBlogPosts() {
   return blogPosts
 }
 
-export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number, tag?: string, blogPostToExcludeUid?: string) {
+export async function getBlogPostsPaged(
+  pagenum: number = 1,
+  pageSize?: number,
+  tag?: string,
+  blogPostToExcludeUid?: string,
+) {
   const client = createClient()
 
   //PageSize is only set when we are fetching a few posts for a slice.
@@ -124,11 +129,12 @@ export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number, 
 
   //note, Tags are case sensitive in Prismic so we must follow the title case convention to make this work.
 
-  
-  const filters: string[] = [];
+  const filters: string[] = []
   const tagFilter = tag && filters.push(prismic.filter.at('document.tags', [toTitleCase(tag)]))
-  const postExcludeFilter = blogPostToExcludeUid && filters.push(prismic.filter.not('my.blog_post.uid', blogPostToExcludeUid.toString()))
-  console.log(filters)
+  const postExcludeFilter =
+    blogPostToExcludeUid &&
+    filters.push(prismic.filter.not('my.blog_post.uid', blogPostToExcludeUid.toString()))
+  // console.log(filters)
   const communityPosts = await client
     .getByType('blog_post', {
       fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],

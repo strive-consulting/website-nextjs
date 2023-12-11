@@ -38,13 +38,22 @@ import { Metadata } from 'next'
 import { Constants } from '@/app/constants'
 import SchemaTag from '@/components/schema'
 import { toTitleCase } from '@/lib/helpers'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import BreadCrumbs from '@/components/breadcrumbs'
 
-export default async function Blog({ params }: { params: { tag: string } }) {
+export default async function Blog({ params }: { params: { tag: string; pagenum: string } }) {
+  const pageNo = parseInt(params.pagenum) ?? 1
   const tagName = toTitleCase(params.tag)
-  const blogPosts = await getBlogPostsPaged(1, 6, tagName)
+  const blogPosts = await getBlogPostsPaged(parseInt(params.pagenum), 6, tagName)
   const posts = blogPosts.generalPosts
+
+  if (blogPosts.generalPosts.length === 0) {
+    return notFound()
+  }
+
+  if (pageNo === 1) {
+    return redirect('/blog/tag/' + params.tag)
+  }
 
   // console.log(blogPosts.total_pages)
   if (blogPosts.total_pages === 0) {
