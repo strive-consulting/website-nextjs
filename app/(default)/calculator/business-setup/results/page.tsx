@@ -5,7 +5,7 @@ import Link from 'next/link'
 import TickIcon from '@/components/tickIcon'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
-import { convertCurrency, objectToQueryString } from '@/lib/helpers'
+import { convertCurrency, getVisitorGeoInfo, objectToQueryString } from '@/lib/helpers'
 import Trustpilot from '@/components/trustpilot'
 import { Divider } from '@/components/divider'
 import { getTestimonial, getTestimonials } from '@/lib/cms'
@@ -34,6 +34,8 @@ export default async function Page({
     utmMedium?: string
     utmSource?: string
     complete?: string
+    country?: string
+    currency?: string
   }
 }) {
   const testimonial = await getTestimonial('ryan-martin')
@@ -58,6 +60,8 @@ export default async function Page({
 
   let businessActivityName
   let visaCount
+
+  let currencyCode
 
   //Load any UTMs into an object for the form submission
   const utm = {
@@ -87,8 +91,35 @@ export default async function Page({
 
   //Prevent double lead creation if refreshed
   if (!isComplete) {
-    redirect('?' + objectToQueryString(searchParams) + '&complete=true')
+    const visitorInfo = await getVisitorGeoInfo()
+
+    let appendToUrl = '&complete=true'
+    if (visitorInfo && !visitorInfo.error) {
+      appendToUrl += `&country=${visitorInfo.countryCode}&currency=${visitorInfo.currencyCode}`
+    }
+
+    console.log(appendToUrl)
+
+    redirect('?' + objectToQueryString(searchParams) + appendToUrl)
   }
+
+  // const ip = await fetch('https://jsonip.com', { mode: 'cors'} )
+  // .then((resp) => resp.json())
+  // .then((ip) => {
+  //   console.log(ip);
+  //   return ip;
+  // });
+
+  // console.log('IP', ip)
+
+  // const geoInfo = await fetch(`http://api.ipstack.com/${ip.ip.toString()}?access_key=e64b9120473b19a667c4b29b54336e49`)
+  // .then((resp) => resp.json())
+  // .then((geo) => {
+  //   console.log(geo);
+  //   return geo;
+  // });
+
+  await getVisitorGeoInfo()
 
   await Calculate()
 
@@ -109,13 +140,15 @@ export default async function Page({
       freezonePriceUpper = freezonePrice + 3000
 
       //currency convert
-      mainlandPriceConverted = await convertCurrency(mainlandPrice, 'AED', 'GBP')
-      mainlandPriceLowerConverted = await convertCurrency(mainlandPriceLower, 'AED', 'GBP')
-      mainlandPriceUpperConverted = await convertCurrency(mainlandPriceUpper, 'AED', 'GBP')
+      currencyCode = searchParams?.currency ?? 'USD'
 
-      freezonePriceConverted = await convertCurrency(freezonePrice, 'AED', 'GBP')
-      freezonePriceLowerConverted = await convertCurrency(freezonePriceLower, 'AED', 'GBP')
-      freezonePriceUpperConverted = await convertCurrency(freezonePriceUpper, 'AED', 'GBP')
+      mainlandPriceConverted = await convertCurrency(mainlandPrice, 'AED', currencyCode)
+      mainlandPriceLowerConverted = await convertCurrency(mainlandPriceLower, 'AED', currencyCode)
+      mainlandPriceUpperConverted = await convertCurrency(mainlandPriceUpper, 'AED', currencyCode)
+
+      freezonePriceConverted = await convertCurrency(freezonePrice, 'AED', currencyCode)
+      freezonePriceLowerConverted = await convertCurrency(freezonePriceLower, 'AED', currencyCode)
+      freezonePriceUpperConverted = await convertCurrency(freezonePriceUpper, 'AED', currencyCode)
     }
   }
 
@@ -164,9 +197,12 @@ export default async function Page({
                           {/* <div className='mb-5 text-lg italic'>
                             Approx £{mainlandPriceConverted}
                           </div> */}
-                          <div className='mb-5 text-lg italic'>
-                            Approx £{mainlandPriceLowerConverted} - £{mainlandPriceUpperConverted}
-                          </div>
+                          {currencyCode && (
+                            <div className='mb-5 text-lg italic'>
+                              Approx {currencyCode} {mainlandPriceLowerConverted} - {currencyCode}{' '}
+                              {mainlandPriceUpperConverted}
+                            </div>
+                          )}
 
                           {/* <div className='h4 md:h3 mb-1'>
                             Free zone: AED {freezonePrice.toLocaleString()}
@@ -180,9 +216,12 @@ export default async function Page({
                           {/* <div className='mb-5 text-lg italic'>
                             Approx £{freezonePriceConverted}
                           </div> */}
-                          <div className='mb-5 text-lg italic'>
-                            Approx £{freezonePriceLowerConverted} - £{freezonePriceUpperConverted}
-                          </div>
+                          {currencyCode && (
+                            <div className='mb-5 text-lg italic'>
+                              Approx {currencyCode} {freezonePriceLowerConverted} - {currencyCode}{' '}
+                              {freezonePriceUpperConverted}
+                            </div>
+                          )}
                           <div className='text-sm'>Prices shown are indicative</div>
                         </div>
 

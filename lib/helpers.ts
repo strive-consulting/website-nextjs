@@ -47,6 +47,85 @@ export async function convertCurrency(
   }
 }
 
+import * as countriesJson from './data/countries.json'
+
+type GeoVisitorInfo = {
+  ip?: string
+  city?: string
+  countryCode?: string
+  callingCode?: string
+  currencyCode?: string
+  error?: boolean
+}
+
+type LocationData = {
+  ip: string
+  type: string
+  continent_code: string
+  continent_name: string
+  country_code: string
+  country_name: string
+  region_code: string
+  region_name: string
+  city: string
+  zip: string
+  latitude: number
+  longitude: number
+  location: {
+    geoname_id: number
+    capital: string
+    languages: string[][] // Adjust the type if the actual structure is different
+    country_flag: string
+    country_flag_emoji: string
+    country_flag_emoji_unicode: string
+    calling_code: string
+    is_eu: boolean
+  }
+}
+
+export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
+  try {
+    //Free IP lookup
+    const ip = await fetch('https://jsonip.com', { mode: 'cors' })
+      .then((resp) => resp.json())
+      .then((ip) => {
+        return ip
+      })
+
+    //console.log('IP', ip)
+
+    const geoInfo: LocationData = await fetch(
+      `http://api.ipstack.com/${ip.ip.toString()}?access_key=${process.env.IP_STACK_API_KEY}`,
+    )
+      .then((resp) => resp.json())
+      .then((geo) => {
+        // console.log(geo);
+        return geo
+      })
+
+    //The free IP stack doesn't return the currency code, so we use a static country list to look up the currency from the country code
+
+    // @ts-ignore
+    const currencyCode = countriesJson[geoInfo.country_code]
+    // console.log('currencyCode', currencyCode);
+
+    //No need to return UAE
+    if (geoInfo.country_code === 'AE') return { error: true }
+
+    return {
+      ip: ip.ip,
+      city: geoInfo.city,
+      countryCode: geoInfo.country_code,
+      callingCode: geoInfo.location.calling_code,
+      currencyCode: currencyCode.currency,
+    }
+  } catch (error) {
+    return {
+      error: true,
+    }
+  }
+}
+
 export function extractNames(fullName?: string): {
   firstName: string | undefined
   lastName: string | undefined

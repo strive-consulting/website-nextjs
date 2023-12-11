@@ -1,8 +1,8 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { businessActivities } from '@/app/constants'
-import { objectToQueryString } from '@/lib/helpers'
+import { getVisitorGeoInfo, objectToQueryString } from '@/lib/helpers'
 import { Loader } from '../loader'
 
 interface FormData {
