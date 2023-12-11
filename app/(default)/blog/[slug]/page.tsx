@@ -1,11 +1,14 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import PostTags from '@/components/post-tags'
-import { getBlogPost, getBlogPostsAll } from '@/lib/cms'
+import { getBlogPost, getBlogPostsAll, getBlogPostsPaged } from '@/lib/cms'
 import { PrismicImage, PrismicRichText } from '@prismicio/react'
 import { Constants } from '@/app/constants'
 import { linkResolver } from '@/prismicio'
 import SchemaTag from '@/components/schema'
+import BreadCrumbs from '@/components/breadcrumbs'
+import Link from 'next/link'
+import PostItem from '@/components/post-item'
 
 export async function generateStaticParams() {
   const pages = await getBlogPostsAll()
@@ -48,6 +51,8 @@ export async function generateMetadata({
 export default async function SinglePost({ params }: { params: { slug: string } }) {
   const post = await getBlogPost(params.slug)
 
+  const blogPosts = await getBlogPostsPaged(1, 3, post.tags?.[0], post.uid)
+
   if (post === undefined) return notFound()
 
   let schema = {
@@ -75,6 +80,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
   }
 
   return (
+    <>
     <section className='relative'>
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
         <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
@@ -83,6 +89,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
               <header className='mb-8'>
                 {/* Title and excerpt */}
                 <div className='text-center md:text-left'>
+                  <BreadCrumbs homeTitle='Blog' homeUrl='/blog' currentPageName={post.tags?.[0] ?? post.data.title} />
                   <h1 className='h1 mb-4' data-aos='fade-up'>
                     {post.data.title}
                   </h1>
@@ -185,14 +192,10 @@ export default async function SinglePost({ params }: { params: { slug: string } 
               />
 
               {/* Article footer */}
-              {/* <footer>
+              <footer>
                 <div className='md:flex md:items-center md:justify-between text-center md:text-left'>
                   <div className='text-lg text-gray-400 italic'>
-                    Originally published at{' '}
-                    <Link href='https://cruip.com/' className='text-gray-200'>
-                      https://cruip.com/
-                    </Link>
-                    .
+                   
                   </div>
                   <ul className='inline-flex mt-4 md:ml-4 md:mb-0'>
                     <li>
@@ -200,13 +203,10 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                         href='#'
                         className='flex justify-center items-center text-purple-600 bg-gray-800 hover:text-gray-100 hover:bg-purple-600 rounded-full transition duration-150 ease-in-out'
                       >
-                        <svg
-                          className='w-8 h-8 fill-current'
-                          viewBox='0 0 32 32'
-                          xmlns='http://www.w3.org/2000/svg'
-                        >
-                          <path d='M24 11.5c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4 0 1.6 1.1 2.9 2.6 3.2-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H8c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4c.7-.5 1.3-1.1 1.7-1.8z' />
-                        </svg>
+                       
+                        <svg className="'w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="m13.063 9 3.495 4.475L20.601 9h2.454l-5.359 5.931L24 23h-4.938l-3.866-4.893L10.771 23H8.316l5.735-6.342L8 9h5.063Zm-.74 1.347h-1.457l8.875 11.232h1.36l-8.778-11.232Z"></path>
+                                                    </svg>
                       </Link>
                     </li>
                     <li className='ml-4'>
@@ -239,7 +239,10 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                     </li>
                   </ul>
                 </div>
-              </footer> */}
+              </footer>
+
+
+
             </article>
           </div>
         </div>
@@ -247,5 +250,31 @@ export default async function SinglePost({ params }: { params: { slug: string } 
 
       <SchemaTag schemaJson={schema} />
     </section>
+    <section className='relative'>
+    <div className='max-w-6xl mx-auto px-4 sm:px-6'>
+      <div className='pt-5 md:pb-20'>
+        {/*  Page header */}
+        <div className='max-w-3xl pb-12 md:pb-10 text-center md:text-left'>
+
+          <h3 className='h3' data-aos='fade-up'>
+            Explore more
+          </h3>
+        </div>
+
+        <div className='max-w-sm mx-auto md:max-w-none border-t border-gray-700 py-10'>
+
+              <div className='grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start'>
+                {blogPosts.generalPosts.map((post, postIndex) => (
+                  <PostItem key={postIndex} post={post} />
+                ))}
+              </div>
+            </div>
+
+      </div>
+    </div>
+
+    <SchemaTag schemaJson={schema} />
+  </section>
+  </>
   )
 }

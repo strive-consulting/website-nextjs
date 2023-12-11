@@ -65,7 +65,7 @@ export default async function Blog({ params }: { params: { tag: string } }) {
           <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
             {/*  Page header */}
             <div className='max-w-3xl pb-12 md:pb-10 text-center md:text-left'>
-              <BreadCrumbs homeTitle='Blog' homeUrl='/blog' currentPageName={tagName}/>
+              <BreadCrumbs homeTitle='Blog' homeUrl='/blog' currentPageName={tagName} />
 
               <h1 className='h1' data-aos='fade-up'>
                 {tagName}
