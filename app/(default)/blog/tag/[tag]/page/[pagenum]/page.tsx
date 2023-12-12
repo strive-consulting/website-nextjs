@@ -1,29 +1,29 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import PostTags from '@/components/post-tags'
 import PostItem from '@/components/post-item'
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { tag: string; pagenum: string }
+}): Promise<Metadata> {
+  const tagName = toTitleCase(params.tag)
+
   return {
-    title: 'Blog - Business Setup in Dubai, UAE',
-    description:
-      'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+    title: `UAE ${tagName} Blog - Business Setup in Dubai, UAE`,
+    description: `Latest '${tagName}' information and blogs in Dubai and UAE.`,
     alternates: {
-      canonical: Constants.SiteDomain + '/blog',
+      canonical: Constants.SiteDomain + '/blog' + params.tag,
     },
     openGraph: {
-      title: 'Blog - Business Setup in Dubai, UAE',
-      description:
-        'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+      title: `UAE ${tagName} Blog - Business Setup in Dubai, UAE`,
+      description: `Latest ${tagName} information and blogs in Dubai and UAE.`,
       images: [Constants.SiteDomain + Constants.OpenGraphImage],
-      url: Constants.SiteDomain + '/blog',
+      url: Constants.SiteDomain + '/blog/' + params.tag,
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Blog - Business Setup in Dubai, UAE',
-      description:
-        'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+      title: `UAE ${tagName} Blog - Business Setup in Dubai, UAE`,
+      description: `Latest ${tagName} information and blogs in Dubai and UAE.`,
       siteId: '',
       images: [Constants.SiteDomain + Constants.OpenGraphImage],
     },
@@ -31,9 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 import { getBlogPostsPaged } from '@/lib/cms'
-import { PrismicImage, PrismicRichText } from '@prismicio/react'
 import BlogPagination from '@/components/blog-pagination'
-import BlogPostAuthorFooter from '@/components/blog-post-author-footer'
 import { Metadata } from 'next'
 import { Constants } from '@/app/constants'
 import SchemaTag from '@/components/schema'
