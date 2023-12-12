@@ -202,18 +202,15 @@ export async function getBlogTags() {
 
   //iterate through all blogs to find the unique tags
   //TODO. Will require future paging as the default page size is 100
-  const communityPosts = await client
-    .getByType('blog_post', {})
-    .catch(() => notFound())
+  const communityPosts = await client.getByType('blog_post', {}).catch(() => notFound())
 
-    let tags: string[] = []
+  let tags: string[] = []
 
-    communityPosts.results.map((item) => {
-      tags = [...tags, ...item.tags]
-    })
+  communityPosts.results.map((item) => {
+    tags = [...tags, ...item.tags]
+  })
 
-
-  return Array.from(new Set(tags)); //unique values only
+  return Array.from(new Set(tags)) //unique values only
 }
 
 export async function getLandingPage(uid: string) {

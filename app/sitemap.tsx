@@ -28,7 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
     })
   })
-  
+
   transformedCmsPages.push({
     url: baseUrl + '',
     lastModified: new Date(),
