@@ -47,6 +47,12 @@ export async function convertCurrency(
   }
 }
 
+export function toTitleCase(str: string) {
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+  })
+}
+
 import * as countriesJson from './data/countries.json'
 
 type GeoVisitorInfo = {

@@ -1,4 +1,4 @@
-import { getAllCmsPages, getAllCmsPagesForSiteMap, getBlogPostsAll } from '@/lib/cms'
+import { getAllCmsPages, getAllCmsPagesForSiteMap, getBlogPostsAll, getBlogTags } from '@/lib/cms'
 import { linkResolver } from '@/prismicio'
 import { MetadataRoute } from 'next'
 
@@ -18,6 +18,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   transformedCmsPages.push(...transformedBlogPosts)
+
+  //Generate pages for blog tags
+  const blogTags = await getBlogTags()
+
+  blogTags.map((tag) => {
+    transformedCmsPages.push({
+      url: baseUrl + '/blog/tag/' + tag.toLowerCase(),
+      lastModified: new Date(),
+    })
+  })
 
   transformedCmsPages.push({
     url: baseUrl + '',

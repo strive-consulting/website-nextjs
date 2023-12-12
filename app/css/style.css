@@ -45,3 +45,7 @@ address {
 .youtube-icon {
     transform: translate(4px, 3px) scale(0.8);
 }
+
+.form-checkbox, .form-radio {
+    color: #ff4040;
+}
