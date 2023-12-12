@@ -21,7 +21,7 @@ export default function PostTags({ tags }: { tags: string[] }) {
       {tags.map((tag, tagIndex) => (
         <li key={tagIndex} className='m-1'>
           <Link
-            href='#'
+            href={`/blog/tag/${tag.toLowerCase()}`}
             className={`inline-flex text-center py-1 px-3 rounded-full transition duration-150 ease-in-out ${tagColor(
               tag,
             )}`}
