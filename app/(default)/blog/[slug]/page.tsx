@@ -99,6 +99,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                       homeTitle='Blog'
                       homeUrl='/blog'
                       currentPageName={post.tags?.[0] ?? post.data.title}
+                      currentPageUrl={Constants.SiteDomain + linkResolver(post)}
                     />
                     <h1 className='h1 mb-4' data-aos='fade-up'>
                       {post.data.title}
