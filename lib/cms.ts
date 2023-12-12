@@ -1,6 +1,7 @@
 import { createClient } from '@/prismicio'
 import { notFound } from 'next/navigation'
 import * as prismic from '@prismicio/client'
+import { toTitleCase } from './helpers'
 
 export async function getTestimonials(maxcount?: number) {
   const client = createClient()
@@ -115,17 +116,32 @@ export async function getBlogPosts() {
   return blogPosts
 }
 
-export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number) {
+export async function getBlogPostsPaged(
+  pagenum: number = 1,
+  pageSize?: number,
+  tag?: string,
+  blogPostToExcludeUid?: string,
+) {
   const client = createClient()
 
   //PageSize is only set when we are fetching a few posts for a slice.
   pageSize = pageSize ? pageSize : pagenum === 1 ? 7 : 6
 
+  //note, Tags are case sensitive in Prismic so we must follow the title case convention to make this work.
+
+  const filters: string[] = []
+  const tagFilter = tag && filters.push(prismic.filter.at('document.tags', [toTitleCase(tag)]))
+  const postExcludeFilter =
+    blogPostToExcludeUid &&
+    filters.push(prismic.filter.not('my.blog_post.uid', blogPostToExcludeUid.toString()))
+  // console.log(filters)
   const communityPosts = await client
     .getByType('blog_post', {
       fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
       orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
+      // filters: tag && [prismic.filter.at('document.tags', [toTitleCase(tag)])],
 
+      filters: filters,
       // predicates: [predicate.at("my.community.most_popular",
       // {
       //   { orderings : '[document.first_publication_date desc]' }
@@ -179,6 +195,22 @@ export async function getBlogPostsAll() {
     .catch(() => notFound())
 
   return communityPosts.results
+}
+
+export async function getBlogTags() {
+  const client = createClient()
+
+  //iterate through all blogs to find the unique tags
+  //TODO. Will require future paging as the default page size is 100
+  const communityPosts = await client.getByType('blog_post', {}).catch(() => notFound())
+
+  let tags: string[] = []
+
+  communityPosts.results.map((item) => {
+    tags = [...tags, ...item.tags]
+  })
+
+  return Array.from(new Set(tags)) //unique values only
 }
 
 export async function getLandingPage(uid: string) {

@@ -71,7 +71,7 @@ export default async function Header() {
                   Accounting
                 </Link>
               </li> */}
-              <Dropdown title='Accounting'>
+              {/* <Dropdown title='Accounting'>
                 {nav.data.accountancy_items.map((item) => {
                   return (
                     <li key={item.menu_label}>
@@ -84,8 +84,20 @@ export default async function Header() {
                     </li>
                   )
                 })}
-              </Dropdown>
+              </Dropdown> */}
               <Dropdown title='Business Services'>
+                {nav.data.accountancy_items.map((item) => {
+                  return (
+                    <li key={item.menu_label}>
+                      <PrismicLink
+                        field={item.menu_link}
+                        className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
+                      >
+                        {item.menu_label}
+                      </PrismicLink>
+                    </li>
+                  )
+                })}
                 {nav.data.business_services_items.map((item) => {
                   return (
                     <li key={item.menu_label}>
@@ -98,6 +110,14 @@ export default async function Header() {
                     </li>
                   )
                 })}
+              </Dropdown>
+              <Dropdown title='Resources'>
+                <Link
+                  href='/blog'
+                  className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
+                >
+                  Blog
+                </Link>
               </Dropdown>
             </ul>
 
