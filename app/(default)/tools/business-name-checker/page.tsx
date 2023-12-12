@@ -34,7 +34,7 @@ export default async function Home() {
   let schema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    url: Constants.SiteDomain + '/calculator/business-name-checker',
+    url: Constants.SiteDomain + '/tools/business-name-checker',
     name: 'Dubai Business Name Checker',
   }
 
@@ -52,7 +52,7 @@ export default async function Home() {
                 Find your perfect UAE business name
               </p>
             </div>
-            <div className='w-1/2 lg:w-3/4 mx-auto'>
+            <div className='w-full md:w-1/2 lg:w-3/4 mx-auto'>
               <CompanyNameChecker />
             </div>
           </div>

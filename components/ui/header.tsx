@@ -113,10 +113,16 @@ export default async function Header() {
               </Dropdown>
               <Dropdown title='Resources'>
                 <Link
-                  href='/tools/business-setup'
+                  href='/tools/cost-calculator'
                   className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
                 >
                   Cost Calculator
+                </Link>
+                <Link
+                  href='/tools/business-name-checker'
+                  className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
+                >
+                  Business Name Checker
                 </Link>
                 <Link
                   href='/blog'

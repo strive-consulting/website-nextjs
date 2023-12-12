@@ -30,6 +30,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   })
 
   transformedCmsPages.push({
+    url: baseUrl + '/tools/cost-calculator',
+    lastModified: new Date(),
+  })
+
+  transformedCmsPages.push({
+    url: baseUrl + '/tools/business-name-checker',
+    lastModified: new Date(),
+  })
+
+  transformedCmsPages.push({
     url: baseUrl + '',
     lastModified: new Date(),
   })

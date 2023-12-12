@@ -319,42 +319,6 @@ export default async function Page({
                             <span>360° Business Support</span>
                           </li>
                         </ul>
-                        {/* <h4 className='h4'>Financial Compliance</h4>
-
-                        <div className='flex flex-wrap'>
-                          <div className='w-full md:w-2/3'>
-                            <p className='my-5'>
-                              Strive are a certified Xero partner and will ensure your business
-                              follows all of the latest financial compliance guidelines in the UAE.
-                            </p>
-                            <ul className='justify-center text-lg text-gray-400 -mx-2 -my-1 mb-10'>
-                              <li
-                                className='flex items-center mx-3 my-1'
-                                data-aos-anchor='[data-aos-id-cta]'
-                              >
-                                <TickIcon />
-                                <span>Xero Partner</span>
-                              </li>
-                              <li className='flex items-center mx-3 my-1'>
-                                <TickIcon />
-                                <span>Certified Chartered Accountants</span>
-                              </li>
-                              <li className='flex items-center mx-3 my-1'>
-                                <TickIcon />
-                                <span>Corporate Tax and VAT registration and filing</span>
-                              </li>
-                            </ul>
-                          </div>
-                          <div className='w-full md:w-1/3 flex items-center justify-center order-first md:order-last'>
-                            <Image
-                              src='/images/xero-logo-hires-RGB.png'
-                              alt='Strive is a Xero Partner'
-                              width={160}
-                              height={160}
-                            />
-                          </div>
-                        </div> */}
-
                         <h4 className='h4'>Mainland vs Free zone?</h4>
                         <p className='my-5 mb-5 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline'>
                           There are 2 different types of licence available in the UAE.{' '}

@@ -37,7 +37,7 @@ const Step1: React.FC<{
 
   return (
     <form onSubmit={handleNext}>
-      <div className='flex flex-wrap'>
+      <div className='flex flex-wrap' data-aos='fade-up'>
         <div className='w-full md:w-1/2 pr-3 mb-3 '>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             Company name
@@ -106,7 +106,7 @@ const Step2: React.FC<{
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='flex flex-wrap'>
+      <div className='flex flex-wrap' data-aos='fade-up'>
         {/* <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             First Name
@@ -284,7 +284,7 @@ const CompanyNameChecker: React.FC = () => {
     await new Promise((f) => setTimeout(f, 5000))
 
     //All form data on the querystring
-    router.push('/calculator/business-name-checker/results?' + objectToQueryString(formData))
+    router.push('/tools/business-name-checker/results?' + objectToQueryString(formData))
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

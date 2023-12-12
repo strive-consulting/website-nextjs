@@ -46,7 +46,7 @@ const Step1: React.FC<{
 
   return (
     <form onSubmit={handleNext}>
-      <div className='flex flex-wrap'>
+      <div className='flex flex-wrap' data-aos='fade-up'>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             Your Business Activity
@@ -134,7 +134,7 @@ const Step2: React.FC<{
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='flex flex-wrap'>
+      <div className='flex flex-wrap' data-aos='fade-up'>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='name'>
             Name
@@ -295,7 +295,7 @@ const BusinessSetupCalculator: React.FC = () => {
     await new Promise((f) => setTimeout(f, 5000))
 
     //All form data on the querystring
-    router.push('/tools/business-setup/results?' + objectToQueryString(formData))
+    router.push('/tools/cost-calculator/results?' + objectToQueryString(formData))
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

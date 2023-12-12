@@ -33,7 +33,7 @@ export default async function Home() {
   let schema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    url: Constants.SiteDomain + '/tools/business-setup',
+    url: Constants.SiteDomain + '/tools/cost-calculator',
     name: 'Dubai Business Setup Calculator',
   }
 
@@ -52,7 +52,7 @@ export default async function Home() {
                 setup along with any UAE residency visas.
               </p>
             </div>
-            <div className='w-1/2 lg:w-3/4 mx-auto'>
+            <div className='w-full md:w-1/2 lg:w-3/4 mx-auto'>
               <BusinessSetupCalculator />
             </div>
           </div>
