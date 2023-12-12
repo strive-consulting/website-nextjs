@@ -19,6 +19,14 @@ export async function getTestimonials(maxcount?: number) {
   return testimonials
 }
 
+export async function getTestimonial(uid: string) {
+  const client = createClient()
+
+  const testimonial = await client.getByUID('testimonial', uid, {}).catch(() => notFound())
+
+  return testimonial
+}
+
 export async function getFreeZones() {
   const client = createClient()
 
