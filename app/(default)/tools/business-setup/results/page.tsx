@@ -25,8 +25,6 @@ export default async function Page({
     formName: string
     businessActivity: string
     numberOfVisas: number
-    // firstName: string
-    // lastName: string
     name: string
     phoneNumber: string
     email: string
@@ -41,7 +39,7 @@ export default async function Page({
   const testimonial = await getTestimonial('ryan-martin')
 
   let mainlandPrice = 0.0
-  let mainlandPriceConverted: number | string = 0.0
+  // let mainlandPriceConverted: number | string = 0.0
 
   let mainlandPriceLower = 0.0
   let mainlandPriceLowerConverted: number | string = 0.0
@@ -50,7 +48,7 @@ export default async function Page({
   let mainlandPriceUpperConverted: number | string = 0.0
 
   let freezonePrice = 0.0
-  let freezonePriceConverted: number | string = 0.0
+  // let freezonePriceConverted: number | string = 0.0
 
   let freezonePriceLower = 0.0
   let freezonePriceLowerConverted: number | string = 0.0
@@ -65,32 +63,34 @@ export default async function Page({
 
   //Load any UTMs into an object for the form submission
   const utm = {
-    utmCampaign: searchParams?.utmCampaign,
-    utmMedium: searchParams?.utmMedium,
-    utmSource: searchParams?.utmSource,
+    utmCampaign: searchParams?.utmCampaign != 'undefined' ? searchParams?.utmCampaign : '',
+    utmMedium: searchParams?.utmMedium != 'undefined' ? searchParams?.utmMedium : '',
+    utmSource: searchParams?.utmSource != 'undefined' ? searchParams?.utmSource : '',
   }
 
   const isComplete = searchParams?.complete === 'true' ? true : false
-  const calendarUrl = 'https://calendly.com/d/4cz-qzm-kdp/strive-consultants-dubai-discovery-call'
-  const ctaUrl = `${calendarUrl}?name=${searchParams?.name}&email=${searchParams?.email}&a1=${searchParams?.phoneNumber}&utm_campaign=${utm.utmCampaign}&utm_medium=${utm.utmMedium}&utm_source=${utm.utmSource}`
+  const ctaUrl = `${process.env.ROUNDROBIN_CALENDAR_URL}?name=${searchParams?.name}&email=${searchParams?.email}&a1=${searchParams?.phoneNumber}&utm_campaign=${utm.utmCampaign}&utm_medium=${utm.utmMedium}&utm_source=${utm.utmSource}`
 
-  //Create a lead
-  const formData = {
-    name: searchParams?.name,
-    email: searchParams?.email,
-    phoneNumber: searchParams?.phoneNumber,
-    formName: searchParams?.formName,
-    dateTime: new Date().toISOString(),
-    utm: utm,
-  }
-
-  // await fetch('/api/forms/prefill', {
-  //   method: 'POST',
-  //   body: JSON.stringify(formData),
-  // })
+  console.log(utm)
 
   //Prevent double lead creation if refreshed
   if (!isComplete) {
+    //Create a lead
+    const formData = {
+      name: searchParams?.name,
+      email: searchParams?.email,
+      phoneNumber: searchParams?.phoneNumber,
+      formName: searchParams?.formName,
+      dateTime: new Date().toISOString(),
+      utm: utm,
+    }
+
+    await fetch(process.env.BASE_URL + '/api/forms/prefill', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+    })
+
+    //Try to add some country info to facilitate currency conversion on the display
     const visitorInfo = await getVisitorGeoInfo()
 
     let appendToUrl = '&complete=true'
@@ -98,28 +98,8 @@ export default async function Page({
       appendToUrl += `&country=${visitorInfo.countryCode}&currency=${visitorInfo.currencyCode}`
     }
 
-    console.log(appendToUrl)
-
     redirect('?' + objectToQueryString(searchParams) + appendToUrl)
   }
-
-  // const ip = await fetch('https://jsonip.com', { mode: 'cors'} )
-  // .then((resp) => resp.json())
-  // .then((ip) => {
-  //   console.log(ip);
-  //   return ip;
-  // });
-
-  // console.log('IP', ip)
-
-  // const geoInfo = await fetch(`http://api.ipstack.com/${ip.ip.toString()}?access_key=e64b9120473b19a667c4b29b54336e49`)
-  // .then((resp) => resp.json())
-  // .then((geo) => {
-  //   console.log(geo);
-  //   return geo;
-  // });
-
-  await getVisitorGeoInfo()
 
   await Calculate()
 
@@ -142,11 +122,11 @@ export default async function Page({
       //currency convert
       currencyCode = searchParams?.currency ?? 'USD'
 
-      mainlandPriceConverted = await convertCurrency(mainlandPrice, 'AED', currencyCode)
+      // mainlandPriceConverted = await convertCurrency(mainlandPrice, 'AED', currencyCode)
       mainlandPriceLowerConverted = await convertCurrency(mainlandPriceLower, 'AED', currencyCode)
       mainlandPriceUpperConverted = await convertCurrency(mainlandPriceUpper, 'AED', currencyCode)
 
-      freezonePriceConverted = await convertCurrency(freezonePrice, 'AED', currencyCode)
+      // freezonePriceConverted = await convertCurrency(freezonePrice, 'AED', currencyCode)
       freezonePriceLowerConverted = await convertCurrency(freezonePriceLower, 'AED', currencyCode)
       freezonePriceUpperConverted = await convertCurrency(freezonePriceUpper, 'AED', currencyCode)
     }
@@ -178,7 +158,7 @@ export default async function Page({
                         <div
                           className='w-full md:w-3/4 mx-auto border-purple-200 border-4 rounded p-5 mb-5 text-center'
                           data-aos='fade-up'
-                          data-aos-delay='600'
+                          data-aos-delay='200'
                         >
                           <p className='mb-2'>
                             <span className='text-purple-600'>{businessActivityName}</span> business
@@ -226,10 +206,12 @@ export default async function Page({
                         </div>
 
                         {/* <h4 className='h2 text-center'>The only call you need to have</h4> */}
-                        <h4 className='h2 text-center'>Speak to a true consultancy</h4>
+                        <h4 className='h2 text-center' data-aos='fade-up' data-aos-delay='200'>
+                          Speak to a true consultancy
+                        </h4>
 
                         <div className={`w-full mx-auto text-center my-5`}>
-                          <div data-aos='fade-up' data-aos-delay='600'>
+                          <div data-aos='fade-up' data-aos-delay='100'>
                             <Link
                               className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
                               href={ctaUrl}
@@ -379,13 +361,13 @@ export default async function Page({
                           <Link href='/dubai-freezone-company-formation' target='_blank'>
                             Free zone licences
                           </Link>{' '}
-                          are perfect for smaller businesses which have an international client base
-                          and only require up to 5 residence visas.{' '}
+                          are often perfect for smaller businesses which have an international
+                          client base and only require up to 6 residence visas.{' '}
                           <Link href='/dubai-mainland-company-formation' target='_blank'>
                             Mainland licences
                           </Link>{' '}
-                          are the more like a traditional licence as you would find in any other
-                          country and are ideal for companies wishing to do business with the local
+                          are more like a traditional licence as you would find in any other
+                          country, and are ideal for companies wishing to do business with the local
                           market as well as international clients.
                         </p>
                       </div>
