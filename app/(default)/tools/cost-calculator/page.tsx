@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Constants } from '@/app/constants'
-import SchemaTag, { ISchema } from '@/components/schema'
+import SchemaTag from '@/components/schema'
 import BusinessSetupCalculator from '@/components/calculators/business-setup'
 
 export const metadata: Metadata = {
@@ -9,14 +9,14 @@ export const metadata: Metadata = {
   description:
     'Dubai Business Setup Calculator by Strive. Use our calculator to get indicative costs for forming a buisness in the UAE',
   alternates: {
-    canonical: Constants.SiteDomain + '/calculator/business-setup',
+    canonical: Constants.SiteDomain + '/tools/business-setup',
   },
   openGraph: {
     title: 'Dubai Business Setup Calculator',
     description:
       'Dubai Business Setup Calculator by Strive. Use our calculator to get indicative costs for forming a buisness in the UAE',
     images: [Constants.SiteDomain + Constants.OpenGraphImage],
-    url: Constants.SiteDomain + '/calculator/business-setup',
+    url: Constants.SiteDomain + '/tools/business-setup',
     type: 'website',
   },
   twitter: {
@@ -33,7 +33,7 @@ export default async function Home() {
   let schema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    url: Constants.SiteDomain + '/calculator/business-setup',
+    url: Constants.SiteDomain + '/tools/cost-calculator',
     name: 'Dubai Business Setup Calculator',
   }
 
@@ -45,14 +45,14 @@ export default async function Home() {
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
               <h1 className='h1 mb-4' data-aos='fade-up'>
-                Business Setup Calculator
+                Cost Calculator
               </h1>
               <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
                 Use our simple calculator to determine how much it will cost to get your business
-                setup along with your UAE residency.
+                setup along with any UAE residency visas.
               </p>
             </div>
-            <div className='w-1/2 lg:w-3/4 mx-auto'>
+            <div className='w-full md:w-1/2 lg:w-3/4 mx-auto'>
               <BusinessSetupCalculator />
             </div>
           </div>

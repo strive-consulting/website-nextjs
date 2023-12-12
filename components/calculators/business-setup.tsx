@@ -1,8 +1,8 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { businessActivities } from '@/app/constants'
-import { objectToQueryString } from '@/lib/helpers'
+import { getVisitorGeoInfo, objectToQueryString } from '@/lib/helpers'
 import { Loader } from '../loader'
 
 interface FormData {
@@ -46,7 +46,7 @@ const Step1: React.FC<{
 
   return (
     <form onSubmit={handleNext}>
-      <div className='flex flex-wrap'>
+      <div className='flex flex-wrap' data-aos='fade-up'>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             Your Business Activity
@@ -134,35 +134,7 @@ const Step2: React.FC<{
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='flex flex-wrap'>
-        {/* <div className='w-full mb-3'>
-          <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
-            First Name
-          </label>
-          <input
-            type='text'
-            name='firstName'
-            value={data.firstName}
-            onChange={onChange}
-            placeholder='e.g. Peter'
-            className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
-          />
-          {!data.firstNameValid && <div className='text-red-500 text-sm mt-2'>Please enter your first name</div>}
-        </div>
-        <div className='w-full mb-3'>
-          <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
-            Last Name
-          </label>
-          <input
-            type='text'
-            name='lastName'
-            value={data.lastName}
-            onChange={onChange}
-            className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
-            placeholder='e.g Jones'
-          />
-          {!data.lastNameValid && <div className='text-red-500 text-sm mt-2'>Please enter your last name</div>}
-        </div> */}
+      <div className='flex flex-wrap' data-aos='fade-up'>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='name'>
             Name
@@ -241,22 +213,16 @@ const BusinessSetupCalculator: React.FC = () => {
     formName: 'business-setup-calculator',
     businessActivity: '',
     businessActivityValid: true,
-    // premisesType: '',
     numberOfVisas: 1,
     numberOfVisasValid: true,
     numberOfPartners: 1,
     numberOfPartnersValid: true,
-    // firstName: '',
-    // firstNameValid: true,
-    // lastName: '',
-    // lastNameValid: true,
     name: '',
     nameValid: true,
     email: '',
     emailValid: true,
     phoneNumber: '',
     phoneNumberValid: true,
-    // nationality: '',
     utmCampaign: utm.utmCampaign,
     utmMedium: utm.utmMedium,
     utmSource: utm.utmSource,
@@ -268,8 +234,6 @@ const BusinessSetupCalculator: React.FC = () => {
 
   const handleStep1Submit = () => {
     setFormData({ ...formData })
-
-    //console.log('formData.numberOfVisas', formData.numberOfVisas === 0)
 
     let error = false
 
@@ -302,23 +266,9 @@ const BusinessSetupCalculator: React.FC = () => {
   }
 
   const handleStep2Submit = async () => {
-    console.log('submit step 2')
     setFormData({ ...formData })
-    console.log(formData)
 
     let error = false
-
-    // if (formData.firstName === '') {
-    //   formData.firstNameValid = false
-    //   setFormData({ ...formData })
-    //   error = true
-    // }
-
-    // if (formData.lastName === '') {
-    //   formData.lastNameValid = false
-    //   setFormData({ ...formData })
-    //   error = true
-    // }
 
     if (formData.name === '') {
       formData.nameValid = false
@@ -343,8 +293,9 @@ const BusinessSetupCalculator: React.FC = () => {
     setStep2Completed(true)
 
     await new Promise((f) => setTimeout(f, 5000))
+
     //All form data on the querystring
-    router.push('/calculator/business-setup/results?' + objectToQueryString(formData))
+    router.push('/tools/cost-calculator/results?' + objectToQueryString(formData))
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -360,13 +311,6 @@ const BusinessSetupCalculator: React.FC = () => {
     if (name === 'numberOfPartners' && parseInt(value) >= 1) {
       formData.numberOfPartnersValid = true
     }
-
-    // if (name === 'firstName') {
-    //   formData.firstNameValid = true
-    // }
-    // if (name === 'lastName') {
-    //   formData.lastNameValid = true
-    // }
     if (name === 'name') {
       formData.nameValid = true
     }

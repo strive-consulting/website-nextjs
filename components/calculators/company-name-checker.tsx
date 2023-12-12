@@ -1,22 +1,25 @@
 'use client'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { businessActivities } from '@/app/constants'
 import { objectToQueryString } from '@/lib/helpers'
+import { Loader } from '../loader'
 
 interface FormData {
+  formName: string
   businessActivity: string
   businessActivityValid: boolean
   companyName: string
   companyNameValid: boolean
-  firstName: string
-  firstNameValid: boolean
-  lastName: string
-  lastNameValid: boolean
+  name: string
+  nameValid: boolean
   email: string
   emailValid: boolean
   phoneNumber: string
   phoneNumberValid: boolean
+  utmCampaign?: string
+  utmMedium?: string
+  utmSource?: string
 }
 
 // Step 1 component
@@ -34,7 +37,7 @@ const Step1: React.FC<{
 
   return (
     <form onSubmit={handleNext}>
-      <div className='flex flex-wrap lg:w-3/4'>
+      <div className='flex flex-wrap' data-aos='fade-up'>
         <div className='w-full md:w-1/2 pr-3 mb-3 '>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             Company name
@@ -45,6 +48,7 @@ const Step1: React.FC<{
             value={data.companyName}
             onChange={onChange}
             className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
+            placeholder='e.g. Google'
           />
           {!data.companyNameValid && (
             <div className='text-red-500 text-sm mt-2'>Please enter a company name</div>
@@ -102,8 +106,8 @@ const Step2: React.FC<{
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='flex flex-wrap lg:w-3/4'>
-        <div className='w-full mb-3'>
+      <div className='flex flex-wrap' data-aos='fade-up'>
+        {/* <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             First Name
           </label>
@@ -128,6 +132,22 @@ const Step2: React.FC<{
             className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
           />
           {!data.lastNameValid && <div style={{ color: 'red' }}>Invalid</div>}
+        </div> */}
+        <div className='w-full mb-3'>
+          <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='name'>
+            Name
+          </label>
+          <input
+            type='text'
+            name='name'
+            value={data.name}
+            onChange={onChange}
+            className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
+            placeholder='e.g Peter Jones'
+          />
+          {!data.nameValid && (
+            <div className='text-red-500 text-sm mt-2'>Please enter your name</div>
+          )}
         </div>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
@@ -139,6 +159,7 @@ const Step2: React.FC<{
             value={data.email}
             onChange={onChange}
             className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
+            placeholder='e.g name@domain.com'
           />
           {!data.emailValid && <div style={{ color: 'red' }}>Invalid</div>}
         </div>
@@ -152,23 +173,22 @@ const Step2: React.FC<{
             value={data.phoneNumber}
             onChange={onChange}
             className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
+            placeholder='e.g. 447961543221'
           />
           {!data.phoneNumberValid && <div style={{ color: 'red' }}>Invalid</div>}
         </div>
-      </div>
 
-      <button
-        onClick={onPrevious}
-        className='mt-3 btn text-white bg-gray-600 hover:bg-purple-700 w-1/2'
-      >
-        Previous
-      </button>
-      <button
-        type='submit'
-        className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-1/2 ml-3'
-      >
-        Get Estimate
-      </button>
+        <button
+          type='submit'
+          className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'
+        >
+          Check Name
+        </button>
+
+        <div onClick={onPrevious} className='mt-5 text-sm'>
+          Back
+        </div>
+      </div>
     </form>
   )
 }
@@ -176,28 +196,37 @@ const Step2: React.FC<{
 // Main Form Component
 const CompanyNameChecker: React.FC = () => {
   const router = useRouter()
+
+  const searchParams = useSearchParams()
+  const utm = {
+    utmCampaign: searchParams.get('utm_campaign') ?? undefined,
+    utmMedium: searchParams.get('utm_medium') ?? undefined,
+    utmSource: searchParams.get('utm_source') ?? undefined,
+  }
+
   const [formData, setFormData] = useState<FormData>({
+    formName: 'company-name-checker',
     businessActivity: '',
     businessActivityValid: true,
     companyName: '',
     companyNameValid: true,
-    firstName: '',
-    firstNameValid: true,
-    lastName: '',
-    lastNameValid: true,
+    name: '',
+    nameValid: true,
     email: '',
     emailValid: true,
     phoneNumber: '',
     phoneNumberValid: true,
+    utmCampaign: utm.utmCampaign,
+    utmMedium: utm.utmMedium,
+    utmSource: utm.utmSource,
   })
 
   // State to track completion of Step 1
   const [step1Completed, setStep1Completed] = useState<boolean>(false)
+  const [step2Completed, setStep2Completed] = useState<boolean>(false)
 
   const handleStep1Submit = () => {
     setFormData({ ...formData })
-
-    //console.log('formData.numberOfVisas', formData.numberOfVisas === 0)
 
     let error = false
 
@@ -223,21 +252,15 @@ const CompanyNameChecker: React.FC = () => {
     setStep1Completed(false)
   }
 
-  const handleStep2Submit = () => {
+  const handleStep2Submit = async () => {
     console.log('submit step 2')
     setFormData({ ...formData })
     console.log(formData)
 
     let error = false
 
-    if (formData.firstName === '') {
-      formData.firstNameValid = false
-      setFormData({ ...formData })
-      error = true
-    }
-
-    if (formData.lastName === '') {
-      formData.lastNameValid = false
+    if (formData.name === '') {
+      formData.nameValid = false
       setFormData({ ...formData })
       error = true
     }
@@ -256,8 +279,12 @@ const CompanyNameChecker: React.FC = () => {
 
     if (error) return
 
+    setStep2Completed(true)
+
+    await new Promise((f) => setTimeout(f, 5000))
+
     //All form data on the querystring
-    router.push('/calculator/company-name-checker/results?' + objectToQueryString(formData))
+    router.push('/tools/business-name-checker/results?' + objectToQueryString(formData))
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -271,11 +298,8 @@ const CompanyNameChecker: React.FC = () => {
       formData.companyNameValid = true
     }
 
-    if (name === 'firstName') {
-      formData.firstNameValid = true
-    }
-    if (name === 'lastName') {
-      formData.lastNameValid = true
+    if (name === 'name') {
+      formData.nameValid = true
     }
     if (name === 'email') {
       formData.emailValid = true
@@ -294,7 +318,7 @@ const CompanyNameChecker: React.FC = () => {
         <Step1 onNext={handleStep1Submit} data={formData} onChange={handleChange} />
       )}
 
-      {step1Completed && (
+      {step1Completed && !step2Completed && (
         <Step2
           onSubmit={handleStep2Submit}
           data={formData}
@@ -302,6 +326,8 @@ const CompanyNameChecker: React.FC = () => {
           onPrevious={handleBack}
         />
       )}
+
+      {step2Completed && <Loader />}
     </div>
   )
 }
