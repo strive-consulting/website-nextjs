@@ -12,8 +12,6 @@ interface BusinessFormationCostProps {
 }
 
 export default function BusinessFormationCost({ businessActivityId, visas, redirectUrl }: BusinessFormationCostProps) {
-  console.log('loaded client component')
-
   const [complete, setComplete] = useState<boolean>(false)
   const [currencyCode, setCurrencyCode] = useState<string>('USD')
   const [mainlandPriceLower, setMainlandPriceLower] = useState<number>(0)
