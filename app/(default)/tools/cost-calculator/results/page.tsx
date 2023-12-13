@@ -63,10 +63,10 @@ export default async function Page({
       utm: utm,
     }
 
-    // await fetch(process.env.BASE_URL + '/api/forms/prefill', {
-    //   method: 'POST',
-    //   body: JSON.stringify(formData),
-    // })
+    await fetch(process.env.BASE_URL + '/api/forms/prefill', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+    })
   }
 
   const businessactivity = parseInt(searchParams?.businessActivity ?? '0')
