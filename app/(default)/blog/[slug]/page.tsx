@@ -20,11 +20,7 @@ export async function generateStaticParams() {
   })
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string }
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = await getBlogPost(params.slug)
 
   return {
@@ -95,12 +91,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                 <header className='mb-8'>
                   {/* Title and excerpt */}
                   <div className='text-center md:text-left'>
-                    <BreadCrumbs
-                      homeTitle='Blog'
-                      homeUrl='/blog'
-                      currentPageName={post.tags?.[0] ?? post.data.title}
-                      currentPageUrl={Constants.SiteDomain + linkResolver(post)}
-                    />
+                    <BreadCrumbs homeTitle='Blog' homeUrl='/blog' currentPageName={post.tags?.[0] ?? post.data.title} currentPageUrl={Constants.SiteDomain + linkResolver(post)} />
                     <h1 className='h1 mb-4' data-aos='fade-up'>
                       {post.data.title}
                     </h1>
@@ -108,11 +99,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                       field={post.data.introduction}
                       components={{
                         paragraph: ({ children }) => (
-                          <p
-                            className='text-xl text-gray-400'
-                            data-aos='fade-up'
-                            data-aos-delay='200'
-                          >
+                          <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
                             {children}
                           </p>
                         ),
@@ -122,20 +109,12 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                   {/* Article meta */}
                   <div className='md:flex md:items-center md:justify-between mt-3'>
                     {/* Author meta */}
-                    <div
-                      className='flex items-center justify-center'
-                      data-aos='fade-up'
-                      data-aos-delay='400'
-                    >
+                    <div className='flex items-center justify-center' data-aos='fade-up' data-aos-delay='400'>
                       <BlogPostAuthorFooter post={post} />
                     </div>
                     {/* Article tags */}
                     {post.tags && (
-                      <div
-                        className='flex justify-center mt-4 md:mt-0'
-                        data-aos='fade-up'
-                        data-aos-delay='600'
-                      >
+                      <div className='flex justify-center mt-4 md:mt-0' data-aos='fade-up' data-aos-delay='600'>
                         <PostTags tags={post.tags} />
                       </div>
                     )}
@@ -144,17 +123,8 @@ export default async function SinglePost({ params }: { params: { slug: string } 
 
                 {/* Article image */}
                 {post.data.image && (
-                  <figure
-                    className='mb-8 lg:-ml-32 lg:-mr-32'
-                    data-aos='fade-up'
-                    data-aos-delay='600'
-                  >
-                    <PrismicImage
-                      className='w-full'
-                      field={post.data.image}
-                      width={1024}
-                      height={576}
-                    />
+                  <figure className='mb-8 lg:-ml-32 lg:-mr-32' data-aos='fade-up' data-aos-delay='600'>
+                    <PrismicImage className='w-full' field={post.data.image} width={1024} height={576} />
                   </figure>
                 )}
                 {post.data.youtube_video.embed_url != null && (

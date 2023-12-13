@@ -11,13 +11,7 @@ import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
 export type DescriptionQuoteProps = SliceComponentProps<Content.DescriptionQuoteSlice>
 
 function loadAuthorWithQuote(slice: DescriptionQuoteSlice) {
-  if (
-    isFilled.contentRelationship<
-      'author',
-      string,
-      Pick<AuthorDocument['data'], 'name' | 'job_title' | 'linkedin_url' | 'avatar'>
-    >(slice.primary.quote_author)
-  ) {
+  if (isFilled.contentRelationship<'author', string, Pick<AuthorDocument['data'], 'name' | 'job_title' | 'linkedin_url' | 'avatar'>>(slice.primary.quote_author)) {
     //console.log("NAME", slice.primary.quote_author.data?.name)
 
     return (
@@ -53,11 +47,7 @@ const DescriptionQuote = ({ slice }: DescriptionQuoteProps): JSX.Element => {
               <PrismicRichText
                 field={slice.primary.description}
                 components={{
-                  paragraph: ({ children }) => (
-                    <p className='my-6 text-lg text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline mb-4'>
-                      {children}
-                    </p>
-                  ),
+                  paragraph: ({ children }) => <p className='my-6 text-lg text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline mb-4'>{children}</p>,
                   list: ({ children }) => <ul>{children}</ul>,
                   listItem: ({ children }) => (
                     <li className='flex items-center text-lg'>
@@ -77,10 +67,7 @@ const DescriptionQuote = ({ slice }: DescriptionQuoteProps): JSX.Element => {
             </div>
           </div>
           <div className='order-2 md:order-2 md:col-span-5 pt-10'>
-            <div
-              className='max-w-xl md:max-w-none md:w-full mx-auto col-span-12 md:col-span-5 lg:col-span-5 mb-8 md:mb-0 sm:order-2'
-              data-aos='fade-up'
-            >
+            <div className='max-w-xl md:max-w-none md:w-full mx-auto col-span-12 md:col-span-5 lg:col-span-5 mb-8 md:mb-0 sm:order-2' data-aos='fade-up'>
               {loadAuthorWithQuote(slice)}
             </div>
           </div>

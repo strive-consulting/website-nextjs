@@ -39,9 +39,7 @@ export default function EnquiryForm() {
     interested_other: false,
   })
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
 
     //console.log(name, value)
@@ -139,9 +137,7 @@ export default function EnquiryForm() {
               className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
               placeholder='e.g Peter Jones'
             />
-            {!formData.nameValid && (
-              <div className='text-red-500 text-sm mt-2'>Please enter your name</div>
-            )}
+            {!formData.nameValid && <div className='text-red-500 text-sm mt-2'>Please enter your name</div>}
           </div>
           <div className='w-full mb-3'>
             <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
@@ -155,9 +151,7 @@ export default function EnquiryForm() {
               className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
               placeholder='e.g name@domain.com'
             />
-            {!formData.emailValid && (
-              <div className='text-red-500 text-sm mt-2'>Please enter your email address</div>
-            )}
+            {!formData.emailValid && <div className='text-red-500 text-sm mt-2'>Please enter your email address</div>}
           </div>
           <div className='w-full mb-3'>
             <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
@@ -171,67 +165,33 @@ export default function EnquiryForm() {
               className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
               placeholder='e.g. 447961543221'
             />
-            {!formData.phoneNumberValid && (
-              <div className='text-red-500 text-sm mt-2'>Please enter your phone number</div>
-            )}
+            {!formData.phoneNumberValid && <div className='text-red-500 text-sm mt-2'>Please enter your phone number</div>}
           </div>
 
           <div className='w-full'>
-            <label className='block text-gray-300 text-sm font-medium mb-1'>
-              I am interested in
-            </label>
+            <label className='block text-gray-300 text-sm font-medium mb-1'>I am interested in</label>
 
             <label className='flex items-center mb-2'>
               {formData.interested_company_formation}
-              <input
-                type='checkbox'
-                className='form-checkbox'
-                name='interested_company_formation'
-                onChange={handleCheckboxChange}
-                defaultChecked={false}
-              />
+              <input type='checkbox' className='form-checkbox' name='interested_company_formation' onChange={handleCheckboxChange} defaultChecked={false} />
 
               <span className='text-gray-300 ml-2'>UAE Company Formation</span>
             </label>
 
             <label className='flex items-center mb-2'>
-              <input
-                type='checkbox'
-                className='form-checkbox'
-                name='interested_residency'
-                onChange={handleCheckboxChange}
-                defaultChecked={false}
-              />
+              <input type='checkbox' className='form-checkbox' name='interested_residency' onChange={handleCheckboxChange} defaultChecked={false} />
               <span className='text-gray-300 ml-2'>UAE Residency &amp; Visa</span>
             </label>
             <label className='flex items-center mb-2'>
-              <input
-                type='checkbox'
-                className='form-checkbox'
-                name='interested_banking'
-                onChange={handleCheckboxChange}
-                checked={formData.interested_banking}
-              />
+              <input type='checkbox' className='form-checkbox' name='interested_banking' onChange={handleCheckboxChange} checked={formData.interested_banking} />
               <span className='text-gray-300 ml-2'>UAE Business Banking</span>
             </label>
             <label className='flex items-center mb-2'>
-              <input
-                type='checkbox'
-                className='form-checkbox'
-                name='interested_accounting'
-                onChange={handleCheckboxChange}
-                checked={formData.interested_accounting}
-              />
+              <input type='checkbox' className='form-checkbox' name='interested_accounting' onChange={handleCheckboxChange} checked={formData.interested_accounting} />
               <span className='text-gray-300 ml-2'>UAE Accounting Services</span>
             </label>
             <label className='flex items-center mb-2'>
-              <input
-                type='checkbox'
-                className='form-checkbox'
-                name='interested_other'
-                onChange={handleCheckboxChange}
-                checked={formData.interested_other}
-              />
+              <input type='checkbox' className='form-checkbox' name='interested_other' onChange={handleCheckboxChange} checked={formData.interested_other} />
               <span className='text-gray-300 ml-2'>Other</span>
             </label>
           </div>
@@ -251,10 +211,7 @@ export default function EnquiryForm() {
             ></textarea>
           </div>
 
-          <button
-            type='submit'
-            className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'
-          >
+          <button type='submit' className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'>
             Submit
           </button>
         </div>

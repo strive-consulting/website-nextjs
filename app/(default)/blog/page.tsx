@@ -6,15 +6,13 @@ import PostItem from '@/components/post-item'
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Blog - Business Setup in Dubai, UAE',
-    description:
-      'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+    description: 'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
     alternates: {
       canonical: Constants.SiteDomain + '/blog',
     },
     openGraph: {
       title: 'Blog - Business Setup in Dubai, UAE',
-      description:
-        'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+      description: 'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
       images: [Constants.SiteDomain + Constants.OpenGraphImage],
       url: Constants.SiteDomain + '/blog',
       type: 'website',
@@ -22,8 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: 'Blog - Business Setup in Dubai, UAE',
-      description:
-        'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+      description: 'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
       siteId: '',
       images: [Constants.SiteDomain + Constants.OpenGraphImage],
     },
@@ -65,12 +62,7 @@ export default async function Blog() {
             {/*  Featured article */}
             <div className='pb-12 md:pb-20'>
               <article className='max-w-sm mx-auto md:max-w-none grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-center'>
-                <Link
-                  href={`/blog/${featuredPost.uid}`}
-                  className='relative block group'
-                  data-aos='fade-right'
-                  data-aos-delay='200'
-                >
+                <Link href={`/blog/${featuredPost.uid}`} className='relative block group' data-aos='fade-right' data-aos-delay='200'>
                   <div
                     className='absolute inset-0 bg-gray-800 hidden md:block transform md:translate-y-2 md:translate-x-4 xl:translate-y-4 xl:translate-x-8 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out pointer-events-none'
                     aria-hidden='true'
@@ -106,10 +98,7 @@ export default async function Blog() {
                       )}
                     </div>
                     <h3 className='h3 text-2xl lg:text-3xl mb-2'>
-                      <Link
-                        href={`/blog/${featuredPost.uid}`}
-                        className='hover:text-gray-100 transition duration-150 ease-in-out'
-                      >
+                      <Link href={`/blog/${featuredPost.uid}`} className='hover:text-gray-100 transition duration-150 ease-in-out'>
                         {featuredPost.data.title}
                       </Link>
                     </h3>
@@ -117,9 +106,7 @@ export default async function Blog() {
                   <PrismicRichText
                     field={featuredPost.data.introduction}
                     components={{
-                      paragraph: ({ children }) => (
-                        <p className='text-lg text-gray-400 grow'>{children}</p>
-                      ),
+                      paragraph: ({ children }) => <p className='text-lg text-gray-400 grow'>{children}</p>,
                     }}
                   />
                   <BlogPostAuthorFooter post={featuredPost} />

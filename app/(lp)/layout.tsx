@@ -48,19 +48,10 @@ export default function DefaultLayout({ children }: { children: React.ReactNode 
       addressCountry: 'United Arab Emirates',
     },
     openingHours: 'Mo,Tu,We,Th,Fr 09:00-18:00',
-    sameAs: [
-      'https://www.facebook.com/strivedubai',
-      'https://www.instagram.com/strive_dubai/',
-      'https://www.linkedin.com/company/strive-consultants/',
-    ],
+    sameAs: ['https://www.facebook.com/strivedubai', 'https://www.instagram.com/strive_dubai/', 'https://www.linkedin.com/company/strive-consultants/'],
     industry: 'Legal Services',
     serviceArea: 'United Arab Emirates',
-    serviceOfferings: [
-      'Company Registration',
-      'Visa Processing',
-      'Business Setup Consulting',
-      'Accounting',
-    ],
+    serviceOfferings: ['Company Registration', 'Visa Processing', 'Business Setup Consulting', 'Accounting'],
     logo: {
       '@type': 'ImageObject',
       url: Constants.SiteDomain + '/' + Constants.OpenGraphImage,

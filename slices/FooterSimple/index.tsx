@@ -22,12 +22,7 @@ const FooterSimple = async ({ slice }: FooterSimpleProps): Promise<JSX.Element> 
             <div className='md:flex-1'>
               <div className='mb-2'>
                 <Link href='/' className='inline-block' aria-label='Strive Consultants'>
-                  <Image
-                    src='/images/logo/strive_logo.png'
-                    alt='Strive Consultants'
-                    width={150}
-                    height={55}
-                  />
+                  <Image src='/images/logo/strive_logo.png' alt='Strive Consultants' width={150} height={55} />
                 </Link>
               </div>
             </div>
@@ -44,9 +39,7 @@ const FooterSimple = async ({ slice }: FooterSimpleProps): Promise<JSX.Element> 
           </div>
         </div>
 
-        <div className='text-gray-400 text-sm text-center w-full'>
-          &copy; strive.ae. All rights reserved.
-        </div>
+        <div className='text-gray-400 text-sm text-center w-full'>&copy; strive.ae. All rights reserved.</div>
       </div>
     </footer>
   )

@@ -29,9 +29,7 @@ const BlogFeed = async ({ slice }: BlogFeedProps): Promise<JSX.Element> => {
           <PrismicRichText
             field={slice.primary.description}
             components={{
-              paragraph: ({ children }) => (
-                <p className='text-xl text-gray-400 py-5 my-5'>{children}</p>
-              ),
+              paragraph: ({ children }) => <p className='text-xl text-gray-400 py-5 my-5'>{children}</p>,
             }}
           />
 
@@ -43,17 +41,8 @@ const BlogFeed = async ({ slice }: BlogFeedProps): Promise<JSX.Element> => {
           </div>
         </div>
 
-        <div
-          className='flex justify-center mb-8'
-          data-aos='fade-up'
-          data-aos-delay='400'
-          data-aos-anchor='[data-aos-id-cta]'
-        >
-          <Link
-            className='btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6'
-            href='/blog'
-            target='_blank'
-          >
+        <div className='flex justify-center mb-8' data-aos='fade-up' data-aos-delay='400' data-aos-anchor='[data-aos-id-cta]'>
+          <Link className='btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6' href='/blog' target='_blank'>
             View more blogs
           </Link>
         </div>

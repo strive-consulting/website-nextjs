@@ -10,13 +10,14 @@ export function objectToQueryString(obj: any) {
   return params.toString()
 }
 
-export async function convertCurrency(
-  amount: number,
-  baseCurrency: string,
-  targetCurrency: string,
-): Promise<number | string> {
-  const accessKey = process.env.FIXER_CURRENCY_API_KEY
-  const apiUrl = `http://data.fixer.io/api/latest?access_key=${accessKey}&format=1`
+export async function getCurrencyRates(): Promise<any> {
+  //Note, could be using this method serverside or client side
+  //TODO - Both Fixer and ExchangeRates are the same service, but each have a 1000 request limit. We can switch between both if need be.
+  // const accessKey = process.env.FIXER_CURRENCY_API_KEY || process.env.NEXT_PUBLIC_FIXER_CURRENCY_API_KEY
+  // const apiUrl = `http://data.fixer.io/api/latest?access_key=${accessKey}&format=1`
+
+  const accessKey = process.env.EXCHANGERATES_CURRENCY_API_KEY || process.env.NEXT_PUBLIC_EXCHANGERATES_CURRENCY_API_KEY
+  const apiUrl = `http://api.exchangeratesapi.io/v1/latest?access_key=${accessKey}&format=1`
 
   try {
     const response = await fetch(apiUrl)
@@ -25,22 +26,29 @@ export async function convertCurrency(
       const data = await response.json()
 
       if (data.success) {
-        const rates = data.rates
-
-        if (baseCurrency in rates && targetCurrency in rates) {
-          const convertedAmount = amount * (rates[targetCurrency] / rates[baseCurrency])
-          // Round up to the nearest thousand
-          const roundedAmount = Math.ceil(convertedAmount / 1000) * 1000
-
-          return roundedAmount
-        } else {
-          return 'Unsupported currency'
-        }
+        return data.rates
       } else {
-        return `Error: ${data.error.info}`
+        return `Fixer Error: ${data.error.info}`
       }
     } else {
-      return `Error: ${response.status} - ${response.statusText}`
+      return `Fixer Error: ${response.status} - ${response.statusText}`
+    }
+  } catch (error: any) {
+    return `Fixer Error: ${error.message}`
+  }
+}
+
+export async function convertCurrency(rates: any, amount: number, baseCurrency: string, targetCurrency: string): Promise<number | string> {
+  try {
+    if (baseCurrency in rates && targetCurrency in rates) {
+      const convertedAmount = amount * (rates[targetCurrency] / rates[baseCurrency])
+
+      // Round up to the nearest thousand
+      const roundedAmount = Math.ceil(convertedAmount / 1000) * 1000
+
+      return roundedAmount
+    } else {
+      return 'Unsupported currency'
     }
   } catch (error: any) {
     return `Error: ${error.message}`
@@ -100,9 +108,9 @@ export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
 
     //console.log('IP', ip)
 
-    const geoInfo: LocationData = await fetch(
-      `http://api.ipstack.com/${ip.ip.toString()}?access_key=${process.env.IP_STACK_API_KEY}`,
-    )
+    //Note, could be using this method serverside or client side
+    const ipStackKey = process.env.IP_STACK_API_KEY || process.env.NEXT_PUBLIC_IP_STACK_API_KEY
+    const geoInfo: LocationData = await fetch(`http://api.ipstack.com/${ip.ip.toString()}?access_key=${ipStackKey}`)
       .then((resp) => resp.json())
       .then((geo) => {
         // console.log(geo);

@@ -15,13 +15,7 @@ export default async function Header() {
         <div className='flex items-center justify-between h-20'>
           <div className='shrink-0 mr-4'>
             <Link href='/' className='block' aria-label='Strive Consultants'>
-              <Image
-                src='/images/logo/strive_logo.png'
-                alt='Strive Consultants'
-                width={150}
-                height={55}
-                priority={true}
-              />
+              <Image src='/images/logo/strive_logo.png' alt='Strive Consultants' width={150} height={55} priority={true} />
             </Link>
           </div>
 
@@ -31,10 +25,7 @@ export default async function Header() {
                 {nav.data.company_formation_items.map((item) => {
                   return (
                     <li key={item.menu_label}>
-                      <PrismicLink
-                        field={item.menu_link}
-                        className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
-                      >
+                      <PrismicLink field={item.menu_link} className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                         {item.menu_label}
                       </PrismicLink>
                     </li>
@@ -45,10 +36,7 @@ export default async function Header() {
                 {nav.data.residency_visa_items.map((item) => {
                   return (
                     <li key={item.menu_label}>
-                      <PrismicLink
-                        field={item.menu_link}
-                        className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
-                      >
+                      <PrismicLink field={item.menu_link} className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                         {item.menu_label}
                       </PrismicLink>
                     </li>
@@ -89,10 +77,7 @@ export default async function Header() {
                 {nav.data.accountancy_items.map((item) => {
                   return (
                     <li key={item.menu_label}>
-                      <PrismicLink
-                        field={item.menu_link}
-                        className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
-                      >
+                      <PrismicLink field={item.menu_link} className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                         {item.menu_label}
                       </PrismicLink>
                     </li>
@@ -101,10 +86,7 @@ export default async function Header() {
                 {nav.data.business_services_items.map((item) => {
                   return (
                     <li key={item.menu_label}>
-                      <PrismicLink
-                        field={item.menu_link}
-                        className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
-                      >
+                      <PrismicLink field={item.menu_link} className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                         {item.menu_label}
                       </PrismicLink>
                     </li>
@@ -112,22 +94,13 @@ export default async function Header() {
                 })}
               </Dropdown>
               <Dropdown title='Resources'>
-                <Link
-                  href='/tools/cost-calculator'
-                  className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
-                >
+                <Link href='/tools/cost-calculator' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                   Cost Calculator
                 </Link>
-                <Link
-                  href='/tools/business-name-checker'
-                  className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
-                >
+                <Link href='/tools/business-name-checker' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                   Business Name Checker
                 </Link>
-                <Link
-                  href='/blog'
-                  className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
-                >
+                <Link href='/blog' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                   Blog
                 </Link>
               </Dropdown>
@@ -135,10 +108,7 @@ export default async function Header() {
 
             <ul className='flex grow justify-end flex-wrap items-center'>
               <li>
-                <PrismicLink
-                  field={nav.data.cta_link}
-                  className='btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3'
-                >
+                <PrismicLink field={nav.data.cta_link} className='btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3'>
                   {nav.data.cta_text}
                 </PrismicLink>
               </li>

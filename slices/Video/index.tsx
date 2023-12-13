@@ -44,12 +44,7 @@ const Video = ({ slice }: VideoProps): JSX.Element => {
       <div className='max-w-3xl mx-auto px-4 sm:px-6 relative'>
         <div className='pt-5 pb-5'>
           {slice.primary.youtube_video.embed_url != null && (
-            <div className='relative videoWrapper'>
-              {loadVideoIframe(
-                slice.primary.youtube_video.embed_url,
-                slice.primary.youtube_video.title?.toString(),
-              )}
-            </div>
+            <div className='relative videoWrapper'>{loadVideoIframe(slice.primary.youtube_video.embed_url, slice.primary.youtube_video.title?.toString())}</div>
           )}
         </div>
       </div>

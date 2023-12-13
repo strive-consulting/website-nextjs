@@ -69,9 +69,7 @@ const Step1: React.FC<{
             })}
           </select>
 
-          {!data.businessActivityValid && (
-            <div className='text-red-500 text-sm mt-2'>Please select a business activity</div>
-          )}
+          {!data.businessActivityValid && <div className='text-red-500 text-sm mt-2'>Please select a business activity</div>}
         </div>
 
         <div className='w-1/2 pr-3 mb-3 '>
@@ -87,9 +85,7 @@ const Step1: React.FC<{
             type='number'
             required
           />
-          {!data.numberOfVisasValid && (
-            <div className='text-red-500 text-sm mt-2'>Please enter 0 or more visas</div>
-          )}
+          {!data.numberOfVisasValid && <div className='text-red-500 text-sm mt-2'>Please enter 0 or more visas</div>}
         </div>
 
         <div className='w-1/2 pl-3 mb-3 '>
@@ -105,14 +101,9 @@ const Step1: React.FC<{
             type='number'
             required
           />
-          {!data.numberOfPartnersValid && (
-            <div className='text-red-500 text-sm mt-2'>Please enter 1 or more shareholders</div>
-          )}
+          {!data.numberOfPartnersValid && <div className='text-red-500 text-sm mt-2'>Please enter 1 or more shareholders</div>}
         </div>
-        <button
-          type='submit'
-          className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'
-        >
+        <button type='submit' className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'>
           Continue
         </button>
       </div>
@@ -139,33 +130,15 @@ const Step2: React.FC<{
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='name'>
             Name
           </label>
-          <input
-            type='text'
-            name='name'
-            value={data.name}
-            onChange={onChange}
-            className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
-            placeholder='e.g Peter Jones'
-          />
-          {!data.nameValid && (
-            <div className='text-red-500 text-sm mt-2'>Please enter your name</div>
-          )}
+          <input type='text' name='name' value={data.name} onChange={onChange} className='form-input w-full border-red-500 focus:border-red-500 text-gray-900' placeholder='e.g Peter Jones' />
+          {!data.nameValid && <div className='text-red-500 text-sm mt-2'>Please enter your name</div>}
         </div>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             Email
           </label>
-          <input
-            type='email'
-            name='email'
-            value={data.email}
-            onChange={onChange}
-            className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
-            placeholder='e.g name@domain.com'
-          />
-          {!data.emailValid && (
-            <div className='text-red-500 text-sm mt-2'>Please enter your email address</div>
-          )}
+          <input type='email' name='email' value={data.email} onChange={onChange} className='form-input w-full border-red-500 focus:border-red-500 text-gray-900' placeholder='e.g name@domain.com' />
+          {!data.emailValid && <div className='text-red-500 text-sm mt-2'>Please enter your email address</div>}
         </div>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
@@ -179,14 +152,9 @@ const Step2: React.FC<{
             className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
             placeholder='e.g. 447961543221'
           />
-          {!data.phoneNumberValid && (
-            <div className='text-red-500 text-sm mt-2'>Please enter your phone number</div>
-          )}
+          {!data.phoneNumberValid && <div className='text-red-500 text-sm mt-2'>Please enter your phone number</div>}
         </div>
-        <button
-          type='submit'
-          className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'
-        >
+        <button type='submit' className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'>
           Get Estimate
         </button>
 
@@ -326,18 +294,9 @@ const BusinessSetupCalculator: React.FC = () => {
 
   return (
     <>
-      {!step1Completed && (
-        <Step1 onNext={handleStep1Submit} data={formData} onChange={handleChange} />
-      )}
+      {!step1Completed && <Step1 onNext={handleStep1Submit} data={formData} onChange={handleChange} />}
 
-      {step1Completed && !step2Completed && (
-        <Step2
-          onSubmit={handleStep2Submit}
-          data={formData}
-          onChange={handleChange}
-          onPrevious={handleBack}
-        />
-      )}
+      {step1Completed && !step2Completed && <Step2 onSubmit={handleStep2Submit} data={formData} onChange={handleChange} onPrevious={handleBack} />}
 
       {step2Completed && <Loader />}
     </>

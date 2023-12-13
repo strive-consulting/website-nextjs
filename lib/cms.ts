@@ -124,12 +124,7 @@ export async function getBlogPosts() {
   return blogPosts
 }
 
-export async function getBlogPostsPaged(
-  pagenum: number = 1,
-  pageSize?: number,
-  tag?: string,
-  blogPostToExcludeUid?: string,
-) {
+export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number, tag?: string, blogPostToExcludeUid?: string) {
   const client = createClient()
 
   //PageSize is only set when we are fetching a few posts for a slice.
@@ -139,9 +134,7 @@ export async function getBlogPostsPaged(
 
   const filters: string[] = []
   const tagFilter = tag && filters.push(prismic.filter.at('document.tags', [toTitleCase(tag)]))
-  const postExcludeFilter =
-    blogPostToExcludeUid &&
-    filters.push(prismic.filter.not('my.blog_post.uid', blogPostToExcludeUid.toString()))
+  const postExcludeFilter = blogPostToExcludeUid && filters.push(prismic.filter.not('my.blog_post.uid', blogPostToExcludeUid.toString()))
   // console.log(filters)
   const communityPosts = await client
     .getByType('blog_post', {
@@ -225,16 +218,7 @@ export async function getLandingPage(uid: string) {
   const client = createClient()
   const page = await client
     .getByUID('landingpage', uid, {
-      fetchLinks: [
-        'author.name',
-        'author.job_title',
-        'author.avatar',
-        'author.linkedin_url',
-        'testimonial.name',
-        'testimonial.job_title',
-        'testimonial.avatar',
-        'testimonial.description',
-      ],
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'testimonial.name', 'testimonial.job_title', 'testimonial.avatar', 'testimonial.description'],
     })
     .catch(() => notFound())
 

@@ -28,12 +28,7 @@ const Cta1 = ({ slice }: Cta1Props): JSX.Element => {
               field={slice.primary.sub_text}
               components={{
                 paragraph: ({ children }) => (
-                  <p
-                    className='text-xl text-gray-400 mb-8'
-                    data-aos='fade-up'
-                    data-aos-delay='200'
-                    data-aos-anchor='[data-aos-id-cta]'
-                  >
+                  <p className='text-xl text-gray-400 mb-8' data-aos='fade-up' data-aos-delay='200' data-aos-anchor='[data-aos-id-cta]'>
                     {children}
                   </p>
                 ),
@@ -41,12 +36,7 @@ const Cta1 = ({ slice }: Cta1Props): JSX.Element => {
             />
 
             {/* CTA button */}
-            <div
-              className='flex justify-center mb-8'
-              data-aos='fade-up'
-              data-aos-delay='400'
-              data-aos-anchor='[data-aos-id-cta]'
-            >
+            <div className='flex justify-center mb-8' data-aos='fade-up' data-aos-delay='400' data-aos-anchor='[data-aos-id-cta]'>
               <PrismicNextLink
                 className={`${slice.primary.cta_id} btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6`}
                 field={slice.primary.cta_link}
@@ -61,18 +51,9 @@ const Cta1 = ({ slice }: Cta1Props): JSX.Element => {
               <PrismicRichText
                 field={slice.primary.bullets}
                 components={{
-                  list: ({ children }) => (
-                    <ul className='flex flex-wrap justify-center text-lg text-gray-400 -mx-2 -my-1'>
-                      {children}
-                    </ul>
-                  ),
+                  list: ({ children }) => <ul className='flex flex-wrap justify-center text-lg text-gray-400 -mx-2 -my-1'>{children}</ul>,
                   listItem: ({ children }) => (
-                    <li
-                      className='flex items-center mx-3 my-1'
-                      data-aos='fade-up'
-                      data-aos-delay='600'
-                      data-aos-anchor='[data-aos-id-cta]'
-                    >
+                    <li className='flex items-center mx-3 my-1' data-aos='fade-up' data-aos-delay='600' data-aos-anchor='[data-aos-id-cta]'>
                       <TickIcon />
                       <span>{children}</span>
                     </li>
