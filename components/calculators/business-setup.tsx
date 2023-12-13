@@ -269,7 +269,7 @@ const BusinessSetupCalculator: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
 
-    console.log(name, value)
+    // console.log(name, value)
     if (name === 'businessActivity') {
       formData.businessActivityValid = true
     }
