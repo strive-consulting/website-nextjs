@@ -16,12 +16,7 @@ export default function PostItem({ post, mini }: Props) {
         <Link href={`/blog/${post.uid}`} className='block mb-6'>
           <figure className='relative h-0 pb-9/16 overflow-hidden rounded-sm'>
             {post.data.image && (
-              <PrismicImage
-                className='absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out'
-                field={post.data.image}
-                width={352}
-                height={198}
-              />
+              <PrismicImage className='absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out' field={post.data.image} width={352} height={198} />
             )}
             {post.data.youtube_video.embed_url != null && (
               <Image
@@ -40,10 +35,7 @@ export default function PostItem({ post, mini }: Props) {
           </div>
         )}
         <h3 className='h4 mb-2'>
-          <Link
-            href={`/blog/${post.uid}`}
-            className='hover:text-gray-100 transition duration-150 ease-in-out'
-          >
+          <Link href={`/blog/${post.uid}`} className='hover:text-gray-100 transition duration-150 ease-in-out'>
             {post.data.title}
           </Link>
         </h3>

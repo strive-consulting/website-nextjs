@@ -18,9 +18,7 @@ const LandingPageHero = ({ slice }: LandingPageHeroProps): JSX.Element => {
       <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>
         <div className='pt-32 pb-12 md:pt-30 md:pb-0'>
           <div className='flex flex-col md:flex-row'>
-            <div
-              className={`w-full md:w-2/3 mx-auto text-center md:text-left items-center mt-0 md:mt-16`}
-            >
+            <div className={`w-full md:w-2/3 mx-auto text-center md:text-left items-center mt-0 md:mt-16`}>
               <h1 className='h1 mb-4' data-aos='fade-up'>
                 {slice.primary.title}
               </h1>
@@ -28,11 +26,7 @@ const LandingPageHero = ({ slice }: LandingPageHeroProps): JSX.Element => {
                 field={slice.primary.description}
                 components={{
                   paragraph: ({ children }) => (
-                    <p
-                      className='text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline'
-                      data-aos='fade-up'
-                      data-aos-delay='200'
-                    >
+                    <p className='text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline' data-aos='fade-up' data-aos-delay='200'>
                       {children}
                     </p>
                   ),

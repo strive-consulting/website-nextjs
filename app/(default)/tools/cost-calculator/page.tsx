@@ -6,15 +6,13 @@ import BusinessSetupCalculator from '@/components/calculators/business-setup'
 export const metadata: Metadata = {
   robots: { index: true, follow: true },
   title: 'Dubai Business Setup Calculator',
-  description:
-    'Dubai Business Setup Calculator by Strive. Use our calculator to get indicative costs for forming a buisness in the UAE',
+  description: 'Dubai Business Setup Calculator by Strive. Use our calculator to get indicative costs for forming a buisness in the UAE',
   alternates: {
     canonical: Constants.SiteDomain + '/tools/business-setup',
   },
   openGraph: {
     title: 'Dubai Business Setup Calculator',
-    description:
-      'Dubai Business Setup Calculator by Strive. Use our calculator to get indicative costs for forming a buisness in the UAE',
+    description: 'Dubai Business Setup Calculator by Strive. Use our calculator to get indicative costs for forming a buisness in the UAE',
     images: [Constants.SiteDomain + Constants.OpenGraphImage],
     url: Constants.SiteDomain + '/tools/business-setup',
     type: 'website',
@@ -22,8 +20,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Dubai Business Setup Calculator',
-    description:
-      'Dubai Business Setup Calculator by Strive. Use our calculator to get indicative costs for forming a buisness in the UAE',
+    description: 'Dubai Business Setup Calculator by Strive. Use our calculator to get indicative costs for forming a buisness in the UAE',
     siteId: '',
     images: [Constants.SiteDomain + Constants.OpenGraphImage],
   },
@@ -48,8 +45,7 @@ export default async function Home() {
                 Cost Calculator
               </h1>
               <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
-                Use our simple calculator to determine how much it will cost to get your business
-                setup along with any UAE residency visas.
+                Use our simple calculator to determine how much it will cost to get your business setup along with any UAE residency visas.
               </p>
             </div>
             <div className='w-full md:w-1/2 lg:w-3/4 mx-auto'>

@@ -26,17 +26,7 @@ export enum TitleAlign {
   Center = 'center',
 }
 
-export default function HeroMain({
-  isHomePage,
-  title,
-  subTitle,
-  backgroundImagePath,
-  bodyImage,
-  showBackgroundIllustration,
-  showCta,
-  align,
-  bullets,
-}: HeroProps) {
+export default function HeroMain({ isHomePage, title, subTitle, backgroundImagePath, bodyImage, showBackgroundIllustration, showCta, align, bullets }: HeroProps) {
   const titleAlignClass = align === TitleAlign.Left ? 'md:text-left' : ''
   const mxAuto = align != TitleAlign.Left ? '' : 'mx-auto'
   const panelWidth = align != TitleAlign.Left ? 'max-w-6xl' : 'max-w-2xl'
@@ -48,29 +38,10 @@ export default function HeroMain({
           <section>
             <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>
               {/* Illustration behind hero content */}
-              <div
-                className='absolute left-0 bottom-0 -ml-20 hidden lg:block pointer-events-none'
-                aria-hidden='true'
-                data-aos='fade-up'
-                data-aos-delay='400'
-              >
-                <svg
-                  className='max-w-full'
-                  width='564'
-                  height='552'
-                  viewBox='0 0 564 552'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
+              <div className='absolute left-0 bottom-0 -ml-20 hidden lg:block pointer-events-none' aria-hidden='true' data-aos='fade-up' data-aos-delay='400'>
+                <svg className='max-w-full' width='564' height='552' viewBox='0 0 564 552' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <defs>
-                    <linearGradient
-                      id='illustration-02'
-                      x1='-3.766'
-                      y1='300.204'
-                      x2='284.352'
-                      y2='577.921'
-                      gradientUnits='userSpaceOnUse'
-                    >
+                    <linearGradient id='illustration-02' x1='-3.766' y1='300.204' x2='284.352' y2='577.921' gradientUnits='userSpaceOnUse'>
                       <stop stopColor='#f63f3f' stopOpacity='.01' />
                       <stop offset='1' stopColor='#f63f3f' stopOpacity='.32' />
                     </linearGradient>
@@ -92,39 +63,23 @@ export default function HeroMain({
                     We Strive to make your Dubai company setup effortless.
                   </h1>
                   <p className='text-xl text-gray-400 mb-8' data-aos='fade-up' data-aos-delay='200'>
-                    From formations, residency visas, business banking and accounting, we cover all
-                    aspects of getting your business operating in Dubai
+                    From formations, residency visas, business banking and accounting, we cover all aspects of getting your business operating in Dubai
                   </p>
                   <div className='max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center'>
                     <div data-aos='fade-up' data-aos-delay='400'>
-                      <a
-                        className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'
-                        href='/contact'
-                      >
+                      <a className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0' href='/contact'>
                         Get In Touch
                       </a>
                     </div>
                     <div data-aos='fade-up' data-aos-delay='600'>
-                      <Link
-                        className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
-                        href='/call-back'
-                        target='_blank'
-                      >
+                      <Link className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4' href='/call-back' target='_blank'>
                         Book Consultation
                       </Link>
                     </div>
                   </div>
                 </div>
 
-                <ModalVideo
-                  thumb={VideoThumb}
-                  thumbWidth={1024}
-                  thumbHeight={576}
-                  thumbAlt='Modal video thumbnail'
-                  video='/videos/video.mp4'
-                  videoWidth={1920}
-                  videoHeight={1080}
-                />
+                <ModalVideo thumb={VideoThumb} thumbWidth={1024} thumbHeight={576} thumbAlt='Modal video thumbnail' video='/videos/video.mp4' videoWidth={1920} videoHeight={1080} />
               </div>
             </div>
           </section>
@@ -137,14 +92,7 @@ export default function HeroMain({
             {/* Background image */}
             {backgroundImagePath && (
               <div className='absolute inset-0'>
-                <Image
-                  className='w-full h-full object-cover'
-                  src={backgroundImagePath}
-                  width={1440}
-                  height={394}
-                  priority
-                  alt='About'
-                />
+                <Image className='w-full h-full object-cover' src={backgroundImagePath} width={1440} height={394} priority alt='About' />
                 <div className='absolute inset-0 bg-gray-900 opacity-75' aria-hidden='true'></div>
               </div>
             )}
@@ -154,29 +102,10 @@ export default function HeroMain({
               {showBackgroundIllustration && (
                 <>
                   {/* Illustration */}
-                  <div
-                    className='absolute left-0 bottom-0 -ml-64 hidden lg:block pointer-events-none'
-                    aria-hidden='true'
-                    data-aos='fade-up'
-                    data-aos-delay='600'
-                  >
-                    <svg
-                      className='max-w-full'
-                      width='552'
-                      height='564'
-                      viewBox='0 0 552 564'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                  <div className='absolute left-0 bottom-0 -ml-64 hidden lg:block pointer-events-none' aria-hidden='true' data-aos='fade-up' data-aos-delay='600'>
+                    <svg className='max-w-full' width='552' height='564' viewBox='0 0 552 564' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <defs>
-                        <linearGradient
-                          id='paint0_linear'
-                          x1='-2.963'
-                          y1='307.099'
-                          x2='290.505'
-                          y2='577.859'
-                          gradientUnits='userSpaceOnUse'
-                        >
+                        <linearGradient id='paint0_linear' x1='-2.963' y1='307.099' x2='290.505' y2='577.859' gradientUnits='userSpaceOnUse'>
                           <stop stopColor='#f63f3f' stopOpacity='.01' />
                           <stop offset='1' stopColor='#f63f3f' stopOpacity='.32' />
                         </linearGradient>
@@ -206,19 +135,12 @@ export default function HeroMain({
                       <>
                         <div className='max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center mb-20'>
                           <div data-aos='fade-up' data-aos-delay='400'>
-                            <a
-                              className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'
-                              href='/contact'
-                            >
+                            <a className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0' href='/contact'>
                               Get In Touch
                             </a>
                           </div>
                           <div data-aos='fade-up' data-aos-delay='600'>
-                            <Link
-                              className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
-                              href='/call-back'
-                              target='_blank'
-                            >
+                            <Link className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4' href='/call-back' target='_blank'>
                               Book Consultation
                             </Link>
                           </div>
@@ -227,18 +149,7 @@ export default function HeroMain({
                     )}
 
                     {/* Image */}
-                    {bodyImage && (
-                      <Image
-                        className='mx-auto'
-                        src={bodyImage}
-                        width={768}
-                        height={432}
-                        alt='Hero'
-                        priority
-                        data-aos='fade-up'
-                        data-aos-delay='400'
-                      />
-                    )}
+                    {bodyImage && <Image className='mx-auto' src={bodyImage} width={768} height={432} alt='Hero' priority data-aos='fade-up' data-aos-delay='400' />}
                   </div>
                 </>
               )}
@@ -250,11 +161,7 @@ export default function HeroMain({
                       <h1 className='h1 mb-4' data-aos='fade-up'>
                         {title}
                       </h1>
-                      <p
-                        className='text-xl text-gray-400 mb-8'
-                        data-aos='fade-up'
-                        data-aos-delay='200'
-                      >
+                      <p className='text-xl text-gray-400 mb-8' data-aos='fade-up' data-aos-delay='200'>
                         {subTitle}
                       </p>
                     </div>
@@ -289,24 +196,15 @@ export default function HeroMain({
                   {/* CTA */}
                   {showCta && (
                     <>
-                      <div
-                        className={`max-w-xs ${mxAuto} sm:max-w-none sm:flex md:justify-start sm:justify-center`}
-                      >
+                      <div className={`max-w-xs ${mxAuto} sm:max-w-none sm:flex md:justify-start sm:justify-center`}>
                         {/* <div className={'max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center'}></div> */}
                         <div data-aos='fade-up' data-aos-delay='400'>
-                          <a
-                            className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'
-                            href='/contact'
-                          >
+                          <a className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0' href='/contact'>
                             Get In Touch
                           </a>
                         </div>
                         <div data-aos='fade-up' data-aos-delay='600'>
-                          <Link
-                            className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
-                            href='/call-back'
-                            target='_blank'
-                          >
+                          <Link className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4' href='/call-back' target='_blank'>
                             Book Consultation
                           </Link>
                         </div>

@@ -7,29 +7,10 @@ export default function HeroFeatures() {
     <section className='relative'>
       <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>
         {/* Illustration behind hero content */}
-        <div
-          className='absolute left-0 bottom-0 -ml-64 hidden lg:block pointer-events-none'
-          aria-hidden='true'
-          data-aos='fade-up'
-          data-aos-delay='600'
-        >
-          <svg
-            className='max-w-full'
-            width='552'
-            height='564'
-            viewBox='0 0 552 564'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
+        <div className='absolute left-0 bottom-0 -ml-64 hidden lg:block pointer-events-none' aria-hidden='true' data-aos='fade-up' data-aos-delay='600'>
+          <svg className='max-w-full' width='552' height='564' viewBox='0 0 552 564' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <defs>
-              <linearGradient
-                id='paint0_linear'
-                x1='-2.963'
-                y1='307.099'
-                x2='290.505'
-                y2='577.859'
-                gradientUnits='userSpaceOnUse'
-              >
+              <linearGradient id='paint0_linear' x1='-2.963' y1='307.099' x2='290.505' y2='577.859' gradientUnits='userSpaceOnUse'>
                 <stop stopColor='#f63f3f' stopOpacity='.01' />
                 <stop offset='1' stopColor='#f63f3f' stopOpacity='.32' />
               </linearGradient>
@@ -51,21 +32,11 @@ export default function HeroFeatures() {
               Keep track of every important detail
             </h1>
             <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
-              Every feature in Open PRO makes things easy to build, pleasant to create, and simple
-              to manage.
+              Every feature in Open PRO makes things easy to build, pleasant to create, and simple to manage.
             </p>
           </div>
           {/* Image */}
-          <Image
-            className='mx-auto'
-            src={HeroImage}
-            width={768}
-            height={432}
-            alt='Hero'
-            priority
-            data-aos='fade-up'
-            data-aos-delay='400'
-          />
+          <Image className='mx-auto' src={HeroImage} width={768} height={432} alt='Hero' priority data-aos='fade-up' data-aos-delay='400' />
         </div>
       </div>
     </section>

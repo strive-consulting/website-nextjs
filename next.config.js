@@ -17,8 +17,7 @@ const nextConfig = {
       },
       {
         source: '/accounting-information-request-form',
-        destination:
-          'https://form.jotform.com/striveconsultants/accounting-information-request-form',
+        destination: 'https://form.jotform.com/striveconsultants/accounting-information-request-form',
         permanent: true,
       },
     ]
