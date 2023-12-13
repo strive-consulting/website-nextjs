@@ -95,6 +95,13 @@ type LocationData = {
     calling_code: string
     is_eu: boolean
   }
+  currency: {
+    code: string
+    name: string
+    plural: string
+    symbol: string
+    symbol_native: string
+  }
 }
 
 export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
@@ -106,7 +113,7 @@ export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
         return ip
       })
 
-    //console.log('IP', ip)
+    console.log('IP', ip)
 
     //Note, could be using this method serverside or client side
     const ipStackKey = process.env.IP_STACK_API_KEY || process.env.NEXT_PUBLIC_IP_STACK_API_KEY
@@ -117,11 +124,12 @@ export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
         return geo
       })
 
-    //The free IP stack doesn't return the currency code, so we use a static country list to look up the currency from the country code
+    console.log('Geo', geoInfo)
+    // //The free IP stack doesn't return the currency code, so we use a static country list to look up the currency from the country code
 
-    // @ts-ignore
-    const currencyCode = countriesJson[geoInfo.country_code]
-    // console.log('currencyCode', currencyCode);
+    // // @ts-ignore
+    // const currencyCode = countriesJson[geoInfo.country_code]
+    // // console.log('currencyCode', currencyCode);
 
     //No need to return UAE
     if (geoInfo.country_code === 'AE') return { error: true }
@@ -131,7 +139,7 @@ export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
       city: geoInfo.city,
       countryCode: geoInfo.country_code,
       callingCode: geoInfo.location.calling_code,
-      currencyCode: currencyCode.currency,
+      currencyCode: geoInfo.currency.code
     }
   } catch (error) {
     return {
