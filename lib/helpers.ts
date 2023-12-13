@@ -110,7 +110,7 @@ export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
 
     //Note, could be using this method serverside or client side
     const ipStackKey = process.env.IP_STACK_API_KEY || process.env.NEXT_PUBLIC_IP_STACK_API_KEY
-    const geoInfo: LocationData = await fetch(`http://api.ipstack.com/${ip.ip.toString()}?access_key=${ipStackKey}`)
+    const geoInfo: LocationData = await fetch(`https://api.ipstack.com/${ip.ip.toString()}?access_key=${ipStackKey}`)
       .then((resp) => resp.json())
       .then((geo) => {
         // console.log(geo);
