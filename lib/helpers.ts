@@ -17,7 +17,7 @@ export async function getCurrencyRates(): Promise<any> {
   // const apiUrl = `http://data.fixer.io/api/latest?access_key=${accessKey}&format=1`
 
   const accessKey = process.env.EXCHANGERATES_CURRENCY_API_KEY || process.env.NEXT_PUBLIC_EXCHANGERATES_CURRENCY_API_KEY
-  const apiUrl = `http://api.exchangeratesapi.io/v1/latest?access_key=${accessKey}&format=1`
+  const apiUrl = `https://api.exchangeratesapi.io/v1/latest?access_key=${accessKey}&format=1`
 
   try {
     const response = await fetch(apiUrl)
@@ -110,7 +110,7 @@ export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
 
     //Note, could be using this method serverside or client side
     const ipStackKey = process.env.IP_STACK_API_KEY || process.env.NEXT_PUBLIC_IP_STACK_API_KEY
-    const geoInfo: LocationData = await fetch(`http://api.ipstack.com/${ip.ip.toString()}?access_key=${ipStackKey}`)
+    const geoInfo: LocationData = await fetch(`https://api.ipstack.com/${ip.ip.toString()}?access_key=${ipStackKey}`)
       .then((resp) => resp.json())
       .then((geo) => {
         // console.log(geo);
