@@ -227,9 +227,8 @@ const CompanyNameChecker: React.FC = () => {
   }
 
   const handleStep2Submit = async () => {
-    console.log('submit step 2')
     setFormData({ ...formData })
-    console.log(formData)
+    // console.log(formData)
 
     let error = false
 
@@ -264,7 +263,7 @@ const CompanyNameChecker: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
 
-    console.log(name, value)
+    // console.log(name, value)
     if (name === 'businessActivity') {
       formData.businessActivityValid = true
     }

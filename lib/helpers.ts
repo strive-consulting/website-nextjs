@@ -12,10 +12,6 @@ export function objectToQueryString(obj: any) {
 
 export async function getCurrencyRates(): Promise<any> {
   //Note, could be using this method serverside or client side
-  //TODO - Both Fixer and ExchangeRates are the same service, but each have a 1000 request limit. We can switch between both if need be.
-  // const accessKey = process.env.FIXER_CURRENCY_API_KEY || process.env.NEXT_PUBLIC_FIXER_CURRENCY_API_KEY
-  // const apiUrl = `http://data.fixer.io/api/latest?access_key=${accessKey}&format=1`
-
   const accessKey = process.env.EXCHANGERATES_CURRENCY_API_KEY || process.env.NEXT_PUBLIC_EXCHANGERATES_CURRENCY_API_KEY
   const apiUrl = `https://api.exchangeratesapi.io/v1/latest?access_key=${accessKey}&format=1`
 
@@ -113,7 +109,7 @@ export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
         return ip
       })
 
-    console.log('IP', ip)
+    //console.log('IP', ip)
 
     //Note, could be using this method serverside or client side
     const ipStackKey = process.env.IP_STACK_API_KEY || process.env.NEXT_PUBLIC_IP_STACK_API_KEY
@@ -124,12 +120,11 @@ export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
         return geo
       })
 
-    console.log('Geo', geoInfo)
-    // //The free IP stack doesn't return the currency code, so we use a static country list to look up the currency from the country code
+    //console.log('Geo', geoInfo)
 
+    // Alternative way to lookup currency code if not using a 3rd party service
     // // @ts-ignore
     // const currencyCode = countriesJson[geoInfo.country_code]
-    // // console.log('currencyCode', currencyCode);
 
     //No need to return UAE
     if (geoInfo.country_code === 'AE') return { error: true }
