@@ -1,10 +1,6 @@
 import PostItem from '@/components/post-item'
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { tag: string; pagenum: string }
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { tag: string; pagenum: string } }): Promise<Metadata> {
   const tagName = toTitleCase(params.tag)
 
   return {
@@ -74,12 +70,7 @@ export default async function Blog({ params }: { params: { tag: string; pagenum:
           <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
             {/*  Page header */}
             <div className='max-w-3xl pb-12 md:pb-10 text-center md:text-left'>
-              <BreadCrumbs
-                homeTitle='Blog'
-                homeUrl='/blog'
-                currentPageName={tagName}
-                currentPageUrl={Constants.SiteDomain + '/blog'}
-              />
+              <BreadCrumbs homeTitle='Blog' homeUrl='/blog' currentPageName={tagName} currentPageUrl={Constants.SiteDomain + '/blog'} />
 
               <h1 className='h1' data-aos='fade-up'>
                 {tagName}
@@ -94,11 +85,7 @@ export default async function Blog({ params }: { params: { tag: string; pagenum:
               </div>
             </div>
 
-            <BlogPagination
-              totalpages={blogPosts.total_pages}
-              activepage={blogPosts.active_page}
-              pagniatePath={pagniatePath}
-            />
+            <BlogPagination totalpages={blogPosts.total_pages} activepage={blogPosts.active_page} pagniatePath={pagniatePath} />
           </div>
         </div>
 

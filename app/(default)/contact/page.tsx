@@ -1,14 +1,12 @@
 export const metadata = {
   title: 'Contact Us',
-  description:
-    'Contact Strive Consultants to discuss your company formation and residency visa plans for the UAE',
+  description: 'Contact Strive Consultants to discuss your company formation and residency visa plans for the UAE',
   alternates: {
     canonical: Constants.SiteDomain + '/contact',
   },
   openGraph: {
     title: 'Contact Us',
-    description:
-      'Contact Strive Consultants to discuss your company formation and residency visa plans for the UAE',
+    description: 'Contact Strive Consultants to discuss your company formation and residency visa plans for the UAE',
     images: [Constants.SiteDomain + Constants.OpenGraphImage],
     url: Constants.SiteDomain + '/contact',
     type: 'website',
@@ -16,8 +14,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Contact Us',
-    description:
-      'Contact Strive Consultants to discuss your company formation and residency visa plans for the UAE',
+    description: 'Contact Strive Consultants to discuss your company formation and residency visa plans for the UAE',
     siteId: '',
     images: [Constants.SiteDomain + Constants.OpenGraphImage],
   },

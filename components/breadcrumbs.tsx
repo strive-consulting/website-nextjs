@@ -8,12 +8,7 @@ interface BreadCrumbProps {
   currentPageUrl: string
 }
 
-export default function BreadCrumbs({
-  homeUrl,
-  homeTitle,
-  currentPageName,
-  currentPageUrl,
-}: BreadCrumbProps) {
+export default function BreadCrumbs({ homeUrl, homeTitle, currentPageName, currentPageUrl }: BreadCrumbProps) {
   let schema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

@@ -39,24 +39,10 @@ export default function Calendly({ url, popup, ctaid }: CalendarProps) {
   // console.log('popup', popup==false)
   return (
     <>
-      {popup === false ||
-        (popup == undefined && (
-          <InlineWidget
-            url={url ?? ''}
-            utm={utm}
-            styles={{ height: '750px' }}
-            pageSettings={{ hideEventTypeDetails: true }}
-          />
-        ))}
+      {popup === false || (popup == undefined && <InlineWidget url={url ?? ''} utm={utm} styles={{ height: '750px' }} pageSettings={{ hideEventTypeDetails: true }} />)}
       {popup === true && (
         <div className='flex justify-center mb-8'>
-          <PopupButton
-            className={`${ctaid} btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4`}
-            url={url ?? ''}
-            rootElement={rootElement}
-            text='Book Call Back'
-            utm={utm}
-          />
+          <PopupButton className={`${ctaid} btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4`} url={url ?? ''} rootElement={rootElement} text='Book Call Back' utm={utm} />
         </div>
       )}
     </>

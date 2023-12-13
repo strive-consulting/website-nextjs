@@ -37,11 +37,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
       </section>
     )
   } else {
-    const titleAlignClass = slice.primary.align
-      ? slice.primary.align === TitleAlign.Left
-        ? 'md:text-left'
-        : ''
-      : ''
+    const titleAlignClass = slice.primary.align ? (slice.primary.align === TitleAlign.Left ? 'md:text-left' : '') : ''
     const mxAuto = slice.primary.align === TitleAlign.Center ? '' : 'mx-auto'
 
     // console.log(slice)
@@ -56,29 +52,10 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
             {slice.items.length === 0 && (
               <>
                 {/* Illustration */}
-                <div
-                  className='absolute left-0 bottom-0 -ml-64 hidden lg:block pointer-events-none'
-                  aria-hidden='true'
-                  data-aos='fade-up'
-                  data-aos-delay='600'
-                >
-                  <svg
-                    className='max-w-full'
-                    width='552'
-                    height='564'
-                    viewBox='0 0 552 564'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
+                <div className='absolute left-0 bottom-0 -ml-64 hidden lg:block pointer-events-none' aria-hidden='true' data-aos='fade-up' data-aos-delay='600'>
+                  <svg className='max-w-full' width='552' height='564' viewBox='0 0 552 564' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <defs>
-                      <linearGradient
-                        id='paint0_linear'
-                        x1='-2.963'
-                        y1='307.099'
-                        x2='290.505'
-                        y2='577.859'
-                        gradientUnits='userSpaceOnUse'
-                      >
+                      <linearGradient id='paint0_linear' x1='-2.963' y1='307.099' x2='290.505' y2='577.859' gradientUnits='userSpaceOnUse'>
                         <stop stopColor='#f63f3f' stopOpacity='.01' />
                         <stop offset='1' stopColor='#f63f3f' stopOpacity='.32' />
                       </linearGradient>
@@ -94,9 +71,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
 
                 <div className='relative pt-32 pb-12 md:pt-40 '>
                   {/* Content */}
-                  <div
-                    className={`max-w-3xl mx-auto text-center ${titleAlignClass} pb-12 md:pb-16`}
-                  >
+                  <div className={`max-w-3xl mx-auto text-center ${titleAlignClass} pb-12 md:pb-16`}>
                     <h1 className='h1 mb-4' data-aos='fade-up'>
                       {slice.primary.title}
                     </h1>
@@ -107,11 +82,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                       field={slice.primary.description}
                       components={{
                         paragraph: ({ children }) => (
-                          <p
-                            className='mb-5 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline'
-                            data-aos='fade-up'
-                            data-aos-delay='200'
-                          >
+                          <p className='mb-5 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline' data-aos='fade-up' data-aos-delay='200'>
                             {children}
                           </p>
                         ),
@@ -125,18 +96,12 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                     <>
                       <div className='max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center mb-20'>
                         <div data-aos='fade-up' data-aos-delay='400'>
-                          <PrismicNextLink
-                            field={slice.primary.cta_1_link}
-                            className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'
-                          >
+                          <PrismicNextLink field={slice.primary.cta_1_link} className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'>
                             {slice.primary.cta_1_text}
                           </PrismicNextLink>
                         </div>
                         <div data-aos='fade-up' data-aos-delay='600'>
-                          <PrismicNextLink
-                            className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
-                            field={slice.primary.cta_2_link}
-                          >
+                          <PrismicNextLink className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4' field={slice.primary.cta_2_link}>
                             {slice.primary.cta_2_text}
                           </PrismicNextLink>
                         </div>
@@ -145,28 +110,12 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                   )}
 
                   {slice.primary.show_video && (
-                    <ModalVideo
-                      thumb={VideoThumb}
-                      thumbWidth={1024}
-                      thumbHeight={576}
-                      thumbAlt='Company formation Dubai'
-                      video='/videos/home_intro_3.mp4'
-                      videoWidth={1920}
-                      videoHeight={1080}
-                    />
+                    <ModalVideo thumb={VideoThumb} thumbWidth={1024} thumbHeight={576} thumbAlt='Company formation Dubai' video='/videos/home_intro_3.mp4' videoWidth={1920} videoHeight={1080} />
                   )}
 
                   {/* Image */}
                   {slice.primary.body_image && !slice.primary.show_video && (
-                    <PrismicNextImage
-                      className='mx-auto'
-                      field={slice.primary.body_image}
-                      width={768}
-                      height={432}
-                      priority
-                      data-aos='fade-up'
-                      data-aos-delay='400'
-                    />
+                    <PrismicNextImage className='mx-auto' field={slice.primary.body_image} width={768} height={432} priority data-aos='fade-up' data-aos-delay='400' />
                   )}
                 </div>
               </>
@@ -190,11 +139,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                       field={slice.primary.description}
                       components={{
                         paragraph: ({ children }) => (
-                          <p
-                            className='mb-10 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline'
-                            data-aos='fade-up'
-                            data-aos-delay='200'
-                          >
+                          <p className='mb-10 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline' data-aos='fade-up' data-aos-delay='200'>
                             {children}
                           </p>
                         ),
@@ -222,22 +167,14 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
 
                 {slice.primary.cta_1_text && (
                   <>
-                    <div
-                      className={`max-w-xs ${mxAuto} sm:max-w-none sm:flex md:justify-start sm:justify-center`}
-                    >
+                    <div className={`max-w-xs ${mxAuto} sm:max-w-none sm:flex md:justify-start sm:justify-center`}>
                       <div data-aos='fade-up' data-aos-delay='400'>
-                        <PrismicNextLink
-                          className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'
-                          field={slice.primary.cta_1_link}
-                        >
+                        <PrismicNextLink className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0' field={slice.primary.cta_1_link}>
                           {slice.primary.cta_1_text}
                         </PrismicNextLink>
                       </div>
                       <div data-aos='fade-up' data-aos-delay='600'>
-                        <PrismicNextLink
-                          className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
-                          field={slice.primary.cta_2_link}
-                        >
+                        <PrismicNextLink className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4' field={slice.primary.cta_2_link}>
                           {slice.primary.cta_2_text}
                         </PrismicNextLink>
                       </div>

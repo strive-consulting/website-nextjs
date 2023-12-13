@@ -7,15 +7,13 @@ import CompanyNameChecker from '@/components/calculators/company-name-checker'
 export const metadata: Metadata = {
   robots: { index: true, follow: true },
   title: 'Dubai Business Name Checker',
-  description:
-    'Dubai Business Name Checker by Strive. Use our tool to check if your new business name is available in the UAE',
+  description: 'Dubai Business Name Checker by Strive. Use our tool to check if your new business name is available in the UAE',
   alternates: {
     canonical: Constants.SiteDomain + '/calculator/business-setup',
   },
   openGraph: {
     title: 'Dubai Business Name Checker',
-    description:
-      'Dubai Business Name Checker by Strive. Use our tool to check if your new business name is available in the UAE',
+    description: 'Dubai Business Name Checker by Strive. Use our tool to check if your new business name is available in the UAE',
     images: [Constants.SiteDomain + Constants.OpenGraphImage],
     url: Constants.SiteDomain + '/calculator/business-setup',
     type: 'website',
@@ -23,8 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Dubai Business Name Checker',
-    description:
-      'Dubai Business Name Checker by Strive. Use our tool to check if your new business name is available in the UAE',
+    description: 'Dubai Business Name Checker by Strive. Use our tool to check if your new business name is available in the UAE',
     siteId: '',
     images: [Constants.SiteDomain + Constants.OpenGraphImage],
   },

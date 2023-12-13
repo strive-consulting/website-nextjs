@@ -8,30 +8,16 @@ interface Props {
   post: BlogPostDocument
 }
 const BlogPostAuthorFooter: React.FC<Props> = ({ post }: Props) => {
-  if (
-    isFilled.contentRelationship<
-      'author',
-      string,
-      Pick<AuthorDocument['data'], 'name' | 'job_title' | 'linkedin_url' | 'avatar'>
-    >(post.data.author)
-  ) {
+  if (isFilled.contentRelationship<'author', string, Pick<AuthorDocument['data'], 'name' | 'job_title' | 'linkedin_url' | 'avatar'>>(post.data.author)) {
     //console.log("NAME", post.data.author.data?.job_title) // It's working well!
 
     return (
       <footer className='flex items-center mt-4'>
         <Link href='#'>
-          <PrismicImage
-            className='rounded-full shrink-0 mr-4'
-            field={post.data.author.data?.avatar}
-            width={40}
-            height={40}
-          />
+          <PrismicImage className='rounded-full shrink-0 mr-4' field={post.data.author.data?.avatar} width={40} height={40} />
         </Link>
         <div className='font-medium'>
-          <Link
-            href='#'
-            className='text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out'
-          >
+          <Link href='#' className='text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out'>
             {post.data.author.data?.name}
           </Link>
           <span className='text-gray-700'> - </span>

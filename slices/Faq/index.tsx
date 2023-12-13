@@ -48,9 +48,7 @@ const Faq = ({ slice }: FaqProps): JSX.Element => {
                     <PrismicRichText
                       field={item.answer}
                       components={{
-                        paragraph: ({ children }) => (
-                          <p className='text-lg text-gray-400'>{children}</p>
-                        ),
+                        paragraph: ({ children }) => <p className='text-lg text-gray-400'>{children}</p>,
                       }}
                     />
                   </li>

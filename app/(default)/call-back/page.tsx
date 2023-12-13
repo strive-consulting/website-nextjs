@@ -1,14 +1,12 @@
 export const metadata = {
   title: 'Call Back',
-  description:
-    'Talk to an expert about your UAE business formation and residency visa plans for Dubai',
+  description: 'Talk to an expert about your UAE business formation and residency visa plans for Dubai',
   alternates: {
     canonical: Constants.SiteDomain + '/call-back',
   },
   openGraph: {
     title: 'Call Back',
-    description:
-      'Talk to an expert about your UAE business formation and residency visa plans for Dubai',
+    description: 'Talk to an expert about your UAE business formation and residency visa plans for Dubai',
     images: [Constants.SiteDomain + Constants.OpenGraphImage],
     url: Constants.SiteDomain + '/call-back',
     type: 'website',
@@ -16,8 +14,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Call Back',
-    description:
-      'Talk to an expert about your UAE business formation and residency visa plans for Dubai',
+    description: 'Talk to an expert about your UAE business formation and residency visa plans for Dubai',
     siteId: '',
     images: [Constants.SiteDomain + Constants.OpenGraphImage],
   },
@@ -38,14 +35,10 @@ export default function Contact() {
                 Talk to an Expert
               </h1>
               <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
-                Book in a call with our team of experts who are on hand to discuss your requirements
-                and get you started in the UAE 🚀
+                Book in a call with our team of experts who are on hand to discuss your requirements and get you started in the UAE 🚀
               </p>
             </div>
-            <CalendlyDynamic
-              url={`https://calendly.com/d/4cz-qzm-kdp/strive-consultants-dubai-discovery-call`}
-              ctaid={`website`}
-            />
+            <CalendlyDynamic url={`https://calendly.com/d/4cz-qzm-kdp/strive-consultants-dubai-discovery-call`} ctaid={`website`} />
           </div>
         </div>
       </section>

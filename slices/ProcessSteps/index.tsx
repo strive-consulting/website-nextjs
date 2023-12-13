@@ -43,12 +43,7 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
           <div className='max-w-sm mx-auto grid gap-8 md:grid-cols-3 lg:gap-16 items-start md:max-w-none'>
             {/* 1st item */}
             <div className='relative flex flex-col items-center' data-aos='fade-up'>
-              <div
-                aria-hidden='true'
-                className='absolute h-1 border-t border-dashed border-gray-700 hidden md:block processStep'
-                data-aos='fade-in'
-                data-aos-delay='200'
-              ></div>
+              <div aria-hidden='true' className='absolute h-1 border-t border-dashed border-gray-700 hidden md:block processStep' data-aos='fade-in' data-aos-delay='200'></div>
               {step1Icon ? step1Icon?.icon : <></>}
               {/* <svg
                 className='w-16 h-16 mb-4'
@@ -78,17 +73,8 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
             </div>
 
             {/* 2nd item */}
-            <div
-              className='relative flex flex-col items-center'
-              data-aos='fade-up'
-              data-aos-delay='200'
-            >
-              <div
-                aria-hidden='true'
-                className='absolute h-1 border-t border-dashed border-gray-700 hidden md:block processStep'
-                data-aos='fade-in'
-                data-aos-delay='400'
-              ></div>
+            <div className='relative flex flex-col items-center' data-aos='fade-up' data-aos-delay='200'>
+              <div aria-hidden='true' className='absolute h-1 border-t border-dashed border-gray-700 hidden md:block processStep' data-aos='fade-in' data-aos-delay='400'></div>
               {step2Icon ? step2Icon?.icon : <></>}
               <h4 className='h5 mb-2'>
                 <span className='text-gray-400'>2</span>. {slice.primary.step_2_title}
@@ -97,11 +83,7 @@ const ProcessSteps = ({ slice }: ProcessStepsProps): JSX.Element => {
             </div>
 
             {/* 3rd item */}
-            <div
-              className='relative flex flex-col items-center'
-              data-aos='fade-up'
-              data-aos-delay='400'
-            >
+            <div className='relative flex flex-col items-center' data-aos='fade-up' data-aos-delay='400'>
               {step3Icon ? step3Icon?.icon : <></>}
               <h4 className='h5 mb-2'>
                 <span className='text-gray-400'>3</span>. {slice.primary.step_3_title}

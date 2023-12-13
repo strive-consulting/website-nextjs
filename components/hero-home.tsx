@@ -7,29 +7,10 @@ export default function HeroHome() {
     <section>
       <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>
         {/* Illustration behind hero content */}
-        <div
-          className='absolute left-0 bottom-0 -ml-20 hidden lg:block pointer-events-none'
-          aria-hidden='true'
-          data-aos='fade-up'
-          data-aos-delay='400'
-        >
-          <svg
-            className='max-w-full'
-            width='564'
-            height='552'
-            viewBox='0 0 564 552'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
+        <div className='absolute left-0 bottom-0 -ml-20 hidden lg:block pointer-events-none' aria-hidden='true' data-aos='fade-up' data-aos-delay='400'>
+          <svg className='max-w-full' width='564' height='552' viewBox='0 0 564 552' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <defs>
-              <linearGradient
-                id='illustration-02'
-                x1='-3.766'
-                y1='300.204'
-                x2='284.352'
-                y2='577.921'
-                gradientUnits='userSpaceOnUse'
-              >
+              <linearGradient id='illustration-02' x1='-3.766' y1='300.204' x2='284.352' y2='577.921' gradientUnits='userSpaceOnUse'>
                 <stop stopColor='#f63f3f' stopOpacity='.01' />
                 <stop offset='1' stopColor='#f63f3f' stopOpacity='.32' />
               </linearGradient>
@@ -51,39 +32,23 @@ export default function HeroHome() {
               We Strive to make your Dubai company setup effortless.
             </h1>
             <p className='text-xl text-gray-400 mb-8' data-aos='fade-up' data-aos-delay='200'>
-              From formations, residency visas, business banking and accounting, we cover all
-              aspects of getting your business operating in Dubai
+              From formations, residency visas, business banking and accounting, we cover all aspects of getting your business operating in Dubai
             </p>
             <div className='max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center'>
               <div data-aos='fade-up' data-aos-delay='400'>
-                <a
-                  className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'
-                  href='/contact'
-                >
+                <a className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0' href='/contact'>
                   Get In Touch
                 </a>
               </div>
               <div data-aos='fade-up' data-aos-delay='600'>
-                <Link
-                  className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4'
-                  href='/call-back'
-                  target='_blank'
-                >
+                <Link className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto sm:ml-4' href='/call-back' target='_blank'>
                   Book Consultation
                 </Link>
               </div>
             </div>
           </div>
 
-          <ModalVideo
-            thumb={VideoThumb}
-            thumbWidth={1024}
-            thumbHeight={576}
-            thumbAlt='Modal video thumbnail'
-            video='/videos/video.mp4'
-            videoWidth={1920}
-            videoHeight={1080}
-          />
+          <ModalVideo thumb={VideoThumb} thumbWidth={1024} thumbHeight={576} thumbAlt='Modal video thumbnail' video='/videos/video.mp4' videoWidth={1920} videoHeight={1080} />
         </div>
       </div>
     </section>

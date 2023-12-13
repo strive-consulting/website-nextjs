@@ -3,14 +3,7 @@ export interface ISchema {
 }
 
 const SchemaTag = ({ schemaJson }: ISchema) => {
-  const schemaTag = schemaJson ? (
-    <script
-      type='application/ld+json'
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJson) }}
-    ></script>
-  ) : (
-    <></>
-  )
+  const schemaTag = schemaJson ? <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJson) }}></script> : <></>
 
   return schemaTag
 }

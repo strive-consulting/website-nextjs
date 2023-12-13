@@ -50,9 +50,7 @@ const Step1: React.FC<{
             className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
             placeholder='e.g. Google'
           />
-          {!data.companyNameValid && (
-            <div className='text-red-500 text-sm mt-2'>Please enter a company name</div>
-          )}
+          {!data.companyNameValid && <div className='text-red-500 text-sm mt-2'>Please enter a company name</div>}
         </div>
         <div className='md:w-1/2 mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
@@ -76,15 +74,10 @@ const Step1: React.FC<{
             })}
           </select>
 
-          {!data.businessActivityValid && (
-            <div className='text-red-500 text-sm mt-2'>Please select a business activity</div>
-          )}
+          {!data.businessActivityValid && <div className='text-red-500 text-sm mt-2'>Please select a business activity</div>}
         </div>
 
-        <button
-          type='submit'
-          className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'
-        >
+        <button type='submit' className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'>
           Continue
         </button>
       </div>
@@ -137,30 +130,14 @@ const Step2: React.FC<{
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='name'>
             Name
           </label>
-          <input
-            type='text'
-            name='name'
-            value={data.name}
-            onChange={onChange}
-            className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
-            placeholder='e.g Peter Jones'
-          />
-          {!data.nameValid && (
-            <div className='text-red-500 text-sm mt-2'>Please enter your name</div>
-          )}
+          <input type='text' name='name' value={data.name} onChange={onChange} className='form-input w-full border-red-500 focus:border-red-500 text-gray-900' placeholder='e.g Peter Jones' />
+          {!data.nameValid && <div className='text-red-500 text-sm mt-2'>Please enter your name</div>}
         </div>
         <div className='w-full mb-3'>
           <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
             Email
           </label>
-          <input
-            type='email'
-            name='email'
-            value={data.email}
-            onChange={onChange}
-            className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
-            placeholder='e.g name@domain.com'
-          />
+          <input type='email' name='email' value={data.email} onChange={onChange} className='form-input w-full border-red-500 focus:border-red-500 text-gray-900' placeholder='e.g name@domain.com' />
           {!data.emailValid && <div style={{ color: 'red' }}>Invalid</div>}
         </div>
         <div className='w-full mb-3'>
@@ -178,10 +155,7 @@ const Step2: React.FC<{
           {!data.phoneNumberValid && <div style={{ color: 'red' }}>Invalid</div>}
         </div>
 
-        <button
-          type='submit'
-          className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'
-        >
+        <button type='submit' className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'>
           Check Name
         </button>
 
@@ -314,18 +288,9 @@ const CompanyNameChecker: React.FC = () => {
   return (
     <div>
       {/* Render Step 1 */}
-      {!step1Completed && (
-        <Step1 onNext={handleStep1Submit} data={formData} onChange={handleChange} />
-      )}
+      {!step1Completed && <Step1 onNext={handleStep1Submit} data={formData} onChange={handleChange} />}
 
-      {step1Completed && !step2Completed && (
-        <Step2
-          onSubmit={handleStep2Submit}
-          data={formData}
-          onChange={handleChange}
-          onPrevious={handleBack}
-        />
-      )}
+      {step1Completed && !step2Completed && <Step2 onSubmit={handleStep2Submit} data={formData} onChange={handleChange} onPrevious={handleBack} />}
 
       {step2Completed && <Loader />}
     </div>

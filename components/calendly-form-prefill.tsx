@@ -8,12 +8,7 @@ interface CalendlyFormPrefillProps {
   formName?: string
   redirectUrl?: string
 }
-export default function CalendlyFormPrefill({
-  calendarUrl,
-  ctaid,
-  formName,
-  redirectUrl,
-}: CalendlyFormPrefillProps) {
+export default function CalendlyFormPrefill({ calendarUrl, ctaid, formName, redirectUrl }: CalendlyFormPrefillProps) {
   const router = useRouter()
 
   const searchParams = useSearchParams()
@@ -45,11 +40,9 @@ export default function CalendlyFormPrefill({
 
     // Build the URL using form values
     // Note 'a1' is the first custom question in this Calendly form
-    const url = `${calendarUrl}?name=${encodeURIComponent(
-      formData.name,
-    )}&email=${encodeURIComponent(formData.email)}&a1=${encodeURIComponent(
-      formData.phoneNumber,
-    )}&utm_campaign=${utm.utmCampaign}&utm_medium=${utm.utmMedium}&utm_source=${utm.utmSource}`
+    const url = `${calendarUrl}?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&a1=${encodeURIComponent(formData.phoneNumber)}&utm_campaign=${
+      utm.utmCampaign
+    }&utm_medium=${utm.utmMedium}&utm_source=${utm.utmSource}`
 
     await fetch('/api/forms/prefill', {
       method: 'POST',
@@ -72,16 +65,7 @@ export default function CalendlyFormPrefill({
             <label className='block text-gray-300 text-sm font-medium' htmlFor='name'>
               Name
             </label>
-            <input
-              type='text'
-              name='name'
-              value={formData.name}
-              onChange={handleChange}
-              className='mt-1 form-input w-full text-gray-900'
-              placeholder='e.g. Peter Jones'
-              required
-              autoComplete='true'
-            />
+            <input type='text' name='name' value={formData.name} onChange={handleChange} className='mt-1 form-input w-full text-gray-900' placeholder='e.g. Peter Jones' required autoComplete='true' />
           </div>
           <div className='w-full px-3 mb-4'>
             <label className='block text-gray-300 text-sm font-medium' htmlFor='email'>
@@ -114,10 +98,7 @@ export default function CalendlyFormPrefill({
             />
           </div>
           <div className='w-full px-3 mb-4'>
-            <button
-              type='submit'
-              className={`${ctaid} btn-sm text-white bg-purple-600 hover:bg-purple-700 w-full mt-2`}
-            >
+            <button type='submit' className={`${ctaid} btn-sm text-white bg-purple-600 hover:bg-purple-700 w-full mt-2`}>
               Submit
             </button>
           </div>
