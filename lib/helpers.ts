@@ -17,7 +17,7 @@ export async function getCurrencyRates(): Promise<any> {
   // const apiUrl = `http://data.fixer.io/api/latest?access_key=${accessKey}&format=1`
 
   const accessKey = process.env.EXCHANGERATES_CURRENCY_API_KEY || process.env.NEXT_PUBLIC_EXCHANGERATES_CURRENCY_API_KEY
-  const apiUrl = `http://api.exchangeratesapi.io/v1/latest?access_key=${accessKey}&format=1`
+  const apiUrl = `https://api.exchangeratesapi.io/v1/latest?access_key=${accessKey}&format=1`
 
   try {
     const response = await fetch(apiUrl)
