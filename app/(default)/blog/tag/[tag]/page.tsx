@@ -7,13 +7,13 @@ export async function generateMetadata({ params }: { params: { tag: string } }):
     title: `UAE ${tagName} Blog - Business Setup in Dubai, UAE`,
     description: `Latest '${tagName}' information and blogs in Dubai and UAE.`,
     alternates: {
-      canonical: Constants.SiteDomain + '/blog' + params.tag,
+      canonical: Constants.SiteDomain + '/blog/tag/' + params.tag,
     },
     openGraph: {
       title: `UAE ${tagName} Blog - Business Setup in Dubai, UAE`,
       description: `Latest ${tagName} information and blogs in Dubai and UAE.`,
       images: [Constants.SiteDomain + Constants.OpenGraphImage],
-      url: Constants.SiteDomain + '/blog/' + params.tag,
+      url: Constants.SiteDomain + '/blog/tag/' + params.tag,
       type: 'website',
     },
     twitter: {

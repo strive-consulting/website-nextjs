@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { Constants } from '@/app/constants'
-import SchemaTag, { ISchema } from '@/components/schema'
-import BusinessSetupCalculator from '@/components/calculators/business-setup'
+import SchemaTag from '@/components/schema'
 import CompanyNameChecker from '@/components/calculators/company-name-checker'
 
 export const metadata: Metadata = {
@@ -9,13 +8,13 @@ export const metadata: Metadata = {
   title: 'Dubai Business Name Checker',
   description: 'Dubai Business Name Checker by Strive. Use our tool to check if your new business name is available in the UAE',
   alternates: {
-    canonical: Constants.SiteDomain + '/calculator/business-setup',
+    canonical: Constants.SiteDomain + '/calculator/business-name-checker',
   },
   openGraph: {
     title: 'Dubai Business Name Checker',
     description: 'Dubai Business Name Checker by Strive. Use our tool to check if your new business name is available in the UAE',
     images: [Constants.SiteDomain + Constants.OpenGraphImage],
-    url: Constants.SiteDomain + '/calculator/business-setup',
+    url: Constants.SiteDomain + '/calculator/business-name-checker',
     type: 'website',
   },
   twitter: {
