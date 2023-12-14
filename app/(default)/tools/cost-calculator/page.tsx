@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   title: 'Dubai Business Setup Calculator',
   description: 'Dubai Business Setup Calculator by Strive. Use our calculator to get indicative costs for forming a buisness in the UAE',
   alternates: {
-    canonical: Constants.SiteDomain + '/tools/business-setup',
+    canonical: Constants.SiteDomain + '/tools/cost-calculator',
   },
   openGraph: {
     title: 'Dubai Business Setup Calculator',
     description: 'Dubai Business Setup Calculator by Strive. Use our calculator to get indicative costs for forming a buisness in the UAE',
     images: [Constants.SiteDomain + Constants.OpenGraphImage],
-    url: Constants.SiteDomain + '/tools/business-setup',
+    url: Constants.SiteDomain + '/tools/cost-calculator',
     type: 'website',
   },
   twitter: {
