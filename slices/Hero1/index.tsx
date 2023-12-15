@@ -1,9 +1,7 @@
-import ModalVideo from '@/components/modal-video'
 import TickIcon from '@/components/tickIcon'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-import VideoThumb from '@/public/videos/video_thumb.jpg'
 
 export enum TitleAlign {
   Left = 'Left',
@@ -69,15 +67,12 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                   </svg>
                 </div>
 
-                <div className='relative pt-32 pb-12 md:pt-40 '>
-                  {/* Content */}
+                <div className='relative pt-32 md:pt-40 '>
                   <div className={`max-w-3xl mx-auto text-center ${titleAlignClass} pb-12 md:pb-16`}>
                     <h1 className='h1 mb-4' data-aos='fade-up'>
                       {slice.primary.title}
                     </h1>
-                    {/* <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
-                      {slice.primary.sub_text}
-                    </p> */}
+
                     <PrismicRichText
                       field={slice.primary.description}
                       components={{
@@ -109,12 +104,8 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                     </>
                   )}
 
-                  {slice.primary.show_video && (
-                    <ModalVideo thumb={VideoThumb} thumbWidth={1024} thumbHeight={576} thumbAlt='Company formation Dubai' video='/videos/home_intro_3.mp4' videoWidth={1920} videoHeight={1080} />
-                  )}
-
                   {/* Image */}
-                  {slice.primary.body_image && !slice.primary.show_video && (
+                  {slice.primary.body_image && (
                     <PrismicNextImage className='mx-auto' field={slice.primary.body_image} width={768} height={432} priority data-aos='fade-up' data-aos-delay='400' />
                   )}
                 </div>
@@ -128,13 +119,6 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                     <h1 className='h1 mb-4' data-aos='fade-up'>
                       {slice.primary.title}
                     </h1>
-                    {/* <p
-                      className='text-xl text-gray-400 mb-8'
-                      data-aos='fade-up'
-                      data-aos-delay='200'
-                    >
-                      {slice.primary.sub_text}
-                    </p> */}
                     <PrismicRichText
                       field={slice.primary.description}
                       components={{
