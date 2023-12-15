@@ -41,8 +41,8 @@ function loadVideoIframe(url: string, title?: string): JSX.Element {
 const Video = ({ slice }: VideoProps): JSX.Element => {
   return (
     <section className='relative'>
-      <div className='max-w-3xl mx-auto px-4 sm:px-6 relative'>
-        <div className='pt-5 pb-5'>
+      <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>
+        <div className='pt-5 pb-5 px-12' data-aos='fade-up'>
           {slice.primary.youtube_video.embed_url != null && (
             <div className='relative videoWrapper'>{loadVideoIframe(slice.primary.youtube_video.embed_url, slice.primary.youtube_video.title?.toString())}</div>
           )}
