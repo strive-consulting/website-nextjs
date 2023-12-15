@@ -105,7 +105,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                   )}
 
                   {/* Image */}
-                  {slice.primary.body_image && !slice.primary.show_video && (
+                  {slice.primary.body_image && (
                     <PrismicNextImage className='mx-auto' field={slice.primary.body_image} width={768} height={432} priority data-aos='fade-up' data-aos-delay='400' />
                   )}
                 </div>
