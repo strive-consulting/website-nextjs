@@ -44,18 +44,14 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
     let formName = slice.primary.form?.toString()
     const showCtaButtons = formName === undefined ? true : false
     const showForm = !showCtaButtons
-    console.log(showForm)
-
-    // console.log(slice)
-
-    // console.log(slice.primary.align)
-    // console.log(titleAlignClass)
+    const hasBullets = slice.items.length > 0
+    const hasBulletsOrForm = hasBullets || showForm
 
     return (
       <>
         <section className='relative'>
           <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>
-            {slice.items.length === 0 && (
+            {!hasBullets && !showForm && (
               <>
                 {/* Illustration */}
                 <div className='absolute left-0 bottom-0 -ml-64 hidden lg:block pointer-events-none' aria-hidden='true' data-aos='fade-up' data-aos-delay='600'>
@@ -118,7 +114,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
               </>
             )}
 
-            {slice.items.length > 0 && (
+            {hasBulletsOrForm && (
               <div className='pt-32 pb-12 md:pt-40 md:pb-0'>
                 <div className='flex flex-col md:flex-row'>
                   <div className={`w-full md:w-2/3 ${mxAuto} text-center ${titleAlignClass}`}>
@@ -171,7 +167,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                     </>
                   )}
 
-                  {slice.items && showCtaButtons && (
+                  {hasBullets && showCtaButtons && (
                     <div className='w-full md:w-1/3 md:ml-20 md:pt-20'>
                       <ul className='text-lg text-gray-400 mb-6' data-aos='fade-up'>
                         {slice.items.map((bullet) => {
