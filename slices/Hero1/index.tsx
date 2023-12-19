@@ -1,3 +1,6 @@
+import BusinessSetupCalculator from '@/components/calculators/business-setup'
+import CompanyNameChecker from '@/components/calculators/company-name-checker'
+import ContactFormSimple from '@/components/contact-form-simple'
 import TickIcon from '@/components/tickIcon'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
@@ -37,6 +40,10 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
   } else {
     const titleAlignClass = slice.primary.align ? (slice.primary.align === TitleAlign.Left ? 'md:text-left' : '') : ''
     const mxAuto = slice.primary.align === TitleAlign.Center ? '' : 'mx-auto'
+
+    let formName = slice.primary.form?.toString()
+    const showCtaButtons = formName === '' ?? true
+    const showForm = !showCtaButtons
 
     // console.log(slice)
 
@@ -87,7 +94,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                   </div>
 
                   {/* CTA */}
-                  {slice.primary.cta_1_text && (
+                  {showCtaButtons && slice.primary.cta_1_text && (
                     <>
                       <div className='max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center mb-20'>
                         <div data-aos='fade-up' data-aos-delay='400'>
@@ -105,9 +112,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                   )}
 
                   {/* Image */}
-                  {slice.primary.body_image && (
-                    <PrismicNextImage className='mx-auto' field={slice.primary.body_image} width={768} height={432} priority data-aos='fade-up' data-aos-delay='400' />
-                  )}
+                  {slice.primary.body_image && <PrismicNextImage className='mx-auto' field={slice.primary.body_image} width={768} height={432} priority data-aos='fade-up' data-aos-delay='400' />}
                 </div>
               </>
             )}
@@ -131,8 +136,42 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                       }}
                     />
                   </div>
-                  <div className='w-full md:w-1/3 md:ml-20 md:pt-20'>
-                    {slice.items && (
+
+                  {showForm && (
+                    <>
+                      <div className='w-full md:w-1/3 md:ml-20'>
+                        <div className='flex flex-wrap border border-4 pt-4 pb-6 px-2'>
+                          {formName === 'Business Setup Calculator' && (
+                            <>
+                              <h3 className='h3 mb-3 text-center w-full'>Cost Calculator</h3>
+                              <div className='mx-auto w-full px-3'>
+                                <BusinessSetupCalculator />
+                              </div>
+                            </>
+                          )}
+                          {formName === 'Company Name Checker' && (
+                            <>
+                              <h3 className='h4 mb-3 text-center w-full'>Company Name Check</h3>
+                              <div className='mx-auto w-full px-3'>
+                                <CompanyNameChecker />
+                              </div>
+                            </>
+                          )}
+                          {formName === 'Contact' && (
+                            <>
+                              <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
+                              <div className='mx-auto w-full px-3'>
+                                <ContactFormSimple />
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </>
+                  )}
+
+                  {slice.items && showCtaButtons && (
+                    <div className='w-full md:w-1/3 md:ml-20 md:pt-20'>
                       <ul className='text-lg text-gray-400 mb-6' data-aos='fade-up'>
                         {slice.items.map((bullet) => {
                           if (bullet.bullet_point != null) {
@@ -145,11 +184,11 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                           }
                         })}
                       </ul>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
 
-                {slice.primary.cta_1_text && (
+                {showCtaButtons && slice.primary.cta_1_text && (
                   <>
                     <div className={`max-w-xs ${mxAuto} sm:max-w-none sm:flex md:justify-start sm:justify-center`}>
                       <div data-aos='fade-up' data-aos-delay='400'>

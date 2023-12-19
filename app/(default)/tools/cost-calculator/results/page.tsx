@@ -81,9 +81,9 @@ export default async function Page({
   return (
     <>
       {/* for Google enhanced conversion tracking */}
-      <input type='hidden' id='name' name='name' value={searchParams?.name}/>
-      <input type='hidden' id='email' name='email' value={searchParams?.email}/>
-      <input type='hidden' id='phone' name='phone' value={searchParams?.phoneNumber}/>
+      <input type='hidden' id='name' name='name' value={searchParams?.name} />
+      <input type='hidden' id='email' name='email' value={searchParams?.email} />
+      <input type='hidden' id='phone' name='phone' value={searchParams?.phoneNumber} />
 
       <section className='relative'>
         <div className='max-w-6xl mx-auto px-4 sm:px-6 relative'>

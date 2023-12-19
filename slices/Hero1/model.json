@@ -17,10 +17,7 @@
           "config": {
             "label": "Title Align",
             "placeholder": "",
-            "options": [
-              "Left",
-              "Center"
-            ]
+            "options": ["Left", "Center"]
           }
         },
         "title": {
@@ -75,6 +72,14 @@
             "label": "Body Image",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "form": {
+          "type": "Select",
+          "config": {
+            "label": "Form",
+            "placeholder": "Replace bullets with form",
+            "options": ["Business Setup Calculator", "Company Name Checker", "Contact"]
           }
         }
       },
