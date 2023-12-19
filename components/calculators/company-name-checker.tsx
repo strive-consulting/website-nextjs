@@ -38,8 +38,8 @@ const Step1: React.FC<{
   return (
     <form onSubmit={handleNext}>
       <div className='flex flex-wrap' data-aos='fade-up'>
-        <div className='w-full md:w-1/2 pr-3 mb-3 '>
-          <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
+        <div className='w-full mb-3 '>
+          <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='companyName'>
             Company name
           </label>
           <input
@@ -52,8 +52,8 @@ const Step1: React.FC<{
           />
           {!data.companyNameValid && <div className='text-red-500 text-sm mt-2'>Please enter a company name</div>}
         </div>
-        <div className='md:w-1/2 mb-3'>
-          <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='first-name'>
+        <div className='w-full mb-3'>
+          <label className='block text-gray-300 text-sm font-medium mb-1' htmlFor='businessActivity'>
             Your Business Activity
           </label>
           <select

@@ -134,7 +134,7 @@ export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
       city: geoInfo.city,
       countryCode: geoInfo.country_code,
       callingCode: geoInfo.location.calling_code,
-      currencyCode: geoInfo.currency.code
+      currencyCode: geoInfo.currency.code,
     }
   } catch (error) {
     return {
