@@ -42,8 +42,9 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
     const mxAuto = slice.primary.align === TitleAlign.Center ? '' : 'mx-auto'
 
     let formName = slice.primary.form?.toString()
-    const showCtaButtons = formName === '' ?? true
+    const showCtaButtons = formName === undefined ? true : false
     const showForm = !showCtaButtons
+    console.log(showForm)
 
     // console.log(slice)
 
