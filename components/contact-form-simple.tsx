@@ -16,6 +16,7 @@ export default function ContactFormSimple() {
   const [submitted, setSubmitted] = useState(false)
 
   const [formData, setFormData] = useState({
+    formName: 'contact-form',
     name: '',
     email: '',
     phoneNumber: '',
