@@ -1708,6 +1708,16 @@ export interface Hero1SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   body_image: prismic.ImageField<never>
+
+  /**
+   * Form field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Replace bullets with form
+   * - **API ID Path**: hero1.primary.form
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  form: prismic.SelectField<'Business Setup Calculator' | 'Company Name Checker' | 'Contact'>
 }
 
 /**
