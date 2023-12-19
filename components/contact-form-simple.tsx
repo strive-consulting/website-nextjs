@@ -35,10 +35,10 @@ export default function ContactFormSimple() {
 
     setSubmitted(true)
 
-    // await fetch('/api/forms/prefill', {
-    //   method: 'POST',
-    //   body: JSON.stringify(formData),
-    // })
+    await fetch('/api/forms/prefill', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+    })
   }
 
   return (
