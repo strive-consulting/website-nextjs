@@ -16,8 +16,18 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/employee-information-request-form',
+        destination: 'https://form.jotform.com/striveconsultants/employee-visa-information-request',
+        permanent: true,
+      },
+      {
         source: '/accounting-information-request-form',
         destination: 'https://form.jotform.com/striveconsultants/accounting-information-request-form',
+        permanent: true,
+      },
+      {
+        source: '/sales-closure-form',
+        destination: 'https://form.jotform.com/striveconsultants/sales-closure-form',
         permanent: true,
       },
     ]
