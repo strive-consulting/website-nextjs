@@ -49,3 +49,13 @@ address {
 .form-checkbox, .form-radio {
     color: #ff4040;
 }
+
+.illustrationWrapper {
+    top:100px;
+}
+
+.pageIllustrationWrapper {
+    top:250px;
+    right:70px;
+    
+}
