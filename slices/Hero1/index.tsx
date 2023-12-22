@@ -54,7 +54,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
             {!hasBullets && !showForm && (
               <>
                 {/* Illustration */}
-                <div className='absolute left-0 bottom-0 -ml-64 hidden lg:block pointer-events-none' aria-hidden='true' data-aos='fade-up' data-aos-delay='600'>
+                <div className='illustrationWrapper absolute left-0 bottom-0 -ml-64 hidden lg:block pointer-events-none' aria-hidden='true' data-aos='fade-up' data-aos-delay='600'>
                   <svg className='max-w-full' width='552' height='564' viewBox='0 0 552 564' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <defs>
                       <linearGradient id='paint0_linear' x1='-2.963' y1='307.099' x2='290.505' y2='577.859' gradientUnits='userSpaceOnUse'>
