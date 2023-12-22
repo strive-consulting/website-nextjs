@@ -14,7 +14,7 @@ export default async function Footer() {
           {/* Top area: Blocks */}
           <div className='grid md:grid-cols-12 gap-8 lg:gap-20 mb-8 md:mb-12'>
             {/* 1st block */}
-            <div className='md:col-span-4 lg:col-span-5'>
+            <div className='md:col-span-4'>
               <div className='mb-2'>
                 {/* Logo */}
                 <Link href='/' className='inline-block' aria-label='Strive Consultants'>
@@ -32,7 +32,7 @@ export default async function Footer() {
             </div>
 
             {/* 2nd, 3rd and 4th blocks */}
-            <div className='md:col-span-8 lg:col-span-7 grid sm:grid-cols-2 gap-8'>
+            <div className='md:col-span-8 grid sm:grid-cols-3 gap-12 md:gap-6'>
               {/* 2nd block */}
               <div className='text-sm'>
                 <div className='text-gray-200 font-medium mb-3'>Business Activities</div>
@@ -49,53 +49,6 @@ export default async function Footer() {
                 </ul>
               </div>
 
-              {/* 3rd block */}
-              {/* <div className='text-sm'>
-                <h5 className='text-gray-200 font-medium mb-1'>Knowledge Hub</h5>
-                <ul>
-                  <li className='mb-1'>
-                    <Link
-                      href='/'
-                      className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'
-                    >
-                      Videos
-                    </Link>
-                  </li>
-                  <li className='mb-1'>
-                    <Link
-                      href='/'
-                      className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'
-                    >
-                      Blog
-                    </Link>
-                  </li>
-                  <li className='mb-1'>
-                    <Link
-                      href='/help/frequently-asked-questions'
-                      className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'
-                    >
-                      Help Center
-                    </Link>
-                  </li>
-                  <li className='mb-1'>
-                    <Link
-                      href='/privacy-policy'
-                      className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'
-                    >
-                      Privacy Policy
-                    </Link>
-                  </li>
-                  <li className='mb-1'>
-                    <Link
-                      href='/terms-and-conditions'
-                      className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'
-                    >
-                      Terms and conditions
-                    </Link>
-                  </li>
-                </ul>
-              </div> */}
-
               {/* 4th block */}
               <div className='text-sm'>
                 <div className='text-gray-200 font-medium mb-3'>Company</div>
@@ -110,6 +63,9 @@ export default async function Footer() {
                     )
                   })}
                 </ul>
+              </div>
+              <div className='w-full md:py-10'>
+                <Link href={'/uae-accountancy-service'}><Image className='md:mx-auto' src='/images/xero-certified-advisors.png' width={120} height={59} alt='Strive is a Xero Certified Advisor'/></Link>
               </div>
             </div>
           </div>
