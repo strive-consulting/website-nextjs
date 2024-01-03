@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { FooterDocument, GlobalNavDocument } from '@/prismicio-types'
 import { PrismicLink } from '@prismicio/react'
 
@@ -36,9 +37,14 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
     document.addEventListener('keydown', keyHandler)
     return () => document.removeEventListener('keydown', keyHandler)
   })
-
   return (
     <div className='md:hidden'>
+      <Link
+        href='/tools/cost-calculator?utm_campaign=mobile&utm_medium=cost-calculator-button&utm_source=header'
+        className='btn-sm btn-cost-calculator text-white bg-purple-600 hover:bg-purple-700 mr-3'
+      >
+        <Image src='/images/icon-calculator.png' alt='Dubai Cost calculator' width={24} height={24} />
+      </Link>
       {/* Hamburger button */}
       <button ref={trigger} className={`hamburger ${mobileNavOpen && 'active'}`} aria-controls='mobile-nav' aria-expanded={mobileNavOpen} onClick={() => setMobileNavOpen(!mobileNavOpen)}>
         <span className='sr-only'>Menu</span>
@@ -89,6 +95,16 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
           <li className='py-2 my-2 border-t border-gray-700'>
             {/* <span className='flex text-gray-300 py-2'>Support</span> */}
             <ul className='space-y-2'>
+              <li>
+                <Link href='/tools/cost-calculator' className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
+                  Cost Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href='/business-name-checker' className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
+                  Business Name Checker
+                </Link>
+              </li>
               {footer.data.company_items.map((item) => {
                 return (
                   <li key={item.menu_label}>

@@ -56,6 +56,10 @@ address {
 
 .pageIllustrationWrapper {
     top:250px;
-    right:70px;
-    
+    right:70px;    
+}
+
+.btn-cost-calculator {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }

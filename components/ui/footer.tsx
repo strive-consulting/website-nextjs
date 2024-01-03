@@ -65,7 +65,9 @@ export default async function Footer() {
                 </ul>
               </div>
               <div className='w-full md:py-10'>
-                <Link href={'/uae-accountancy-service'}><Image className='md:mx-auto' src='/images/xero-certified-advisors.png' width={120} height={59} alt='Strive is a Xero Certified Advisor'/></Link>
+                <Link href={'/uae-accountancy-service'}>
+                  <Image className='md:mx-auto' src='/images/xero-certified-advisors.png' width={120} height={59} alt='Strive is a Xero Certified Advisor' />
+                </Link>
               </div>
             </div>
           </div>
