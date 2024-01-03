@@ -47,13 +47,13 @@ export default function BusinessFormationCost({ businessActivityId, visas, redir
         }
 
         if (businessActivity) {
-          const mainlandPriceCalculated = businessActivity.mainlandPrice + visas * businessActivity.additionalVisaPrice
+          const mainlandPriceCalculated = businessActivity.mainlandPrice + (visas * businessActivity.additionalVisaPrice) + businessActivity.serviceFee
           const mainlandPriceLowerCalculated = mainlandPriceCalculated - rangeBand
           const mainlandPriceUpperCalculated = mainlandPriceCalculated + rangeBand
           setMainlandPriceLower(mainlandPriceLowerCalculated)
           setMainlandPriceUpper(mainlandPriceUpperCalculated)
 
-          const freezonePriceCalculated = businessActivity.freeZonePrice + visas * businessActivity.additionalVisaPrice
+          const freezonePriceCalculated = businessActivity.freeZonePrice + (visas * businessActivity.additionalVisaPrice) + businessActivity.serviceFee
           const freezonePriceLowerCalculated = freezonePriceCalculated - rangeBand
           const freezonePriceUpperCalculated = freezonePriceCalculated + rangeBand
           setFreezonePriceLower(freezonePriceLowerCalculated)
