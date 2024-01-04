@@ -101,7 +101,7 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
                 </Link>
               </li>
               <li>
-                <Link href='/business-name-checker' className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
+                <Link href='/tools/business-name-checker' className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
                   Business Name Checker
                 </Link>
               </li>
