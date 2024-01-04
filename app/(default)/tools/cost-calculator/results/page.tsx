@@ -111,7 +111,7 @@ export default async function Page({
                     </div>
 
                     {/* <h4 className='h2 text-center'>The only call you need to have</h4> */}
-                    <h4 className='h2 text-center' data-aos='fade-up' data-aos-delay='200'>
+                    {/* <h4 className='h2 text-center' data-aos='fade-up' data-aos-delay='200'>
                       Speak to a true consultancy
                     </h4>
 
@@ -129,6 +129,14 @@ export default async function Page({
                         schedule a call
                       </Link>{' '}
                       to speak to us, you will be speaking to one of our senior management team, and not a sales rep. We&apos;ll advise you on the best structure for your new venture to help you to
+                      save money. As a{' '}
+                      <Link className='underline' href={`/uae-accountancy-service`}>
+                        Xero partner
+                      </Link>
+                      , we can even help ensure your financial compliance and accounting best practices in the UAE.
+                    </p> */}
+                    <p className='my-10'>
+                      We&apos;ve received your details and will be in touch soon. Company formation and residency is core to us at Strive. When you to speak to us, you will be speaking to one of our senior management team, and not a sales rep. We&apos;ll advise you on the best structure for your new venture to help you to
                       save money. As a{' '}
                       <Link className='underline' href={`/uae-accountancy-service`}>
                         Xero partner
