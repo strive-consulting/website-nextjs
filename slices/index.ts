@@ -17,6 +17,7 @@ export const components = {
   hero1: dynamic(() => import('./Hero1')),
   landing_page_hero: dynamic(() => import('./LandingPageHero')),
   process_steps: dynamic(() => import('./ProcessSteps')),
+  social_bar: dynamic(() => import('./SocialBar')),
   sticky_navigation: dynamic(() => import('./StickyNavigation')),
   team: dynamic(() => import('./Team')),
   team_images: dynamic(() => import('./TeamImages')),
