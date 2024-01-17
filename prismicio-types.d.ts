@@ -707,6 +707,7 @@ interface QuoteDocumentData {
 export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<QuoteDocumentData>, 'quote', Lang>
 
 type ServicepageDocumentDataSlicesSlice =
+  | SocialBarSlice
   | ContactFormSlice
   | FreeZonesSlice
   | VideoSlice
@@ -1969,6 +1970,29 @@ type ProcessStepsSliceVariation = ProcessStepsSliceDefault
 export type ProcessStepsSlice = prismic.SharedSlice<'process_steps', ProcessStepsSliceVariation>
 
 /**
+ * Default variation for SocialBar Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SocialBarSliceDefault = prismic.SharedSliceVariation<'default', Record<string, never>, never>
+
+/**
+ * Slice variation for *SocialBar*
+ */
+type SocialBarSliceVariation = SocialBarSliceDefault
+
+/**
+ * SocialBar Shared Slice
+ *
+ * - **API ID**: `social_bar`
+ * - **Description**: SocialBar
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SocialBarSlice = prismic.SharedSlice<'social_bar', SocialBarSliceVariation>
+
+/**
  * Primary content in *StickyNavigation → Primary*
  */
 export interface StickyNavigationSliceDefaultPrimary {
@@ -2435,6 +2459,9 @@ declare module '@prismicio/client' {
       ProcessStepsSliceDefaultPrimary,
       ProcessStepsSliceVariation,
       ProcessStepsSliceDefault,
+      SocialBarSlice,
+      SocialBarSliceVariation,
+      SocialBarSliceDefault,
       StickyNavigationSlice,
       StickyNavigationSliceDefaultPrimary,
       StickyNavigationSliceVariation,

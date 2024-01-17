@@ -13,7 +13,7 @@ const Team = ({ slice }: TeamProps): JSX.Element => {
   return (
     <section>
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
-        <div className='py-12 md:py-20 border-t border-gray-800'>
+        <div className='py-6 md:pt-20 md:pb-1 border-t border-gray-800'>
           {/* Section header */}
           <div className='max-w-3xl mx-auto text-center pb-12 md:pb-20'>
             <h2 className='h2 mb-4'>{slice.primary.title}</h2>
@@ -26,11 +26,11 @@ const Team = ({ slice }: TeamProps): JSX.Element => {
           </div>
 
           {/* Team members */}
-          <div className='sm:flex sm:flex-wrap sm:justify-center -my-4 sm:-my-8 sm:-mx-3' data-aos-id-team>
+          <div className='flex flex-wrap sm:justify-center -my-4 sm:-my-8 sm:-mx-3' data-aos-id-team>
             {slice.items.map((item) => {
               return (
-                <div key={item.team_member_name} className='sm:w-1/2 md:w-1/3 lg:w-1/4 py-4 sm:py-8 sm:px-3' data-aos='fade-up' data-aos-anchor='[data-aos-id-team]'>
-                  <div className='flex flex-col items-center'>
+                <div key={item.team_member_name} className='w-1/2 md:w-1/3 lg:w-1/4 md:py-4 md:py-8 md:px-3 mb-5' data-aos='fade-up' data-aos-anchor='[data-aos-id-team]'>
+                  <div className='flex flex-col items-center text-center'>
                     <PrismicImage className='rounded-full mb-4' field={item.team_member_avatar} width={120} height={120} />
                     <h4 className='text-xl font-medium mb-1'>{item.team_member_name}</h4>
                     <div className='text-gray-500 mb-1'>{item.team_member_title}</div>
