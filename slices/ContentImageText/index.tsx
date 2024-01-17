@@ -15,6 +15,9 @@ const ContentImageText = ({ slice }: ContentImageTextProps): JSX.Element => {
   const textOrdering = slice.primary.image_align ? (slice.primary.image_align === 'Left' ? 'order-last' : 'order-first') : 'order-last'
   const textPadding = slice.primary.image_align ? (slice.primary.image_align === 'Left' ? 'md:pl-4 lg:pl-12 xl:pl-16' : 'md:pr-4 lg:pr-12 xl:pr-16') : 'md:pl-4 lg:pl-12 xl:pl-16'
 
+  const imageWidth = slice.primary.image.dimensions?.width && slice.primary.image.dimensions?.width <= 540 ? slice.primary.image.dimensions?.width : 540
+  const imageHeight = slice.primary.image.dimensions?.height && slice.primary.image.dimensions?.height <= 520 ? slice.primary.image.dimensions?.height : 540
+  
   // console.log(slice.primary.image_align)
   return (
     <section>
@@ -38,7 +41,7 @@ const ContentImageText = ({ slice }: ContentImageTextProps): JSX.Element => {
                 data-aos-delay='200'
                 data-aos-anchor='[data-aos-id-target]'
               >
-                <PrismicNextImage className='mx-auto md:max-w-none' field={slice.primary.image} width={540} height={520} />
+                <PrismicNextImage className='mx-auto md:max-w-none' field={slice.primary.image} width={imageWidth} height={imageHeight} />
               </div>
 
               {/* Content */}

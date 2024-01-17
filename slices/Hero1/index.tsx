@@ -22,7 +22,7 @@ export type Hero1Props = SliceComponentProps<Content.Hero1Slice>
 const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
   if (slice.variation === 'simple') {
     return (
-      <section className='relative'>
+      <section className='relative pt-32'>
         <div className='max-w-6xl mx-auto px-4 sm:px-6'>
           <div className='pt-12 md:pt-30 md:pb-5'>
             <div className='max-w-3xl mx-auto text-center pb-2'>
