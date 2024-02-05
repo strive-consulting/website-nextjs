@@ -7,190 +7,190 @@ export namespace Constants {
 
 export const businessActivities = [
   {
-    label: "Accountancy & Bookkeeping",
+    label: 'Accountancy & Bookkeeping',
     id: 1,
     mainlandPrice: 30000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 15000
+    serviceFee: 15000,
   },
   {
-    label: "Automobile Trading",
+    label: 'Automobile Trading',
     id: 2,
     mainlandPrice: 25000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Commodities Trading",
+    label: 'Commodities Trading',
     id: 3,
     mainlandPrice: 35000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Cryptocurrency",
+    label: 'Cryptocurrency',
     id: 4,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "E-commerce",
+    label: 'E-commerce',
     id: 5,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Event Management",
+    label: 'Event Management',
     id: 6,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Financial Consultancy",
+    label: 'Financial Consultancy',
     id: 7,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 15000
+    serviceFee: 15000,
   },
   {
-    label: "Food Trading & Wholesale",
+    label: 'Food Trading & Wholesale',
     id: 8,
     mainlandPrice: 25000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "General Trading",
+    label: 'General Trading',
     id: 9,
     mainlandPrice: 40000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 15000
+    serviceFee: 15000,
   },
   {
-    label: "HR & Recruitment",
+    label: 'HR & Recruitment',
     id: 10,
     mainlandPrice: 25000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Investment Holdings",
+    label: 'Investment Holdings',
     id: 11,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "IT Services & Consultancy",
+    label: 'IT Services & Consultancy',
     id: 12,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "IT Hardware Trading",
+    label: 'IT Hardware Trading',
     id: 13,
     mainlandPrice: 25000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Legal Consultancy",
+    label: 'Legal Consultancy',
     id: 14,
     mainlandPrice: 25000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Lifestyle Coaching",
+    label: 'Lifestyle Coaching',
     id: 15,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Management Consultancy",
+    label: 'Management Consultancy',
     id: 16,
     mainlandPrice: 25000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Marketing & PR",
+    label: 'Marketing & PR',
     id: 17,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Online Business",
+    label: 'Online Business',
     id: 18,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Personal Training & Fitness",
+    label: 'Personal Training & Fitness',
     id: 19,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Project Management",
+    label: 'Project Management',
     id: 20,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
+    serviceFee: 12000,
   },
   {
-    label: "Real Estate",
+    label: 'Real Estate',
     id: 21,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 15000
+    serviceFee: 15000,
   },
   {
-    label: "Restaurant & Café",
+    label: 'Restaurant & Café',
     id: 22,
     mainlandPrice: 32000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 15000
+    serviceFee: 15000,
   },
   {
-    label: "Software Development",
+    label: 'Software Development',
     id: 23,
     mainlandPrice: 24000,
     freeZonePrice: 17000,
     additionalVisaPrice: 6500,
-    serviceFee: 12000
-  }
-];
+    serviceFee: 12000,
+  },
+]
 
 export const premisesTypes = [
   { label: 'Virtual Office', id: 1 },

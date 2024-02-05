@@ -49,7 +49,7 @@ export default async function Home() {
               </p>
             </div>
             <div className='w-full md:w-1/2 lg:w-3/4 mx-auto'>
-              <BusinessSetupCalculator />
+              <BusinessSetupCalculator deferedDataCapture={true} />
             </div>
           </div>
         </div>
