@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { businessActivities } from '@/app/constants'
 import { getVisitorGeoInfo, objectToQueryString } from '@/lib/helpers'
 import { Loader } from '../loader'
@@ -29,6 +29,8 @@ interface FormData {
   utmCampaign?: string
   utmMedium?: string
   utmSource?: string
+  deferedDataCapture?: boolean
+  backUrl?: string
 }
 
 // Step 1 component
@@ -167,10 +169,19 @@ const Step2: React.FC<{
 }
 
 // Main Form Component
-const BusinessSetupCalculator: React.FC = () => {
+interface SetupProps {
+  deferedDataCapture?: boolean
+}
+
+const BusinessSetupCalculator: React.FC<SetupProps> = ({ deferedDataCapture }: SetupProps) => {
   const router = useRouter()
 
   const searchParams = useSearchParams()
+
+  //Create a Back url
+  const pathname = usePathname()
+  const backUrl = pathname + '?' + searchParams.toString()
+
   const utm = {
     utmCampaign: searchParams.get('utm_campaign') ?? undefined,
     utmMedium: searchParams.get('utm_medium') ?? undefined,
@@ -194,6 +205,8 @@ const BusinessSetupCalculator: React.FC = () => {
     utmCampaign: utm.utmCampaign,
     utmMedium: utm.utmMedium,
     utmSource: utm.utmSource,
+    deferedDataCapture: deferedDataCapture,
+    backUrl: backUrl,
   })
 
   // State to track completion of Step 1
@@ -226,6 +239,8 @@ const BusinessSetupCalculator: React.FC = () => {
     if (error) return
 
     setStep1Completed(true)
+
+    deferedDataCapture && handleRedirect()
   }
 
   const handleBack = () => {
@@ -258,6 +273,10 @@ const BusinessSetupCalculator: React.FC = () => {
 
     if (error) return
 
+    await handleRedirect()
+  }
+
+  const handleRedirect = async () => {
     setStep2Completed(true)
 
     await new Promise((f) => setTimeout(f, 5000))

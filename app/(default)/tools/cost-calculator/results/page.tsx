@@ -10,10 +10,38 @@ import { Divider } from '@/components/divider'
 import { getTestimonial } from '@/lib/cms'
 import { PrismicRichText } from '@prismicio/react'
 import BusinessFormationCost from '@/components/calculators/business-formation-cost'
+import UserDataCapture from '@/components/calculators/user-data-capture'
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
   title: 'Your Estimate',
+}
+
+interface FormData {
+  formName: string
+
+  businessActivity: string
+  businessActivityValid: boolean
+  //   premisesType: string
+  numberOfVisas: number
+  numberOfVisasValid: boolean
+  numberOfPartners: number
+  numberOfPartnersValid: boolean
+  // firstName: string
+  // firstNameValid: boolean
+  // lastName: string
+  // lastNameValid: boolean
+  name: string
+  nameValid: boolean
+  email: string
+  emailValid: boolean
+  phoneNumber: string
+  phoneNumberValid: boolean
+  //   nationality: string
+  utmCampaign?: string
+  utmMedium?: string
+  utmSource?: string
+  deferedDataCapture?: boolean
 }
 
 export default async function Page({
@@ -34,6 +62,8 @@ export default async function Page({
     complete?: string
     country?: string
     currency?: string
+    deferedDataCapture?: string
+    backUrl?: string
   }
 }) {
   const testimonial = await getTestimonial('ryan-martin')
@@ -48,11 +78,14 @@ export default async function Page({
     utmSource: searchParams?.utmSource != 'undefined' ? searchParams?.utmSource : '',
   }
 
+  const isDeferedDataCapture = searchParams?.deferedDataCapture === 'true' ? true : false
   const isComplete = searchParams?.complete === 'true' ? true : false
   const ctaUrl = `${process.env.ROUNDROBIN_CALENDAR_URL}?name=${searchParams?.name}&email=${searchParams?.email}&a1=${searchParams?.phoneNumber}&utm_campaign=${utm.utmCampaign}&utm_medium=${utm.utmMedium}&utm_source=${utm.utmSource}`
 
+  console.log('isDeferedDataCapture', isDeferedDataCapture)
+
   //Prevent double lead creation if refreshed
-  if (!isComplete) {
+  if (!isComplete && !isDeferedDataCapture) {
     //Create a lead
     const formData = {
       name: searchParams?.name,
@@ -108,7 +141,19 @@ export default async function Page({
                       <BusinessFormationCost businessActivityId={searchParams?.businessActivity ?? ''} visas={searchParams?.numberOfVisas ?? 1} redirectUrl={redirectUrl} />
 
                       <div className='text-sm'>Prices shown are indicative</div>
+
+                      {isDeferedDataCapture && searchParams?.backUrl != '' && (
+                        <>
+                          <div className='text-left mt-5 text-sm '>
+                            <a href={searchParams?.backUrl} className=''>
+                              Start again
+                            </a>
+                          </div>
+                        </>
+                      )}
                     </div>
+
+                    {isDeferedDataCapture && <UserDataCapture />}
 
                     {/* <h4 className='h2 text-center'>The only call you need to have</h4> */}
                     {/* <h4 className='h2 text-center' data-aos='fade-up' data-aos-delay='200'>
@@ -135,15 +180,16 @@ export default async function Page({
                       </Link>
                       , we can even help ensure your financial compliance and accounting best practices in the UAE.
                     </p> */}
-                    <p className='my-10'>
-                      We&apos;ve received your details and will be in touch soon. Company formation and residency is core to us at Strive. When you to speak to us, you will be speaking to one of our senior management team, and not a sales rep. We&apos;ll advise you on the best structure for your new venture to help you to
-                      save money. As a{' '}
-                      <Link className='underline' href={`/uae-accountancy-service`}>
-                        Xero partner
-                      </Link>
-                      , we can even help ensure your financial compliance and accounting best practices in the UAE.
-                    </p>
-
+                    {!isDeferedDataCapture && (
+                      <p className='my-10'>
+                        We&apos;ve received your details and will be in touch soon. Company formation and residency is core to us at Strive. When you to speak to us, you will be speaking to one of our
+                        senior management team, and not a sales rep. We&apos;ll advise you on the best structure for your new venture to help you to save money. As a{' '}
+                        <Link className='underline' href={`/uae-accountancy-service`} target='_blank'>
+                          Xero partner
+                        </Link>
+                        , we can even help ensure your financial compliance and accounting best practices in the UAE.
+                      </p>
+                    )}
                     <div className='mt-10 text-center'>
                       <Trustpilot />
                     </div>
