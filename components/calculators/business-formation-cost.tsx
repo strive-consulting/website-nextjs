@@ -24,6 +24,7 @@ export default function BusinessFormationCost({ businessActivityId, visas, redir
   const [freezonePriceUpperConverted, setFreezonePriceUpperConverted] = useState<number | string>(0)
 
   const router = useRouter()
+
   const searchParams = useSearchParams()
   const rangeBand = 3000
 
@@ -47,13 +48,13 @@ export default function BusinessFormationCost({ businessActivityId, visas, redir
         }
 
         if (businessActivity) {
-          const mainlandPriceCalculated = businessActivity.mainlandPrice + (visas * businessActivity.additionalVisaPrice) + businessActivity.serviceFee
+          const mainlandPriceCalculated = businessActivity.mainlandPrice + visas * businessActivity.additionalVisaPrice + businessActivity.serviceFee
           const mainlandPriceLowerCalculated = mainlandPriceCalculated - rangeBand
           const mainlandPriceUpperCalculated = mainlandPriceCalculated + rangeBand
           setMainlandPriceLower(mainlandPriceLowerCalculated)
           setMainlandPriceUpper(mainlandPriceUpperCalculated)
 
-          const freezonePriceCalculated = businessActivity.freeZonePrice + (visas * businessActivity.additionalVisaPrice) + businessActivity.serviceFee
+          const freezonePriceCalculated = businessActivity.freeZonePrice + visas * businessActivity.additionalVisaPrice + businessActivity.serviceFee
           const freezonePriceLowerCalculated = freezonePriceCalculated - rangeBand
           const freezonePriceUpperCalculated = freezonePriceCalculated + rangeBand
           setFreezonePriceLower(freezonePriceLowerCalculated)

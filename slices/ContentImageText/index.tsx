@@ -17,7 +17,7 @@ const ContentImageText = ({ slice }: ContentImageTextProps): JSX.Element => {
 
   const imageWidth = slice.primary.image.dimensions?.width && slice.primary.image.dimensions?.width <= 540 ? slice.primary.image.dimensions?.width : 540
   const imageHeight = slice.primary.image.dimensions?.height && slice.primary.image.dimensions?.height <= 520 ? slice.primary.image.dimensions?.height : 540
-  
+
   // console.log(slice.primary.image_align)
   return (
     <section>
