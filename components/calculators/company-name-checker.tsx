@@ -184,13 +184,13 @@ const CompanyNameChecker: React.FC = () => {
     //Fetch UTMs from local storage
     const utmParamsFromLocalStorage = JSON.parse(localStorage.getItem('utmParams') || '{}')
     setUtm({
-      utmCampaign: utmParamsFromLocalStorage['utm_campaign'],// ?? undefined,
-      utmMedium: utmParamsFromLocalStorage['utm_medium'],// ?? undefined,
-      utmSource: utmParamsFromLocalStorage['utm_source'],// ?? undefined,
+      utmCampaign: utmParamsFromLocalStorage['utm_campaign'], // ?? undefined,
+      utmMedium: utmParamsFromLocalStorage['utm_medium'], // ?? undefined,
+      utmSource: utmParamsFromLocalStorage['utm_source'], // ?? undefined,
     })
     // console.log('utm from ls', utmParamsFromLocalStorage)
   }, [])
- 
+
   const [formData, setFormData] = useState<FormData>({
     formName: 'company-name-checker',
     businessActivity: '',
@@ -211,7 +211,6 @@ const CompanyNameChecker: React.FC = () => {
   // State to track completion of Step 1
   const [step1Completed, setStep1Completed] = useState<boolean>(false)
   const [step2Completed, setStep2Completed] = useState<boolean>(false)
-
 
   const handleStep1Submit = () => {
     //setup utms from state

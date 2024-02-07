@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* <WhatsAppClickHandler/> */}
 
-        <UtmStorage/>
+        <UtmStorage />
 
         <noscript
           dangerouslySetInnerHTML={{

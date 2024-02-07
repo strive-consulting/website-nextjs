@@ -6,7 +6,6 @@ import { useEffect } from 'react'
 //No expiry set on local storage
 const UtmStorage = () => {
   useEffect(() => {
-    
     const getUTMParamsFromURL = (): Record<string, string> => {
       const urlParams = new URLSearchParams(window.location.search)
       const utmParams: Record<string, string> = {}
@@ -18,7 +17,6 @@ const UtmStorage = () => {
       return utmParams
     }
 
-    
     const storeUTMParams = (data: Record<string, string>): void => {
       const existingUTMParams = JSON.parse(localStorage.getItem('utmParams') || '{}')
       console.log('existingUTMParams in LS', existingUTMParams)
