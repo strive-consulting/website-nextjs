@@ -175,6 +175,7 @@ interface SetupProps {
 
 const BusinessSetupCalculator: React.FC<SetupProps> = ({ deferedDataCapture }: SetupProps) => {
   const router = useRouter()
+  const [utm, setUtm] = useState<any>()
 
   const searchParams = useSearchParams()
 
@@ -182,11 +183,16 @@ const BusinessSetupCalculator: React.FC<SetupProps> = ({ deferedDataCapture }: S
   const pathname = usePathname()
   const backUrl = pathname + '?' + searchParams.toString()
 
-  const utm = {
-    utmCampaign: searchParams.get('utm_campaign') ?? undefined,
-    utmMedium: searchParams.get('utm_medium') ?? undefined,
-    utmSource: searchParams.get('utm_source') ?? undefined,
-  }
+  //from local storage
+  useEffect(() => {
+    //Fetch UTMs from local storage
+    const utmParamsFromLocalStorage = JSON.parse(localStorage.getItem('utmParams') || '{}')
+    setUtm({
+      utmCampaign: utmParamsFromLocalStorage['utm_campaign'] ?? undefined,
+      utmMedium: utmParamsFromLocalStorage['utm_medium'] ?? undefined,
+      utmSource: utmParamsFromLocalStorage['utm_source'] ?? undefined,
+    })
+  }, [])
 
   const [formData, setFormData] = useState<FormData>({
     formName: 'business-setup-calculator',
@@ -202,9 +208,6 @@ const BusinessSetupCalculator: React.FC<SetupProps> = ({ deferedDataCapture }: S
     emailValid: true,
     phoneNumber: '',
     phoneNumberValid: true,
-    utmCampaign: utm.utmCampaign,
-    utmMedium: utm.utmMedium,
-    utmSource: utm.utmSource,
     deferedDataCapture: deferedDataCapture,
     backUrl: backUrl,
   })
@@ -214,6 +217,11 @@ const BusinessSetupCalculator: React.FC<SetupProps> = ({ deferedDataCapture }: S
   const [step2Completed, setStep2Completed] = useState<boolean>(false)
 
   const handleStep1Submit = () => {
+    //setup utms from state
+    formData.utmCampaign = utm['utm_campaign']
+    formData.utmMedium = utm['utm_medium']
+    formData.utmSource = utm['utm_source']
+
     setFormData({ ...formData })
 
     let error = false
