@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { businessActivities } from '@/app/constants'
 import { objectToQueryString } from '@/lib/helpers'
@@ -172,11 +172,24 @@ const CompanyNameChecker: React.FC = () => {
   const router = useRouter()
 
   const searchParams = useSearchParams()
-  const utm = {
-    utmCampaign: searchParams.get('utm_campaign') ?? undefined,
-    utmMedium: searchParams.get('utm_medium') ?? undefined,
-    utmSource: searchParams.get('utm_source') ?? undefined,
-  }
+  // const utm = {
+  //   utmCampaign: searchParams.get('utm_campaign') ?? undefined,
+  //   utmMedium: searchParams.get('utm_medium') ?? undefined,
+  //   utmSource: searchParams.get('utm_source') ?? undefined,
+  // }
+
+  //V2 from local storage
+  const [utm, setUtm] = useState<any>()
+  useEffect(() => {
+    //Fetch UTMs from local storage
+    const utmParamsFromLocalStorage = JSON.parse(localStorage.getItem('utmParams') || '{}')
+    setUtm({
+      utmCampaign: utmParamsFromLocalStorage['utm_campaign'], // ?? undefined,
+      utmMedium: utmParamsFromLocalStorage['utm_medium'], // ?? undefined,
+      utmSource: utmParamsFromLocalStorage['utm_source'], // ?? undefined,
+    })
+    // console.log('utm from ls', utmParamsFromLocalStorage)
+  }, [])
 
   const [formData, setFormData] = useState<FormData>({
     formName: 'company-name-checker',
@@ -190,9 +203,9 @@ const CompanyNameChecker: React.FC = () => {
     emailValid: true,
     phoneNumber: '',
     phoneNumberValid: true,
-    utmCampaign: utm.utmCampaign,
-    utmMedium: utm.utmMedium,
-    utmSource: utm.utmSource,
+    // utmCampaign: utm.utmCampaign,
+    // utmMedium: utm.utmMedium,
+    // utmSource: utm.utmSource,
   })
 
   // State to track completion of Step 1
@@ -200,6 +213,12 @@ const CompanyNameChecker: React.FC = () => {
   const [step2Completed, setStep2Completed] = useState<boolean>(false)
 
   const handleStep1Submit = () => {
+    //setup utms from state
+    formData.utmCampaign = utm['utmCampaign']
+    formData.utmMedium = utm['utmMedium']
+    formData.utmSource = utm['utmSource']
+
+    console.log('formData after setting', formData)
     setFormData({ ...formData })
 
     let error = false
@@ -256,7 +275,8 @@ const CompanyNameChecker: React.FC = () => {
 
     await new Promise((f) => setTimeout(f, 5000))
 
-    //All form data on the querystring
+    //All form data on the querystring.
+    //Note: Includes the utms from local storage due to the result page being a server page
     router.push('/tools/business-name-checker/results?' + objectToQueryString(formData))
   }
 

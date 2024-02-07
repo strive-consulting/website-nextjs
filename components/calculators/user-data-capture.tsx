@@ -1,6 +1,7 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 //Used to capture user data for a deferred cost calculator quote.
 //Similar underlying data capture
@@ -45,12 +46,8 @@ export default function UserDataCapture({
   }
 }) {
   const [formCompleted, setFormCompleted] = useState<boolean>(false)
-
-  const utm = {
-    utmCampaign: searchParams?.utmCampaign != 'undefined' ? searchParams?.utmCampaign : '',
-    utmMedium: searchParams?.utmMedium != 'undefined' ? searchParams?.utmMedium : '',
-    utmSource: searchParams?.utmSource != 'undefined' ? searchParams?.utmSource : '',
-  }
+  const [utm, setUtm] = useState<any>()
+  const router = useRouter()
 
   const [formData, setFormData] = useState<FormData>({
     formName: 'business-setup-calculator',
@@ -60,13 +57,26 @@ export default function UserDataCapture({
     emailValid: true,
     phoneNumber: '',
     phoneNumberValid: true,
-    utmCampaign: utm.utmCampaign,
-    utmMedium: utm.utmMedium,
-    utmSource: utm.utmSource,
   })
+
+  useEffect(() => {
+    //Fetch UTMs from local storage
+    const utmParamsFromLocalStorage = JSON.parse(localStorage.getItem('utmParams') || '{}')
+    setUtm({
+      utmCampaign: utmParamsFromLocalStorage['utm_campaign'] ?? undefined,
+      utmMedium: utmParamsFromLocalStorage['utm_medium'] ?? undefined,
+      utmSource: utmParamsFromLocalStorage['utm_source'] ?? undefined,
+    })
+    //console.log(utm)
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    //setup utms from state
+    formData.utmCampaign = utm['utmCampaign']
+    formData.utmMedium = utm['utmMedium']
+    formData.utmSource = utm['utmSource']
 
     setFormData({ ...formData })
 
@@ -102,12 +112,15 @@ export default function UserDataCapture({
       utm: utm,
     }
 
+    //console.log(formDataForSubmission)
     setFormCompleted(true)
 
     await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/forms/prefill', {
       method: 'POST',
-      body: JSON.stringify(formData),
+      body: JSON.stringify(formDataForSubmission),
     })
+
+    router.push('/calculator-thanks')
   }
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
