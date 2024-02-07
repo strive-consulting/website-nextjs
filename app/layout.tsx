@@ -7,6 +7,7 @@ import Script from 'next/script'
 import { PrismicPreview } from '@prismicio/next'
 import { repositoryName } from '@/prismicio'
 import WhatsAppClickHandler from '@/components/whatsapp'
+import UtmStorage from '@/components/utm-storage'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -74,6 +75,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         {/* <WhatsAppClickHandler/> */}
+
+        <UtmStorage/>
 
         <noscript
           dangerouslySetInnerHTML={{
