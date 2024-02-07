@@ -39,10 +39,7 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
   })
   return (
     <div className='md:hidden'>
-      <Link
-        href='/tools/cost-calculator?utm_campaign=mobile&utm_medium=cost-calculator-button&utm_source=header'
-        className='btn-sm btn-cost-calculator text-white bg-purple-600 hover:bg-purple-700 mr-3'
-      >
+      <Link href='/tools/cost-calculator' className='btn-sm btn-cost-calculator text-white bg-purple-600 hover:bg-purple-700 mr-3'>
         <Image src='/images/icon-calculator.png' alt='Dubai Cost calculator' width={24} height={24} />
       </Link>
       {/* Hamburger button */}

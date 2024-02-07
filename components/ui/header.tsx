@@ -108,10 +108,7 @@ export default async function Header() {
 
             <ul className='flex grow justify-end flex-wrap items-center'>
               <li>
-                <Link
-                  href='/tools/cost-calculator?utm_campaign=desktop&utm_medium=cost-calculator-button&utm_source=header'
-                  className='btn-sm btn-cost-calculator text-white bg-purple-600 hover:bg-purple-700 ml-3'
-                >
+                <Link href='/tools/cost-calculator' className='btn-sm btn-cost-calculator text-white bg-purple-600 hover:bg-purple-700 ml-3'>
                   <Image src='/images/icon-calculator.png' alt='Dubai Cost calculator' width={24} height={24} />
                 </Link>
               </li>
