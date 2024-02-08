@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface FormData {
   formName: string
@@ -17,10 +17,14 @@ interface FormData {
   interested_banking: boolean
   interested_accounting: boolean
   interested_other: boolean
+  utmCampaign?: string
+  utmMedium?: string
+  utmSource?: string
 }
 
 export default function EnquiryForm() {
   const router = useRouter()
+  const [utm, setUtm] = useState<any>()
 
   const [formData, setFormData] = useState<FormData>({
     formName: 'website-contact-form',
@@ -38,6 +42,17 @@ export default function EnquiryForm() {
     interested_accounting: false,
     interested_other: false,
   })
+
+  useEffect(() => {
+    //Fetch UTMs from local storage
+    const utmParamsFromLocalStorage = JSON.parse(localStorage.getItem('utmParams') || '{}')
+    setUtm({
+      utmCampaign: utmParamsFromLocalStorage['utm_campaign'] ?? undefined,
+      utmMedium: utmParamsFromLocalStorage['utm_medium'] ?? undefined,
+      utmSource: utmParamsFromLocalStorage['utm_source'] ?? undefined,
+    })
+    //console.log(utm)
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -67,6 +82,12 @@ export default function EnquiryForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    //setup utms from state
+    formData.utmCampaign = utm['utmCampaign']
+    formData.utmMedium = utm['utmMedium']
+    formData.utmSource = utm['utmSource']
+
     setFormData({ ...formData })
 
     console.log(formData)
@@ -109,6 +130,7 @@ export default function EnquiryForm() {
       phoneNumber: formData.phoneNumber,
       formName: formData.formName,
       dateTime: new Date().toISOString(),
+      utm: utm,
       note: note,
     }
 
