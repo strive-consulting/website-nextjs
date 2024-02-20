@@ -1718,7 +1718,7 @@ export interface Hero1SliceDefaultPrimary {
    * - **API ID Path**: hero1.primary.form
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  form: prismic.SelectField<'Business Setup Calculator' | 'Company Name Checker' | 'Contact'>
+  form: prismic.SelectField<'Business Setup Calculator' | 'Company Name Checker' | 'Contact' | 'HR'>
 }
 
 /**
