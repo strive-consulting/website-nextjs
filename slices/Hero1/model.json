@@ -79,7 +79,7 @@
           "config": {
             "label": "Form",
             "placeholder": "Replace bullets with form",
-            "options": ["Business Setup Calculator", "Company Name Checker", "Contact"]
+            "options": ["Business Setup Calculator", "Company Name Checker", "Contact", "HR"]
           }
         }
       },

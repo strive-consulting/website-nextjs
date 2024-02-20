@@ -1,6 +1,7 @@
 import BusinessSetupCalculator from '@/components/calculators/business-setup'
 import CompanyNameChecker from '@/components/calculators/company-name-checker'
 import ContactFormSimple from '@/components/contact-form-simple'
+import HrForm from '@/components/hr-form'
 import TickIcon from '@/components/tickIcon'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
@@ -159,6 +160,14 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                               <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
                               <div className='mx-auto w-full px-3'>
                                 <ContactFormSimple />
+                              </div>
+                            </>
+                          )}
+                          {formName === 'HR' && (
+                            <>
+                              <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
+                              <div className='mx-auto w-full px-3'>
+                                <HrForm />
                               </div>
                             </>
                           )}
