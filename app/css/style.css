@@ -46,6 +46,12 @@ address {
     transform: translate(4px, 3px) scale(0.8);
 }
 
+.tiktok-icon {
+    transform: translate(1px, 1px) scale(0.6);
+    stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;
+    fill: #ff4040;
+}
+
 .form-checkbox, .form-radio {
     color: #ff4040;
 }
