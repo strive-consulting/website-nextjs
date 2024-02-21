@@ -7,10 +7,16 @@ export default function PostTags({ tags }: { tags: string[] }) {
         return 'text-gray-100 bg-blue-500 hover:bg-blue-600'
       case 'Education':
         return 'text-gray-100 bg-pink-500 hover:bg-pink-600'
-      case 'Tutorials and articles':
+      case 'Lifestyle':
         return 'text-gray-100 bg-teal-500 hover:bg-teal-600'
-      case 'Culture':
+      case 'Visas':
         return 'text-gray-100 bg-green-500 hover:bg-green-600'
+      case 'HR':
+        return 'text-gray-100 bg-yellow-500 hover:bg-yellow-600'
+      case 'Accounting':
+          return 'text-gray-100 bg-red-500 hover:bg-red-600'
+      case 'Saudi':
+        return 'text-gray-100 bg-orange-500 hover:bg-orange-600'
       default:
         return 'text-gray-100 bg-purple-600 hover:bg-purple-700'
     }
