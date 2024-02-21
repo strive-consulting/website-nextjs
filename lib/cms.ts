@@ -1,7 +1,7 @@
 import { createClient } from '@/prismicio'
 import { notFound } from 'next/navigation'
 import * as prismic from '@prismicio/client'
-import { toTitleCase } from './helpers'
+import { blogTagNameCleaner, toTitleCase } from './helpers'
 
 export async function getTestimonials(maxcount?: number) {
   const client = createClient()
@@ -133,7 +133,7 @@ export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number, 
   //note, Tags are case sensitive in Prismic so we must follow the title case convention to make this work.
 
   const filters: string[] = []
-  const tagFilter = tag && filters.push(prismic.filter.at('document.tags', [toTitleCase(tag)]))
+  const tagFilter = tag && filters.push(prismic.filter.at('document.tags', [blogTagNameCleaner(tag)]))
   const postExcludeFilter = blogPostToExcludeUid && filters.push(prismic.filter.not('my.blog_post.uid', blogPostToExcludeUid.toString()))
   // console.log(filters)
   const communityPosts = await client

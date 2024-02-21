@@ -160,3 +160,12 @@ export function extractNames(fullName?: string): {
 
   return { firstName, lastName }
 }
+
+export function blogTagNameCleaner(tagName: string) {
+  let tagNameClean = toTitleCase(tagName)
+
+  //We need it to be in upper case to ensure it fetches from the CMS repository
+  if (tagNameClean === 'Hr') return 'HR'
+
+  return tagNameClean
+}

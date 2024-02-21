@@ -14,7 +14,7 @@ export default function PostTags({ tags }: { tags: string[] }) {
       case 'HR':
         return 'text-gray-100 bg-yellow-500 hover:bg-yellow-600'
       case 'Accounting':
-          return 'text-gray-100 bg-red-500 hover:bg-red-600'
+        return 'text-gray-100 bg-red-500 hover:bg-red-600'
       case 'Saudi':
         return 'text-gray-100 bg-orange-500 hover:bg-orange-600'
       default:
