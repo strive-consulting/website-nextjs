@@ -934,6 +934,16 @@ export interface BlogFeedSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   number_to_show: prismic.SelectField<'3' | '6' | '9'>
+
+  /**
+   * Tag Filter field in *BlogFeed → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_feed.primary.tag_filter
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  tag_filter: prismic.SelectField<'All' | 'Education' | 'Lifestyle' | 'Visas' | 'HR' | 'Accounting' | 'Saudi' | 'Tax'>
 }
 
 /**

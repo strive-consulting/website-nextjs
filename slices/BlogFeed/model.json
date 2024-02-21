@@ -35,6 +35,14 @@
             "placeholder": "",
             "options": ["3", "6", "9"]
           }
+        },
+        "tag_filter": {
+          "type": "Select",
+          "config": {
+            "label": "Tag Filter",
+            "placeholder": "",
+            "options": ["All", "Education", "Lifestyle", "Visas", "HR", "Accounting", "Saudi", "Tax"]
+          }
         }
       },
       "items": {}

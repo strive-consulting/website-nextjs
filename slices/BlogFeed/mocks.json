@@ -23,6 +23,11 @@
         "__TYPE__": "FieldContent",
         "value": "6",
         "type": "Select"
+      },
+      "tag_filter": {
+        "__TYPE__": "FieldContent",
+        "value": "Lifestyle",
+        "type": "Select"
       }
     },
     "items": []

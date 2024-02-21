@@ -15,7 +15,11 @@ export type BlogFeedProps = SliceComponentProps<Content.BlogFeedSlice>
  */
 const BlogFeed = async ({ slice }: BlogFeedProps): Promise<JSX.Element> => {
   const postCount = slice.primary.number_to_show ? parseInt(slice.primary.number_to_show) : 3
-  const blogPosts = await getBlogPostsPaged(1, postCount)
+
+  let tagFilterName = slice.primary.tag_filter?.toString()
+  tagFilterName = tagFilterName === 'All' ? '' : tagFilterName
+
+  const blogPosts = await getBlogPostsPaged(1, postCount, tagFilterName)
 
   return (
     <section>
