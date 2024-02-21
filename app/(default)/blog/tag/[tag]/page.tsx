@@ -31,16 +31,16 @@ import BlogPagination from '@/components/blog-pagination'
 import { Metadata } from 'next'
 import { Constants } from '@/app/constants'
 import SchemaTag from '@/components/schema'
-import { toTitleCase } from '@/lib/helpers'
+import { blogTagNameCleaner, toTitleCase } from '@/lib/helpers'
 import { notFound } from 'next/navigation'
 import BreadCrumbs from '@/components/breadcrumbs'
 
 export default async function Blog({ params }: { params: { tag: string } }) {
-  const tagName = toTitleCase(params.tag)
+  const tagName = blogTagNameCleaner(params.tag)
   const blogPosts = await getBlogPostsPaged(1, 6, tagName)
   const posts = blogPosts.generalPosts
 
-  // console.log(blogPosts.total_pages)
+  //console.log(blogPosts.total_pages)
   if (blogPosts.total_pages === 0) {
     return notFound()
   }
