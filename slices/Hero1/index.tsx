@@ -27,10 +27,10 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
         <div className='max-w-6xl mx-auto px-4 sm:px-6'>
           <div className='pt-12 md:pt-30 md:pb-5'>
             <div className='max-w-3xl mx-auto text-center pb-2'>
-              <h1 className='h1 mb-4' data-aos={`fade-up`}>
+              <h1 className='h1 mb-4'>
                 {slice.primary.title}
               </h1>
-              <p className='mb-5 text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
+              <p className='mb-5 text-xl text-gray-400'>
                 {slice.primary.sub_text}
               </p>
             </div>
@@ -74,7 +74,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
 
                 <div className='relative pt-32 md:pt-40 '>
                   <div className={`max-w-3xl mx-auto text-center ${titleAlignClass} pb-12 md:pb-16`}>
-                    <h1 className='h1 mb-4' data-aos='fade-up'>
+                    <h1 className='h1 mb-4'>
                       {slice.primary.title}
                     </h1>
 
@@ -82,7 +82,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                       field={slice.primary.description}
                       components={{
                         paragraph: ({ children }) => (
-                          <p className='mb-5 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline' data-aos='fade-up' data-aos-delay='200'>
+                          <p className='mb-5 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline'>
                             {children}
                           </p>
                         ),
@@ -119,14 +119,14 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
               <div className='pt-32 pb-12 md:pt-40 md:pb-0'>
                 <div className='flex flex-col md:flex-row'>
                   <div className={`w-full md:w-2/3 ${mxAuto} text-center ${titleAlignClass}`}>
-                    <h1 className='h1 mb-4' data-aos='fade-up'>
+                    <h1 className='h1 mb-4'>
                       {slice.primary.title}
                     </h1>
                     <PrismicRichText
                       field={slice.primary.description}
                       components={{
                         paragraph: ({ children }) => (
-                          <p className='mb-10 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline' data-aos='fade-up' data-aos-delay='200'>
+                          <p className='mb-10 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline' >
                             {children}
                           </p>
                         ),

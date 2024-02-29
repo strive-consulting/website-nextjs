@@ -41,10 +41,10 @@ export default async function Home() {
           <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
-              <h1 className='h1 mb-4' data-aos='fade-up'>
+              <h1 className='h1 mb-4'>
                 Cost Calculator
               </h1>
-              <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
+              <p className='text-xl text-gray-400'>
                 Use our simple calculator to determine how much it will cost to get your business setup along with any UAE residency visas.
               </p>
             </div>
