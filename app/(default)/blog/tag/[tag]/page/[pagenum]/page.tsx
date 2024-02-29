@@ -7,7 +7,7 @@ export async function generateMetadata({ params }: { params: { tag: string; page
     title: `UAE ${tagName} Blog - Business Setup in Dubai, UAE`,
     description: `Latest '${tagName}' information and blogs in Dubai and UAE.`,
     alternates: {
-      canonical: Constants.SiteDomain + '/blog' + params.tag,
+      canonical: Constants.SiteDomain + '/blog/' + params.tag,
     },
     openGraph: {
       title: `UAE ${tagName} Blog - Business Setup in Dubai, UAE`,

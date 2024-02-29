@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Dubai Business Name Checker',
   description: 'Dubai Business Name Checker by Strive. Use our tool to check if your new business name is available in the UAE',
   alternates: {
-    canonical: Constants.SiteDomain + '/calculator/business-name-checker',
+    canonical: Constants.SiteDomain + '/tools/business-name-checker',
   },
   openGraph: {
     title: 'Dubai Business Name Checker',
@@ -41,10 +41,10 @@ export default async function Home() {
           <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
-              <h1 className='h1 mb-4' data-aos='fade-up'>
+              <h1 className='h1 mb-4'>
                 UAE Business Name Checker
               </h1>
-              <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
+              <p className='text-xl text-gray-400'>
                 Find your perfect UAE business name
               </p>
             </div>
