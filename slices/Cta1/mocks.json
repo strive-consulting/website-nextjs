@@ -49,5 +49,50 @@
       }
     },
     "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "v2",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "dirt",
+        "type": "Text"
+      },
+      "sub_text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Tempor aliqua consequat aliqua eu do cupidatat voluptate fugiat qui incididunt sit anim exercitation duis ullamco. Voluptate id elit Lorem aliqua minim ea mollit sint laboris labore reprehenderit magna anim. Dolore officia fugiat non consequat pariatur sunt irure et incididunt."
+            }
+          }
+        ]
+      },
+      "cta_text": {
+        "__TYPE__": "FieldContent",
+        "value": "close",
+        "type": "Text"
+      },
+      "cta_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "http://google.com"
+        }
+      },
+      "cta_id": {
+        "__TYPE__": "FieldContent",
+        "value": "plenty",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
   }
 ]

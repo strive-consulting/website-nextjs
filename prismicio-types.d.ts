@@ -707,6 +707,7 @@ interface QuoteDocumentData {
 export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<QuoteDocumentData>, 'quote', Lang>
 
 type ServicepageDocumentDataSlicesSlice =
+  | ZigZagSlice
   | SocialBarSlice
   | ContactFormSlice
   | FreeZonesSlice
@@ -1270,9 +1271,73 @@ export interface Cta1SliceDefaultPrimary {
 export type Cta1SliceDefault = prismic.SharedSliceVariation<'default', Simplify<Cta1SliceDefaultPrimary>, never>
 
 /**
+ * Primary content in *Cta1 → Primary*
+ */
+export interface Cta1SliceV2Primary {
+  /**
+   * Title field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Sub Text field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.sub_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_text: prismic.RichTextField
+
+  /**
+   * CTA Text field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField
+
+  /**
+   * CTA Link field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField
+
+  /**
+   * CTA Id field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: If specified will add it as a class to CTA button
+   * - **API ID Path**: cta1.primary.cta_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_id: prismic.KeyTextField
+}
+
+/**
+ * V2 variation for Cta1 Slice
+ *
+ * - **API ID**: `v2`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Cta1SliceV2 = prismic.SharedSliceVariation<'v2', Simplify<Cta1SliceV2Primary>, never>
+
+/**
  * Slice variation for *Cta1*
  */
-type Cta1SliceVariation = Cta1SliceDefault
+type Cta1SliceVariation = Cta1SliceDefault | Cta1SliceV2
 
 /**
  * Cta1 Shared Slice
@@ -2372,6 +2437,89 @@ type VideoSliceVariation = VideoSliceDefault
  */
 export type VideoSlice = prismic.SharedSlice<'video', VideoSliceVariation>
 
+/**
+ * Primary content in *ZigZag → Primary*
+ */
+export interface ZigZagSliceDefaultPrimary {
+  /**
+   * Title field in *ZigZag → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zig_zag.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *ZigZag → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zig_zag.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Primary content in *ZigZag → Items*
+ */
+export interface ZigZagSliceDefaultItem {
+  /**
+   * Title field in *ZigZag → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zig_zag.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Image field in *ZigZag → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zig_zag.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+
+  /**
+   * Description field in *ZigZag → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zig_zag.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Default variation for ZigZag Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ZigZagSliceDefault = prismic.SharedSliceVariation<'default', Simplify<ZigZagSliceDefaultPrimary>, Simplify<ZigZagSliceDefaultItem>>
+
+/**
+ * Slice variation for *ZigZag*
+ */
+type ZigZagSliceVariation = ZigZagSliceDefault
+
+/**
+ * ZigZag Shared Slice
+ *
+ * - **API ID**: `zig_zag`
+ * - **Description**: ZigZag
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ZigZagSlice = prismic.SharedSlice<'zig_zag', ZigZagSliceVariation>
+
 declare module '@prismicio/client' {
   interface CreateClient {
     (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>
@@ -2427,8 +2575,10 @@ declare module '@prismicio/client' {
       ContentImageTextSliceDefault,
       Cta1Slice,
       Cta1SliceDefaultPrimary,
+      Cta1SliceV2Primary,
       Cta1SliceVariation,
       Cta1SliceDefault,
+      Cta1SliceV2,
       DescriptionQuoteSlice,
       DescriptionQuoteSliceDefaultPrimary,
       DescriptionQuoteSliceVariation,
@@ -2495,6 +2645,11 @@ declare module '@prismicio/client' {
       VideoSliceDefaultPrimary,
       VideoSliceVariation,
       VideoSliceDefault,
+      ZigZagSlice,
+      ZigZagSliceDefaultPrimary,
+      ZigZagSliceDefaultItem,
+      ZigZagSliceVariation,
+      ZigZagSliceDefault,
     }
   }
 }

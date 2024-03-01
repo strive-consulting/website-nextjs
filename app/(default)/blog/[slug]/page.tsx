@@ -11,6 +11,7 @@ import Link from 'next/link'
 import PostItem from '@/components/post-item'
 import ShareBar from '@/components/share-bar'
 import BlogPostAuthorFooter from '@/components/blog-post-author-footer'
+import TickIcon from '@/components/tickIcon'
 
 export async function generateStaticParams() {
   const pages = await getBlogPostsAll()
@@ -148,6 +149,20 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                       <p className='prose text-gray-400 max-w-none prose-lg prose-invert prose-p:leading-normal prose-headings:text-gray-200 prose-a:text-gray-200 prose-a:underline hover:prose-a:no-underline prose-a:font-normal prose-strong:font-medium prose-strong:text-gray-200 prose-blockquote:italic prose-blockquote:pl-4 prose-blockquote:border-l-2 prose-blockquote:border-gray-200 prose-blockquote:font-normal prose-blockquote:text-gray-400'>
                         {children}
                       </p>
+                    ),
+                    list: ({ children }) => <ul>{children}</ul>,
+                    listItem: ({ children }) => (
+                      <li className='flex items-center text-lg text-gray-400 mt-4'>
+                        <TickIcon />
+                        {children}
+                      </li>
+                    ),
+                    oList: ({ children }) => <ul>{children}</ul>,
+                    oListItem: ({ children }) => (
+                      <li className='flex items-center text-lg text-gray-400 mt-4'>
+                        <TickIcon />
+                        {children}
+                      </li>
                     ),
                   }}
                 />
