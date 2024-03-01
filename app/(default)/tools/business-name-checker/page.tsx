@@ -41,12 +41,8 @@ export default async function Home() {
           <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
-              <h1 className='h1 mb-4'>
-                UAE Business Name Checker
-              </h1>
-              <p className='text-xl text-gray-400'>
-                Find your perfect UAE business name
-              </p>
+              <h1 className='h1 mb-4'>UAE Business Name Checker</h1>
+              <p className='text-xl text-gray-400'>Find your perfect UAE business name</p>
             </div>
             <div className='w-full md:w-1/2 lg:w-3/4 mx-auto'>
               <CompanyNameChecker />
