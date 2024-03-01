@@ -1,77 +1,77 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"title": {
-				"__TYPE__": "FieldContent",
-				"value": "tears",
-				"type": "Text"
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Reprehenderit labore fugiat minim ea minim ipsum sit ex labore veniam esse. Aliquip exercitation deserunt non ex adipisicing duis ea."
-						}
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"title",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "grandmother",
-							"type": "Text"
-						}
-					],
-					[
-						"image",
-						{
-							"__TYPE__": "ImageContent",
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
-								"width": 3560,
-								"height": 5340
-							},
-							"url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
-							"width": 3560,
-							"height": 5340,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"thumbnails": {}
-						}
-					],
-					[
-						"description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Nostrud dolore magna do eu et esse officia exercitation. Lorem ipsum ullamco voluptate in elit irure dolore aliquip magna exercitation ipsum aute sint anim. Cillum incididunt amet do nostrud aliqua dolore commodo qui esse sint occaecat et ex ipsum officia."
-									}
-								}
-							]
-						}
-					]
-				]
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "tears",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Reprehenderit labore fugiat minim ea minim ipsum sit ex labore veniam esse. Aliquip exercitation deserunt non ex adipisicing duis ea."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "title",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "grandmother",
+              "type": "Text"
+            }
+          ],
+          [
+            "image",
+            {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
+                "width": 3560,
+                "height": 5340
+              },
+              "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
+              "width": 3560,
+              "height": 5340,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Nostrud dolore magna do eu et esse officia exercitation. Lorem ipsum ullamco voluptate in elit irure dolore aliquip magna exercitation ipsum aute sint anim. Cillum incididunt amet do nostrud aliqua dolore commodo qui esse sint occaecat et ex ipsum officia."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  }
 ]

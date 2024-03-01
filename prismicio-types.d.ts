@@ -1271,9 +1271,73 @@ export interface Cta1SliceDefaultPrimary {
 export type Cta1SliceDefault = prismic.SharedSliceVariation<'default', Simplify<Cta1SliceDefaultPrimary>, never>
 
 /**
+ * Primary content in *Cta1 → Primary*
+ */
+export interface Cta1SliceV2Primary {
+  /**
+   * Title field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Sub Text field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.sub_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_text: prismic.RichTextField
+
+  /**
+   * CTA Text field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField
+
+  /**
+   * CTA Link field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta1.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField
+
+  /**
+   * CTA Id field in *Cta1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: If specified will add it as a class to CTA button
+   * - **API ID Path**: cta1.primary.cta_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_id: prismic.KeyTextField
+}
+
+/**
+ * V2 variation for Cta1 Slice
+ *
+ * - **API ID**: `v2`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Cta1SliceV2 = prismic.SharedSliceVariation<'v2', Simplify<Cta1SliceV2Primary>, never>
+
+/**
  * Slice variation for *Cta1*
  */
-type Cta1SliceVariation = Cta1SliceDefault
+type Cta1SliceVariation = Cta1SliceDefault | Cta1SliceV2
 
 /**
  * Cta1 Shared Slice
@@ -2511,8 +2575,10 @@ declare module '@prismicio/client' {
       ContentImageTextSliceDefault,
       Cta1Slice,
       Cta1SliceDefaultPrimary,
+      Cta1SliceV2Primary,
       Cta1SliceVariation,
       Cta1SliceDefault,
+      Cta1SliceV2,
       DescriptionQuoteSlice,
       DescriptionQuoteSliceDefaultPrimary,
       DescriptionQuoteSliceVariation,

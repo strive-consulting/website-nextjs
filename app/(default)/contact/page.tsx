@@ -31,12 +31,8 @@ export default function Contact() {
           <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
-              <h1 className='h1 mb-4'>
-                Get in touch
-              </h1>
-              <p className='text-xl text-gray-400'>
-                Complete the form and our team will be in touch usually within minutes 🚀
-              </p>
+              <h1 className='h1 mb-4'>Get in touch</h1>
+              <p className='text-xl text-gray-400'>Complete the form and our team will be in touch usually within minutes 🚀</p>
             </div>
 
             <EnquiryForm />

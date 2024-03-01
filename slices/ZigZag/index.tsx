@@ -12,7 +12,6 @@ export type ZigZagProps = SliceComponentProps<Content.ZigZagSlice>
  */
 const ZigZag = ({ slice }: ZigZagProps): JSX.Element => {
   return (
-
     <section>
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
         <div className='py-12 md:py-20 border-t border-gray-800'>

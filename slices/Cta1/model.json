@@ -61,6 +61,55 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "v2",
+      "name": "V2",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "sub_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Sub Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "cta_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Text",
+            "placeholder": ""
+          }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "cta_id": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Id",
+            "placeholder": "If specified will add it as a class to CTA button"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
