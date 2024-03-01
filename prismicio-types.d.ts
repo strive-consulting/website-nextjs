@@ -707,6 +707,7 @@ interface QuoteDocumentData {
 export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<QuoteDocumentData>, 'quote', Lang>
 
 type ServicepageDocumentDataSlicesSlice =
+  | ZigZagSlice
   | SocialBarSlice
   | ContactFormSlice
   | FreeZonesSlice
@@ -2372,6 +2373,89 @@ type VideoSliceVariation = VideoSliceDefault
  */
 export type VideoSlice = prismic.SharedSlice<'video', VideoSliceVariation>
 
+/**
+ * Primary content in *ZigZag → Primary*
+ */
+export interface ZigZagSliceDefaultPrimary {
+  /**
+   * Title field in *ZigZag → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zig_zag.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *ZigZag → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zig_zag.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Primary content in *ZigZag → Items*
+ */
+export interface ZigZagSliceDefaultItem {
+  /**
+   * Title field in *ZigZag → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zig_zag.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Image field in *ZigZag → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zig_zag.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+
+  /**
+   * Description field in *ZigZag → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zig_zag.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Default variation for ZigZag Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ZigZagSliceDefault = prismic.SharedSliceVariation<'default', Simplify<ZigZagSliceDefaultPrimary>, Simplify<ZigZagSliceDefaultItem>>
+
+/**
+ * Slice variation for *ZigZag*
+ */
+type ZigZagSliceVariation = ZigZagSliceDefault
+
+/**
+ * ZigZag Shared Slice
+ *
+ * - **API ID**: `zig_zag`
+ * - **Description**: ZigZag
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ZigZagSlice = prismic.SharedSlice<'zig_zag', ZigZagSliceVariation>
+
 declare module '@prismicio/client' {
   interface CreateClient {
     (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>
@@ -2495,6 +2579,11 @@ declare module '@prismicio/client' {
       VideoSliceDefaultPrimary,
       VideoSliceVariation,
       VideoSliceDefault,
+      ZigZagSlice,
+      ZigZagSliceDefaultPrimary,
+      ZigZagSliceDefaultItem,
+      ZigZagSliceVariation,
+      ZigZagSliceDefault,
     }
   }
 }
