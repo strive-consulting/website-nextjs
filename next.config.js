@@ -12,7 +12,7 @@ const nextConfig = {
       },
       {
         source: '/dubai-company-set-up',
-        destination: 'setting-up-a-business-in-dubai',
+        destination: '/setting-up-a-business-in-dubai',
         permanent: true,
       },
       {
