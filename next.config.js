@@ -11,6 +11,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/dubai-company-set-up',
+        destination: 'setting-up-business-in-dubai',
+        permanent: true,
+      },
+      {
         source: '/client-information-request-form',
         destination: 'https://form.jotform.com/striveconsultants/client-information-request-form',
         permanent: true,
