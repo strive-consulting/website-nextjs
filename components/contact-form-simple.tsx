@@ -2,7 +2,12 @@
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
-export default function ContactFormSimple() {
+interface ContactFormSimpleProps {
+  label?: string
+
+}
+
+export default function ContactFormSimple({ label = 'Form' }: ContactFormSimpleProps) {
   const router = useRouter()
 
   const searchParams = useSearchParams()
@@ -22,6 +27,7 @@ export default function ContactFormSimple() {
     phoneNumber: '',
     dateTime: new Date().toISOString(),
     utm: utm,
+    label: label
   })
 
   const handleChange = (e: any) => {
