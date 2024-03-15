@@ -17,7 +17,10 @@
           "config": {
             "label": "Title Align",
             "placeholder": "",
-            "options": ["Left", "Center"]
+            "options": [
+              "Left",
+              "Center"
+            ]
           }
         },
         "title": {
@@ -79,7 +82,15 @@
           "config": {
             "label": "Form",
             "placeholder": "Replace bullets with form",
-            "options": ["Business Setup Calculator", "Company Name Checker", "Contact", "HR"]
+            "options": [
+              "Business Setup Calculator",
+              "Company Name Checker",
+              "Contact",
+              "HR",
+              "Crypto",
+              "Accounting",
+              "Banking"
+            ]
           }
         }
       },
