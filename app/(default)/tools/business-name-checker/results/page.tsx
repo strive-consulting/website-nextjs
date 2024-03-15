@@ -63,6 +63,7 @@ export default async function Page({
       dateTime: new Date().toISOString(),
       note: 'Company name: ' + searchParams?.companyName,
       utm: utm,
+      label: 'Name checker'
     }
 
     await fetch(process.env.BASE_URL + '/api/forms/prefill', {

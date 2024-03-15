@@ -94,6 +94,7 @@ export default async function Page({
       formName: searchParams?.formName,
       dateTime: new Date().toISOString(),
       utm: utm,
+      label: 'Calculator'
     }
 
     await fetch(process.env.BASE_URL + '/api/forms/prefill', {

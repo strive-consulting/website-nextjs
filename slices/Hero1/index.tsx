@@ -155,6 +155,30 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                               </div>
                             </>
                           )}
+                          {formName === 'Crypto' && (
+                            <>
+                              <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
+                              <div className='mx-auto w-full px-3'>
+                                <ContactFormSimple label='Crypto' />
+                              </div>
+                            </>
+                          )}
+                          {formName === 'Accounting' && (
+                            <>
+                              <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
+                              <div className='mx-auto w-full px-3'>
+                                <ContactFormSimple label='Accounting' />
+                              </div>
+                            </>
+                          )}
+                          {formName === 'Banking' && (
+                            <>
+                              <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
+                              <div className='mx-auto w-full px-3'>
+                                <ContactFormSimple label='Banking' />
+                              </div>
+                            </>
+                          )}
                         </div>
                       </div>
                     </>
