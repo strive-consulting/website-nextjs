@@ -27,15 +27,24 @@ export default function ContactFormSimple({ label = 'Form' }: ContactFormSimpleP
     phoneNumber: '',
     dateTime: new Date().toISOString(),
     utm: utm,
-    label: label
+    label: label,
+    btnStateClass: 'bg-purple-300',
+    btnDisabled: true
   })
 
   const handleChange = (e: any) => {
+    formData.btnStateClass = isFormComplete() ? 'bg-purple-600' : 'bg-purple-300';
+    formData.btnDisabled = !isFormComplete()
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     })
   }
+
+  const isFormComplete = () => {
+    return (formData.name !== '' && formData.phoneNumber !== '' && formData.email !== '')
+  };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
@@ -107,7 +116,7 @@ export default function ContactFormSimple({ label = 'Form' }: ContactFormSimpleP
                 />
               </div>
               <div className='w-full mb-2'>
-                <button type='submit' className={`btn-sm text-white bg-purple-600 hover:bg-purple-700 w-full mt-2`}>
+                <button type='submit' className={`btn-sm text-white ${formData.btnStateClass} hover:bg-purple-700 w-full mt-2 ${label}_conversion`} disabled={formData.btnDisabled}>
                   Submit
                 </button>
               </div>
