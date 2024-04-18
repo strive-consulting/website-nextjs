@@ -16,6 +16,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/payment-link-generator',
+        destination: 'https://form.jotform.com/striveconsultants/payment-link-generator',
+        permanent: true,
+      },
+      {
         source: '/client-information-request-form',
         destination: 'https://form.jotform.com/striveconsultants/client-information-request-form',
         permanent: true,
