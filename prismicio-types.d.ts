@@ -1794,6 +1794,16 @@ export interface Hero1SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   form: prismic.SelectField<'Business Setup Calculator' | 'Company Name Checker' | 'Contact' | 'HR' | 'Crypto' | 'Accounting' | 'Banking'>
+
+  /**
+   * Form Thank You Redirect field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.primary.form_thank_you_redirect
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  form_thank_you_redirect: prismic.LinkField
 }
 
 /**

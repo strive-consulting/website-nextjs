@@ -92,6 +92,14 @@
               "Banking"
             ]
           }
+        },
+        "form_thank_you_redirect": {
+          "type": "Link",
+          "config": {
+            "label": "Form Thank You Redirect",
+            "placeholder": "",
+            "select": null
+          }
         }
       },
       "items": {
