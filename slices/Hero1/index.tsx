@@ -44,6 +44,8 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
     const hasBullets = slice.items.length > 0
     const hasBulletsOrForm = hasBullets || showForm
 
+    // console.log(slice.primary.form_thank_you_redirect)
+
     return (
       <>
         <section className='relative'>
@@ -167,7 +169,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                             <>
                               <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
                               <div className='mx-auto w-full px-3'>
-                                <ContactFormSimple label='Accounting' />
+                                <ContactFormSimple label='Accounting' redirect={slice.primary.form_thank_you_redirect} />
                               </div>
                             </>
                           )}
