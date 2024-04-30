@@ -1,15 +1,19 @@
 'use client'
+import { LinkField } from '@prismicio/client'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
+import { linkResolver } from '@/prismicio'
+import { Constants } from '@/app/constants'
 
 interface ContactFormSimpleProps {
   label?: string
+  redirect?: LinkField
 
 }
 
-export default function ContactFormSimple({ label = 'Form' }: ContactFormSimpleProps) {
+export default function ContactFormSimple({ label = 'Form', redirect }: ContactFormSimpleProps) {
   const router = useRouter()
-
+  
   const searchParams = useSearchParams()
 
   const utm = {
@@ -55,6 +59,11 @@ export default function ContactFormSimple({ label = 'Form' }: ContactFormSimpleP
       method: 'POST',
       body: JSON.stringify(formData),
     })
+
+    //Handle optional redirect
+    const formRedirectUrl = Constants.SiteDomain + linkResolver(redirect)
+
+    if(formRedirectUrl != null) window.location.replace(Constants.SiteDomain + linkResolver(redirect));
   }
 
   return (

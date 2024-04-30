@@ -75,6 +75,13 @@
 				"__TYPE__": "FieldContent",
 				"value": "Contact",
 				"type": "Select"
+			},
+			"form_thank_you_redirect": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
 			}
 		},
 		"items": [
