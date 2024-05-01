@@ -40,6 +40,11 @@ const nextConfig = {
         destination: 'https://form.jotform.com/striveconsultants/sales-closure-form',
         permanent: true,
       },
+      {
+        source: '/amendment-request',
+        destination: 'https://form.jotform.com/striveconsultants/amendment-request',
+        permanent: true,
+      },
     ]
   },
 }
