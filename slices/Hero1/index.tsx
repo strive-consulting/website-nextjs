@@ -167,7 +167,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                           )}
                           {formName === 'Accounting' && (
                             <>
-                              <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
+                              <h3 className='h3 mb-3 text-center w-full'>{slice.primary.form_title_override ? slice.primary.form_title_override : 'Talk to an expert'}</h3>
                               <div className='mx-auto w-full px-3'>
                                 <ContactFormSimple label='Accounting' redirect={slice.primary.form_thank_you_redirect} />
                               </div>
