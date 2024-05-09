@@ -1804,6 +1804,16 @@ export interface Hero1SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   form_thank_you_redirect: prismic.LinkField
+
+  /**
+   * Form Title Override field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero1.primary.form_title_override
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  form_title_override: prismic.KeyTextField
 }
 
 /**

@@ -21,6 +21,10 @@
     display: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .processStep {
     width: calc(100% - 32px);
     left: calc(50% + 48px);
