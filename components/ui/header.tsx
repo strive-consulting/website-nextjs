@@ -10,7 +10,7 @@ export default async function Header() {
   const footer = await getFooter()
 
   return (
-    <header className='bg-gray-900 w-full z-30 fixed top-0 shadow-md'>
+    <header className='bg-gray-900 w-full z-30 fixed top-0 shadow-md' id='top'>
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
         <div className='flex items-center justify-between h-20'>
           <div className='shrink-0 mr-4'>

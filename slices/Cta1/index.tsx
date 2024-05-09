@@ -102,7 +102,7 @@ const Cta1 = ({ slice }: Cta1Props): JSX.Element => {
                 <PrismicNextLink
                   className={`${slice.primary.cta_id} btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6`}
                   field={slice.primary.cta_link}
-                  target='_blank'
+                  // target='_blank'
                   prefetch={slice.primary.cta_link.link_type == 'Web' ?? false}
                 >
                   {slice.primary.cta_text}
