@@ -61,9 +61,9 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
     })
 
     //Handle optional redirect
-    const formRedirectUrl = Constants.SiteDomain + linkResolver(redirect)
+    const redirectUrl = linkResolver(redirect)
 
-    if(formRedirectUrl != null) window.location.replace(Constants.SiteDomain + linkResolver(redirect));
+    if(redirectUrl != null || redirectUrl === "") window.location.replace(Constants.SiteDomain + linkResolver(redirect));
   }
 
   return (
