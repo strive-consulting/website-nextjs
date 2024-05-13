@@ -145,7 +145,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                             <>
                               <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
                               <div className='mx-auto w-full px-3'>
-                                <ContactFormSimple />
+                                <ContactFormSimple redirect={slice.primary.form_thank_you_redirect} />
                               </div>
                             </>
                           )}
@@ -161,7 +161,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                             <>
                               <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
                               <div className='mx-auto w-full px-3'>
-                                <ContactFormSimple label='Crypto' />
+                                <ContactFormSimple label='Crypto' redirect={slice.primary.form_thank_you_redirect} />
                               </div>
                             </>
                           )}
@@ -177,7 +177,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                             <>
                               <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
                               <div className='mx-auto w-full px-3'>
-                                <ContactFormSimple label='Banking' />
+                                <ContactFormSimple label='Banking' redirect={slice.primary.form_thank_you_redirect} />
                               </div>
                             </>
                           )}
