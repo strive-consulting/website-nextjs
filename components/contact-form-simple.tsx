@@ -1,5 +1,5 @@
 'use client'
-import { LinkField } from '@prismicio/client'
+import { LinkField, asLink } from '@prismicio/client'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 import { linkResolver } from '@/prismicio'
@@ -61,9 +61,19 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
     })
 
     //Handle optional redirect
-    const redirectUrl = linkResolver(redirect)
+    //console.log(redirect)
+    if(redirect) {
+      if(redirect?.link_type == 'Web') {
+        //console.log('Web redirect', Constants.SiteDomain + asLink(redirect))
 
-    if(redirectUrl != null || redirectUrl === "") window.location.replace(Constants.SiteDomain + linkResolver(redirect));
+        window.location.replace(Constants.SiteDomain + asLink(redirect));
+      }
+      else {
+        //console.log('Prismic redirect', Constants.SiteDomain + linkResolver(redirect))
+
+        window.location.replace(Constants.SiteDomain + linkResolver(redirect));
+      }
+    }
   }
 
   return (
