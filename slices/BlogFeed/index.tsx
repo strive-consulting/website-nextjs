@@ -46,7 +46,7 @@ const BlogFeed = async ({ slice }: BlogFeedProps): Promise<JSX.Element> => {
         </div>
 
         <div className='flex justify-center mb-8' data-aos='fade-up' data-aos-delay='400' data-aos-anchor='[data-aos-id-cta]'>
-          <Link className='btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6' href='/blog' target='_blank'>
+          <Link className='btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6' href='/blog'>
             View more blogs
           </Link>
         </div>
