@@ -72,7 +72,7 @@ export default async function Footer() {
                 </div>
                 <div className='padding-4'>
                 <Link href={'/uae-accountancy-service'}>
-                  <Image className='md:mx-auto' src='https://images.prismic.io/strive/ZkyOiCol0Zci9UTx_authorized-badge-new.png?auto=format,compress' width={160} height={78} alt='Strive is a Zoho Partner' />
+                  <Image className='md:mx-auto' src='/images/zoho.png' width={160} height={78} alt='Strive is a Zoho Partner' />
                 </Link>
                 </div>
               </div>
