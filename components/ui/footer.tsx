@@ -65,9 +65,16 @@ export default async function Footer() {
                 </ul>
               </div>
               <div className='w-full md:py-10'>
+                <div className='padding-4'>
                 <Link href={'/uae-accountancy-service'}>
                   <Image className='md:mx-auto' src='/images/xero-silver-partner-strive.png' width={160} height={78} alt='Strive is a Xero Silver Partner' />
                 </Link>
+                </div>
+                <div className='padding-4'>
+                <Link href={'/uae-accountancy-service'}>
+                  <Image className='md:mx-auto' src='https://images.prismic.io/strive/ZkyOiCol0Zci9UTx_authorized-badge-new.png?auto=format,compress' width={160} height={78} alt='Strive is a Zoho Partner' />
+                </Link>
+                </div>
               </div>
             </div>
           </div>

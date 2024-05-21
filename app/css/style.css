@@ -76,3 +76,6 @@ address {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
+.padding-4 {
+    padding: 10px 0px;
+}
