@@ -65,6 +65,17 @@ export default async function Footer() {
                 </ul>
               </div>
               <div className='w-full md:py-10'>
+                FZ
+              {footer.data.free_zone_items.map((item) => {
+                    return (
+                      <li key={item.menu_label}>
+                        <PrismicLink field={item.menu_link} className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
+                          {item.menu_label}
+                        </PrismicLink>
+                      </li>
+                    )
+                  })}
+
                 <div className='py-1.5'>
                 <Link href={'/uae-accountancy-service'}>
                   <Image className='md:mx-auto' src='/images/xero-silver-partner-strive.png' width={160} height={78} alt='Strive is a Xero Silver Partner' />
