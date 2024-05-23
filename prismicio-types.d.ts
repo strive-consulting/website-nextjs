@@ -291,6 +291,31 @@ export interface FooterDocumentDataCompanyItemsItem {
 }
 
 /**
+ * Item in *Footer → Free Zone Items*
+ */
+export interface FooterDocumentDataFreeZoneItemsItem {
+  /**
+   * Menu Link field in *Footer → Free Zone Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.free_zone_items[].menu_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  menu_link: prismic.LinkField
+
+  /**
+   * Menu Label field in *Footer → Free Zone Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Menu Label
+   * - **API ID Path**: footer.free_zone_items[].menu_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  menu_label: prismic.KeyTextField
+}
+
+/**
  * Content for Footer documents
  */
 interface FooterDocumentData {
@@ -326,6 +351,17 @@ interface FooterDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   company_items: prismic.GroupField<Simplify<FooterDocumentDataCompanyItemsItem>>
+
+  /**
+   * Free Zone Items field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.free_zone_items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  free_zone_items: prismic.GroupField<Simplify<FooterDocumentDataFreeZoneItemsItem>>
 }
 
 /**
@@ -2558,6 +2594,7 @@ declare module '@prismicio/client' {
       FooterDocumentData,
       FooterDocumentDataBusinessActivitiesItemsItem,
       FooterDocumentDataCompanyItemsItem,
+      FooterDocumentDataFreeZoneItemsItem,
       FreeZoneDocument,
       FreeZoneDocumentData,
       GlobalNavDocument,
