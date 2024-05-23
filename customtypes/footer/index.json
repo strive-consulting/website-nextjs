@@ -67,6 +67,29 @@
             }
           }
         }
+      },
+      "free_zone_items": {
+        "type": "Group",
+        "config": {
+          "label": "Free Zone Items",
+          "fields": {
+            "menu_link": {
+              "type": "Link",
+              "config": {
+                "label": "Menu Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "menu_label": {
+              "type": "Text",
+              "config": {
+                "label": "Menu Label",
+                "placeholder": "Menu Label"
+              }
+            }
+          }
+        }
       }
     }
   }
