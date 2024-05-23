@@ -308,7 +308,7 @@ export interface FooterDocumentDataFreeZoneItemsItem {
    * Menu Label field in *Footer → Free Zone Items*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Menu Label
    * - **API ID Path**: footer.free_zone_items[].menu_label
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */

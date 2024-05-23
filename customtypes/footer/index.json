@@ -85,7 +85,7 @@
               "type": "Text",
               "config": {
                 "label": "Menu Label",
-                "placeholder": ""
+                "placeholder": "Menu Label"
               }
             }
           }

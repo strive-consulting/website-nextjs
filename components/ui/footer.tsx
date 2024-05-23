@@ -29,70 +29,8 @@ export default async function Footer() {
                   }}
                 />
               </div>
-            </div>
-
-            {/* 2nd, 3rd and 4th blocks */}
-            <div className='md:col-span-8 grid sm:grid-cols-3 gap-12 md:gap-6'>
-              {/* 2nd block */}
-              <div className='text-sm'>
-                <div className='text-gray-200 font-medium mb-3'>Business Activities</div>
-                <ul className='space-y-2'>
-                  {footer.data.business_activities_items.map((item) => {
-                    return (
-                      <li key={item.menu_label}>
-                        <PrismicLink field={item.menu_link} className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
-                          {item.menu_label}
-                        </PrismicLink>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-
-              {/* 4th block */}
-              <div className='text-sm'>
-                <div className='text-gray-200 font-medium mb-3'>Company</div>
-                <ul className='space-y-2'>
-                  {footer.data.company_items.map((item) => {
-                    return (
-                      <li key={item.menu_label}>
-                        <PrismicLink field={item.menu_link} className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
-                          {item.menu_label}
-                        </PrismicLink>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-              <div className='w-full md:py-10'>
-                FZ
-              {footer.data.free_zone_items.map((item) => {
-                    return (
-                      <li key={item.menu_label}>
-                        <PrismicLink field={item.menu_link} className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
-                          {item.menu_label}
-                        </PrismicLink>
-                      </li>
-                    )
-                  })}
-
-                <div className='py-1.5'>
-                <Link href={'/uae-accountancy-service'}>
-                  <Image className='md:mx-auto' src='/images/xero-silver-partner-strive.png' width={160} height={78} alt='Strive is a Xero Silver Partner' />
-                </Link>
-                </div>
-                <div className='py-1.5'>
-                <Link href={'/uae-accountancy-service'}>
-                  <Image className='md:mx-auto' src='/images/zoho.png' width={160} height={78} alt='Strive is a Zoho Partner' />
-                </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className='md:flex md:items-center md:justify-between'>
-            <ul className='flex mb-4 md:order-1 md:ml-4 md:mb-0'>
-              <li className='ml-4'>
+              <ul className='flex mb-4 md:order-1 md:ml-0 md:mb-0'>
+              <li className='ml-0'>
                 <Link
                   href='https://www.facebook.com/strivedubai'
                   className='flex justify-center items-center text-purple-600 bg-gray-800 hover:text-gray-100 hover:bg-purple-600 rounded-full transition duration-150 ease-in-out'
@@ -151,7 +89,73 @@ export default async function Footer() {
                 </Link>
               </li>
             </ul>
+            </div>
 
+            {/* 2nd, 3rd and 4th blocks */}
+            <div className='md:col-span-8 flex flex-wrap justify-between sm:grid-cols-3 gap-12 md:gap-6'>
+              {/* 2nd block */}
+              <div className='text-sm'>
+                <div className='text-gray-200 font-medium mb-3'>Company</div>
+                <ul className='space-y-2'>
+                  {footer?.data?.company_items?.map((item) => {
+                      return (
+                        <li key={item.menu_label}>
+                          <PrismicLink field={item.menu_link} className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
+                            {item.menu_label}
+                          </PrismicLink>
+                        </li>
+                      );
+                    })
+                  }
+                </ul>
+              </div>
+              
+              <div className='text-sm'>
+                <div className='text-gray-200 font-medium mb-3'>Partner Free Zones</div>
+                <ul className='space-y-2'>
+                {footer?.data?.free_zone_items?.map((item) => {
+                    return (
+                      <li key={item.menu_label}>
+                        <PrismicLink field={item.menu_link} className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
+                          {item.menu_label}
+                        </PrismicLink>
+                      </li>
+                    );
+                  })
+                }
+                </ul>
+              </div>
+              {/* 4th block */}
+              <div className='text-sm'>
+                <div className='text-gray-200 font-medium mb-3'>Business Activities</div>
+                <ul className='space-y-2'>
+                {footer?.data?.business_activities_items?.map((item) => {
+                    return (
+                      <li key={item.menu_label}>
+                        <PrismicLink field={item.menu_link} className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
+                          {item.menu_label}
+                        </PrismicLink>
+                      </li>
+                    );
+                  })
+                }
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className='md:col-span-4 flex items-center sm:grid-cols-2'>
+                <div className='md:flex md:items-center md:justify-end mr-2 mb-4'>
+                <Link href={'/uae-accountancy-service'}>
+                  <Image className='md:mx-auto' src='/images/xero-silver-partner-strive.png' width={160} height={78} alt='Strive is a Xero Silver Partner' />
+                </Link>
+                </div>
+                <div className='md:flex md:items-center md:justify-start ml-2 mb-4'>
+                <Link href={'/uae-accountancy-service'}>
+                  <Image className='md:mx-auto' src='/images/zoho.png' width={160} height={78} alt='Strive is a Zoho Partner' />
+                </Link>
+                </div>
+          </div>
+          <div className='md:flex md:items-center md:justify-center'>
             <div className='text-gray-400 text-sm mr-4'>&copy; strive.ae. All rights reserved.</div>
           </div>
         </div>
