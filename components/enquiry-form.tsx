@@ -139,8 +139,7 @@ export default function EnquiryForm() {
       method: 'POST',
       body: JSON.stringify(formSubmissionData),
     })
-
-    router.push('/contact-thanks-form')
+    window.location.replace('/contact-thanks-form');
   }
 
   return (
