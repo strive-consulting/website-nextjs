@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "grid_blocks": {
+              "type": "SharedSlice"
+            },
             "landing_page_hero": {
               "type": "SharedSlice"
             },
