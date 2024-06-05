@@ -630,6 +630,7 @@ interface GlobalNavDocumentData {
 export type GlobalNavDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<GlobalNavDocumentData>, 'global_nav', Lang>
 
 type LandingpageDocumentDataSlicesSlice =
+  | GridBlocksSlice
   | LandingPageHeroSlice
   | FooterSimpleSlice
   | ContactFormSlice
