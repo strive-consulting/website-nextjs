@@ -7,7 +7,7 @@ import Trustpilot from '@/components/trustpilot'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-
+ 
 export enum TitleAlign {
   Left = 'Left',
   Center = 'Center',

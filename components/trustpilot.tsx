@@ -1,7 +1,7 @@
 import Image from 'next/image'
 interface TrustpilotProps {
   centerAlignment?: boolean
-  centerTextAlignment?: boolean
+  centerTextAlignment?: boolean 
 }
 
 export default function Trustpilot({ centerAlignment,centerTextAlignment }: TrustpilotProps) {
