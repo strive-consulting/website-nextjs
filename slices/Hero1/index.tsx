@@ -3,10 +3,11 @@ import CompanyNameChecker from '@/components/calculators/company-name-checker'
 import ContactFormSimple from '@/components/contact-form-simple'
 import HrForm from '@/components/hr-form'
 import TickIcon from '@/components/tickIcon'
+import Trustpilot from '@/components/trustpilot'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-
+ 
 export enum TitleAlign {
   Left = 'Left',
   Center = 'Center',
@@ -81,12 +82,13 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                         // hyperlink: ({ children }) => <a className='text-xl text-gray-100 hover:underline hover:bg-purple-700'>{children}</a>,
                       }}
                     />
+                    
                   </div>
 
                   {/* CTA */}
                   {showCtaButtons && slice.primary.cta_1_text && (
                     <>
-                      <div className='max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center mb-20'>
+                      <div className='max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center mb-10'>
                         <div data-aos='fade-up' data-aos-delay='400'>
                           <PrismicNextLink field={slice.primary.cta_1_link} className='btn text-white bg-gray-700 hover:bg-gray-700 w-full mb-4 sm:w-auto sm:mb-0'>
                             {slice.primary.cta_1_text}
@@ -98,6 +100,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                           </PrismicNextLink>
                         </div>
                       </div>
+                      <Trustpilot centerTextAlignment={true}/>
                     </>
                   )}
 
@@ -119,6 +122,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                         // hyperlink: ({ children }) => <a className='text-xl text-gray-100 hover:underline hover:bg-purple-700'>{children}</a>,
                       }}
                     />
+                    <Trustpilot centerAlignment={true} />
                   </div>
 
                   {showForm && (
