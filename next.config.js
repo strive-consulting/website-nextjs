@@ -26,6 +26,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/client-information-request-form-no-formation',
+        destination: 'https://form.jotform.com/striveconsultants/client-information-request-form-nof',
+        permanent: true,
+      },
+      {
         source: '/employee-information-request-form',
         destination: 'https://form.jotform.com/striveconsultants/employee-visa-information-request',
         permanent: true,
