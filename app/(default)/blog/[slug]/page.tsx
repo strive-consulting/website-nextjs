@@ -12,6 +12,8 @@ import PostItem from '@/components/post-item'
 import ShareBar from '@/components/share-bar'
 import BlogPostAuthorFooter from '@/components/blog-post-author-footer'
 import TickIcon from '@/components/tickIcon'
+import ContactFormSimple from '@/components/contact-form-simple'
+import { Divider } from '@/components/divider'
 
 export async function generateStaticParams() {
   const pages = await getBlogPostsAll()
@@ -175,6 +177,22 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                   </div>
                 </footer>
               </article>
+
+              <Divider />
+              <div className='max-w-sm mx-auto grid gap-8 md:grid-cols-2 lg:gap-16 items-start md:max-w-none'>
+                <div className='mx-auto w-full px-3'>
+                  <h3 className='h3 mb-3 w-full'>Talk to an expert</h3>
+                  <p className='mb-3'>Ready to explore the possibilities of Dubai for your business? Our experts are here to guide you through the complexities and establish a strong foundation for your business success in this dynamic market.</p>
+                  <p>Get in touch for an initial consultation.</p>
+                </div>
+                <div className='mx-auto w-full px-3'>
+                  <div className=''>
+                    <div className='mx-auto w-full px-3'>
+                      <ContactFormSimple/>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
