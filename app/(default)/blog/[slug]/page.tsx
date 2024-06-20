@@ -179,8 +179,8 @@ export default async function SinglePost({ params }: { params: { slug: string } 
               </article>
 
               <Divider />
-              <div className='max-w-sm mx-auto grid gap-8 md:grid-cols-2 lg:gap-16 items-start md:max-w-none'>
-                <div className='mx-auto w-full px-3'>
+              <div className='max-w-sm mx-auto grid gap-8 md:grid-cols-2 lg:gap-16 items-start md:max-w-none bg-purple-600 py-6 md:py-8 px-2 md:px-4 '>
+                <div className='mx-auto w-full px-6 text-white'>
                   <h3 className='h3 mb-3 w-full'>Talk to an expert</h3>
                   <p className='mb-3'>Ready to explore the possibilities of Dubai for your business? Our experts are here to guide you through the complexities and establish a strong foundation for your business success in this dynamic market.</p>
                   <p>Get in touch for an initial consultation.</p>
@@ -188,7 +188,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                 <div className='mx-auto w-full px-3'>
                   <div className=''>
                     <div className='mx-auto w-full px-3'>
-                      <ContactFormSimple/>
+                      <ContactFormSimple invertButtonColor={true}/>
                     </div>
                   </div>
                 </div>

@@ -8,13 +8,15 @@ import { Constants } from '@/app/constants'
 interface ContactFormSimpleProps {
   label?: string
   redirect?: LinkField
-
+  invertButtonColor?: boolean
 }
 
-export default function ContactFormSimple({ label = 'Form', redirect }: ContactFormSimpleProps) {
+export default function ContactFormSimple({ label = 'Form', redirect, invertButtonColor }: ContactFormSimpleProps) {
   const router = useRouter()
   
   const searchParams = useSearchParams()
+
+  const formLabelColor = invertButtonColor ? 'text-white' : ''
 
   const utm = {
     utmCampaign: searchParams.get('utm_campaign') ?? undefined,
@@ -32,13 +34,20 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
     dateTime: new Date().toISOString(),
     utm: utm,
     label: label,
-    btnStateClass: 'bg-purple-300',
+    btnStateClass: invertButtonColor ? 'bg-purple-100 text-purple-600 hover:bg-white shadow' : 'bg-purple-300 text-white hover:bg-purple-700',
     btnDisabled: true
   })
 
   const handleChange = (e: any) => {
-    formData.btnStateClass = isFormComplete() ? 'bg-purple-600' : 'bg-purple-300';
-    formData.btnDisabled = !isFormComplete()
+    if(invertButtonColor) {
+      formData.btnStateClass = isFormComplete() ? 'hover:bg-white shadow' : 'bg-purple-100 text-purple-600 hover:bg-white shadow';
+      formData.btnDisabled = !isFormComplete()
+    }
+    else {
+      formData.btnStateClass = isFormComplete() ? 'bg-purple-600 text-white' : 'bg-purple-300 text-white hover:bg-purple-700';
+      formData.btnDisabled = !isFormComplete()
+    }
+    
 
     setFormData({
       ...formData,
@@ -90,7 +99,7 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
           <form onSubmit={handleSubmit}>
             <div className='flex flex-wrap'>
               <div className='w-full mb-3 '>
-                <label className='block text-gray-300 text-sm font-medium' htmlFor='name'>
+                <label className={`block text-gray-300 text-sm font-medium ${formLabelColor}`} htmlFor='name'>
                   Name
                 </label>
                 <input
@@ -105,7 +114,7 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
                 />
               </div>
               <div className='w-full mb-3'>
-                <label className='block text-gray-300 text-sm font-medium' htmlFor='email'>
+                <label className={`block text-gray-300 text-sm font-medium ${formLabelColor}`} htmlFor='email'>
                   Email address
                 </label>
                 <input
@@ -120,7 +129,7 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
                 />
               </div>
               <div className='w-full mb-4'>
-                <label className='block text-gray-300 text-sm font-medium' htmlFor='phoneNumber'>
+                <label className={`block text-gray-300 text-sm font-medium ${formLabelColor}`} htmlFor='phoneNumber'>
                   Phone
                 </label>
                 <input
@@ -135,7 +144,7 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
                 />
               </div>
               <div className='w-full mb-2'>
-                <button type='submit' className={`btn-sm text-white ${formData.btnStateClass} hover:bg-purple-700 w-full mt-2 ${label}_conversion`} disabled={formData.btnDisabled}>
+                <button type='submit' className={`btn-sm ${formData.btnStateClass}  w-full mt-2 ${label}_conversion`} disabled={formData.btnDisabled}>
                   Submit
                 </button>
               </div>
