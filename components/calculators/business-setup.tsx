@@ -29,6 +29,7 @@ interface FormData {
   utmCampaign?: string
   utmMedium?: string
   utmSource?: string
+  utmTerm?: string
   deferedDataCapture?: boolean
   backUrl?: string
 }
@@ -191,6 +192,7 @@ const BusinessSetupCalculator: React.FC<SetupProps> = ({ deferedDataCapture }: S
       utmCampaign: utmParamsFromLocalStorage['utm_campaign'] ?? undefined,
       utmMedium: utmParamsFromLocalStorage['utm_medium'] ?? undefined,
       utmSource: utmParamsFromLocalStorage['utm_source'] ?? undefined,
+      utmTerm: utmParamsFromLocalStorage['utm_term'] ?? undefined,
     })
   }, [])
 
@@ -221,7 +223,8 @@ const BusinessSetupCalculator: React.FC<SetupProps> = ({ deferedDataCapture }: S
     formData.utmCampaign = utm['utm_campaign']
     formData.utmMedium = utm['utm_medium']
     formData.utmSource = utm['utm_source']
-
+    formData.utmTerm = utm['utmTerm']
+    
     setFormData({ ...formData })
 
     let error = false

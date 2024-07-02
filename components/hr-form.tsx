@@ -11,6 +11,7 @@ export default function HrForm() {
     utmCampaign: searchParams.get('utm_campaign') ?? undefined,
     utmMedium: searchParams.get('utm_medium') ?? undefined,
     utmSource: searchParams.get('utm_source') ?? undefined,
+    utmTerm: searchParams.get('utm_term') ?? undefined,
   }
 
   const [submitted, setSubmitted] = useState(false)
