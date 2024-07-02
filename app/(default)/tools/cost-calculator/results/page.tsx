@@ -41,6 +41,7 @@ interface FormData {
   utmCampaign?: string
   utmMedium?: string
   utmSource?: string
+  utmTerm?: string
   deferedDataCapture?: boolean
 }
 
@@ -59,6 +60,7 @@ export default async function Page({
     utmCampaign?: string
     utmMedium?: string
     utmSource?: string
+    utmTerm?: string
     complete?: string
     country?: string
     currency?: string
@@ -76,6 +78,7 @@ export default async function Page({
     utmCampaign: searchParams?.utmCampaign != 'undefined' ? searchParams?.utmCampaign : '',
     utmMedium: searchParams?.utmMedium != 'undefined' ? searchParams?.utmMedium : '',
     utmSource: searchParams?.utmSource != 'undefined' ? searchParams?.utmSource : '',
+    utmTerm: searchParams?.utmTerm != 'undefined' ? searchParams?.utmTerm : '',
   }
 
   const isDeferedDataCapture = searchParams?.deferedDataCapture === 'true' ? true : false

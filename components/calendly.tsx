@@ -24,7 +24,7 @@ export default function Calendly({ url, popup, ctaid }: CalendarProps) {
     utmContent: '',
     utmMedium: searchParams.get('utm_medium') ?? undefined,
     utmSource: searchParams.get('utm_source') ?? undefined,
-    utmTerm: '',
+    utmTerm: searchParams.get('utm_term') ?? undefined,
   }
 
   useEffect(() => {
