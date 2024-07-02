@@ -20,6 +20,7 @@ interface FormData {
   utmCampaign?: string
   utmMedium?: string
   utmSource?: string
+  utmTerm?: string
 }
 
 export default function EnquiryForm() {
@@ -50,6 +51,7 @@ export default function EnquiryForm() {
       utmCampaign: utmParamsFromLocalStorage['utm_campaign'] ?? undefined,
       utmMedium: utmParamsFromLocalStorage['utm_medium'] ?? undefined,
       utmSource: utmParamsFromLocalStorage['utm_source'] ?? undefined,
+      utmTerm: utmParamsFromLocalStorage['utm_term'] ?? undefined,
     })
     //console.log(utm)
   }, [])
@@ -87,6 +89,7 @@ export default function EnquiryForm() {
     formData.utmCampaign = utm['utmCampaign']
     formData.utmMedium = utm['utmMedium']
     formData.utmSource = utm['utmSource']
+    formData.utmTerm = utm['utmTerm']
 
     setFormData({ ...formData })
 

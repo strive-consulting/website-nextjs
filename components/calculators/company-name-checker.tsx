@@ -20,6 +20,7 @@ interface FormData {
   utmCampaign?: string
   utmMedium?: string
   utmSource?: string
+  utmTerm?: string
 }
 
 // Step 1 component
@@ -187,6 +188,7 @@ const CompanyNameChecker: React.FC = () => {
       utmCampaign: utmParamsFromLocalStorage['utm_campaign'], // ?? undefined,
       utmMedium: utmParamsFromLocalStorage['utm_medium'], // ?? undefined,
       utmSource: utmParamsFromLocalStorage['utm_source'], // ?? undefined,
+      utmTerm: utmParamsFromLocalStorage['utm_term']// ?? undefined,
     })
     // console.log('utm from ls', utmParamsFromLocalStorage)
   }, [])
@@ -217,6 +219,7 @@ const CompanyNameChecker: React.FC = () => {
     formData.utmCampaign = utm['utmCampaign']
     formData.utmMedium = utm['utmMedium']
     formData.utmSource = utm['utmSource']
+    formData.utmTerm = utm['utmTerm']
 
     console.log('formData after setting', formData)
     setFormData({ ...formData })
