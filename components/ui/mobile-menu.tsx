@@ -102,7 +102,17 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
                   Business Name Checker
                 </Link>
               </li>
-              {footer.data.company_items.map((item) => {
+              <li>
+                <Link href='/dubai-accounting-guide' className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
+                  Dubai Accounting Guide
+                </Link>
+              </li>
+              <li>
+                <Link href='/dubai-relocation-guide' className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
+                  Dubai Relocation Guide
+                </Link>
+              </li>
+              {/* {footer.data.company_items.map((item) => {
                 return (
                   <li key={item.menu_label}>
                     <PrismicLink field={item.menu_link} className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
@@ -110,7 +120,7 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
                     </PrismicLink>
                   </li>
                 )
-              })}
+              })} */}
             </ul>
           </li>
         </ul>
