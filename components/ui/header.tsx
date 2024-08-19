@@ -109,6 +109,9 @@ export default async function Header() {
                 <Link href='/dubai-accounting-guide' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                   Dubai Accounting Guide
                 </Link>
+                <Link href='/dubai-relocation-guide' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
+                  Dubai Relocation Guide
+                </Link>
               </Dropdown>
             </ul>
             <ul className='flex grow justify-end flex-wrap items-center'>
