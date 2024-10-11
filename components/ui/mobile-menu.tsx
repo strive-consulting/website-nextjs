@@ -37,6 +37,22 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
     document.addEventListener('keydown', keyHandler)
     return () => document.removeEventListener('keydown', keyHandler)
   })
+  // Nested menu toggle function
+  const handleNestedMenuToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+    document.querySelectorAll('.submenu').forEach((submenu) => {
+      if (submenu !== e.currentTarget.nextElementSibling) {
+        submenu.classList.add('hidden'); // Close submenu
+        submenu.previousElementSibling?.classList.remove('text-white'); // Reset button color
+        submenu.previousElementSibling?.querySelector('svg')?.classList.remove('rotate-180'); // Reset icon rotation
+      }
+    });
+    const nestedMenu = e.currentTarget.nextElementSibling;
+    if (nestedMenu) {
+      nestedMenu.classList.toggle('hidden');
+      e.currentTarget.classList.toggle('text-white');
+      e.currentTarget.querySelector('svg')?.classList.toggle('rotate-180');
+    }
+  }
   return (
     <div className='md:hidden'>
       <Link href='/tools/cost-calculator' className='btn-sm btn-cost-calculator text-white bg-purple-600 hover:bg-purple-700 mr-3'>
@@ -57,7 +73,7 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
         id='mobile-nav'
         ref={mobileNav}
         className='absolute top-full z-20 left-0 w-full px-4 sm:px-6 overflow-hidden transition-all duration-300 ease-in-out'
-        style={mobileNavOpen ? { maxHeight: mobileNav.current?.scrollHeight, opacity: 1 } : { maxHeight: 0, opacity: 0.8 }}
+        style={mobileNavOpen ? { opacity: 1 } : { maxHeight: 0, opacity: 0.8 }}
       >
         <ul className='bg-gray-800 px-4 py-2'>
           <li>
@@ -69,40 +85,147 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
               {navigation.data.cta_text}
             </PrismicLink>
           </li>
-          <li>
-            <Link href='/dubai-company-set-up' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
-              Business Setup
-            </Link>
+          <li key="menu-1">
+              <button
+                className="flex items-center justify-between w-full flex text-gray-300 hover:text-gray-200 py-1"
+                onClick={handleNestedMenuToggle}
+              >
+                Setting up a company in Dubai
+                <svg className="w-4 h-4 transition-transform rotate-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <ul className="submenu pl-4 hidden space-y-2">
+                <li>
+                  <Link href='/dubai-company-set-up' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Company Formation
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/dubai-mainland-company-formation' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Mainland Commpany Formation
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/dubai-freezone-company-formation' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Freezone Commpany Formation
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/dubai-offshore-company-formation' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Offshore Commpany Formation
+                  </Link>
+                </li>
+              </ul>
           </li>
-          <li>
-            <Link href='/dubai-residency-visa' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
-              Residency Visa
-            </Link>
+          <li key="menu-2">
+              <button
+                className="flex items-center justify-between w-full flex text-gray-300 hover:text-gray-200 py-1"
+                onClick={handleNestedMenuToggle}
+              >
+                Dubai Residency Visa
+                <svg className="w-4 h-4 transition-transform rotate-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <ul className="submenu pl-4 hidden space-y-2">
+                <li>
+                  <Link href='/dubai-residency-visa' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Residency Visa via Company Formation
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/uae-golden-visa' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Golden Visa
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/freelance-visa-dubai' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Freelance Visa
+                  </Link>
+                </li>
+              </ul>
           </li>
-          <li>
-            <Link href='/uae-accountancy-service' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
-              Accounting
-            </Link>
+          <li  key="menu-3">
+              <button
+                className="flex items-center justify-between w-full flex text-gray-300 hover:text-gray-200 py-1"
+                onClick={handleNestedMenuToggle}
+              >
+                Business Services
+                <svg className="w-4 h-4 transition-transform rotate-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <ul className="submenu pl-4 hidden space-y-2">
+                <li>
+                  <Link href='/uae-accountancy-service' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Accounting & Bookkeeping
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/uae-business-bank-account' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Business Bank Account
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/uae-digital-currency-business-account' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Digital Currency Business Account
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/cryptocurrency-dubai' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Cryptocurrency Solutions
+                  </Link>
+                </li>
+              </ul>
+              
           </li>
-          <li>
-            <Link href='/uae-business-bank-account' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
-              Business Banking
-            </Link>
-          </li>
-          <li className='py-2 my-2 border-t border-gray-700'>
-            {/* <span className='flex text-gray-300 py-2'>Support</span> */}
-            <ul className='space-y-2'>
-              <li>
-                <Link href='/tools/cost-calculator' className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
-                  Cost Calculator
+          <li  key="menu-4">
+              <button
+                className="flex items-center justify-between w-full flex text-gray-300 hover:text-gray-200 py-1"
+                onClick={handleNestedMenuToggle}
+              >
+                Resources
+                <svg className="w-4 h-4 transition-transform rotate-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <ul className="submenu pl-4 hidden space-y-2 transition ease-in-out delay-150">
+                <li>
+                  <Link href='/tools/cost-calculator' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Cost Calculator
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/tools/business-name-checker' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Name Checker
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/client-testimonials' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Client Testimonials
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/blog' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                <Link href='/dubai-accounting-guide' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  Dubai Accounting Guide
                 </Link>
               </li>
+              
               <li>
-                <Link href='/tools/business-name-checker' className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
-                  Business Name Checker
+                <Link href='/dubai-relocation-guide' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  Dubai Relocation Guide
                 </Link>
               </li>
-              <li>
+              </ul>
+          </li>
+          
+               {/*<li>
                 <Link href='/dubai-accounting-guide' className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
                   Dubai Accounting Guide
                 </Link>
@@ -112,7 +235,7 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
                   Dubai Relocation Guide
                 </Link>
               </li>
-              {/* {footer.data.company_items.map((item) => {
+               {footer.data.company_items.map((item) => {
                 return (
                   <li key={item.menu_label}>
                     <PrismicLink field={item.menu_link} className='text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out'>
@@ -122,8 +245,6 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
                 )
               })} */}
             </ul>
-          </li>
-        </ul>
       </nav>
     </div>
   )
