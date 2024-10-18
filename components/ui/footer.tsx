@@ -110,7 +110,7 @@ export default async function Footer() {
               </div>
 
               <div className='text-sm'>
-                <div className='text-gray-200 font-medium mb-3'>Partner Free Zones</div>
+                <div className='text-gray-200 font-medium mb-3'>Tailored Global Solutions</div>
                 <ul className='space-y-2'>
                   {footer?.data?.free_zone_items?.map((item) => {
                     return (
@@ -158,7 +158,7 @@ export default async function Footer() {
             </div>
           </div>
           <div className='md:flex md:items-center md:justify-center'>
-            <div className='text-gray-400 text-sm mr-4'>&copy; strive.ae. All rights reserved.</div>
+            <div className='text-gray-400 text-sm mr-4'>&copy; strive.ae. All rights reserved. <br/><a href="https://strive.ae/privacy-policy">Privacy Policy</a> / <a href="https://strive.ae/terms-and-conditions">Terms and conditions</a></div>
           </div>
         </div>
       </div>
