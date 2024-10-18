@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { FooterDocument, GlobalNavDocument } from '@/prismicio-types'
 import { PrismicLink } from '@prismicio/react'
-
+import FloatingButton from './floating-contact'
 interface MobileNavProps {
   navigation: GlobalNavDocument<string>
   footer: FooterDocument<string>
@@ -54,10 +54,7 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
     }
   }
   return (
-    <div className='md:hidden'>
-      <Link href='/tools/cost-calculator' className='btn-sm btn-cost-calculator text-white bg-purple-600 hover:bg-purple-700 mr-3'>
-        <Image src='/images/icon-calculator.png' alt='Dubai Cost calculator' width={24} height={24} />
-      </Link>
+    <div className='md:hidden flex justify-end bg-gray-900 shadow-md pb-2 w-full px-4'>
       {/* Hamburger button */}
       <button ref={trigger} className={`hamburger ${mobileNavOpen && 'active'}`} aria-controls='mobile-nav' aria-expanded={mobileNavOpen} onClick={() => setMobileNavOpen(!mobileNavOpen)}>
         <span className='sr-only'>Menu</span>
@@ -72,22 +69,13 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
       <nav
         id='mobile-nav'
         ref={mobileNav}
-        className='absolute top-full z-20 left-0 w-full px-4 sm:px-6 overflow-hidden transition-all duration-300 ease-in-out'
+        className='absolute top-20 z-20 left-0 w-full px-4 sm:px-6 overflow-hidden transition-all duration-300 ease-in-out'
         style={mobileNavOpen ? { opacity: 1 } : { maxHeight: 0, opacity: 0.8 }}
       >
         <ul className='bg-gray-800 px-4 py-2'>
-          <li>
-            <PrismicLink
-              field={navigation.data.cta_link}
-              className='font-medium w-full inline-flex items-center justify-center border border-transparent px-4 py-2 my-2 rounded-sm text-white bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out'
-              onClick={() => setMobileNavOpen(false)}
-            >
-              {navigation.data.cta_text}
-            </PrismicLink>
-          </li>
           <li key="menu-1">
               <button
-                className="flex items-center justify-between w-full flex text-gray-300 hover:text-gray-200 py-1"
+                className="flex items-center justify-between w-full flex text-gray-300 hover:text-gray-200 py-4"
                 onClick={handleNestedMenuToggle}
               >
                 Setting up a company in Dubai
@@ -97,22 +85,22 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
               </button>
               <ul className="submenu pl-4 hidden space-y-2">
                 <li>
-                  <Link href='/dubai-company-set-up' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/dubai-company-set-up' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Company Formation
                   </Link>
                 </li>
                 <li>
-                  <Link href='/dubai-mainland-company-formation' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/dubai-mainland-company-formation' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Mainland Commpany Formation
                   </Link>
                 </li>
                 <li>
-                  <Link href='/dubai-freezone-company-formation' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/dubai-freezone-company-formation' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Freezone Commpany Formation
                   </Link>
                 </li>
                 <li>
-                  <Link href='/dubai-offshore-company-formation' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/dubai-offshore-company-formation' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Offshore Commpany Formation
                   </Link>
                 </li>
@@ -120,7 +108,7 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
           </li>
           <li key="menu-2">
               <button
-                className="flex items-center justify-between w-full flex text-gray-300 hover:text-gray-200 py-1"
+                className="flex items-center justify-between w-full flex text-gray-300 hover:text-gray-200 py-4"
                 onClick={handleNestedMenuToggle}
               >
                 Dubai Residency Visa
@@ -130,17 +118,17 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
               </button>
               <ul className="submenu pl-4 hidden space-y-2">
                 <li>
-                  <Link href='/dubai-residency-visa' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/dubai-residency-visa' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Residency Visa via Company Formation
                   </Link>
                 </li>
                 <li>
-                  <Link href='/uae-golden-visa' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/uae-golden-visa' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Golden Visa
                   </Link>
                 </li>
                 <li>
-                  <Link href='/freelance-visa-dubai' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/freelance-visa-dubai' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Freelance Visa
                   </Link>
                 </li>
@@ -148,7 +136,7 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
           </li>
           <li  key="menu-3">
               <button
-                className="flex items-center justify-between w-full flex text-gray-300 hover:text-gray-200 py-1"
+                className="flex items-center justify-between w-full flex text-gray-300 hover:text-gray-200 py-4"
                 onClick={handleNestedMenuToggle}
               >
                 Business Services
@@ -158,22 +146,22 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
               </button>
               <ul className="submenu pl-4 hidden space-y-2">
                 <li>
-                  <Link href='/uae-accountancy-service' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/uae-accountancy-service' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Accounting & Bookkeeping
                   </Link>
                 </li>
                 <li>
-                  <Link href='/uae-business-bank-account' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/uae-business-bank-account' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Business Bank Account
                   </Link>
                 </li>
                 <li>
-                  <Link href='/uae-digital-currency-business-account' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/uae-digital-currency-business-account' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Digital Currency Business Account
                   </Link>
                 </li>
                 <li>
-                  <Link href='/cryptocurrency-dubai' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/cryptocurrency-dubai' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Cryptocurrency Solutions
                   </Link>
                 </li>
@@ -182,7 +170,7 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
           </li>
           <li  key="menu-4">
               <button
-                className="flex items-center justify-between w-full flex text-gray-300 hover:text-gray-200 py-1"
+                className="flex items-center justify-between w-full flex text-gray-300 hover:text-gray-200 py-4"
                 onClick={handleNestedMenuToggle}
               >
                 Resources
@@ -192,33 +180,33 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
               </button>
               <ul className="submenu pl-4 hidden space-y-2 transition ease-in-out delay-150">
                 <li>
-                  <Link href='/tools/cost-calculator' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/tools/cost-calculator' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Cost Calculator
                   </Link>
                 </li>
                 <li>
-                  <Link href='/tools/business-name-checker' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/tools/business-name-checker' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Name Checker
                   </Link>
                 </li>
                 <li>
-                  <Link href='/client-testimonials' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/client-testimonials' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Client Testimonials
                   </Link>
                 </li>
                 <li>
-                  <Link href='/blog' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                  <Link href='/blog' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Blog
                   </Link>
                 </li>
                 <li>
-                <Link href='/dubai-accounting-guide' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                <Link href='/dubai-accounting-guide' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                   Dubai Accounting Guide
                 </Link>
               </li>
               
               <li>
-                <Link href='/dubai-relocation-guide' className='flex text-gray-300 hover:text-gray-200 py-1' onClick={() => setMobileNavOpen(false)}>
+                <Link href='/dubai-relocation-guide' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                   Dubai Relocation Guide
                 </Link>
               </li>
