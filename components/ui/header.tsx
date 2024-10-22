@@ -119,11 +119,6 @@ export default async function Header() {
             </ul>
             <ul className='flex grow justify-end flex-wrap items-center'>
               <li>
-                <Link href='/tools/cost-calculator' className='btn-sm btn-cost-calculator text-white bg-purple-600 hover:bg-purple-700 ml-3'>
-                  <Image src='/images/icon-calculator.png' alt='Dubai Cost calculator' width={24} height={24} />
-                </Link>
-              </li>
-              <li>
                 <PrismicLink field={nav.data.cta_link} className='btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3'>
                   {nav.data.cta_text}
                 </PrismicLink>
