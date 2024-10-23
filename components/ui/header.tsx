@@ -1,4 +1,4 @@
-'use client'
+
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -6,7 +6,6 @@ import Dropdown from '@/components/utils/dropdown'
 import MobileMenu from './mobile-menu'
 import { getFooter, getGlobalNav } from '@/lib/cms'
 import { PrismicLink } from '@prismicio/react'
-import FloatingButton from './floating-contact'
 
 export default async function Header() {
   const nav = await getGlobalNav()
@@ -127,7 +126,6 @@ export default async function Header() {
           </nav>
 
           <MobileMenu navigation={nav} footer={footer} />
-          <FloatingButton alignment="desktop" />
         </div>
       </div>
     </header>
