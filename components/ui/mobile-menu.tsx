@@ -234,6 +234,6 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
         </ul>
       </nav>
 
-    </div><FloatingButton /></>
+    </div><FloatingButton alignment={'mobile'} /></>
   )
 }
