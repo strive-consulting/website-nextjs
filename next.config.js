@@ -50,6 +50,16 @@ const nextConfig = {
         destination: 'https://form.jotform.com/striveconsultants/amendment-request',
         permanent: true,
       },
+      {
+        source: '/blog/how-to-start-a-business-in-dubai',
+        destination: '/setting-up-a-business-in-dubai',
+        permanent: true,
+      },
+      {
+        source: '/blog/how-to-set-up-company-in-dubai--process-of-business-set-up-in-dubai',
+        destination: '/setting-up-a-business-in-dubai',
+        permanent: true,
+      },
     ]
   },
 }
