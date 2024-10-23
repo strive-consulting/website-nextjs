@@ -10,7 +10,7 @@ export default function Trustpilot({ centerAlignment,centerTextAlignment }: Trus
   const paddingBottom = centerTextAlignment ? 'pb-10' : ''
   return (
     <>
-      <p className={`text-md text-gray-400 my-3 ${textDirection}`}>We&apos;re proud to be rated 4.7 stars on Trustpilot</p>
+      <p className={`text-md text-gray-400 my-3 ${textDirection}`}>We&apos;re proud to be rated 4.8 stars on Trustpilot</p>
       <div className={`flex ${flexDirection} items-center ${paddingBottom}`}>
         <Image src='/images/trustpilot.png' alt='Strive on Trustpilot' width={300} height={43} priority={true} />
       </div>

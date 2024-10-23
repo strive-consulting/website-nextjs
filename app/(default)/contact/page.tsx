@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Contact Us',
-  description: 'Contact Strive Consultants to discuss your company formation and residency visa plans for the UAE',
+  title: 'Contact Strive: Your Partner for Setting up a Company in Dubai',
+  description: 'Reach out to Strive for professional assistance in setting up a company in Dubai. We guide you through every step of the process from company formation to visas.',
   alternates: {
     canonical: Constants.SiteDomain + '/contact',
   },
@@ -31,7 +31,7 @@ export default function Contact() {
           <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
-              <h1 className='h1 mb-4'>Get in touch</h1>
+              <h1 className='h1 mb-4'>Contact Us for Setting up a Company in Dubai</h1>
               <p className='text-xl text-gray-400'>Complete the form and our team will be in touch usually within minutes 🚀</p>
             </div>
 

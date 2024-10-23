@@ -5,8 +5,8 @@ import BusinessSetupCalculator from '@/components/calculators/business-setup'
 
 export const metadata: Metadata = {
   robots: { index: true, follow: true },
-  title: 'Dubai Business Setup Calculator',
-  description: 'Dubai Business Setup Calculator by Strive. Use our calculator to get indicative costs for forming a buisness in the UAE',
+  title: 'Business Setup Cost Calculator: Estimate Costs for Setting up a Company in Dubai',
+  description: 'Use Strive’s cost calculator to estimate the total expenses for setting up a company in Dubai. Get clear insights on business formation fees and processes.',
   alternates: {
     canonical: Constants.SiteDomain + '/tools/cost-calculator',
   },
@@ -41,7 +41,7 @@ export default async function Home() {
           <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
-              <h1 className='h1 mb-4'>Cost Calculator</h1>
+              <h1 className='h1 mb-4'>Estimate Your Business Setup Costs for Dubai</h1>
               <p className='text-xl text-gray-400'>Use our simple calculator to determine how much it will cost to get your business setup along with any UAE residency visas.</p>
             </div>
             <div className='w-full md:w-1/2 lg:w-3/4 mx-auto'>
