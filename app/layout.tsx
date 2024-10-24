@@ -45,24 +45,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           });
         `}</Script> */}
 
-        <script
-          dangerouslySetInnerHTML={{
-            __html: ` 
-            window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};   
-            heap.load('${process.env.NEXT_PUBLIC_HEAP_ANALYTICS}'); `,
-          }}
-        />
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: ` 
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", '${process.env.NEXT_PUBLIC_MS_CLARITY}');`,
-          }}
-        />
 
         <script async defer src='https://static.cdn.prismic.io/prismic.js?new=true&repo=strive'></script>
 
