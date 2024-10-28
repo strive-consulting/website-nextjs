@@ -25,7 +25,7 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,list-item,o-list-item,hyperlink"
+            "multi": "paragraph,hyperlink,list-item,o-list-item,heading3,heading4,heading5,heading6,strong"
           }
         },
         "quote_author": {
@@ -33,7 +33,9 @@
           "config": {
             "label": "Quote Author",
             "select": "document",
-            "customtypes": ["author"]
+            "customtypes": [
+              "author"
+            ]
           }
         },
         "quote_description": {

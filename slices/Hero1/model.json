@@ -36,7 +36,7 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,hyperlink"
+            "multi": "paragraph,heading2,heading3,hyperlink"
           }
         },
         "cta_1_text": {
