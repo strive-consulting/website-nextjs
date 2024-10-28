@@ -49,6 +49,10 @@ const DescriptionQuote = ({ slice }: DescriptionQuoteProps): JSX.Element => {
                 components={{
                   paragraph: ({ children }) => <p className='my-6 text-lg text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline mb-4'>{children}</p>,
                   list: ({ children }) => <ul>{children}</ul>,
+                  heading3: ({ children }) => <h3 className='h4 my-6'>{children}</h3>,
+                  heading4: ({ children }) => <h4 className='h5 my-6'>{children}</h4>,
+                  heading5: ({ children }) => <h5 className='h6 my-6'>{children}</h5>,
+                  heading6: ({ children }) => <h6 className='h7 my-6'>{children}</h6>,
                   listItem: ({ children }) => (
                     <li className='flex items-center text-lg'>
                       <TickIcon />
