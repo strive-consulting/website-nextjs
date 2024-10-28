@@ -1,43 +1,43 @@
 [
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "default",
-    "primary": {
-      "title": {
-        "__TYPE__": "FieldContent",
-        "value": "hold",
-        "type": "Text"
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Ut minim quis velit elit sunt anim ea labore non."
-            }
-          }
-        ]
-      },
-      "quote_description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Incididunt exercitation minim culpa laborum sunt officia dolor amet nulla elit aliqua ullamco. Nisi ut nisi ex ea dolor qui aliquip consequat eiusmod et Lorem magna sunt do aliquip. Dolore ut aute commodo tempor ullamco ad aliqua reprehenderit est."
-            }
-          }
-        ]
-      },
-      "quote_author": {
-        "__TYPE__": "LinkContent",
-        "value": {
-          "__TYPE__": "DocumentLink",
-          "id": "mock_document_id"
-        }
-      }
-    },
-    "items": []
-  }
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "hold",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laborum aute elit occaecat anim proident occaecat officia adipisicing velit cillum adipisicing dolore. Aliqua cillum cupidatat ullamco occaecat fugiat est ea officia dolore esse laborum nisi."
+						}
+					}
+				]
+			},
+			"quote_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt exercitation minim culpa laborum sunt officia dolor amet nulla elit aliqua ullamco. Nisi ut nisi ex ea dolor qui aliquip consequat eiusmod et Lorem magna sunt do aliquip. Dolore ut aute commodo tempor ullamco ad aliqua reprehenderit est."
+						}
+					}
+				]
+			},
+			"quote_author": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			}
+		},
+		"items": []
+	}
 ]
