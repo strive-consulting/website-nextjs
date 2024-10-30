@@ -12,11 +12,61 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "video_title": {
+          "type": "Text",
+          "config": {
+            "label": "Video Title",
+            "placeholder": ""
+          }
+        },
         "youtube_video": {
           "type": "Embed",
           "config": {
             "label": "YouTube Video",
             "placeholder": ""
+          }
+        },
+        "video_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Video Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,heading3,heading4,heading5,heading6,strong,em,hyperlink"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "videoLayout2",
+      "name": "Video Layout 2",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "video_title": {
+          "type": "Text",
+          "config": {
+            "label": "Video Title",
+            "placeholder": ""
+          }
+        },
+        "youtube_video": {
+          "type": "Embed",
+          "config": {
+            "label": "YouTube Video",
+            "placeholder": ""
+          }
+        },
+        "video_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Video Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,heading3,heading4,heading5,heading6,strong,em,hyperlink"
           }
         }
       },
