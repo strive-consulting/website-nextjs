@@ -106,6 +106,9 @@ export default async function Header() {
                 <Link href='/client-testimonials' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                   Client Testimonials
                 </Link>
+                <Link href='/case-studies' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
+                  Case Studies
+                </Link>
                 <Link href='/dubai-accounting-guide' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                   Dubai Accounting Guide
                 </Link>
