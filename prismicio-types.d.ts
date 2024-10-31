@@ -2461,6 +2461,16 @@ export type TestimonialsSlice = prismic.SharedSlice<'testimonials', Testimonials
  */
 export interface VideoSliceDefaultPrimary {
   /**
+   * Video Title field in *Video → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.video_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  video_title: prismic.KeyTextField
+
+  /**
    * YouTube Video field in *Video → Primary*
    *
    * - **Field Type**: Embed
@@ -2469,6 +2479,16 @@ export interface VideoSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#embed
    */
   youtube_video: prismic.EmbedField
+
+  /**
+   * Video Description field in *Video → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.video_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  video_description: prismic.RichTextField
 }
 
 /**
@@ -2481,9 +2501,53 @@ export interface VideoSliceDefaultPrimary {
 export type VideoSliceDefault = prismic.SharedSliceVariation<'default', Simplify<VideoSliceDefaultPrimary>, never>
 
 /**
+ * Primary content in *Video → Primary*
+ */
+export interface VideoSliceVideoLayout2Primary {
+  /**
+   * Video Title field in *Video → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.video_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  video_title: prismic.KeyTextField
+
+  /**
+   * YouTube Video field in *Video → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.youtube_video
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  youtube_video: prismic.EmbedField
+
+  /**
+   * Video Description field in *Video → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.video_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  video_description: prismic.RichTextField
+}
+
+/**
+ * Video Layout 2 variation for Video Slice
+ *
+ * - **API ID**: `videoLayout2`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoSliceVideoLayout2 = prismic.SharedSliceVariation<'videoLayout2', Simplify<VideoSliceVideoLayout2Primary>, never>
+
+/**
  * Slice variation for *Video*
  */
-type VideoSliceVariation = VideoSliceDefault
+type VideoSliceVariation = VideoSliceDefault | VideoSliceVideoLayout2
 
 /**
  * Video Shared Slice
@@ -2701,8 +2765,10 @@ declare module '@prismicio/client' {
       TestimonialsSliceSingle,
       VideoSlice,
       VideoSliceDefaultPrimary,
+      VideoSliceVideoLayout2Primary,
       VideoSliceVariation,
       VideoSliceDefault,
+      VideoSliceVideoLayout2,
       ZigZagSlice,
       ZigZagSliceDefaultPrimary,
       ZigZagSliceDefaultItem,

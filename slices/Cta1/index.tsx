@@ -85,7 +85,7 @@ const Cta1 = ({ slice }: Cta1Props): JSX.Element => {
               <h4 className='h2 mb-4' data-aos='fade-up' data-aos-anchor='[data-aos-id-cta]'>
                 {slice.primary.title}
               </h4>
-  
+
               <PrismicRichText
                 field={slice.primary.sub_text}
                 components={{
@@ -96,7 +96,7 @@ const Cta1 = ({ slice }: Cta1Props): JSX.Element => {
                   ),
                 }}
               />
-  
+
               {/* CTA button */}
               <div className='flex justify-center mb-8' data-aos='fade-up' data-aos-delay='400' data-aos-anchor='[data-aos-id-cta]'>
                 <PrismicNextLink
@@ -108,7 +108,7 @@ const Cta1 = ({ slice }: Cta1Props): JSX.Element => {
                   {slice.primary.cta_text}
                 </PrismicNextLink>
               </div>
-  
+
               {slice.primary.bullets && (
                 <PrismicRichText
                   field={slice.primary.bullets}

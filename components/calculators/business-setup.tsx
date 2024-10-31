@@ -224,7 +224,7 @@ const BusinessSetupCalculator: React.FC<SetupProps> = ({ deferedDataCapture }: S
     formData.utmMedium = utm['utm_medium']
     formData.utmSource = utm['utm_source']
     formData.utmTerm = utm['utmTerm']
-    
+
     setFormData({ ...formData })
 
     let error = false

@@ -81,7 +81,7 @@ export default function UserDataCapture({
     formData.utmMedium = utm['utmMedium']
     formData.utmSource = utm['utmSource']
     formData.utmTerm = utm['utmTerm']
-    
+
     setFormData({ ...formData })
 
     let error = false

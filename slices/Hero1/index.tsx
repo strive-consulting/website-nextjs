@@ -7,7 +7,7 @@ import Trustpilot from '@/components/trustpilot'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
- 
+
 export enum TitleAlign {
   Left = 'Left',
   Center = 'Center',
@@ -84,7 +84,6 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                         // hyperlink: ({ children }) => <a className='text-xl text-gray-100 hover:underline hover:bg-purple-700'>{children}</a>,
                       }}
                     />
-                    
                   </div>
 
                   {/* CTA */}
@@ -102,7 +101,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                           </PrismicNextLink>
                         </div>
                       </div>
-                      <Trustpilot centerTextAlignment={true}/>
+                      <Trustpilot centerTextAlignment={true} />
                     </>
                   )}
 
@@ -122,8 +121,8 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                       components={{
                         paragraph: ({ children }) => <p className='mb-10 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline'>{children}</p>,
                         heading2: ({ children }) => <h2 className='h3 my-6'>{children}</h2>,
-              heading3: ({ children }) => <h3 className='h4 my-6'>{children}</h3>,
-                        
+                        heading3: ({ children }) => <h3 className='h4 my-6'>{children}</h3>,
+
                         // hyperlink: ({ children }) => <a className='text-xl text-gray-100 hover:underline hover:bg-purple-700'>{children}</a>,
                       }}
                     />
