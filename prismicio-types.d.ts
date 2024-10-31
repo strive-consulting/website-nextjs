@@ -2489,6 +2489,26 @@ export interface VideoSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   video_description: prismic.RichTextField
+
+  /**
+   * CTA Link field in *Video → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField
+
+  /**
+   * CTA Text field in *Video → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField
 }
 
 /**
@@ -2533,6 +2553,26 @@ export interface VideoSliceVideoLayout2Primary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   video_description: prismic.RichTextField
+
+  /**
+   * CTA Text field in *Video → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField
+
+  /**
+   * CTA Link field in *Video → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField
 }
 
 /**
