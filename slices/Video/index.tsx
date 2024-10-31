@@ -42,6 +42,7 @@ function loadVideoIframe(url: string, title?: string, description?: string): JSX
  * Component for "Video" Slices.
  */
 const Video = ({ slice }: VideoProps): JSX.Element => {
+  const hasCtaLink = slice.primary.cta_link && 'url' in slice.primary.cta_link;
   if (slice.variation === 'default') {
     return (
       <section className='relative'>
@@ -60,7 +61,7 @@ const Video = ({ slice }: VideoProps): JSX.Element => {
                 // hyperlink: ({ children }) => <a className='text-xl text-gray-100 hover:underline hover:bg-purple-700'>{children}</a>,
               }}
             />
-            {slice.primary.cta_link.url && (
+            {hasCtaLink && (
                <PrismicNextLink className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto' field={slice.primary.cta_link}>
                 {slice.primary.cta_text}
               </PrismicNextLink>
@@ -106,7 +107,7 @@ const Video = ({ slice }: VideoProps): JSX.Element => {
                       // hyperlink: ({ children }) => <a className='text-xl text-gray-100 hover:underline hover:bg-purple-700'>{children}</a>,
                     }}
                   />
-                  {slice.primary.cta_link.url != null && (
+                  {hasCtaLink && (
                     <PrismicNextLink className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto' field={slice.primary.cta_link}>
                       {slice.primary.cta_text}
                     </PrismicNextLink>
