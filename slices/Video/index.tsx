@@ -61,7 +61,7 @@ const Video = ({ slice }: VideoProps): JSX.Element => {
               }}
             />
             {slice.primary.cta_link.url && (
-              <PrismicNextLink className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto' field={slice.primary.cta_link}>
+               <PrismicNextLink className='btn text-white bg-purple-600 hover:bg-purple-600 w-full sm:w-auto' field={slice.primary.cta_link}>
                 {slice.primary.cta_text}
               </PrismicNextLink>
             )}
