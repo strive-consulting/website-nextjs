@@ -8,12 +8,11 @@ import { Constants } from '@/app/constants'
 interface ContactFormSimpleProps {
   label?: string
   redirect?: LinkField
-
 }
 
 export default function ContactFormSimple({ label = 'Form', redirect }: ContactFormSimpleProps) {
   const router = useRouter()
-  
+
   const searchParams = useSearchParams()
 
   const utm = {
@@ -34,11 +33,11 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
     utm: utm,
     label: label,
     btnStateClass: 'bg-purple-300',
-    btnDisabled: true
+    btnDisabled: true,
   })
 
   const handleChange = (e: any) => {
-    formData.btnStateClass = isFormComplete() ? 'bg-purple-600' : 'bg-purple-300';
+    formData.btnStateClass = isFormComplete() ? 'bg-purple-600' : 'bg-purple-300'
     formData.btnDisabled = !isFormComplete()
 
     setFormData({
@@ -48,8 +47,8 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
   }
 
   const isFormComplete = () => {
-    return (formData.name !== '' && formData.phoneNumber !== '' && formData.email !== '')
-  };
+    return formData.name !== '' && formData.phoneNumber !== '' && formData.email !== ''
+  }
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
@@ -63,16 +62,15 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
 
     //Handle optional redirect
     //console.log(redirect)
-    if(redirect) {
-      if(redirect?.link_type == 'Web') {
+    if (redirect) {
+      if (redirect?.link_type == 'Web') {
         //console.log('Web redirect', Constants.SiteDomain + asLink(redirect))
 
-        window.location.replace(Constants.SiteDomain + asLink(redirect));
-      }
-      else {
+        window.location.replace(Constants.SiteDomain + asLink(redirect))
+      } else {
         //console.log('Prismic redirect', Constants.SiteDomain + linkResolver(redirect))
 
-        window.location.replace(Constants.SiteDomain + linkResolver(redirect));
+        window.location.replace(Constants.SiteDomain + linkResolver(redirect))
       }
     }
   }

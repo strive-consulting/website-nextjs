@@ -142,7 +142,7 @@ export default function EnquiryForm() {
       method: 'POST',
       body: JSON.stringify(formSubmissionData),
     })
-    window.location.replace('/contact-thanks-form');
+    window.location.replace('/contact-thanks-form')
   }
 
   return (
