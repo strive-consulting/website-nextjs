@@ -158,7 +158,10 @@ export default async function Footer() {
             </div>
           </div>
           <div className='md:flex md:items-center md:justify-center'>
-            <div className='text-gray-400 text-sm mr-4'>&copy; strive.ae. All rights reserved. <br/><a href="https://strive.ae/privacy-policy">Privacy Policy</a> / <a href="https://strive.ae/terms-and-conditions">Terms and conditions</a></div>
+            <div className='text-gray-400 text-sm mr-4'>
+              &copy; strive.ae. All rights reserved. <br />
+              <a href='https://strive.ae/privacy-policy'>Privacy Policy</a> / <a href='https://strive.ae/terms-and-conditions'>Terms and conditions</a>
+            </div>
           </div>
         </div>
       </div>

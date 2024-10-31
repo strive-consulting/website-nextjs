@@ -30,7 +30,7 @@ export default function HrForm() {
     note: '',
     utm: utm,
     dataChanged: false,
-    label: 'HR'
+    label: 'HR',
   })
 
   const handleChange = (e: any) => {

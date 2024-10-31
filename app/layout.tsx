@@ -45,7 +45,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           });
         `}</Script> */}
 
-
         <script async defer src='https://static.cdn.prismic.io/prismic.js?new=true&repo=strive'></script>
 
         <script async src='https://apps.elfsight.com/p/platform.js' defer></script>

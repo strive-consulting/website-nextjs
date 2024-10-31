@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: { tag: string; page
       description: `Latest ${tagName} information and blogs in Dubai and UAE.`,
       images: [Constants.SiteDomain + Constants.OpenGraphImage],
       url: Constants.SiteDomain + '/blog/tag/' + params.tag,
-      type: 'website', 
+      type: 'website',
     },
     twitter: {
       card: 'summary_large_image',

@@ -33,9 +33,7 @@
           "config": {
             "label": "Quote Author",
             "select": "document",
-            "customtypes": [
-              "author"
-            ]
+            "customtypes": ["author"]
           }
         },
         "quote_description": {

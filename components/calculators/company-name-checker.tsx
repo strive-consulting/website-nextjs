@@ -188,7 +188,7 @@ const CompanyNameChecker: React.FC = () => {
       utmCampaign: utmParamsFromLocalStorage['utm_campaign'], // ?? undefined,
       utmMedium: utmParamsFromLocalStorage['utm_medium'], // ?? undefined,
       utmSource: utmParamsFromLocalStorage['utm_source'], // ?? undefined,
-      utmTerm: utmParamsFromLocalStorage['utm_term']// ?? undefined,
+      utmTerm: utmParamsFromLocalStorage['utm_term'], // ?? undefined,
     })
     // console.log('utm from ls', utmParamsFromLocalStorage)
   }, [])

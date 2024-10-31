@@ -1,20 +1,20 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"body": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Pariatur cillum fugiat incididunt voluptate occaecat aliqua sit culpa consequat cupidatat eu. Sunt dolore voluptate culpa ad magna voluptate in nulla qui magna ipsum ea magna incididunt. Officia qui minim laborum anim deserunt pariatur reprehenderit."
-						}
-					}
-				]
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "body": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Pariatur cillum fugiat incididunt voluptate occaecat aliqua sit culpa consequat cupidatat eu. Sunt dolore voluptate culpa ad magna voluptate in nulla qui magna ipsum ea magna incididunt. Officia qui minim laborum anim deserunt pariatur reprehenderit."
+            }
+          }
+        ]
+      }
+    },
+    "items": []
+  }
 ]
