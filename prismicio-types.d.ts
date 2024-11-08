@@ -113,7 +113,7 @@ interface BankDocumentData {
  */
 export type BankDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<BankDocumentData>, 'bank', Lang>
 
-type BlogPostDocumentDataSlicesSlice = never
+type BlogPostDocumentDataSlicesSlice = FaqSlice | Cta1Slice
 
 /**
  * Content for Blog Post documents
