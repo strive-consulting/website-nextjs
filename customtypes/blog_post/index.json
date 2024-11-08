@@ -72,7 +72,14 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "faq": {
+              "type": "SharedSlice"
+            },
+            "cta1": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import PostTags from '@/components/post-tags'
 import { getBlogPost, getBlogPostsAll, getBlogPostsPaged } from '@/lib/cms'
-import { PrismicImage, PrismicRichText } from '@prismicio/react'
+import { PrismicImage, PrismicRichText, SliceZone } from '@prismicio/react'
 import { Constants } from '@/app/constants'
 import { linkResolver } from '@/prismicio'
 import SchemaTag from '@/components/schema'
@@ -12,6 +12,7 @@ import PostItem from '@/components/post-item'
 import ShareBar from '@/components/share-bar'
 import BlogPostAuthorFooter from '@/components/blog-post-author-footer'
 import TickIcon from '@/components/tickIcon'
+import { components } from '@/slices'
 
 export async function generateStaticParams() {
   const pages = await getBlogPostsAll()
@@ -178,12 +179,12 @@ export default async function SinglePost({ params }: { params: { slug: string } 
             </div>
           </div>
         </div>
-
+        <SliceZone slices={post.data.slices} components={components} />
         <SchemaTag schemaJson={schema} />
       </section>
       {blogPosts.generalPosts?.length > 0 && (
         <section className='relative'>
-          <div className='max-w-6xl mx-auto px-4 sm:px-6'>
+          <div className='max-w-6xl mx-auto px-4 mt-4 sm:px-6'>
             <div className='pt-5 md:pb-20'>
               {/*  Page header */}
               <div className='max-w-3xl pb-12 md:pb-10 text-center md:text-left'>
@@ -201,7 +202,6 @@ export default async function SinglePost({ params }: { params: { slug: string } 
               </div>
             </div>
           </div>
-
           <SchemaTag schemaJson={schema} />
         </section>
       )}
