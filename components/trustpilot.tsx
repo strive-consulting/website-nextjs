@@ -13,7 +13,7 @@ export default function Trustpilot({ centerAlignment, centerTextAlignment }: Tru
     <>
       <p className={`text-md text-gray-400 my-3 ${textDirection}`}>We&apos;re proud to be rated 4.8 stars on Trustpilot</p>
       <div className={`flex ${flexDirection} items-center ${paddingBottom}`}>
-        <Link href='https://uk.trustpilot.com/review/strive.ae'>
+        <Link href='https://uk.trustpilot.com/review/strive.ae' target='_blank'>
           <Image src='/images/trustpilot.png' alt='Strive on Trustpilot' width={300} height={43} priority={true} />
         </Link>
       </div>

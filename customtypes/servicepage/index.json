@@ -26,6 +26,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "general_section": {
+              "type": "SharedSlice"
+            },
             "zig_zag": {
               "type": "SharedSlice"
             },
