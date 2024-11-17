@@ -744,6 +744,7 @@ interface QuoteDocumentData {
 export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<QuoteDocumentData>, 'quote', Lang>
 
 type ServicepageDocumentDataSlicesSlice =
+  | GeneralSectionSlice
   | ZigZagSlice
   | SocialBarSlice
   | ContactFormSlice
@@ -1624,6 +1625,55 @@ type GeneralContentSliceVariation = GeneralContentSliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type GeneralContentSlice = prismic.SharedSlice<'general_content', GeneralContentSliceVariation>
+
+/**
+ * Primary content in *GeneralSection → Primary*
+ */
+export interface GeneralSectionSliceDefaultPrimary {
+  /**
+   * Display Text field in *GeneralSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: general_section.primary.display_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  display_text: prismic.RichTextField
+
+  /**
+   * Text Alignment field in *GeneralSection → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Left
+   * - **API ID Path**: general_section.primary.text_alignment
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  text_alignment: prismic.SelectField<'Left' | 'Right' | 'Center', 'filled'>
+}
+
+/**
+ * Default variation for GeneralSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GeneralSectionSliceDefault = prismic.SharedSliceVariation<'default', Simplify<GeneralSectionSliceDefaultPrimary>, never>
+
+/**
+ * Slice variation for *GeneralSection*
+ */
+type GeneralSectionSliceVariation = GeneralSectionSliceDefault
+
+/**
+ * GeneralSection Shared Slice
+ *
+ * - **API ID**: `general_section`
+ * - **Description**: GeneralSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GeneralSectionSlice = prismic.SharedSlice<'general_section', GeneralSectionSliceVariation>
 
 /**
  * Primary content in *GridBlocks → Primary*
@@ -2761,6 +2811,10 @@ declare module '@prismicio/client' {
       GeneralContentSliceDefaultPrimary,
       GeneralContentSliceVariation,
       GeneralContentSliceDefault,
+      GeneralSectionSlice,
+      GeneralSectionSliceDefaultPrimary,
+      GeneralSectionSliceVariation,
+      GeneralSectionSliceDefault,
       GridBlocksSlice,
       GridBlocksSliceDefaultPrimary,
       GridBlocksSliceDefaultItem,

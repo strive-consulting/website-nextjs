@@ -1,0 +1,41 @@
+{
+  "id": "general_section",
+  "type": "SharedSlice",
+  "name": "GeneralSection",
+  "description": "GeneralSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "display_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Display Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "text_alignment": {
+          "type": "Select",
+          "config": {
+            "label": "Text Alignment",
+            "placeholder": "",
+            "options": [
+              "Left",
+              "Right",
+              "Center"
+            ],
+            "default_value": "Left"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -13,6 +13,7 @@ export const components = {
   footer_simple: dynamic(() => import('./FooterSimple')),
   free_zones: dynamic(() => import('./FreeZones')),
   general_content: dynamic(() => import('./GeneralContent')),
+  general_section: dynamic(() => import('./GeneralSection')),
   grid_blocks: dynamic(() => import('./GridBlocks')),
   hero1: dynamic(() => import('./Hero1')),
   landing_page_hero: dynamic(() => import('./LandingPageHero')),
