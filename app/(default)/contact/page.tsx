@@ -54,13 +54,13 @@ export default function Contact() {
               <div className='relative flex flex-col items-left' data-aos='fade-up'>
                 <h5 className='h5 mb-2'>UAE Office</h5>
                 <p className='text-lg text-gray-400 text-left text-base'>
-                  <address>Office No. 104-118, Khalid Shaban, Al Garhoud, Dubai</address>
+                  <address>The One Tower Building, P.O. Box 390114, Floor 24, Barsha Heights, Dubai, UAE</address>
                 </p>
               </div>
               <div className='relative flex flex-col items-left' data-aos='fade-up'>
                 <h5 className='h5 mb-2'>UK Office</h5>
                 <p className='text-lg text-gray-400 text-left text-base'>
-                  <address>128 City Road, London, EC1V 2NX</address>
+                  <address>167-169 Great Portland Street, 5th Floor, London, W1W 5PF</address>
                 </p>
               </div>
             </div>
