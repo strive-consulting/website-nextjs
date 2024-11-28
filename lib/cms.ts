@@ -257,25 +257,25 @@ export async function getAuthor(name: string) {
   return author
 }
 
-// export async function getBlogPostsByAuthorPaged(pagenum: number = 1, pageSize?: number, authorUid?: string) {
-//   const client = createClient()
+export async function getBlogPostsByAuthorPaged(pagenum: number = 1, pageSize?: number, authorUid?: string) {
+  const client = createClient()
 
-//   const communityPosts = await client
-//     .getByType('blog_post', {
-//       fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
-//       orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
-//       filters: [prismic.filter.at('my.blog_post.author.data.uid', authorUid?.toString() ?? '')], //PROBLEM. Not supported. Will need to switch to graphQuery  
-//       pageSize: pageSize,
-//       page: pagenum,
-//     })
-//     .catch(() => notFound())
+  const communityPosts = await client
+    .getByType('blog_post', {
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+      orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
+      filters: [prismic.filter.at('my.blog_post.author.data.uid', authorUid?.toString() ?? '')], //PROBLEM. Not supported. Will need to switch to graphQuery  
+      pageSize: pageSize,
+      page: pagenum,
+    })
+    .catch(() => notFound())
 
-//   return {
-//     generalPosts: communityPosts.results,
+  return {
+    generalPosts: communityPosts.results,
 
-//     active_page: pagenum,
-//     total_pages: communityPosts.total_pages,
-//     next_page: communityPosts.next_page ? true : false,
-//     prev_page: communityPosts.prev_page ? true : false,
-//   }
-// }
+    active_page: pagenum,
+    total_pages: communityPosts.total_pages,
+    next_page: communityPosts.next_page ? true : false,
+    prev_page: communityPosts.prev_page ? true : false,
+  }
+}
