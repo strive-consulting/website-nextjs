@@ -17,6 +17,8 @@ export function linkResolver(doc: any) {
       return `/lp/${doc.uid}`
     case 'blog_post':
       return `/blog/${doc.uid}`
+    case 'author':
+      return `/blog/author/${doc.uid}`
     default:
       return null
   }
@@ -40,6 +42,11 @@ const routes: prismic.ClientConfig['routes'] = [
     type: 'blog_post',
     path: '/blog/:uid',
   },
+  {
+    type: 'author',
+    path: '/blog/author/:uid',
+  },
+  // E
   // Examples:
   // {
   // 	type: "homepage",

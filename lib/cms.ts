@@ -138,7 +138,7 @@ export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number, 
   // console.log(filters)
   const communityPosts = await client
     .getByType('blog_post', {
-      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.uid'],
       orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
       // filters: tag && [prismic.filter.at('document.tags', [toTitleCase(tag)])],
 
@@ -178,7 +178,7 @@ export async function getBlogPost(name: string) {
 
   const communityPost = await client
     .getByUID('blog_post', name, {
-      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.uid'],
     })
     .catch(() => notFound())
 
@@ -190,7 +190,7 @@ export async function getBlogPostsAll() {
 
   const communityPosts = await client
     .getByType('blog_post', {
-      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.uid'],
       orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
     })
     .catch(() => notFound())
@@ -231,3 +231,51 @@ export async function getAllLandingPages() {
 
   return pages
 }
+
+export async function getAuthors() {
+  const client = createClient()
+
+  const authors = await client
+    .getByType('author', {
+      fetchLinks: ['name', 'job_title', 'avatar', 'linkedin_url'],
+      orderings: [{ field: 'my.author.name', direction: 'desc' }],
+    })
+    .catch(() => notFound())
+
+  return authors.results
+}
+
+export async function getAuthor(name: string) {
+  const client = createClient()
+
+  const author = await client
+    .getByUID('author', name, {
+      fetchLinks: ['name', 'job_title', 'avatar', 'linkedin_url'],
+    })
+    .catch(() => notFound())
+
+  return author
+}
+
+// export async function getBlogPostsByAuthorPaged(pagenum: number = 1, pageSize?: number, authorUid?: string) {
+//   const client = createClient()
+
+//   const communityPosts = await client
+//     .getByType('blog_post', {
+//       fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+//       orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
+//       filters: [prismic.filter.at('my.blog_post.author.data.uid', authorUid?.toString() ?? '')], //PROBLEM. Not supported. Will need to switch to graphQuery  
+//       pageSize: pageSize,
+//       page: pagenum,
+//     })
+//     .catch(() => notFound())
+
+//   return {
+//     generalPosts: communityPosts.results,
+
+//     active_page: pagenum,
+//     total_pages: communityPosts.total_pages,
+//     next_page: communityPosts.next_page ? true : false,
+//     prev_page: communityPosts.prev_page ? true : false,
+//   }
+// }
