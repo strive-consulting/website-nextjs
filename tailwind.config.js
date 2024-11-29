@@ -68,7 +68,7 @@ module.exports = {
       //override class for website width to make it general
       maxWidth: {
         '6xl': '90rem',
-        '3xl': '80rem'
+        '3xl': '80rem' 
       }
     },
   },
