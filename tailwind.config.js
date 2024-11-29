@@ -65,6 +65,11 @@ module.exports = {
       scale: {
         98: '.98',
       },
+      //override class for website width to make it general
+      maxWidth: {
+        '6xl': '90rem',
+        '3xl': '80rem'
+      }
     },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
