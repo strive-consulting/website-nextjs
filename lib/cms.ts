@@ -2,6 +2,7 @@ import { createClient } from '@/prismicio'
 import { notFound } from 'next/navigation'
 import * as prismic from '@prismicio/client'
 import { blogTagNameCleaner, toTitleCase } from './helpers'
+import { AuthorDocument } from '@/prismicio-types'
 
 export async function getTestimonials(maxcount?: number) {
   const client = createClient()
@@ -257,18 +258,39 @@ export async function getAuthor(name: string) {
   return author
 }
 
-export async function getBlogPostsByAuthorPaged(pagenum: number = 1, pageSize?: number, authorUid?: string) {
+export async function getBlogPostsByAuthorPaged(pagenum: number = 1, pageSize?: number, authorUid?: string, author?: AuthorDocument<string>) {
   const client = createClient()
 
-  const communityPosts = await client
-    .getByType('blog_post', {
-      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
-      orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
-      filters: [prismic.filter.at('my.blog_post.author.data.uid', authorUid?.toString() ?? '')], //PROBLEM. Not supported. Will need to switch to graphQuery  
-      pageSize: pageSize,
-      page: pagenum,
-    })
-    .catch(() => notFound())
+  //Have to use grahpQuery to be able to filter by the contentRelationship field
+  const graphQuery = `
+{
+  blog_post {
+    title
+    published_date
+    youtube_video
+    author {
+      name
+      job_title
+      avatar
+      linkedin_url
+    }
+  }
+}
+`;
+
+//We have the load the author's actual documentID (Different to the UID)
+const authorDoc = await client.getByUID('author', authorUid ?? '');
+console.log('authorDoc=' + authorDoc.id); // Use this ID in the filter
+
+const communityPosts = await client
+  .getByType('blog_post', {
+    graphQuery, // Use graphQuery for nested fetching
+    orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
+    filters: [prismic.filter.at('my.blog_post.author',  authorDoc.id)], // Use a direct filter on the content relationship
+    pageSize: pageSize,
+    page: pagenum,
+  })
+  .catch(() => notFound());
 
   return {
     generalPosts: communityPosts.results,

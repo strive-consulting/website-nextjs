@@ -53,10 +53,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default async function SinglePost({ params }: { params: { slug: string } }) {
   const author = await getAuthor(params.slug)
-  // const blogPosts = await getBlogPostsByAuthorPaged(1, 3, params.slug)
+  const blogPosts = await getBlogPostsByAuthorPaged(1, 30, params.slug, author)
 
-  // console.log('bp=' + blogPosts)
-
+  console.log('bp=' + blogPosts.generalPosts.length)
   // const blogPosts = await getBlogPostsPaged(1, 3, post.tags?.[0], post.uid)
 
   if (author === undefined) return notFound()
@@ -134,7 +133,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                 </header>
 
                 {/*  Articles list */}
-                {/* <div className='max-w-sm mx-auto md:max-w-none'>
+                <div className='max-w-sm mx-auto md:max-w-none'>
                   <h4 className='h4 pb-6 mb-10 border-b border-gray-700' data-aos='fade-up'>
                     Latest articles
                   </h4>
@@ -145,7 +144,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                   </div>
                 </div>
 
-                <BlogPagination totalpages={blogPosts.total_pages} activepage={blogPosts.active_page} /> */}
+                <BlogPagination totalpages={blogPosts.total_pages} activepage={blogPosts.active_page} />
 
                 {/* Article image */}
                 {/* {post.data.image && (
