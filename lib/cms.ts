@@ -266,6 +266,8 @@ export async function getBlogPostsByAuthorPaged(pagenum: number = 1, pageSize?: 
 {
   blog_post {
     title
+    image
+    introduction
     published_date
     youtube_video
     author {

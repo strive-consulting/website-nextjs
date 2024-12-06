@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default async function SinglePost({ params }: { params: { slug: string } }) {
   const author = await getAuthor(params.slug)
-  const blogPosts = await getBlogPostsByAuthorPaged(1, 30, params.slug, author)
+  const blogPosts = await getBlogPostsByAuthorPaged(1, 15, params.slug, author)
 
   console.log('bp=' + blogPosts.generalPosts.length)
   // const blogPosts = await getBlogPostsPaged(1, 3, post.tags?.[0], post.uid)
@@ -111,31 +111,20 @@ export default async function SinglePost({ params }: { params: { slug: string } 
           <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
             <div className='max-w-3xl mx-auto'>
               <article>
-                <header className='mb-8'>
-                  {/* Title and excerpt */}
-                  <div className='text-center md:text-left'>
-                    {/* <BreadCrumbs homeTitle='Blog' homeUrl='/blog' currentPageName={post.tags?.[0] ?? post.data.title} currentPageUrl={Constants.SiteDomain + linkResolver(post)} /> */}
-                    <h1 className='h1 mb-4' data-aos='fade-up'>
-                      {author.data.name} 
-                    </h1>
-                    {/* <PrismicRichText
-                      field={post.data.introduction}
-                      components={{
-                        paragraph: ({ children }) => (
-                          <p className='text-xl text-gray-400' data-aos='fade-up' data-aos-delay='200'>
-                            {children}
-                          </p>
-                        ),
-                      }}
-                    /> */}
+                <header className="mb-8">
+                  {/* Title and excerpt */} 
+                  <div className="flex flex-col md:flex-row items-center text-center md:text-left">
+                    <PrismicImage className="rounded-full shrink-0 mb-4 md:mb-0 md:mr-4" field={author.data.avatar} width={250} height={250} />
+                    <div className="flex flex-col justify-center">
+                      <h1 className="h1 mb-2" data-aos="fade-up">{author.data.name}</h1>
+                      <h2 className="h3 mb-2" data-aos="fade-up">{author.data.job_title} at Strive Consultants</h2>
+                    </div>
                   </div>
-
                 </header>
-
                 {/*  Articles list */}
                 <div className='max-w-sm mx-auto md:max-w-none'>
                   <h4 className='h4 pb-6 mb-10 border-b border-gray-700' data-aos='fade-up'>
-                    Latest articles
+                    Latest articles by {author.data.name} 
                   </h4>
                   <div className='grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start'>
                     {blogPosts.generalPosts.map((post, postIndex) => (
@@ -143,59 +132,10 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                     ))}
                   </div>
                 </div>
-
-                <BlogPagination totalpages={blogPosts.total_pages} activepage={blogPosts.active_page} />
-
-                {/* Article image */}
-                {/* {post.data.image && (
-                  <figure className='mb-8 lg:-ml-32 lg:-mr-32' data-aos='fade-up' data-aos-delay='600'>
-                    <PrismicImage className='w-full' field={post.data.image} width={1024} height={576} />
-                  </figure>
-                )} */}
-                {/* {post.data.youtube_video.embed_url != null && (
-                  <div className='relative videoWrapper'>
-                    <iframe
-                      className='absolute top-0 left-0 w-full h-full'
-                      src={post.data.youtube_video.embed_url.replace('watch?v=', 'embed/')}
-                      title={post.data.title?.toString()}
-                      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                      allowFullScreen={true}
-                    ></iframe>
-                  </div>
-                )} */}
-
-                {/* <PrismicRichText
-                  field={post.data.body}
-                  components={{
-                    heading2: ({ children }) => <h2 className='h3 my-5'>{children}</h2>,
-                    heading3: ({ children }) => <h3 className='h4 my-5'>{children}</h3>,
-                    paragraph: ({ children }) => (
-                      <p className='prose my-6 text-gray-400 max-w-none prose-lg prose-invert prose-p:leading-normal prose-headings:text-gray-200 prose-a:text-gray-200 prose-a:underline hover:prose-a:no-underline prose-a:font-normal prose-strong:font-medium prose-strong:text-gray-200 prose-blockquote:italic prose-blockquote:pl-4 prose-blockquote:border-l-2 prose-blockquote:border-gray-200 prose-blockquote:font-normal prose-blockquote:text-gray-400'>
-                        {children}
-                      </p>
-                    ),
-                    list: ({ children }) => <ul>{children}</ul>,
-                    listItem: ({ children }) => (
-                      <li className='flex items-center text-lg text-gray-400 mt-4'>
-                        <TickIcon />
-                        {children}
-                      </li>
-                    ),
-                    oList: ({ children }) => <ul>{children}</ul>,
-                    oListItem: ({ children }) => (
-                      <li className='flex items-center text-lg text-gray-400 mt-4'>
-                        <TickIcon />
-                        {children}
-                      </li>
-                    ),
-                  }}
-                /> */}
               </article>
             </div>
           </div>
         </div>
-        
-        {/* <SchemaTag schemaJson={schema} /> */}
       </section>
       
     </>
