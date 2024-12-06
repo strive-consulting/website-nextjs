@@ -13,11 +13,11 @@ const BlogPostAuthorFooter: React.FC<Props> = ({ post }: Props) => {
 
     return (
       <footer className='flex items-center mt-4'>
-        <Link href='#'>
+        <Link href={`/blog/author/${post.data.author.uid}`}>
           <PrismicImage className='rounded-full shrink-0 mr-4' field={post.data.author.data?.avatar} width={40} height={40} />
         </Link>
         <div className='font-medium'>
-          <Link href='#' className='text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out'>
+          <Link href={`/blog/author/${post.data.author.uid}`} className='text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out'>
             {post.data.author.data?.name}
           </Link>
           <span className='text-gray-700'> - </span>
