@@ -25,30 +25,27 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const author = await getAuthor(params.slug)
-
-  // return {
-  //   title: post.data.meta_title,
-  //   description: post.data.meta_description,
-  //   alternates: {
-  //     canonical: Constants.SiteDomain + linkResolver(post),
-  //   },
-  //   openGraph: {
-  //     title: post.data.meta_title ?? Constants.SiteTitle,
-  //     description: post.data.meta_description ?? Constants.SiteDescription,
-  //     images: [Constants.SiteDomain + Constants.OpenGraphImage],
-  //     url: Constants.SiteDomain + linkResolver(post),
-  //     type: 'website',
-  //   },
-  //   twitter: {
-  //     card: 'summary_large_image',
-  //     title: post.data.meta_title ?? Constants.SiteTitle,
-  //     description: post.data.meta_description ?? Constants.SiteDescription,
-  //     siteId: '',
-  //     images: [Constants.SiteDomain + Constants.OpenGraphImage],
-  //   },
-  // }
-
-  return {}
+  return {
+    title: `${author.data.name} - Strive Consultants`,
+    description: `Latest articles of ${author.data.job_title} - Strive Consultants`,
+    alternates: {
+      canonical: Constants.SiteDomain + linkResolver(author),
+    },
+    openGraph: {
+      title: `${author.data.name} - Strive Consultants`,
+      description: `Latest articles of ${author.data.job_title} - Strive Consultants`,
+      images: [Constants.SiteDomain + Constants.OpenGraphImage],
+      url: Constants.SiteDomain + linkResolver(author),
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${author.data.name} - Strive Consultants`,
+      description: `Latest articles of ${author.data.job_title} - Strive Consultants`,
+      siteId: '',
+      images: [Constants.SiteDomain + Constants.OpenGraphImage],
+    },
+  }
 }
 
 export default async function SinglePost({ params }: { params: { slug: string } }) {
