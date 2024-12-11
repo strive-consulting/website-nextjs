@@ -60,6 +60,11 @@ const nextConfig = {
         destination: '/setting-up-a-business-in-dubai',
         permanent: true,
       },
+      {
+        source: '/blog/author/raj-karwal2',
+        destination: '/blog/author/raj-karwal',
+        permanent: true,
+      },
     ]
   },
 }

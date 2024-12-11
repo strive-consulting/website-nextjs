@@ -117,6 +117,15 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                       <h2 className="h3 mb-2" data-aos="fade-up">{author.data.job_title} at Strive Consultants</h2>
                     </div>
                   </div>
+                  <PrismicRichText
+                        field={author.data.author_description}
+                        components={{
+                          paragraph: ({ children }) => <p className='mb-5 text-xl text-gray-400 prose-a:underline prose-a:text-gray-200 hover:prose-a:no-underline'>{children}</p>,
+                          heading3: ({ children }) => <h3 className='h4 my-6'>{children}</h3>,
+                          heading4: ({ children }) => <h4 className='h5 my-6'>{children}</h4>,
+                          // hyperlink: ({ children }) => <a className='text-xl text-gray-100 hover:underline hover:bg-purple-700'>{children}</a>,
+                        }}
+                      />
                 </header>
                 {/*  Articles list */}
                 <div className='max-w-sm mx-auto md:max-w-none'>

@@ -112,7 +112,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                   <div className='md:flex md:items-center md:justify-between mt-3'>
                     {/* Author meta */}
                     <div className='flex items-center justify-center' data-aos='fade-up' data-aos-delay='400'>
-                      <BlogPostAuthorFooter post={post} />
+                      <BlogPostAuthorFooter post={post} type="start"/>
                     </div>
                     {/* Article tags */}
                     {post.tags && (
@@ -179,6 +179,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
             </div>
           </div>
         </div>
+        <BlogPostAuthorFooter post={post} type="end"/>
         <SliceZone slices={post.data.slices} components={components} />
         <SchemaTag schemaJson={schema} />
       </section>

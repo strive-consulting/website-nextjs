@@ -45,7 +45,7 @@ export async function getCmsPage(uid: string) {
   const client = createClient()
   const page = await client
     .getByUID('servicepage', uid, {
-      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url'],
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.author_description'],
     })
     .catch(() => notFound())
 
@@ -139,7 +139,7 @@ export async function getBlogPostsPaged(pagenum: number = 1, pageSize?: number, 
   // console.log(filters)
   const communityPosts = await client
     .getByType('blog_post', {
-      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.uid'],
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.uid', 'author.author_description'],
       orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
       // filters: tag && [prismic.filter.at('document.tags', [toTitleCase(tag)])],
 
@@ -179,7 +179,7 @@ export async function getBlogPost(name: string) {
 
   const communityPost = await client
     .getByUID('blog_post', name, {
-      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.uid'],
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.uid', 'author.author_description'],
     })
     .catch(() => notFound())
 
@@ -191,7 +191,7 @@ export async function getBlogPostsAll() {
 
   const communityPosts = await client
     .getByType('blog_post', {
-      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.uid'],
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.uid', 'author.author_description'],
       orderings: [{ field: 'my.blog_post.published_date', direction: 'desc' }],
     })
     .catch(() => notFound())
@@ -219,7 +219,7 @@ export async function getLandingPage(uid: string) {
   const client = createClient()
   const page = await client
     .getByUID('landingpage', uid, {
-      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'testimonial.name', 'testimonial.job_title', 'testimonial.avatar', 'testimonial.description'],
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.author_description', 'testimonial.name', 'testimonial.job_title', 'testimonial.avatar', 'testimonial.description'],
     })
     .catch(() => notFound())
 
@@ -238,7 +238,7 @@ export async function getAuthors() {
 
   const authors = await client
     .getByType('author', {
-      fetchLinks: ['name', 'job_title', 'avatar', 'linkedin_url'],
+      fetchLinks: ['name', 'job_title', 'avatar', 'linkedin_url', 'author_description'],
       orderings: [{ field: 'my.author.name', direction: 'desc' }],
     })
     .catch(() => notFound())
@@ -251,7 +251,7 @@ export async function getAuthor(name: string) {
 
   const author = await client
     .getByUID('author', name, {
-      fetchLinks: ['name', 'job_title', 'avatar', 'linkedin_url'],
+      fetchLinks: ['name', 'job_title', 'avatar', 'linkedin_url', 'author_description'],
     })
     .catch(() => notFound())
 
@@ -275,6 +275,7 @@ export async function getBlogPostsByAuthorPaged(pagenum: number = 1, pageSize?: 
       job_title
       avatar
       linkedin_url
+      author_description
     }
   }
 }
