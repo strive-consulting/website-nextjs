@@ -1,4 +1,4 @@
-import { getAllCmsPages, getAllCmsPagesForSiteMap, getBlogPostsAll, getBlogTags } from '@/lib/cms'
+import { getAllCmsPages, getAllCmsPagesForSiteMap, getAuthors, getBlogPostsAll, getBlogTags } from '@/lib/cms'
 import { linkResolver } from '@/prismicio'
 import { MetadataRoute } from 'next'
 
@@ -25,6 +25,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   blogTags.map((tag) => {
     transformedCmsPages.push({
       url: baseUrl + '/blog/tag/' + tag.toLowerCase(),
+      lastModified: new Date(),
+    })
+  })
+
+  //blog author pages
+  const blogAuthors = await getAuthors()
+
+  blogAuthors.map((author) => {
+    transformedCmsPages.push({
+      url: baseUrl + '/blog/author/' + author.uid.toLowerCase(),
       lastModified: new Date(),
     })
   })
