@@ -62,7 +62,6 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
               {item.youtube_video_link != null && (
               <div className='relative videoWrapper'>{loadVideoIframe(item.youtube_video_link.embed_url, item.title?.toString())}</div>
             )}
-      
               <div className="mt-6">
                 {item.title && <h4 className="text-lg font-medium text-white text-center">{item.title}</h4>}
                 {item.description && (
