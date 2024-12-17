@@ -755,6 +755,7 @@ interface QuoteDocumentData {
 export type QuoteDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<QuoteDocumentData>, 'quote', Lang>
 
 type ServicepageDocumentDataSlicesSlice =
+  | CarouselSlice
   | GeneralSectionSlice
   | ZigZagSlice
   | SocialBarSlice
@@ -1128,6 +1129,89 @@ type CalendlySliceVariation = CalendlySliceDefault
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type CalendlySlice = prismic.SharedSlice<'calendly', CalendlySliceVariation>
+
+/**
+ * Primary content in *Carousel → Primary*
+ */
+export interface CarouselSliceDefaultPrimary {
+  /**
+   * Title field in *Carousel → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *Carousel → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Primary content in *Carousel → Items*
+ */
+export interface CarouselSliceDefaultItem {
+  /**
+   * Youtube Video Link field in *Carousel → Items*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.items[].youtube_video_link
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  youtube_video_link: prismic.EmbedField
+
+  /**
+   * Title field in *Carousel → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *Carousel → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Default variation for Carousel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CarouselSliceDefault = prismic.SharedSliceVariation<'default', Simplify<CarouselSliceDefaultPrimary>, Simplify<CarouselSliceDefaultItem>>
+
+/**
+ * Slice variation for *Carousel*
+ */
+type CarouselSliceVariation = CarouselSliceDefault
+
+/**
+ * Carousel Shared Slice
+ *
+ * - **API ID**: `carousel`
+ * - **Description**: Carousel
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CarouselSlice = prismic.SharedSlice<'carousel', CarouselSliceVariation>
 
 /**
  * Default variation for ContactForm Slice
@@ -2788,6 +2872,11 @@ declare module '@prismicio/client' {
       CalendlySliceDefaultPrimary,
       CalendlySliceVariation,
       CalendlySliceDefault,
+      CarouselSlice,
+      CarouselSliceDefaultPrimary,
+      CarouselSliceDefaultItem,
+      CarouselSliceVariation,
+      CarouselSliceDefault,
       ContactFormSlice,
       ContactFormSliceVariation,
       ContactFormSliceDefault,
