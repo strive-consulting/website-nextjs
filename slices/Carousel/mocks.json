@@ -1,0 +1,83 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "rain",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Lorem nulla laboris quis pariatur enim officia cillum magna sunt Lorem est exercitation. Labore ullamco consectetur tempor pariatur ex excepteur nulla nisi. Esse mollit eu duis aute nostrud velit minim sunt ullamco aute pariatur."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "milk",
+							"type": "Text"
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Ipsum magna sunt sint sunt tempor mollit excepteur exercitation et nulla cupidatat eu eiusmod veniam. Fugiat dolor ullamco magna officia velit et eu pariatur ea reprehenderit cillum ut veniam. Elit irure esse qui esse dolor fugiat quis consectetur irure nulla laboris exercitation duis."
+									}
+								}
+							]
+						}
+					],
+					[
+						"youtube_video_link",
+						{
+							"embed_url": "https://twitter.com/prismicio/status/1356293316158095361",
+							"author_name": "Prismic",
+							"author_url": "https://twitter.com/prismicio",
+							"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Gatsby is a popular choice for Prismic users and we work hard on delivering a CMS that plays to its strengths.<br><br>But, what makes <a href=\"https://twitter.com/GatsbyJS?ref_src=twsrc%5Etfw\">@GatsbyJS</a> so popular?<br><br>Here are some of <a href=\"https://twitter.com/mxstbr?ref_src=twsrc%5Etfw\">@mxstbr</a>&#39;s thoughts on Gatsby&#39;s success and how they&#39;re improving developer experience.<a href=\"https://t.co/ZjCPvsWWUD\">https://t.co/ZjCPvsWWUD</a> <a href=\"https://t.co/EQqzJpeNKl\">pic.twitter.com/EQqzJpeNKl</a></p>&mdash; Prismic (@prismicio) <a href=\"https://twitter.com/prismicio/status/1356293316158095361?ref_src=twsrc%5Etfw\">February 1, 2021</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+							"width": 550,
+							"height": null,
+							"type": "rich",
+							"cache_age": "3153600000",
+							"provider_name": "Twitter",
+							"provider_url": "http://www.twitter.com/",
+							"version": "1.0",
+							"all": {
+								"embed_url": "https://twitter.com/prismicio/status/1356293316158095361",
+								"author_name": "Prismic",
+								"author_url": "https://twitter.com/prismicio",
+								"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Gatsby is a popular choice for Prismic users and we work hard on delivering a CMS that plays to its strengths.<br><br>But, what makes <a href=\"https://twitter.com/GatsbyJS?ref_src=twsrc%5Etfw\">@GatsbyJS</a> so popular?<br><br>Here are some of <a href=\"https://twitter.com/mxstbr?ref_src=twsrc%5Etfw\">@mxstbr</a>&#39;s thoughts on Gatsby&#39;s success and how they&#39;re improving developer experience.<a href=\"https://t.co/ZjCPvsWWUD\">https://t.co/ZjCPvsWWUD</a> <a href=\"https://t.co/EQqzJpeNKl\">pic.twitter.com/EQqzJpeNKl</a></p>&mdash; Prismic (@prismicio) <a href=\"https://twitter.com/prismicio/status/1356293316158095361?ref_src=twsrc%5Etfw\">February 1, 2021</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+								"width": 550,
+								"height": null,
+								"type": "rich",
+								"cache_age": "3153600000",
+								"provider_name": "Twitter",
+								"provider_url": "http://www.twitter.com/",
+								"version": "1.0"
+							},
+							"__TYPE__": "EmbedContent"
+						}
+					]
+				]
+			}
+		]
+	}
+]
