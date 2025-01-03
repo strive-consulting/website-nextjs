@@ -41,20 +41,19 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
   useEffect(() => {
     const items = slice.items.length;
 
-    // Initialize Splide with pagination and arrows disabled
     const splideElement = document.querySelector('.splide');
     if (splideElement && !splideElement.classList.contains('splide--initialized')) {
       new Splide('.splide', {
         type: 'slide',
-        perPage: 3,  // Show 3 items per page, change as needed
+        perPage: 3,
         gap: '1rem',
         focus: 'center',
-        pagination: false, // Disable pagination
-        arrows: false, // Disable arrows
+        pagination: false,
+        arrows: false,
         pauseOnHover: true,
         breakpoints: {
           768: {
-            perPage: 1, // Adjust to 1 per page on mobile
+            perPage: 1,
           },
         },
         padding: { left: '1rem', right: '1rem' },
@@ -83,19 +82,27 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
           <div className="splide__track">
             <ul className="splide__list flex gap-2">
               {slice.items.map((item, index) => (
-                <li key={index} className="splide__slide flex-shrink-0 w-80 bg-gray-800 p-6" data-aos="fade-up">
+                <li
+                  key={index}
+                  className="splide__slide flex-shrink-0 w-80 bg-gray-800 p-6"
+                  data-aos="fade-up"
+                >
                   {item.youtube_video_link != null && (
                     <div className="relative videoWrapper">
                       {loadVideoIframe(item.youtube_video_link.embed_url, item.title?.toString())}
                     </div>
                   )}
                   <div className="mt-6">
-                    {item.title && <h4 className="text-lg font-medium text-white text-center">{item.title}</h4>}
+                    {item.title && (
+                      <h4 className="text-lg font-medium text-white text-center">{item.title}</h4>
+                    )}
                     {item.description && (
                       <PrismicRichText
                         field={item.description}
                         components={{
-                          paragraph: ({ children }) => <p className="text-gray-400 mt-2 text-center">{children}</p>,
+                          paragraph: ({ children }) => (
+                            <p className="text-gray-400 mt-2 text-center">{children}</p>
+                          ),
                         }}
                       />
                     )}
