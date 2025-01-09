@@ -6,6 +6,16 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: 'https://strive.ae/*',
+        destination: 'https://strivedubai.com/:splat',
+        permanent: true,
+      },
+      {
+        source: 'https://www.strive.ae/*',
+        destination: 'https://strivedubai.com/:splat',
+        permanent: true,
+      },
+      {
         source: '/home', //ensure prismic service page is only rendered in the default home location
         destination: '/',
         permanent: true,
