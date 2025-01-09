@@ -76,19 +76,5 @@ address {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
-.splide__arrow {
-    background-color: rgba(0, 0, 0, 0.5); /* Make the arrows slightly transparent */
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .splide__arrow--prev {
-    left: -40px; /* Move the left arrow outside */
-  }
-  
-  .splide__arrow--next {
-    right: -40px; /* Move the right arrow outside */
-  }
+
   

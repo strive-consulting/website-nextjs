@@ -155,7 +155,7 @@ export default async function Footer() {
               <Link href={'/uae-accountancy-service'}>
                 <Image className='md:mx-auto' src='/images/quickbooks.png' width={160} height={78} alt='Strive is a quickbooks Partner' />
               </Link>
-            </div>
+            </div> 
           </div>
           <div className='md:flex md:items-center md:justify-center'>
             <div className='text-gray-400 text-sm mr-4 text-center'>
