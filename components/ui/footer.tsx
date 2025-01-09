@@ -162,6 +162,7 @@ export default async function Footer() {
               &copy; strive.ae. All rights reserved. <br />
               <a href='https://strive.ae/privacy-policy'>Privacy Policy</a> / <a href='https://strive.ae/terms-and-conditions'>Terms and conditions</a> / <a href='https://strive.ae/cookies-policy'>Cookie Policy</a>
             </div>
+            </div> 
           </div>
         </div>
       </div>
