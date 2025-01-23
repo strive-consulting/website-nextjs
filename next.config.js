@@ -16,6 +16,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/payment-link-generator-sallis',
+        destination: 'https://form.jotform.com/striveconsultants/payment-link-generator-sallis',
+        permanent: true,
+      },
+      {
         source: '/payment-link-generator',
         destination: 'https://form.jotform.com/striveconsultants/payment-link-generator',
         permanent: true,
