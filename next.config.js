@@ -84,7 +84,7 @@ const nextConfig = {
         source: '/blog/residency-visa-through-company-formation',
         destination: '/blog/a-comprehensive-guide-to-company-formation-in-dubai',
         permanent: true,
-      },
+      }, 
     ]
   },
 }
