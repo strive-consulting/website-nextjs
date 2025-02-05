@@ -70,6 +70,21 @@ const nextConfig = {
         destination: '/blog/author/raj-karwal',
         permanent: true,
       },
+      {
+        source: '/blog/the-allure-of-company-formation-in-dubai',
+        destination: '/blog/a-comprehensive-guide-to-company-formation-in-dubai',
+        permanent: true,
+      },
+      {
+        source: '/blog/llc-company-formation-in-dubai',
+        destination: '/blog/a-comprehensive-guide-to-company-formation-in-dubai',
+        permanent: true,
+      },
+      {
+        source: '/blog/residency-visa-through-company-formation',
+        destination: '/blog/a-comprehensive-guide-to-company-formation-in-dubai',
+        permanent: true,
+      },  
     ]
   },
 }
