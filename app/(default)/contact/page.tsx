@@ -54,7 +54,7 @@ export default function Contact() {
               <div className='relative flex flex-col items-left' data-aos='fade-up'>
                 <h5 className='h5 mb-2'>UAE Office</h5>
                 <p className='text-lg text-gray-400 text-left text-base'>
-                  <address>The One Tower Building, P.O. Box 390114, Floor 24, Barsha Heights, Dubai, UAE</address>
+                  <address>38th Floor, Media One Tower, Dubai Media City</address>
                 </p>
               </div>
               <div className='relative flex flex-col items-left' data-aos='fade-up'>
