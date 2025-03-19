@@ -66,11 +66,11 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
       if (redirect?.link_type == 'Web') {
         //console.log('Web redirect', Constants.SiteDomain + asLink(redirect))
 
-        window.location.replace(Constants.SiteDomain + asLink(redirect))
+        window.location.replace('' + asLink(redirect))
       } else {
         //console.log('Prismic redirect', Constants.SiteDomain + linkResolver(redirect))
 
-        window.location.replace(Constants.SiteDomain + linkResolver(redirect))
+        window.location.replace('' + linkResolver(redirect))
       }
     }
   }
