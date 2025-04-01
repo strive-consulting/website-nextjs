@@ -38,7 +38,7 @@ export default function Contact() {
                 Book in a call with our team of experts who are on hand to discuss your requirements and get you started in the UAE 🚀
               </p>
             </div>
-            <CalendlyDynamic url={`https://calendly.com/d/4cz-qzm-kdp/strive-consultants-dubai-discovery-call`} ctaid={`website`} />
+            <CalendlyDynamic url={process.env.ROUNDROBIN_CALENDAR_URL} ctaid={`website`} />
           </div>
         </div>
       </section>
