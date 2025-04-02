@@ -56,10 +56,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return transformedCmsPages
 
-  // return [
-  //   {
-  //     url: 'https://strive.ae',
-  //     lastModified: new Date(),
-  //   },
-  // ]
+
 }

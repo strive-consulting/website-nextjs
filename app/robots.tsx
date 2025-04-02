@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       disallow:  '/_next/'
       //   disallow: '/private/',
     },
-    sitemap: 'https://strive.ae/sitemap.xml',
+    sitemap: 'https://strivedubai.com/sitemap.xml',
   }
 }

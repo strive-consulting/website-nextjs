@@ -39,7 +39,7 @@ const FooterSimple = async ({ slice }: FooterSimpleProps): Promise<JSX.Element> 
           </div>
         </div>
 
-        <div className='text-gray-400 text-sm text-center w-full'>&copy; strive.ae. All rights reserved.</div>
+        <div className='text-gray-400 text-sm text-center w-full'>&copy; strivedubai.com. All rights reserved.</div>
       </div>
     </footer>
   )

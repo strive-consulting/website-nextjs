@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   // title: Constants.SiteTitle,
   // description: Constants.SiteDescription,
   robots: { index: true, follow: true },
-  authors: [{ name: 'strive.ae' }],
+  authors: [{ name: 'strivedubai.com' }],
   viewport: 'width=device-width, initial-scale=1',
   themeColor: '#000000',
   // alternates: {
