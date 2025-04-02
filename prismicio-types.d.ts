@@ -1975,7 +1975,7 @@ export interface Hero1SliceDefaultPrimary {
    * - **API ID Path**: hero1.primary.form
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  form: prismic.SelectField<'Business Setup Calculator' | 'Company Name Checker' | 'Contact' | 'HR' | 'Crypto' | 'Accounting' | 'Banking'>
+  form: prismic.SelectField<'Business Setup Calculator' | 'Company Name Checker' | 'Contact' | 'HR' | 'Crypto' | 'Accounting' | 'Banking' | 'UK Corp Tax Calculator'>
 
   /**
    * Form Thank You Redirect field in *Hero1 → Primary*
