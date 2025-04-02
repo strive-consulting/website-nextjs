@@ -5,17 +5,6 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // {
-      //   source: '/:path*', // Match all paths
-      //   has: [
-      //     {
-      //       type: 'host',
-      //       value: 'strive.ae', // The source domain to match
-      //     },
-      //   ],
-      //   destination: 'https://strivedubai.com/:path*', // Redirect to the new domain
-      //   permanent: true, // Indicates a 301 permanent redirect
-      // },
       {
         source: '/home', //ensure prismic service page is only rendered in the default home location
         destination: '/',
