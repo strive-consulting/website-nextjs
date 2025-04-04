@@ -4,6 +4,7 @@ import ContactFormSimple from '@/components/contact-form-simple'
 import HrForm from '@/components/hr-form'
 import TickIcon from '@/components/tickIcon'
 import Trustpilot from '@/components/trustpilot'
+import UkCorpTaxCalculator from '@/components/calculators/uk-corp-tax-calculator'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
@@ -186,6 +187,14 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                               <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
                               <div className='mx-auto w-full px-3'>
                                 <ContactFormSimple label='Banking' redirect={slice.primary.form_thank_you_redirect} />
+                              </div>
+                            </>
+                          )}
+                          {formName === 'UK Corp Tax Calculator' && (
+                            <>
+                              <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
+                              <div className='mx-auto w-full px-3'>
+                                <UkCorpTaxCalculator label='UK-Corp-Tax-Calculator' redirect={slice.primary.form_thank_you_redirect} />
                               </div>
                             </>
                           )}
