@@ -1,5 +1,6 @@
-import TaxComparisonTable from '@/components/tax-comparison-table'
+// import TaxComparisonTable from '@/components/tax-comparison-table'
 import ContactForm from './contact-form'
+import TaxComparisonTableV2 from '@/components/tax-comparison-table-v2'
 
 export default async function Page({
   searchParams,
@@ -19,20 +20,20 @@ export default async function Page({
     <>
       <section className='relative'>
         <div className='max-w-3xl mx-auto px-4 sm:px-6 relative'>
-          <div className='pt-32 pb-12 md:pt-40 md:pb-20'>
+          <div className='pt-32 pb-8 md:pt-40 md:pb-6'>
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
               <h1 className='h1 mb-4'>Corporate Tax Calculator UK vs UAE</h1>
             </div>
             <div className='w-full md:w-1/2 lg:w-3/4 mx-auto'>
-              <TaxComparisonTable yearlyTurnOver={searchParams?.yearlyTurnOver || 0} yearlyExpenses={searchParams?.yearlyExpenses || 0} />
+              <TaxComparisonTableV2 yearlyTurnOver={searchParams?.yearlyTurnOver || 0} yearlyExpenses={searchParams?.yearlyExpenses || 0} />
             </div>
           </div>
         </div>
       </section>
       <section className='relative'>
         <div className='max-w-3xl mx-auto px-4 sm:px-6 relative'>
-          <div className='pt-32 pb-12 md:pt-20 md:pb-20'>
+          <div className='pt-32 pb-12 md:pt-8 md:pb-20'>
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
               <h1 className='h1 mb-4'>Talk to an expert</h1>
