@@ -37,6 +37,7 @@ const ContactForm = (props: Props) => {
         utmTerm: props.data.utmTerm ?? undefined,
       },
       label: props.data.label,
+      notes: 'Turnover: ' + props.data.yearlyTurnOver + ' | Expenses: ' + props.data.yearlyExpenses,
     }
 
     //All form data on the querystring
