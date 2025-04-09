@@ -36,7 +36,7 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
                     </div>
                     <div className="space-y-2">
                         <div className="flex justify-between">
-                            <span>Before Tax:</span>
+                            <span>Gross profit:</span>
                             <span className="font-bold">£{formatWithCommas(gbpProfitBeforeTax)}</span>
                         </div>
                         <div className="flex justify-between text-red-400">
@@ -61,7 +61,7 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
                     </div>
                     <div className="space-y-2">
                         <div className="flex justify-between">
-                            <span>Before Tax:</span>
+                            <span>Gross profit:</span>
                             <span className="font-bold">£{formatWithCommas(aedProfitBeforeTax)}</span>
                         </div>
                         <div className="flex justify-between text-green-400">
