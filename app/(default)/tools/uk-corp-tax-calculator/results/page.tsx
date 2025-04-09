@@ -1,6 +1,7 @@
 // import TaxComparisonTable from '@/components/tax-comparison-table'
+import TaxComparisonTableV3 from '@/components/tax-comparison-table/tax-comparison-table-v3'
 import ContactForm from './contact-form'
-import TaxComparisonTableV2 from '@/components/tax-comparison-table-v2'
+//import TaxComparisonTableV2 from '@/components/tax-comparison-table/tax-comparison-table-v2'
 
 export default async function Page({
   searchParams,
@@ -26,7 +27,7 @@ export default async function Page({
               <h1 className='h1 mb-4'>Corporate Tax Calculator UK vs UAE</h1>
             </div>
             <div className='w-full md:w-1/2 lg:w-3/4 mx-auto'>
-              <TaxComparisonTableV2 yearlyTurnOver={searchParams?.yearlyTurnOver || 0} yearlyExpenses={searchParams?.yearlyExpenses || 0} />
+              <TaxComparisonTableV3 yearlyTurnOver={searchParams?.yearlyTurnOver || 0} yearlyExpenses={searchParams?.yearlyExpenses || 0} />
             </div>
           </div>
         </div>
