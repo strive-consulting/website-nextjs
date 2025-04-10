@@ -37,11 +37,11 @@ const ContactForm = (props: Props) => {
         utmTerm: props.data.utmTerm ?? undefined,
       },
       label: props.data.label,
-      notes: 'Turnover: ' + props.data.yearlyTurnOver + ' | Expenses: ' + props.data.yearlyExpenses,
+      note: 'Turnover: ' + props.data.yearlyTurnOver + ' | Expenses: ' + props.data.yearlyExpenses,
     }
 
     //All form data on the querystring
-    await fetch(process.env.BASE_URL + '/api/forms/prefill', {
+    await fetch('/api/forms/prefill', {
       method: 'POST',
       body: JSON.stringify(formData),
     })
