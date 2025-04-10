@@ -192,7 +192,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
                           )}
                           {formName === 'UK Corp Tax Calculator' && (
                             <>
-                              <h3 className='h3 mb-3 text-center w-full'>Talk to an expert</h3>
+                              <h3 className='h3 mb-3 text-center w-full'>Calculate your savings</h3>
                               <div className='mx-auto w-full px-3'>
                                 <UkCorpTaxCalculator label='UK-Corp-Tax-Calculator' redirect={slice.primary.form_thank_you_redirect} />
                               </div>

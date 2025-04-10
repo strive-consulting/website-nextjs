@@ -76,7 +76,7 @@ const UkCorpTaxCalculator = ({ label = 'Form', redirect }: ContactFormSimpleProp
         <div className='flex flex-wrap'>
           <div className='w-full mb-3 '>
             <label className='block text-gray-300 text-sm font-medium' htmlFor='yearlyTurnOver'>
-              Yearly Turnover
+              Annual Turnover (£)
             </label>
             <input
               type='number'
@@ -86,7 +86,7 @@ const UkCorpTaxCalculator = ({ label = 'Form', redirect }: ContactFormSimpleProp
               onChange={(e) => {
                 handleFormDataChange('yearlyTurnOver', e.target.value)
               }}
-              placeholder='e.g. 100'
+              placeholder='e.g. 100000'
               required
               autoComplete='true'
             />
@@ -94,7 +94,7 @@ const UkCorpTaxCalculator = ({ label = 'Form', redirect }: ContactFormSimpleProp
           {showError && <div className='text-red-500 text-sm mt-2'>The turnover value must be greater than the expenses</div>}
           <div className='w-full mb-3 '>
             <label className='block text-gray-300 text-sm font-medium' htmlFor='yearlyExpenses'>
-              Yearly Expenses
+              Annual Expenses (£)
             </label>
             <input
               type='number'
@@ -104,7 +104,7 @@ const UkCorpTaxCalculator = ({ label = 'Form', redirect }: ContactFormSimpleProp
               onChange={(e) => {
                 handleFormDataChange('yearlyExpenses', e.target.value)
               }}
-              placeholder='e.g. 50'
+              placeholder='e.g. 5000'
               required
               autoComplete='true'
             />

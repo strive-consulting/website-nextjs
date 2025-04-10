@@ -36,21 +36,22 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
                     </div>
                     <div className="space-y-2">
                         <div className="flex justify-between">
-                            <span>Gross profit:</span>
+                            <span>Gross profit</span>
                             <span className="font-bold">£{formatWithCommas(gbpProfitBeforeTax)}</span>
                         </div>
                         <div className="flex justify-between text-red-400">
-                            <span>Corporate Tax:</span>
+                            <span>Corporate Tax</span>
                             <span className="font-bold">£{formatWithCommas(gbpFinalCorporateTax)}</span>
                         </div>
-                        <div className="flex justify-between pt-2 border-t border-gray-700">
-                            <span>NET profit:</span>
-                            <span className="font-bold text-xl">£{formatWithCommas(gbpProfitAfterTax)}</span>
-                        </div>
-                        <div className="flex justify-between text-gray-400 text-sm">
-                            <span>Effective Tax Rate:</span>
+                        <div className="flex justify-between text-red-400">
+                            <span>Effective Tax Rate</span>
                             <span>{formatWithCommas(gbpEffectiveTaxRate)}%</span>
                         </div>
+                        <div className="flex justify-between pt-2 border-t border-gray-700">
+                            <span>NET profit</span>
+                            <span className="font-bold text-xl">£{formatWithCommas(gbpProfitAfterTax)}</span>
+                        </div>
+                        
                     </div>
                 </div>
 
@@ -61,21 +62,22 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
                     </div>
                     <div className="space-y-2">
                         <div className="flex justify-between">
-                            <span>Gross profit:</span>
+                            <span>Gross profit</span>
                             <span className="font-bold">£{formatWithCommas(aedProfitBeforeTax)}</span>
                         </div>
                         <div className="flex justify-between text-green-400">
-                            <span>Corporate Tax:</span>
+                            <span>Corporate Tax</span>
                             <span className="font-bold">£{formatWithCommas(aedFinalCorporateTax)}</span>
                         </div>
-                        <div className="flex justify-between pt-2 border-t border-gray-700">
-                            <span>NET profit:</span>
-                            <span className="font-bold text-xl">£{formatWithCommas(aedProfitAfterTax)}</span>
-                        </div>
-                        <div className="flex justify-between text-gray-400 text-sm">
-                            <span>Effective Tax Rate:</span>
+                        <div className="flex justify-between text-green-400">
+                            <span>Effective Tax Rate</span>
                             <span>{formatWithCommas(aedEffectiveTaxRate)}%</span>
                         </div>
+                        <div className="flex justify-between pt-2 border-t border-gray-700">
+                            <span>NET profit</span>
+                            <span className="font-bold text-xl">£{formatWithCommas(aedProfitAfterTax)}</span>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -86,8 +88,8 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
                     <div className="flex items-center mb-3 sm:mb-0">
                         <TrendingUp className="mr-2 text-green-400" size={28} />
                         <div>
-                            <h3 className="text-lg font-bold text-green-400">Tax Savings in UAE</h3>
-                            <p className="text-sm">Setting up in UAE could save you:</p>
+                            <h3 className="text-xl font-bold text-green-400">Tax Savings in UAE</h3>
+                            <p className="text-sm">Setting up in the UAE, you could qualify for small business relief and could save you up to</p>
                         </div>
                     </div>
                     <div className="text-3xl sm:text-4xl font-bold text-green-400 ml-8 sm:ml-0">£{formatWithCommas(gbpFinalCorporateTax - payingTaxInUae)}</div>

@@ -24,7 +24,7 @@ export default async function Page({
           <div className='pt-32 pb-8 md:pt-40 md:pb-6'>
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
-              <h1 className='h1 mb-4'>Corporate Tax Calculator UK vs UAE</h1>
+              <h1 className='h1 mb-4'>Your Results</h1>
             </div>
             <div className='w-full md:w-1/2 lg:w-3/4 mx-auto'>
               <TaxComparisonTableV3 yearlyTurnOver={searchParams?.yearlyTurnOver || 0} yearlyExpenses={searchParams?.yearlyExpenses || 0} />
@@ -34,13 +34,15 @@ export default async function Page({
       </section>
       <section className='relative'>
         <div className='max-w-3xl mx-auto px-4 sm:px-6 relative'>
-          <div className='pt-32 pb-12 md:pt-8 md:pb-20'>
+          <div className='pb-12 md:pt-8 md:pb-20'>
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
-              <h1 className='h1 mb-4'>Talk to an expert</h1>
+              <h2 className='h2 mb-4'>Start Saving on Tax</h2>
               <p className='text-xl text-gray-400'>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a
-                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+              Setting up a business in Dubai opens the door to one of the world&apos;s fastest-growing economies, and the cost of setting up is <strong className='text-green-400'>significantly lower than the potential tax savings</strong> you can enjoy year on year.
+              </p>
+              <p className='text-xl text-gray-400 pt-5'>
+                Connect with our team to deep-dive into your requirements and start saving now.
               </p>
             </div>
             <div className='w-full md:w-1/2 lg:w-3/4 mx-auto'>
