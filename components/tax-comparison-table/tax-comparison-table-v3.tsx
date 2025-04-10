@@ -1,4 +1,3 @@
-import { convertCurrency, getCurrencyRates } from '@/lib/helpers'
 import { TrendingUp, Building } from 'lucide-react'
 
 const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearlyTurnOver: number; yearlyExpenses: number }) => {
@@ -15,15 +14,14 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
   const aedYearlyTurnover = yearlyTurnOver || 0
   const aedYearlyExpenses = yearlyExpenses || 0
   const aedProfitBeforeTax = aedYearlyTurnover - aedYearlyExpenses
-  const currencyRates = await getCurrencyRates()
-  const gbpBeforeTaxConvertedToAED = Number(await convertCurrency(currencyRates, gbpProfitBeforeTax, 'GBP', 'AED'))
+  const gbpBeforeTaxConvertedToAED = gbpProfitBeforeTax * 4.76
   const aedCorporateTax9PercentAbove375k = gbpBeforeTaxConvertedToAED >= 3000000 && gbpBeforeTaxConvertedToAED > 375000 ? aedProfitBeforeTax * 0.09 : 0
   const aedFinalCorporateTax = aedCorporateTax9PercentAbove375k
   const aedEffectiveTaxRate = aedProfitBeforeTax > 0 ? (aedFinalCorporateTax / aedProfitBeforeTax) * 100 : 0
   const aedProfitAfterTax = aedProfitBeforeTax - aedFinalCorporateTax
   const payingTaxInUae = aedCorporateTax9PercentAbove375k > 0 ? aedCorporateTax9PercentAbove375k : 0
 
-  const IsSmallBusinessRelief = Number(await convertCurrency(currencyRates, gbpProfitBeforeTax, 'GBP', 'AED')) < 3000000 // 3 million AED
+  const IsSmallBusinessRelief = gbpProfitBeforeTax * 4.76 < 3000000 // 3 million AED
 
   function formatWithCommas(number: number) {
     return number.toLocaleString()
