@@ -71,6 +71,13 @@
           },
           "thumbnails": []
         }
+      },
+      "pipedrive_label": {
+        "type": "Text",
+        "config": {
+          "label": "Pipedrive Label",
+          "placeholder": "Must follow the convention \"Ref To: PartnerName\""
+        }
       }
     },
     "Meta": {

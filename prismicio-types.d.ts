@@ -796,6 +796,17 @@ interface PartnerPostDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   logo: prismic.ImageField<never>
+
+  /**
+   * Pipedrive Label field in *Partner*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Must follow the convention "Ref To: PartnerName"
+   * - **API ID Path**: partner_post.pipedrive_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  pipedrive_label: prismic.KeyTextField
   /**
    * Meta Title field in *Partner*
    *

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import PostTags from '@/components/post-tags'
 import { getPartnerPost, getPartnerPostsAll, getPartnerPostsPaged } from '@/lib/cms'
 import { PrismicImage, PrismicLink, PrismicRichText, SliceZone } from '@prismicio/react'
 import { Constants } from '@/app/constants'
@@ -10,9 +9,8 @@ import BreadCrumbs from '@/components/breadcrumbs'
 import Link from 'next/link'
 import PostItem from '@/components/post-item'
 import ShareBar from '@/components/share-bar'
-import BlogPostAuthorFooter from '@/components/blog-post-author-footer'
 import TickIcon from '@/components/tickIcon'
-import { components } from '@/slices'
+import PartnerReferralForm from '@/components/partner-referral-form'
 
 export async function generateStaticParams() {
   const pages = await getPartnerPostsAll()
@@ -91,18 +89,15 @@ export default async function SinglePartnerPost({ params }: { params: { slug: st
             <div className='max-w-3xl mx-auto'>
               <article>
                 <header className='mb-8'>
-                  {/* Title and excerpt */}
                   <div className='text-center md:text-left'>
                     <BreadCrumbs homeTitle='Partners' homeUrl='/partner' currentPageName={post.tags?.[0] ?? post.data.title} currentPageUrl={Constants.SiteDomain + linkResolver(post)} />
-                    <h1 className='h1 mb-4' data-aos='fade-up'>
+                  </div>
+                </header>
+                <div className='md:grid md:grid-cols-12 md:gap-6 items-center'>
+                  <div className={`max-w-xl md:max-w-none col-span-7 lg:col-span-8 self-start`}>
+                    <h1 className='h1 mb-4 md:mb-12' data-aos='fade-up'>
                       {post.data.title}
                     </h1>
-
-                    {post.data.logo && (
-                      <figure className='mb-8 lg:-ml-32 lg:-mr-32' data-aos='fade-up' data-aos-delay='600'>
-                        <PrismicImage field={post.data.logo} width={500} />
-                      </figure>
-                    )}
                     <PrismicRichText
                       field={post.data.introduction}
                       components={{
@@ -113,76 +108,106 @@ export default async function SinglePartnerPost({ params }: { params: { slug: st
                         ),
                       }}
                     />
+
+                    <PrismicRichText
+                      field={post.data.body}
+                      components={{
+                        heading2: ({ children }) => <h2 className='h3 my-5'>{children}</h2>,
+                        heading3: ({ children }) => <h3 className='h4 my-5'>{children}</h3>,
+                        paragraph: ({ children }) => (
+                          <p className='prose my-6 text-gray-400 max-w-none prose-lg prose-invert prose-p:leading-normal prose-headings:text-gray-200 prose-a:text-gray-200 prose-a:underline hover:prose-a:no-underline prose-a:font-normal prose-strong:font-medium prose-strong:text-gray-200 prose-blockquote:italic prose-blockquote:pl-4 prose-blockquote:border-l-2 prose-blockquote:border-gray-200 prose-blockquote:font-normal prose-blockquote:text-gray-400'>
+                            {children}
+                          </p>
+                        ),
+                        list: ({ children }) => <ul>{children}</ul>,
+                        listItem: ({ children }) => (
+                          <li className='flex items-center text-lg text-gray-400 mt-4'>
+                            <TickIcon />
+                            {children}
+                          </li>
+                        ),
+                        oList: ({ children }) => <ul>{children}</ul>,
+                        oListItem: ({ children }) => (
+                          <li className='flex items-center text-lg text-gray-400 mt-4'>
+                            <TickIcon />
+                            {children}
+                          </li>
+                        ),
+                      }}
+                    />
+
+                    <PrismicLink field={post.data.back_link} className='inline-flex my-10 p-4 rounded-xl bg-gray-600' rel='no follow' target='_blank'>
+                      Visit the {post.data.title} website
+                    </PrismicLink>
                   </div>
-                  {/* Article meta */}
-                  <div className='md:flex md:items-center md:justify-between mt-3'>
-                    {/* Author meta */}
-                    <div className='flex items-center justify-center' data-aos='fade-up' data-aos-delay='400'>
-                      {/* <BlogPostAuthorFooter post={post} type="start"/> */}
-                    </div>
-                    {/* Article tags */}
-                    {post.tags && (
-                      <div className='flex justify-center mt-4 md:mt-0' data-aos='fade-up' data-aos-delay='600'>
-                        <PostTags tags={post.tags} />
-                      </div>
+                  <div className='col-span-5 lg:col-span-4 self-start'>
+                    {post.data.logo && (
+                      <figure className='mb-3' data-aos='fade-up' data-aos-delay='300'>
+                        <PrismicImage className='w-full' field={post.data.logo} />
+                      </figure>
                     )}
-                  </div>
-                </header>
+                    {post.data.image && (
+                      <figure className='mb-8' data-aos='fade-up' data-aos-delay='600'>
+                        <PrismicImage className='w-full' field={post.data.image} />
+                      </figure>
+                    )}
 
-                {/* Article image */}
-                {post.data.image && (
-                  <figure className='mb-8 lg:-ml-32 lg:-mr-32' data-aos='fade-up' data-aos-delay='600'>
-                    <PrismicImage className='w-full' field={post.data.image} width={1000} />
-                  </figure>
-                )}
-                {/* {post.data.youtube_video.embed_url != null && (
-                  <div className='relative videoWrapper'>
-                    <iframe
-                      className='absolute top-0 left-0 w-full h-full'
-                      src={post.data.youtube_video.embed_url.replace('watch?v=', 'embed/')}
-                      title={post.data.title?.toString()}
-                      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                      allowFullScreen={true}
-                    ></iframe>
-                  </div>
-                )} */}
+                    <h4 className='h4 mb-4' data-aos='fade-up' data-aos-delay='200'>
+                      Contact {post.data.title}
+                    </h4>
+                    <PartnerReferralForm pipeDriveLabel={post.data.pipedrive_label ?? ''} />
 
-                <PrismicRichText
-                  field={post.data.body}
-                  components={{
-                    heading2: ({ children }) => <h2 className='h3 my-5'>{children}</h2>,
-                    heading3: ({ children }) => <h3 className='h4 my-5'>{children}</h3>,
-                    paragraph: ({ children }) => (
-                      <p className='prose my-6 text-gray-400 max-w-none prose-lg prose-invert prose-p:leading-normal prose-headings:text-gray-200 prose-a:text-gray-200 prose-a:underline hover:prose-a:no-underline prose-a:font-normal prose-strong:font-medium prose-strong:text-gray-200 prose-blockquote:italic prose-blockquote:pl-4 prose-blockquote:border-l-2 prose-blockquote:border-gray-200 prose-blockquote:font-normal prose-blockquote:text-gray-400'>
-                        {children}
+                    <div className='bg-gray-800 p-4 rounded-lg mt-10'>
+                      <h3 className='text-base font-semibold text-foreground mb-1'>Partner with us</h3>
+                      <p className='text-sm text-muted-foreground mb-3'>
+                        Join the Strive partner programme to reach more customers in the UAE.{' '}
+                        <Link href='/partners' className='inline-block text-sm text-primary hover:underline'>
+                          Learn more
+                        </Link>
                       </p>
-                    ),
-                    list: ({ children }) => <ul>{children}</ul>,
-                    listItem: ({ children }) => (
-                      <li className='flex items-center text-lg text-gray-400 mt-4'>
-                        <TickIcon />
-                        {children}
-                      </li>
-                    ),
-                    oList: ({ children }) => <ul>{children}</ul>,
-                    oListItem: ({ children }) => (
-                      <li className='flex items-center text-lg text-gray-400 mt-4'>
-                        <TickIcon />
-                        {children}
-                      </li>
-                    ),
-                  }}
-                />
+                    </div>
+                  </div>
+                </div>
+                {/* <div className='md:grid md:grid-cols-12 md:gap-6 items-center'>
+                  <div className={`max-w-xl md:max-w-none col-span-7 lg:col-span-8 self-start`}>
+                      <PrismicRichText
+                      field={post.data.body}
+                      components={{
+                        heading2: ({ children }) => <h2 className='h3 my-5'>{children}</h2>,
+                        heading3: ({ children }) => <h3 className='h4 my-5'>{children}</h3>,
+                        paragraph: ({ children }) => (
+                          <p className='prose my-6 text-gray-400 max-w-none prose-lg prose-invert prose-p:leading-normal prose-headings:text-gray-200 prose-a:text-gray-200 prose-a:underline hover:prose-a:no-underline prose-a:font-normal prose-strong:font-medium prose-strong:text-gray-200 prose-blockquote:italic prose-blockquote:pl-4 prose-blockquote:border-l-2 prose-blockquote:border-gray-200 prose-blockquote:font-normal prose-blockquote:text-gray-400'>
+                            {children}
+                          </p>
+                        ),
+                        list: ({ children }) => <ul>{children}</ul>,
+                        listItem: ({ children }) => (
+                          <li className='flex items-center text-lg text-gray-400 mt-4'>
+                            <TickIcon />
+                            {children}
+                          </li>
+                        ),
+                        oList: ({ children }) => <ul>{children}</ul>,
+                        oListItem: ({ children }) => (
+                          <li className='flex items-center text-lg text-gray-400 mt-4'>
+                            <TickIcon />
+                            {children}
+                          </li>
+                        ),
+                      }}
+                    />
+                  </div>
+                  <div className='col-span-5 lg:col-span-4  self-start'>
+                    <h4 className='h4 mb-4' data-aos='fade-up' data-aos-delay='200'>Contact {post.data.title}</h4>
+                    <PartnerReferralForm label='Partner' pipeDriveLabel={post.data.pipedrive_label ?? ''} />
 
-                
-                <div>REFERRAL FORM</div>
-                <PrismicLink field={post.data.back_link} className='' rel="no follow" target='_blank'>Visit website</PrismicLink>
+                    <div>PARTNER WITH US</div>
+                  </div>
+                </div> */}
 
                 {/* Article footer */}
                 <footer>
                   <div className='text-end'>
-                    
-                    {/* <div className='text-lg text-gray-400 italic'></div> */}
                     <ShareBar title={post.data.title?.toString()} url={shareUrl} />
                   </div>
                 </footer>
@@ -190,8 +215,7 @@ export default async function SinglePartnerPost({ params }: { params: { slug: st
             </div>
           </div>
         </div>
-        {/* <BlogPostAuthorFooter post={post} type="end"/> */}
-        <SliceZone slices={post.data.slices} components={components} />
+        {/* <SliceZone slices={post.data.slices} components={components} /> */}
         <SchemaTag schemaJson={schema} />
       </section>
       {blogPosts.generalPosts?.length > 0 && (
