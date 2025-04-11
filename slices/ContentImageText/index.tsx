@@ -1,3 +1,4 @@
+import TickIcon from '@/components/tickIcon'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage } from '@prismicio/next'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
@@ -51,6 +52,20 @@ const ContentImageText = ({ slice }: ContentImageTextProps): JSX.Element => {
                     field={slice.primary.sub_text}
                     components={{
                       paragraph: ({ children }) => <p className='text-lg text-gray-400 mb-6'>{children}</p>,
+                      list: ({ children }) => <ul>{children}</ul>,
+                      listItem: ({ children }) => (
+                        <li className='flex items-start text-lg'>
+                          <TickIcon />
+                          {children}
+                        </li>
+                      ),
+                      oList: ({ children }) => <ul>{children}</ul>,
+                      oListItem: ({ children }) => (
+                        <li className='flex items-start text-lg'>
+                          <TickIcon />
+                          {children}
+                        </li>
+                      ),
                     }}
                   />
 
