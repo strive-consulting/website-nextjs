@@ -87,7 +87,7 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
             <TrendingUp className='mr-2 text-green-400' size={28} />
             <div>
               <h3 className='text-xl font-bold text-green-400'>Tax Savings in UAE</h3>
-              <p className='text-sm'>Setting up in the UAE, {IsSmallBusinessRelief ? 'you could qualify for small business relief and' : ''} could save you up to</p>
+              <p className='text-sm'>Setting up in the UAE could {IsSmallBusinessRelief ? 'qualify you for small business relief and' : ''} save you up to</p>
             </div>
           </div>
           <div className='text-3xl sm:text-4xl font-bold text-green-400 ml-8 sm:ml-0'>£{formatWithCommas(Math.round(gbpFinalCorporateTax - payingTaxInUae))}</div>
