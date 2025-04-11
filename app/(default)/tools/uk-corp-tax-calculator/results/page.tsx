@@ -21,7 +21,7 @@ export default async function Page({
     <>
       <section className='relative'>
         <div className='max-w-3xl mx-auto px-4 sm:px-6 relative'>
-          <div className='pt-32 pb-8 md:pt-40 md:pb-6'>
+          <div className='pt-32 md:pt-40 md:pb-6'>
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
               <h1 className='h1 mb-4'>Your Results</h1>
@@ -34,12 +34,12 @@ export default async function Page({
       </section>
       <section className='relative'>
         <div className='max-w-3xl mx-auto px-4 sm:px-6 relative'>
-          <div className='pb-12 md:pt-8 md:pb-20'>
+          <div className='pb-12 md:pb-20'>
             {/* Page header */}
             <div className='max-w-3xl mx-auto text-center mb-5'>
-              <h2 className='h2 mb-4'>Start Saving on Tax</h2>
+              <h2 className='h2 mb-4'>Speak to us now to learn how we can save you thousands in tax</h2>
               <p className='text-xl text-gray-400'>
-              Setting up a business in Dubai opens the door to one of the world&apos;s fastest-growing economies, and the cost of setting up is <strong className='text-green-400'>significantly lower than the potential tax savings</strong> you can enjoy year on year.
+              Setting up a business in Dubai opens the door to one of the world&apos;s fastest-growing economies, and the <strong className='text-green-400'>cost of setting up is significantly lower than the potential tax savings</strong> you can enjoy year on year.
               </p>
               <p className='text-xl text-gray-400 pt-5'>
                 Connect with our team to deep-dive into your requirements and start saving now.

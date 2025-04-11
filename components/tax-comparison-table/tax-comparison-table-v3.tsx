@@ -28,7 +28,20 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
   }
 
   return (
-    <div className='p-6 bg-gray-900 text-white rounded-lg shadow-lg'>
+    <div className='p-6 bg-gray-900 text-white'>
+      <div className='bg-green-900 p-4 rounded-lg mb-5'>
+        <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between'>
+          <div className='flex items-center mb-3 sm:mb-0'>
+            <TrendingUp className='mr-2 text-green-400' size={28} />
+            <div>
+              <h3 className='text-xl font-bold text-green-400'>Tax Savings in UAE</h3>
+              <p className='text-md'>Setting up in the UAE could {IsSmallBusinessRelief ? 'qualify you for small business relief and' : ''} save you up to</p>
+            </div>
+          </div>
+          <div className='text-3xl sm:text-4xl font-bold text-green-400 ml-8 sm:ml-0'>£{formatWithCommas(Math.round(gbpFinalCorporateTax - payingTaxInUae))}</div>
+        </div>
+      </div>
+
       <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mb-8'>
         <div className='bg-gray-800 p-4 rounded-lg'>
           <div className='flex items-center mb-3'>
@@ -78,19 +91,6 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
               <span className='font-bold text-xl'>£{formatWithCommas(aedProfitAfterTax)}</span>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className='bg-green-900 p-4 rounded-lg'>
-        <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between'>
-          <div className='flex items-center mb-3 sm:mb-0'>
-            <TrendingUp className='mr-2 text-green-400' size={28} />
-            <div>
-              <h3 className='text-xl font-bold text-green-400'>Tax Savings in UAE</h3>
-              <p className='text-sm'>Setting up in the UAE could {IsSmallBusinessRelief ? 'qualify you for small business relief and' : ''} save you up to</p>
-            </div>
-          </div>
-          <div className='text-3xl sm:text-4xl font-bold text-green-400 ml-8 sm:ml-0'>£{formatWithCommas(Math.round(gbpFinalCorporateTax - payingTaxInUae))}</div>
         </div>
       </div>
     </div>
