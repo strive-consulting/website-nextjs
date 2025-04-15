@@ -20,8 +20,6 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
   const aedCorporateTax9PercentAbove375k =
     aedYearlyTurnOverConvertedToAED >= 3000000 && aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE > 375000 ? (aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE - 375000) * 0.09 : 0
 
-  console.log('aedCorporateTax9PercentAbove375k', aedCorporateTax9PercentAbove375k)
-
   const aedFinalCorporateTax = aedCorporateTax9PercentAbove375k
   const aedEffectiveTaxRate = aedProfitBeforeTax > 0 ? (aedFinalCorporateTax / (aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE)) * 100 : 0
   const aedProfitAfterTax = aedProfitBeforeTax - aedFinalCorporateTax
