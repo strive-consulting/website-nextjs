@@ -1,5 +1,7 @@
 import { TrendingUp, Building } from 'lucide-react'
 
+const GBP_TO_AED_CONVERSION_RATE = 4.75 // conversion rate,
+
 const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearlyTurnOver: number; yearlyExpenses: number }) => {
   const gbpYearlyTurnover = yearlyTurnOver || 0
   const gbpYearlyExpenses = yearlyExpenses || 0
@@ -14,17 +16,25 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
   const aedYearlyTurnover = yearlyTurnOver || 0
   const aedYearlyExpenses = yearlyExpenses || 0
   const aedProfitBeforeTax = aedYearlyTurnover - aedYearlyExpenses
-  const gbpBeforeTaxConvertedToAED = aedYearlyTurnover * 4.76
-  const aedCorporateTax9PercentAbove375k = gbpBeforeTaxConvertedToAED >= 3000000 && gbpBeforeTaxConvertedToAED > 375000 ? aedProfitBeforeTax * 0.09 : 0
+  const aedYearlyTurnOverConvertedToAED = aedYearlyTurnover * GBP_TO_AED_CONVERSION_RATE
+  const aedCorporateTax9PercentAbove375k =
+    aedYearlyTurnOverConvertedToAED >= 3000000 && aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE > 375000 ? (aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE - 375000) * 0.09 : 0
+
+  console.log('aedCorporateTax9PercentAbove375k', aedCorporateTax9PercentAbove375k)
+
   const aedFinalCorporateTax = aedCorporateTax9PercentAbove375k
-  const aedEffectiveTaxRate = aedProfitBeforeTax > 0 ? (aedFinalCorporateTax / aedProfitBeforeTax) * 100 : 0
+  const aedEffectiveTaxRate = aedProfitBeforeTax > 0 ? (aedFinalCorporateTax / (aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE)) * 100 : 0
   const aedProfitAfterTax = aedProfitBeforeTax - aedFinalCorporateTax
   const payingTaxInUae = aedCorporateTax9PercentAbove375k > 0 ? aedCorporateTax9PercentAbove375k : 0
 
-  const IsSmallBusinessRelief = aedYearlyTurnover * 4.76 < 3000000 // 3 million AED
+  const IsSmallBusinessRelief = aedYearlyTurnover * GBP_TO_AED_CONVERSION_RATE < 3000000 // 3 million AED
 
   function formatWithCommas(number: number) {
     return number.toLocaleString()
+  }
+
+  function roundDownToTwoDecimals(number: number) {
+    return Math.floor(number * 100) / 100
   }
 
   return (
@@ -38,7 +48,7 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
               <p className='text-md'>Setting up in the UAE could {IsSmallBusinessRelief ? 'qualify you for small business relief and' : ''} save you up to</p>
             </div>
           </div>
-          <div className='text-3xl sm:text-4xl font-bold text-green-400 ml-8 sm:ml-0'>£{formatWithCommas(Math.round(gbpFinalCorporateTax - payingTaxInUae))}</div>
+          <div className='text-3xl sm:text-4xl font-bold text-green-400 ml-8 sm:ml-0'>£{formatWithCommas(Math.round(gbpFinalCorporateTax - payingTaxInUae / GBP_TO_AED_CONVERSION_RATE))}</div>
         </div>
       </div>
 
@@ -59,7 +69,7 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
             </div>
             <div className='flex justify-between text-red-400'>
               <span>Effective Tax Rate</span>
-              <span>{formatWithCommas(gbpEffectiveTaxRate)}%</span>
+              <span>{roundDownToTwoDecimals(gbpEffectiveTaxRate)}%</span>
             </div>
             <div className='flex justify-between text-red-400'>
               <span>Actual Tax Rate</span>
@@ -84,11 +94,11 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
             </div>
             <div className='flex justify-between text-green-400'>
               <span>Corporate Tax</span>
-              <span className='font-bold'>£{formatWithCommas(aedFinalCorporateTax)}</span>
+              <span className='font-bold'>£{formatWithCommas(roundDownToTwoDecimals(aedFinalCorporateTax / GBP_TO_AED_CONVERSION_RATE))}</span>
             </div>
             <div className='flex justify-between text-green-400'>
               <span>Effective Tax Rate</span>
-              <span>{formatWithCommas(aedEffectiveTaxRate)}%</span>
+              <span>{roundDownToTwoDecimals(aedEffectiveTaxRate)}%</span>
             </div>
             <div className='flex justify-between text-red-400'>
               <span>Actual Tax Rate</span>
