@@ -19,10 +19,9 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
   const aedYearlyTurnOverConvertedToAED = aedYearlyTurnover * GBP_TO_AED_CONVERSION_RATE
   const aedCorporateTax9PercentAbove375k =
     aedYearlyTurnOverConvertedToAED >= 3000000 && aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE > 375000 ? (aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE - 375000) * 0.09 : 0
-
   const aedFinalCorporateTax = aedCorporateTax9PercentAbove375k
   const aedEffectiveTaxRate = aedProfitBeforeTax > 0 ? (aedFinalCorporateTax / (aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE)) * 100 : 0
-  const aedProfitAfterTax = aedProfitBeforeTax - aedFinalCorporateTax
+  const aedProfitAfterTax = aedProfitBeforeTax - aedFinalCorporateTax / GBP_TO_AED_CONVERSION_RATE
   const payingTaxInUae = aedCorporateTax9PercentAbove375k > 0 ? aedCorporateTax9PercentAbove375k : 0
 
   const IsSmallBusinessRelief = aedYearlyTurnover * GBP_TO_AED_CONVERSION_RATE < 3000000 // 3 million AED
