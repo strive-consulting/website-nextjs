@@ -30,8 +30,8 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
     return number.toLocaleString()
   }
 
-  function roundDownToTwoDecimals(number: number) {
-    return Math.floor(number * 100) / 100
+  function removeDecimals(number: number) {
+    return Math.round(number)
   }
 
   return (
@@ -62,11 +62,11 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
             </div>
             <div className='flex justify-between text-red-400'>
               <span>Corporate Tax</span>
-              <span className='font-bold'>£{formatWithCommas(gbpFinalCorporateTax)}</span>
+              <span className='font-bold'>£{formatWithCommas(removeDecimals(gbpFinalCorporateTax))}</span>
             </div>
             <div className='flex justify-between text-red-400'>
               <span>Effective Tax Rate</span>
-              <span>{roundDownToTwoDecimals(gbpEffectiveTaxRate)}%</span>
+              <span>{removeDecimals(gbpEffectiveTaxRate)}%</span>
             </div>
             <div className='flex justify-between text-red-400'>
               <span>Actual Tax Rate</span>
@@ -74,7 +74,7 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
             </div>
             <div className='flex justify-between pt-2 border-t border-gray-700'>
               <span>NET profit</span>
-              <span className='font-bold text-xl'>£{formatWithCommas(gbpProfitAfterTax)}</span>
+              <span className='font-bold text-xl'>£{formatWithCommas(removeDecimals(gbpProfitAfterTax))}</span>
             </div>
           </div>
         </div>
@@ -91,11 +91,11 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
             </div>
             <div className='flex justify-between text-green-400'>
               <span>Corporate Tax</span>
-              <span className='font-bold'>£{formatWithCommas(roundDownToTwoDecimals(aedFinalCorporateTax / GBP_TO_AED_CONVERSION_RATE))}</span>
+              <span className='font-bold'>£{formatWithCommas(removeDecimals(aedFinalCorporateTax / GBP_TO_AED_CONVERSION_RATE))}</span>
             </div>
             <div className='flex justify-between text-green-400'>
               <span>Effective Tax Rate</span>
-              <span>{roundDownToTwoDecimals(aedEffectiveTaxRate)}%</span>
+              <span>{removeDecimals(aedEffectiveTaxRate)}%</span>
             </div>
             <div className='flex justify-between text-red-400'>
               <span>Actual Tax Rate</span>
@@ -103,7 +103,7 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
             </div>
             <div className='flex justify-between pt-2 border-t border-gray-700'>
               <span>NET profit</span>
-              <span className='font-bold text-xl'>£{formatWithCommas(aedProfitAfterTax)}</span>
+              <span className='font-bold text-xl'>£{formatWithCommas(removeDecimals(aedProfitAfterTax))}</span>
             </div>
           </div>
         </div>
