@@ -69,8 +69,8 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
               <span>{removeDecimals(gbpEffectiveTaxRate)}%</span>
             </div>
             <div className='flex justify-between text-red-400'>
-              <span>Actual Tax Rate</span>
-              <span>{gbpProfitBeforeTax <= 50000 ? '19' : '25'}</span>
+              <span>Tax Rate</span>
+              <span>{gbpProfitBeforeTax <= 50000 ? '19' : '25'}%</span>
             </div>
             <div className='flex justify-between pt-2 border-t border-gray-700'>
               <span>NET profit</span>
@@ -97,9 +97,9 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
               <span>Effective Tax Rate</span>
               <span>{removeDecimals(aedEffectiveTaxRate)}%</span>
             </div>
-            <div className='flex justify-between text-red-400'>
-              <span>Actual Tax Rate</span>
-              <span>{aedEffectiveTaxRate <= 0 ? '0' : '9'}</span>
+            <div className='flex justify-between text-green-400'>
+              <span>Tax Rate</span>
+              <span>{aedEffectiveTaxRate <= 0 ? '0' : '9'}%</span>
             </div>
             <div className='flex justify-between pt-2 border-t border-gray-700'>
               <span>NET profit</span>
