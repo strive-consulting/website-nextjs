@@ -1,38 +1,62 @@
 import { TrendingUp, Building } from 'lucide-react'
 
-const GBP_TO_AED_CONVERSION_RATE = 4.75 // conversion rate,
+// Constants for tax calculations
+const GBP_TO_AED_CONVERSION_RATE = 4.75
+const UK_TAX_RATE_LOWER = 0.19
+const UK_TAX_RATE_HIGHER = 0.25
+const UK_TAX_THRESHOLD_LOWER = 50000
+const UK_TAX_THRESHOLD_UPPER = 250000
+const UK_MARGINAL_RELIEF_FACTOR = 3 / 200
+const UAE_TAX_RATE = 0.09
+const UAE_TAX_THRESHOLD = 375000
+const UAE_SMALL_BUSINESS_THRESHOLD = 3000000
 
-const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearlyTurnOver: number; yearlyExpenses: number }) => {
-  const gbpYearlyTurnover = yearlyTurnOver || 0
-  const gbpYearlyExpenses = yearlyExpenses || 0
-  const gbpProfitBeforeTax = gbpYearlyTurnover - gbpYearlyExpenses
-  const gbpCorporateTaxStandard19PercentUpto50k = gbpProfitBeforeTax <= 50000 ? gbpProfitBeforeTax * 0.19 : 0
-  const gbpCorporateTaxStandard25PercentOver50k = gbpProfitBeforeTax > 50000 ? gbpProfitBeforeTax * 0.25 : 0
-  const gbpMarginalRelief = gbpProfitBeforeTax > 50000 && gbpProfitBeforeTax <= 250000 ? (250000 - gbpProfitBeforeTax) * (3 / 200) : 0
-  const gbpFinalCorporateTax = gbpCorporateTaxStandard19PercentUpto50k + gbpCorporateTaxStandard25PercentOver50k - gbpMarginalRelief
+interface TaxComparisonProps {
+  yearlyTurnOver: number
+  yearlyExpenses: number
+}
+
+const formatCurrency = (value: number): string => {
+  return Math.round(value).toLocaleString()
+}
+
+const formatPercentage = (value: number): number => {
+  return Math.round(value)
+}
+
+const TaxComparisonTableV3 = ({ yearlyTurnOver, yearlyExpenses }: TaxComparisonProps) => {
+  const turnover = yearlyTurnOver || 0
+  const expenses = yearlyExpenses || 0
+
+  // UK tax calculations
+  const gbpProfitBeforeTax = turnover - expenses
+
+  const gbpCorporateTaxLowerRate = gbpProfitBeforeTax <= UK_TAX_THRESHOLD_LOWER ? gbpProfitBeforeTax * UK_TAX_RATE_LOWER : 0
+
+  const gbpCorporateTaxHigherRate = gbpProfitBeforeTax > UK_TAX_THRESHOLD_LOWER ? gbpProfitBeforeTax * UK_TAX_RATE_HIGHER : 0
+
+  const gbpMarginalRelief = gbpProfitBeforeTax > UK_TAX_THRESHOLD_LOWER && gbpProfitBeforeTax <= UK_TAX_THRESHOLD_UPPER ? (UK_TAX_THRESHOLD_UPPER - gbpProfitBeforeTax) * UK_MARGINAL_RELIEF_FACTOR : 0
+
+  const gbpFinalCorporateTax = gbpCorporateTaxLowerRate + gbpCorporateTaxHigherRate - gbpMarginalRelief
   const gbpEffectiveTaxRate = gbpProfitBeforeTax > 0 ? (gbpFinalCorporateTax / gbpProfitBeforeTax) * 100 : 0
   const gbpProfitAfterTax = gbpProfitBeforeTax - gbpFinalCorporateTax
+  const gbpActualTaxRate = gbpProfitBeforeTax <= UK_TAX_THRESHOLD_LOWER ? '19' : '25'
 
-  const aedYearlyTurnover = yearlyTurnOver || 0
-  const aedYearlyExpenses = yearlyExpenses || 0
-  const aedProfitBeforeTax = aedYearlyTurnover - aedYearlyExpenses
-  const aedYearlyTurnOverConvertedToAED = aedYearlyTurnover * GBP_TO_AED_CONVERSION_RATE
-  const aedCorporateTax9PercentAbove375k =
-    aedYearlyTurnOverConvertedToAED >= 3000000 && aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE > 375000 ? (aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE - 375000) * 0.09 : 0
-  const aedFinalCorporateTax = aedCorporateTax9PercentAbove375k
-  const aedEffectiveTaxRate = aedProfitBeforeTax > 0 ? (aedFinalCorporateTax / (aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE)) * 100 : 0
-  const aedProfitAfterTax = aedProfitBeforeTax - aedFinalCorporateTax / GBP_TO_AED_CONVERSION_RATE
-  const payingTaxInUae = aedCorporateTax9PercentAbove375k > 0 ? aedCorporateTax9PercentAbove375k : 0
+  // UAE tax calculations
+  const aedProfitBeforeTax = turnover - expenses
+  const aedTurnoverInAED = turnover * GBP_TO_AED_CONVERSION_RATE
+  const aedProfitBeforeTaxInAED = aedProfitBeforeTax * GBP_TO_AED_CONVERSION_RATE
 
-  const IsSmallBusinessRelief = aedYearlyTurnover * GBP_TO_AED_CONVERSION_RATE < 3000000 // 3 million AED
+  const aedCorporateTax = aedTurnoverInAED >= UAE_SMALL_BUSINESS_THRESHOLD && aedProfitBeforeTaxInAED > UAE_TAX_THRESHOLD ? (aedProfitBeforeTaxInAED - UAE_TAX_THRESHOLD) * UAE_TAX_RATE : 0
 
-  function formatWithCommas(number: number) {
-    return number.toLocaleString()
-  }
+  const aedEffectiveTaxRate = aedProfitBeforeTax > 0 ? (aedCorporateTax / aedProfitBeforeTaxInAED) * 100 : 0
 
-  function removeDecimals(number: number) {
-    return Math.round(number)
-  }
+  const aedProfitAfterTax = aedProfitBeforeTax - aedCorporateTax / GBP_TO_AED_CONVERSION_RATE
+  const aedActualTaxRate = aedEffectiveTaxRate <= 0 ? '0' : '9'
+
+  // Additional calculated values
+  const isSmallBusinessRelief = aedTurnoverInAED < UAE_SMALL_BUSINESS_THRESHOLD
+  const taxSavings = gbpFinalCorporateTax - aedCorporateTax / GBP_TO_AED_CONVERSION_RATE
 
   return (
     <div className='p-6 bg-gray-900 text-white'>
@@ -42,10 +66,10 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
             <TrendingUp className='mr-2 text-green-400' size={28} />
             <div>
               <h3 className='text-xl font-bold text-green-400'>Tax Savings in UAE</h3>
-              <p className='text-md'>Setting up in the UAE could {IsSmallBusinessRelief ? 'qualify you for small business relief and' : ''} save you up to</p>
+              <p className='text-md'>Setting up in the UAE could {isSmallBusinessRelief ? 'qualify you for small business relief and' : ''} save you up to</p>
             </div>
           </div>
-          <div className='text-3xl sm:text-4xl font-bold text-green-400 ml-8 sm:ml-0'>£{formatWithCommas(Math.round(gbpFinalCorporateTax - payingTaxInUae / GBP_TO_AED_CONVERSION_RATE))}</div>
+          <div className='text-3xl sm:text-4xl font-bold text-green-400 ml-8 sm:ml-0'>£{formatCurrency(taxSavings)}</div>
         </div>
       </div>
 
@@ -58,23 +82,23 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
           <div className='space-y-2'>
             <div className='flex justify-between'>
               <span>Gross profit</span>
-              <span className='font-bold'>£{formatWithCommas(gbpProfitBeforeTax)}</span>
+              <span className='font-bold'>£{formatCurrency(gbpProfitBeforeTax)}</span>
             </div>
             <div className='flex justify-between text-red-400'>
               <span>Corporate Tax</span>
-              <span className='font-bold'>£{formatWithCommas(removeDecimals(gbpFinalCorporateTax))}</span>
+              <span className='font-bold'>£{formatCurrency(gbpFinalCorporateTax)}</span>
             </div>
             <div className='flex justify-between text-red-400'>
               <span>Effective Tax Rate</span>
-              <span>{removeDecimals(gbpEffectiveTaxRate)}%</span>
+              <span>{formatPercentage(gbpEffectiveTaxRate)}%</span>
             </div>
             <div className='flex justify-between text-red-400'>
-              <span>Tax Rate</span>
-              <span>{gbpProfitBeforeTax <= 50000 ? '19' : '25'}%</span>
+              <span>Actual Tax Rate</span>
+              <span>{gbpActualTaxRate}</span>
             </div>
             <div className='flex justify-between pt-2 border-t border-gray-700'>
               <span>NET profit</span>
-              <span className='font-bold text-xl'>£{formatWithCommas(removeDecimals(gbpProfitAfterTax))}</span>
+              <span className='font-bold text-xl'>£{formatCurrency(gbpProfitAfterTax)}</span>
             </div>
           </div>
         </div>
@@ -87,23 +111,23 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
           <div className='space-y-2'>
             <div className='flex justify-between'>
               <span>Gross profit</span>
-              <span className='font-bold'>£{formatWithCommas(aedProfitBeforeTax)}</span>
+              <span className='font-bold'>£{formatCurrency(aedProfitBeforeTax)}</span>
             </div>
             <div className='flex justify-between text-green-400'>
               <span>Corporate Tax</span>
-              <span className='font-bold'>£{formatWithCommas(removeDecimals(aedFinalCorporateTax / GBP_TO_AED_CONVERSION_RATE))}</span>
+              <span className='font-bold'>£{formatCurrency(aedCorporateTax / GBP_TO_AED_CONVERSION_RATE)}</span>
             </div>
             <div className='flex justify-between text-green-400'>
               <span>Effective Tax Rate</span>
-              <span>{removeDecimals(aedEffectiveTaxRate)}%</span>
+              <span>{formatPercentage(aedEffectiveTaxRate)}%</span>
             </div>
-            <div className='flex justify-between text-green-400'>
-              <span>Tax Rate</span>
-              <span>{aedEffectiveTaxRate <= 0 ? '0' : '9'}%</span>
+            <div className='flex justify-between text-red-400'>
+              <span>Actual Tax Rate</span>
+              <span>{aedActualTaxRate}</span>
             </div>
             <div className='flex justify-between pt-2 border-t border-gray-700'>
               <span>NET profit</span>
-              <span className='font-bold text-xl'>£{formatWithCommas(removeDecimals(aedProfitAfterTax))}</span>
+              <span className='font-bold text-xl'>£{formatCurrency(aedProfitAfterTax)}</span>
             </div>
           </div>
         </div>
@@ -112,4 +136,4 @@ const TaxComparisonTableV2 = async ({ yearlyTurnOver, yearlyExpenses }: { yearly
   )
 }
 
-export default TaxComparisonTableV2
+export default TaxComparisonTableV3
