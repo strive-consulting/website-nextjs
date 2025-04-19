@@ -115,7 +115,7 @@ const Cta1 = ({ slice }: Cta1Props): JSX.Element => {
                   components={{
                     list: ({ children }) => <ul className='flex flex-wrap justify-center text-lg text-gray-400 -mx-2 -my-1'>{children}</ul>,
                     listItem: ({ children }) => (
-                      <li className='flex items-center mx-3 my-1' data-aos='fade-up' data-aos-delay='600' data-aos-anchor='[data-aos-id-cta]'>
+                      <li className='flex items-start mx-3 my-1' data-aos='fade-up' data-aos-delay='600' data-aos-anchor='[data-aos-id-cta]'>
                         <TickIcon />
                         <span>{children}</span>
                       </li>

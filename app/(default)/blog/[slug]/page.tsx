@@ -153,14 +153,14 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                     ),
                     list: ({ children }) => <ul>{children}</ul>,
                     listItem: ({ children }) => (
-                      <li className='flex items-center text-lg text-gray-400 mt-4'>
+                      <li className='flex items-start text-lg text-gray-400 mt-4'>
                         <TickIcon />
                         {children}
                       </li>
                     ),
                     oList: ({ children }) => <ul>{children}</ul>,
                     oListItem: ({ children }) => (
-                      <li className='flex items-center text-lg text-gray-400 mt-4'>
+                      <li className='flex items-start text-lg text-gray-400 mt-4'>
                         <TickIcon />
                         {children}
                       </li>

@@ -30,14 +30,14 @@ const ZigZag = ({ slice }: ZigZagProps): JSX.Element => {
                   heading4: ({ children }) => <h4 className='h4 my-6'>{children}</h4>,
                   list: ({ children }) => <ul>{children}</ul>,
                   listItem: ({ children }) => (
-                    <li className='flex items-center text-lg'>
+                    <li className='flex items-start text-lg'>
                       <TickIcon />
                       {children}
                     </li>
                   ),
                   oList: ({ children }) => <ul>{children}</ul>,
                   oListItem: ({ children }) => (
-                    <li className='flex items-center text-lg'>
+                    <li className='flex items-start text-lg'>
                       <TickIcon />
                       {children}
                     </li>
@@ -75,14 +75,14 @@ const ZigZag = ({ slice }: ZigZagProps): JSX.Element => {
                             heading4: ({ children }) => <h4 className='h4 my-6'>{children}</h4>,
                             list: ({ children }) => <ul>{children}</ul>,
                             listItem: ({ children }) => (
-                              <li className='flex items-center text-lg'>
+                              <li className='flex items-start text-lg'>
                                 <TickIcon />
                                 {children}
                               </li>
                             ),
                             oList: ({ children }) => <ul>{children}</ul>,
                             oListItem: ({ children }) => (
-                              <li className='flex items-center text-lg'>
+                              <li className='flex items-start text-lg'>
                                 <TickIcon />
                                 {children}
                               </li>

@@ -23,6 +23,7 @@
     "aos": "^3.0.0-beta.6",
     "date-fns": "^2.30.0",
     "jotform-react": "^1.1.1",
+    "lucide-react": "^0.487.0",
     "next": "^13.5.4",
     "postcss-import-url": "^7.2.0",
     "react": "18.2.0",
