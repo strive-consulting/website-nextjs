@@ -94,7 +94,7 @@ const TaxComparisonTableV3 = ({ yearlyTurnOver, yearlyExpenses }: TaxComparisonP
             </div>
             <div className='flex justify-between text-red-400'>
               <span>Actual Tax Rate</span>
-              <span>{gbpActualTaxRate}</span>
+              <span>{gbpActualTaxRate}%</span>
             </div>
             <div className='flex justify-between pt-2 border-t border-gray-700'>
               <span>NET profit</span>
@@ -121,9 +121,9 @@ const TaxComparisonTableV3 = ({ yearlyTurnOver, yearlyExpenses }: TaxComparisonP
               <span>Effective Tax Rate</span>
               <span>{formatPercentage(aedEffectiveTaxRate)}%</span>
             </div>
-            <div className='flex justify-between text-red-400'>
+            <div className='flex justify-between text-green-400'>
               <span>Actual Tax Rate</span>
-              <span>{aedActualTaxRate}</span>
+              <span>{aedActualTaxRate}%</span>
             </div>
             <div className='flex justify-between pt-2 border-t border-gray-700'>
               <span>NET profit</span>
