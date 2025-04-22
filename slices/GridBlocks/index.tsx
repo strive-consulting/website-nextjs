@@ -28,7 +28,7 @@ const GridBlocks = ({ slice }: GridBlocksProps): JSX.Element => {
               field={block.bullets}
               components={{
                 listItem: ({ children }) => (
-                  <li className='flex items-center'>
+                  <li className='flex items-start'>
                     <TickIcon />
                     {children}
                   </li>
