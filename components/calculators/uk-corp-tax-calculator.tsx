@@ -14,7 +14,6 @@ const UkCorpTaxCalculator = ({ label = 'Form', redirect }: ContactFormSimpleProp
   const router = useRouter()
 
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [utm, setUtm] = useState<any>()
   const [showError, setShowError] = useState(false)
   const [formData, setFormData] = useState({
     yearlyTurnOver: undefined,
@@ -28,12 +27,11 @@ const UkCorpTaxCalculator = ({ label = 'Form', redirect }: ContactFormSimpleProp
 
   useEffect(() => {
     const utmParamsFromLocalStorage = JSON.parse(localStorage.getItem('utmParams') || '{}')
-    setUtm({
-      utmCampaign: utmParamsFromLocalStorage['utm_campaign'] ?? undefined,
-      utmMedium: utmParamsFromLocalStorage['utm_medium'] ?? undefined,
-      utmSource: utmParamsFromLocalStorage['utm_source'] ?? undefined,
-      utmTerm: utmParamsFromLocalStorage['utm_term'] ?? undefined,
-    })
+  
+    formData.utmCampaign = utmParamsFromLocalStorage['utm_campaign'] ?? undefined
+    formData.utmMedium = utmParamsFromLocalStorage['utm_medium'] ?? undefined
+    formData.utmSource = utmParamsFromLocalStorage['utm_source'] ?? undefined
+    formData.utmTerm = utmParamsFromLocalStorage['utm_term'] ?? undefined
   }, [])
 
   const isFormComplete = () => {
@@ -52,11 +50,6 @@ const UkCorpTaxCalculator = ({ label = 'Form', redirect }: ContactFormSimpleProp
     }
 
     setIsSubmitted(true)
-
-    formData.utmCampaign = utm['utm_campaign']
-    formData.utmMedium = utm['utm_medium']
-    formData.utmSource = utm['utm_source']
-    formData.utmTerm = utm['utmTerm']
 
     await new Promise((f) => setTimeout(f, 2000))
 
