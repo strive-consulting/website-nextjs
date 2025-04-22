@@ -166,6 +166,11 @@ export default function MobileMenu({ navigation, footer }: MobileNavProps) {
                 </svg>
               </button>
               <ul className='submenu pl-4 hidden space-y-2 transition ease-in-out delay-150'>
+              <li>
+                  <Link href='/uk-corporate-tax-calculator' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
+                  UK vs Dubai Corporate Tax Calculator
+                  </Link>
+                </li>
                 <li>
                   <Link href='/tools/cost-calculator' className='flex text-gray-300 hover:text-gray-200 py-2' onClick={() => setMobileNavOpen(false)}>
                     Cost Calculator
