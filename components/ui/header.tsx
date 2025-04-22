@@ -94,6 +94,9 @@ export default async function Header() {
                 })}
               </Dropdown>
               <Dropdown title='Resources'>
+              <Link href='/uk-corporate-tax-calculator' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
+                  UK vs Dubai Corporate Tax Calculator
+                </Link>
                 <Link href='/tools/cost-calculator' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                   Cost Calculator
                 </Link>
