@@ -54,14 +54,14 @@ const DescriptionQuote = ({ slice }: DescriptionQuoteProps): JSX.Element => {
                   heading5: ({ children }) => <h5 className='h6 my-6'>{children}</h5>,
                   heading6: ({ children }) => <h6 className='h7 my-6'>{children}</h6>,
                   listItem: ({ children }) => (
-                    <li className='flex items-center text-lg'>
+                    <li className='flex items-start text-lg'>
                       <TickIcon />
                       {children}
                     </li>
                   ),
                   oList: ({ children }) => <ul>{children}</ul>,
                   oListItem: ({ children }) => (
-                    <li className='flex items-center text-lg'>
+                    <li className='flex items-start text-lg'>
                       <TickIcon />
                       {children}
                     </li>
