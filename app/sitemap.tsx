@@ -1,10 +1,11 @@
-import { getAllCmsPages, getAllCmsPagesForSiteMap, getAuthors, getBlogPostsAll, getBlogTags } from '@/lib/cms'
+import { getAllCmsPages, getAllCmsPagesForSiteMap, getAuthors, getBlogPostsAll, getBlogTags, getPartnerPostsAll } from '@/lib/cms'
 import { linkResolver } from '@/prismicio'
 import { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const cmsPages = await getAllCmsPagesForSiteMap()
   const blogPosts = await getBlogPostsAll()
+  const partnerPosts = await getPartnerPostsAll()
   const baseUrl = process.env.BASE_URL ?? ''
 
   const transformedCmsPages = cmsPages.map((page) => ({
@@ -38,6 +39,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
     })
   })
+
+  //Partner pages
+  const transformedPartnerPages = partnerPosts.map((partner) => ({
+    url: baseUrl + linkResolver(partner),
+    lastModified: new Date(),
+  }))
+  transformedCmsPages.push(...transformedPartnerPages)
 
   transformedCmsPages.push({
     url: baseUrl + '/tools/cost-calculator',
