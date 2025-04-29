@@ -6,7 +6,6 @@ import Header from '@/components/ui/header'
 import Script from 'next/script'
 import { PrismicPreview } from '@prismicio/next'
 import { repositoryName } from '@/prismicio'
-import WhatsAppClickHandler from '@/components/whatsapp'
 import UtmStorage from '@/components/utm-storage'
 
 const inter = Inter({
@@ -47,15 +46,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <script async defer src='https://static.cdn.prismic.io/prismic.js?new=true&repo=strive'></script>
 
-        <script async src='https://apps.elfsight.com/p/platform.js' defer></script>
       </head>
       <body className={`${inter.variable} ${architects_daughter.variable} font-inter antialiased bg-gray-900 text-gray-200 tracking-tight`}>
         <div className='flex flex-col min-h-screen overflow-hidden'>
           {children}
           <PrismicPreview repositoryName={repositoryName} />
         </div>
-
-        {/* <WhatsAppClickHandler/> */}
 
         <UtmStorage />
 
