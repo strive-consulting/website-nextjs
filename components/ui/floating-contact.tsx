@@ -25,7 +25,7 @@ const FloatingButton = ({ alignment }: FloatingButtonProps) => {
   return (
     <>
       <div className='btn-sm text-white bg-gray-900 bottom-0 fixed z-49 px-4 py-12 shadow-lg w-full m-0 left-0 sm:hidden'></div>
-      <Link href='/contact' className={`btn-sm text-white bg-purple-600 fixed z-50 px-4 py-5 m-1 shadow-lg bottom-4 right-28 w-64`}>
+      <Link href='/contact' className={`btn-sm text-white bg-purple-600 fixed z-50 px-4 py-5 m-1 shadow-lg bottom-4 right-8 w-64`}>
         Book a Free Consultation
       </Link>
     </>
