@@ -161,7 +161,7 @@ export default async function SinglePartnerPost({ params }: { params: { slug: st
                       <h3 className='text-base font-semibold text-foreground mb-1'>Partner with us</h3>
                       <p className='text-sm text-muted-foreground mb-3'>
                         Join the Strive partner programme to reach more customers in the UAE.{' '}
-                        <Link href='/partners' className='inline-block text-sm text-primary hover:underline'>
+                        <Link href='/contact' className='inline-block text-sm text-primary hover:underline'>
                           Learn more
                         </Link>
                       </p>
@@ -218,29 +218,6 @@ export default async function SinglePartnerPost({ params }: { params: { slug: st
         {/* <SliceZone slices={post.data.slices} components={components} /> */}
         <SchemaTag schemaJson={schema} />
       </section>
-      {blogPosts.generalPosts?.length > 0 && (
-        <section className='relative'>
-          <div className='max-w-6xl mx-auto px-4 mt-4 sm:px-6'>
-            <div className='pt-5 md:pb-20'>
-              {/*  Page header */}
-              <div className='max-w-3xl pb-12 md:pb-10 text-center md:text-left'>
-                <h3 className='h3' data-aos='fade-up'>
-                  Explore more
-                </h3>
-              </div>
-
-              <div className='max-w-sm mx-auto md:max-w-none border-t border-gray-700 py-10'>
-                <div className='grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start'>
-                  {/* {blogPosts.generalPosts.map((post, postIndex) => (
-                    <PostItem key={postIndex} post={post} />
-                  ))} */}
-                </div>
-              </div>
-            </div>
-          </div>
-          <SchemaTag schemaJson={schema} />
-        </section>
-      )}
     </>
   )
 }

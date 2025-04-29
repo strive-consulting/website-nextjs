@@ -62,19 +62,6 @@ export default function PartnerReferralForm({ pipeDriveLabel }: PartnerReferralF
       body: JSON.stringify(formData),
     })
 
-    // //Handle optional redirect
-    // //console.log(redirect)
-    // if (redirect) {
-    //   if (redirect?.link_type == 'Web') {
-    //     //console.log('Web redirect', Constants.SiteDomain + asLink(redirect))
-
-    //     window.location.replace('' + asLink(redirect))
-    //   } else {
-    //     //console.log('Prismic redirect', Constants.SiteDomain + linkResolver(redirect))
-
-    //     window.location.replace('' + linkResolver(redirect))
-    //   }
-    // }
   }
 
   return (
@@ -144,7 +131,7 @@ export default function PartnerReferralForm({ pipeDriveLabel }: PartnerReferralF
                   name='message'
                   rows={4}
                   className='form-input w-full border-red-500 focus:border-red-500 text-gray-900'
-                  placeholder='Please provide any other relevant information which could be useful for our team to help with your enquiry'
+                  placeholder={`Please provide any other relevant information which could be useful to share with the partner`}
                   onChange={handleChange}
                   value={formData.message}
                 ></textarea>
