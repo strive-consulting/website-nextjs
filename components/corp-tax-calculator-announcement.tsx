@@ -10,7 +10,6 @@ export const CorpTaxCalculatorAnnouncement = () => {
   useEffect(() => {
     const checkUserLocation = async () => {
 
-      const geoInfo = await getVisitorGeoInfo()
       if (!localStorage.getItem('isUserFromUk')) {
         const geoInfo = await getVisitorGeoInfo()
         if (geoInfo && geoInfo.countryCode === 'GB') {

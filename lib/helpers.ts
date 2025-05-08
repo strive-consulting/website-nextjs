@@ -103,17 +103,13 @@ type LocationData = {
 export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
   try {
     //Free IP lookup
-    const ip = await fetch('https://api64.ipify.org?format=json')
-      .then((resp) => resp.json())
-      .then((ip) => {
-        return ip
-      })
-
-    //console.log('IP', ip)
+    const apiResponse = await fetch(`/api/ip`)
+    const apiResponseData = await apiResponse.json();
+    const userIpAddress = apiResponseData.ip;
 
     //Note, could be using this method serverside or client side
     const ipStackKey = process.env.IP_STACK_API_KEY || process.env.NEXT_PUBLIC_IP_STACK_API_KEY
-    const geoInfo: LocationData = await fetch(`https://api.ipstack.com/${ip.ip.toString()}?access_key=${ipStackKey}`)
+    const geoInfo: LocationData = await fetch(`https://api.ipstack.com/${userIpAddress.toString()}?access_key=${ipStackKey}`)
       .then((resp) => resp.json())
       .then((geo) => {
         // console.log(geo);
@@ -130,7 +126,7 @@ export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
     if (geoInfo.country_code === 'AE') return { error: true }
 
     return {
-      ip: ip.ip,
+      ip: userIpAddress,
       city: geoInfo.city,
       countryCode: geoInfo.country_code,
       callingCode: geoInfo.location.calling_code,
