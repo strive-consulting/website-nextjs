@@ -43,8 +43,8 @@ export default async function Blog() {
   let schema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    url: Constants.SiteDomain + '/blog',
-    name: 'Blog - Business Setup in Dubai, UAE',
+    url: Constants.SiteDomain + '/partner',
+    name: 'Partners - Business Setup in Dubai, UAE',
   }
 
   return (
@@ -62,7 +62,7 @@ export default async function Blog() {
             {/*  Featured article */}
             <div className='pb-12 md:pb-20'>
               <article className='max-w-sm mx-auto md:max-w-none grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-center'>
-                <Link href={`/partner/${featuredPost.uid}`} className='relative block group' data-aos='fade-right' data-aos-delay='200'>
+                <Link href={`/partners/${featuredPost.uid}`} className='relative block group' data-aos='fade-right' data-aos-delay='200'>
                   <div
                     className='absolute inset-0 bg-gray-800 hidden md:block transform md:translate-y-2 md:translate-x-4 xl:translate-y-4 xl:translate-x-8 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out pointer-events-none'
                     aria-hidden='true'
@@ -93,7 +93,7 @@ export default async function Blog() {
                       )}
                     </div>
                     <h3 className='h3 text-2xl lg:text-3xl mb-2'>
-                      <Link href={`/partner/${featuredPost.uid}`} className='hover:text-gray-100 transition duration-150 ease-in-out'>
+                      <Link href={`/partners/${featuredPost.uid}`} className='hover:text-gray-100 transition duration-150 ease-in-out'>
                         {featuredPost.data.title}
                       </Link>
                     </h3>
@@ -119,12 +119,12 @@ export default async function Blog() {
                 {posts.map((post, postIndex) => (
                   <article key={postIndex} className='flex flex-col h-full' data-aos='fade-up'>
                     <header>
-                      <Link href={`/partner/${post.uid}`} className='block mb-6'>
-                        <figure>{post.data.logo && <PrismicImage className='inset-0 w-full transform hover:scale-105 transition duration-700 ease-out' field={post.data.logo} />}</figure>
+                      <Link href={`/partners/${post.uid}`} className='block mb-6'>
+                        <figure>{post.data.image && <PrismicImage className='inset-0 w-full transform hover:scale-105 transition duration-700 ease-out' field={post.data.image} />}</figure>
                       </Link>
 
-                      <h3 className='h4 mb-2'>
-                        <Link href={`/partner/${post.uid}`} className='hover:text-gray-100 transition duration-150 ease-in-out'>
+                      <h3 className='h4 mb-2 text-center'>
+                        <Link href={`/partners/${post.uid}`} className='hover:text-gray-100 transition duration-150 ease-in-out'>
                           {post.data.title}
                         </Link>
                       </h3>
@@ -141,7 +141,7 @@ export default async function Blog() {
               </div>
             </div>
 
-            <BlogPagination totalpages={blogPosts.total_pages} activepage={blogPosts.active_page} />
+            {/* <BlogPagination totalpages={blogPosts.total_pages} activepage={blogPosts.active_page} /> */}
           </div>
         </div>
 

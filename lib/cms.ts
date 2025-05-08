@@ -333,7 +333,7 @@ export async function getPartnerPostsPaged(pagenum: number = 1, pageSize?: numbe
   const client = createClient()
 
   //PageSize is only set when we are fetching a few posts for a slice.
-  pageSize = pageSize ? pageSize : pagenum === 1 ? 7 : 6
+  pageSize = pageSize ? pageSize : pagenum === 1 ? 13 : 12
 
   //note, Tags are case sensitive in Prismic so we must follow the title case convention to make this work.
 

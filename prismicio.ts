@@ -12,7 +12,7 @@ export function linkResolver(doc: any) {
     // case "blog_post":
     //   return "/blog/" + doc.uid;
     case 'partner_post':
-      return `/partner/${doc.uid}`
+      return `/partners/${doc.uid}`
     case 'servicepage':
       return `/${doc.uid}`
     case 'landingpage':
@@ -43,7 +43,7 @@ const routes: prismic.ClientConfig['routes'] = [
   },
   {
     type: 'partner_post',
-    path: '/partner/:uid',
+    path: '/partners/:uid',
   },
   {
     type: 'blog_post',
