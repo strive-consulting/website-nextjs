@@ -103,7 +103,7 @@ type LocationData = {
 export async function getVisitorGeoInfo(): Promise<GeoVisitorInfo | undefined> {
   try {
     //Free IP lookup
-    const ip = await fetch('https://jsonip.com', { mode: 'cors' })
+    const ip = await fetch('https://api64.ipify.org?format=json')
       .then((resp) => resp.json())
       .then((ip) => {
         return ip

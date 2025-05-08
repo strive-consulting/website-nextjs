@@ -11,10 +11,8 @@ export const CorpTaxCalculatorAnnouncement = () => {
     const checkUserLocation = async () => {
 
       const geoInfo = await getVisitorGeoInfo()
-        console.log(geoInfo)
       if (!localStorage.getItem('isUserFromUk')) {
         const geoInfo = await getVisitorGeoInfo()
-        console.log(geoInfo)
         if (geoInfo && geoInfo.countryCode === 'GB') {
           localStorage.setItem('isUserFromUk', 'true')
           setShowAnnouncement(true)
@@ -28,7 +26,7 @@ export const CorpTaxCalculatorAnnouncement = () => {
 
     checkUserLocation()
 
-    
+
   }, [])
 
   if (!showAnnouncement) return null
