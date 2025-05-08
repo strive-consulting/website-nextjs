@@ -1,5 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(req: NextRequest) {
   try {
     const clientIp = req.headers.get('x-forwarded-for') || req.ip ///|| req.connection.remoteAddress
