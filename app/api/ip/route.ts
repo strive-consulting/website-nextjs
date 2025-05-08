@@ -4,7 +4,8 @@ export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const clientIp = req.headers.get('x-forwarded-for') || req.ip ///|| req.connection.remoteAddress
+    const forwarded = req.headers.get('x-forwarded-for') || req.ip
+    const clientIp = forwarded?.split(',')[0]?.trim() || 'unknown'
 
     return NextResponse.json({ ip: clientIp })
     //     // Add headers to disable compression and provide user-agent
