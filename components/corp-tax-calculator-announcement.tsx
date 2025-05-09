@@ -32,8 +32,8 @@ export const CorpTaxCalculatorAnnouncement = () => {
 
   return (
     <div className='corp-tax-calculator-announcement w-full text-center bg-gray-600 py-2'>
-      <Link href='/uk-corporate-tax-calculator' className='underline text-white'>
-        Check Out Our UK vs Dubai Tax Calculator
+      <Link href='/uk-corporate-tax-calculator' className='text-white'>
+        Check Out Our <span className="underline">UK vs Dubai Tax Calculator</span>
       </Link>
     </div>
   )
