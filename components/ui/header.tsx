@@ -4,6 +4,7 @@ import Dropdown from '@/components/utils/dropdown'
 import MobileMenu from './mobile-menu'
 import { getFooter, getGlobalNav } from '@/lib/cms'
 import { PrismicLink } from '@prismicio/react'
+import { CorpTaxCalculatorAnnouncement } from '../corp-tax-calculator-announcement'
 
 export default async function Header() {
   const nav = await getGlobalNav()
@@ -44,35 +45,35 @@ export default async function Header() {
                 })}
               </Dropdown>
               {/* <li>
-                <Link
-                  href='/dubai-residency-visa'
-                  className='text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out'
-                >
-                  Residency Visa
-                </Link>
-              </li> */}
+                  <Link
+                    href='/dubai-residency-visa'
+                    className='text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out'
+                  >
+                    Residency Visa
+                  </Link>
+                </li> */}
               {/* <li>
-                <Link
-                  href='/uae-accountancy-service'
-                  className='text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out'
-                >
-                  Accounting
-                </Link>
-              </li> */}
+                  <Link
+                    href='/uae-accountancy-service'
+                    className='text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out'
+                  >
+                    Accounting
+                  </Link>
+                </li> */}
               {/* <Dropdown title='Accounting'>
-                {nav.data.accountancy_items.map((item) => {
-                  return (
-                    <li key={item.menu_label}>
-                      <PrismicLink
-                        field={item.menu_link}
-                        className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
-                      >
-                        {item.menu_label}
-                      </PrismicLink>
-                    </li>
-                  )
-                })}
-              </Dropdown> */}
+                  {nav.data.accountancy_items.map((item) => {
+                    return (
+                      <li key={item.menu_label}>
+                        <PrismicLink
+                          field={item.menu_link}
+                          className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'
+                        >
+                          {item.menu_label}
+                        </PrismicLink>
+                      </li>
+                    )
+                  })}
+                </Dropdown> */}
               <Dropdown title='Business Services'>
                 {nav.data.accountancy_items.map((item) => {
                   return (
@@ -94,7 +95,7 @@ export default async function Header() {
                 })}
               </Dropdown>
               <Dropdown title='Resources'>
-              <Link href='/uk-corporate-tax-calculator' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
+                <Link href='/uk-corporate-tax-calculator' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                   UK vs Dubai Corporate Tax Calculator
                 </Link>
                 <Link href='/tools/cost-calculator' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
@@ -109,7 +110,6 @@ export default async function Header() {
                 <Link href='/client-testimonials' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                   Client Testimonials
                 </Link>
-                
                 <Link href='/dubai-accounting-guide' className='font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight'>
                   Dubai Accounting Guide
                 </Link>
@@ -135,6 +135,7 @@ export default async function Header() {
           <MobileMenu navigation={nav} footer={footer} />
         </div>
       </div>
+      <CorpTaxCalculatorAnnouncement />
     </header>
   )
 }
