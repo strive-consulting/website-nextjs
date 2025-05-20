@@ -5,22 +5,22 @@ import PostItem from '@/components/post-item'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Partners - Business Setup in Dubai, UAE',
-    description: 'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+    title: 'Our Partners - Dubai Company Setup solutions backed by industry experts',
+    description: 'Latest information and news on Strive&apos;s partnerships with with industry experts in Dubai.',
     alternates: {
       canonical: Constants.SiteDomain + '/blog',
     },
     openGraph: {
-      title: 'Partners - Business Setup in Dubai, UAE',
-      description: 'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+      title: 'Our Partners - Dubai Company Setup solutions backed by industry experts',
+      description: 'Latest information and news on Strive&apos;s partnerships with with industry experts in Dubai.',
       images: [Constants.SiteDomain + Constants.OpenGraphImage],
       url: Constants.SiteDomain + '/blog',
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Partners - Business Setup in Dubai, UAE',
-      description: 'Latest information and news on Business Setup / Company Formation, Residency Visas and Tax in Dubai and UAE.',
+      title: 'Our Partners - Dubai Company Setup solutions backed by industry experts',
+      description: 'Latest information and news on Strive&apos;s partnerships with with industry experts in Dubai.',
       siteId: '',
       images: [Constants.SiteDomain + Constants.OpenGraphImage],
     },
@@ -43,8 +43,8 @@ export default async function Blog() {
   let schema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    url: Constants.SiteDomain + '/partner',
-    name: 'Partners - Business Setup in Dubai, UAE',
+    url: Constants.SiteDomain + '/partners',
+    name: 'Our Partners - Dubai Company Setup solutions backed by industry experts',
   }
 
   return (
@@ -57,6 +57,13 @@ export default async function Blog() {
               <h1 className='h1' data-aos='fade-up'>
                 Partners
               </h1>
+              <p className='text-xl text-gray-400 mt-5' data-aos='fade-up' data-aos-delay='200'>
+                At Strive, we&apos;re proud to collaborate with some of the most respected and experienced professionals in Dubai and across the globe. These strategic partnerships are not just about credentials—they&apos;re about shared values, deep local knowledge, and a proven track record of delivering real results. We&apos;ve carefully selected each expert based on their ability to provide specialized support in key areas such as legal, financial, business setup, real estate, and lifestyle services.
+
+</p>
+<p className='text-xl text-gray-400 mt-5' data-aos='fade-up' data-aos-delay='200'>
+Our goal is to ensure that your transition to life and business in Dubai is as smooth and successful as possible. By working with trusted experts who understand both the local landscape and international expectations, we&apos;re able to offer you a seamless, efficient, and personalized experience. Whether you&apos;re establishing a new business, relocating your family, or exploring investment opportunities, our network is here to guide and support you at every step of the way.
+              </p>
             </div>
 
             {/*  Featured article */}
@@ -111,9 +118,9 @@ export default async function Blog() {
             {/*  Articles list */}
             <div className='max-w-sm mx-auto md:max-w-none'>
               {/*  Section title */}
-              <h4 className='h4 pb-6 mb-10 border-b border-gray-700' data-aos='fade-up'>
+              {/* <h4 className='h4 pb-6 mb-10 border-b border-gray-700' data-aos='fade-up'>
                 Our Partners
-              </h4>
+              </h4> */}
 
               <div className='grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start'>
                 {posts.map((post, postIndex) => (

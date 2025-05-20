@@ -90,7 +90,7 @@ export default async function SinglePartnerPost({ params }: { params: { slug: st
               <article>
                 <header className='mb-8'>
                   <div className='text-center md:text-left'>
-                    <BreadCrumbs homeTitle='Partners' homeUrl='/partner' currentPageName={post.tags?.[0] ?? post.data.title} currentPageUrl={Constants.SiteDomain + linkResolver(post)} />
+                    <BreadCrumbs homeTitle='Partners' homeUrl='/partners' currentPageName={post.tags?.[0] ?? post.data.title} currentPageUrl={Constants.SiteDomain + linkResolver(post)} />
                   </div>
                 </header>
                 <div className='md:grid md:grid-cols-12 md:gap-6 items-center'>
