@@ -78,6 +78,13 @@
           "label": "Pipedrive Label",
           "placeholder": "Must follow the convention \"Ref To: PartnerName\""
         }
+      },
+      "youtube_video": {
+        "type": "Embed",
+        "config": {
+          "label": "YouTube Video",
+          "placeholder": ""
+        }
       }
     },
     "Meta": {

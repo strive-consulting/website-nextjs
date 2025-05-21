@@ -53,7 +53,7 @@ export default async function Blog() {
                 Partners
               </h1>
               <p className='text-xl text-gray-400 mt-5' data-aos='fade-up' data-aos-delay='200'>
-                At Strive, we&apos;re proud to collaborate with some of the most respected and experienced professionals in Dubai and across the globe. These strategic partnerships are not just about
+                We&apos;re proud to collaborate with some of the most respected and experienced professionals in Dubai and across the globe. These strategic partnerships are not just about
                 credentials—they&apos;re about shared values, deep local knowledge, and a proven track record of delivering real results. We&apos;ve carefully selected each expert based on their
                 ability to provide specialized support in key areas such as legal, financial, business setup, real estate, and lifestyle services.
               </p>
@@ -86,9 +86,11 @@ export default async function Blog() {
                     </Link>
                     <div data-aos='fade-left' data-aos-delay='200'>
                       {post.data.logo && (
-                        <figure className='mb-3' data-aos='fade-up' data-aos-delay='300'>
-                          <PrismicImage field={post.data.logo} />
-                        </figure>
+                        <Link href={`/partners/${post.uid}`} className='hover:text-gray-100 transition duration-150 ease-in-out'>
+                          <figure className='mb-3' data-aos='fade-up' data-aos-delay='300'>
+                            <PrismicImage field={post.data.logo} />
+                          </figure>
+                        </Link>
                       )}
                       <header>
                         <div className='mb-3'>

@@ -807,6 +807,17 @@ interface PartnerPostDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   pipedrive_label: prismic.KeyTextField
+
+  /**
+   * YouTube Video field in *Partner*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_post.youtube_video
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  youtube_video: prismic.EmbedField
   /**
    * Meta Title field in *Partner*
    *

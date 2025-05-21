@@ -90,7 +90,7 @@ export default async function SinglePartnerPost({ params }: { params: { slug: st
               <article>
                 <header className='mb-8'>
                   <div className='text-center md:text-left'>
-                    <BreadCrumbs homeTitle='Partners' homeUrl='/partners' currentPageName={post.tags?.[0] ?? post.data.title} currentPageUrl={Constants.SiteDomain + linkResolver(post)} />
+                    <BreadCrumbs homeTitle='Partners' homeUrl='/partners' currentPageName={post.data.title ?? ''} currentPageUrl={Constants.SiteDomain + linkResolver(post)} />
                   </div>
                 </header>
                 <div className='md:grid md:grid-cols-12 md:gap-6 items-center'>
@@ -108,6 +108,18 @@ export default async function SinglePartnerPost({ params }: { params: { slug: st
                         ),
                       }}
                     />
+
+                    {post.data.youtube_video.embed_url != null && (
+                      <div className='relative videoWrapper mt-5'>
+                        <iframe
+                          className='absolute top-0 left-0 w-full h-full'
+                          src={post.data.youtube_video.embed_url.replace('watch?v=', 'embed/')}
+                          title={post.data.title?.toString()}
+                          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                          allowFullScreen={true}
+                        ></iframe>
+                      </div>
+                    )}
 
                     <PrismicRichText
                       field={post.data.body}
