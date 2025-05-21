@@ -11,6 +11,8 @@ export function linkResolver(doc: any) {
   switch (doc.type) {
     // case "blog_post":
     //   return "/blog/" + doc.uid;
+    case 'partner_post':
+      return `/partners/${doc.uid}`
     case 'servicepage':
       return `/${doc.uid}`
     case 'landingpage':
@@ -30,6 +32,7 @@ export function linkResolver(doc: any) {
  */
 // TODO: Update the routes array to match your project's route structure.
 const routes: prismic.ClientConfig['routes'] = [
+  
   {
     type: 'servicepage',
     path: '/:uid',
@@ -37,6 +40,10 @@ const routes: prismic.ClientConfig['routes'] = [
   {
     type: 'landingpage',
     path: '/lp/:uid',
+  },
+  {
+    type: 'partner_post',
+    path: '/partners/:uid',
   },
   {
     type: 'blog_post',
