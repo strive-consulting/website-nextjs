@@ -126,7 +126,7 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                 {/* Article image */}
                 {post.data.image && (
                   <figure className='mb-8 lg:-ml-32 lg:-mr-32' data-aos='fade-up' data-aos-delay='600'>
-                    <PrismicImage className='w-full' field={post.data.image} width={1024} height={576} />
+                    <PrismicImage className='w-full h-auto object-contain rounded-lg shadow my-6 sm:h-[500px] sm:object-cover' field={post.data.image} width={1024} height={576} />
                   </figure>
                 )}
                 {post.data.youtube_video.embed_url != null && (
@@ -146,6 +146,9 @@ export default async function SinglePost({ params }: { params: { slug: string } 
                   components={{
                     heading2: ({ children }) => <h2 className='h3 my-5'>{children}</h2>,
                     heading3: ({ children }) => <h3 className='h4 my-5'>{children}</h3>,
+                    heading4: ({ children }) => <h4 className='h5 my-5'>{children}</h4>,
+                    heading5: ({ children }) => <h5 className='h6 my-5'>{children}</h5>,
+                    image: ({ node }) => ( <img src={node.url} alt={node.alt || ''} className="w-[600px] mx-auto my-8 rounded-lg shadow object-cover  ml-0" />),
                     paragraph: ({ children }) => (
                       <p className='prose my-6 text-gray-400 max-w-none prose-lg prose-invert prose-p:leading-normal prose-headings:text-gray-200 prose-a:text-gray-200 prose-a:underline hover:prose-a:no-underline prose-a:font-normal prose-strong:font-medium prose-strong:text-gray-200 prose-blockquote:italic prose-blockquote:pl-4 prose-blockquote:border-l-2 prose-blockquote:border-gray-200 prose-blockquote:font-normal prose-blockquote:text-gray-400'>
                         {children}
