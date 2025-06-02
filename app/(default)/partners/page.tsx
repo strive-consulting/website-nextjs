@@ -76,7 +76,7 @@ export default async function Blog() {
                       {post.data.image && (
                         <figure className='relative h-0 pb-9/16 md:pb-3/4 lg:pb-9/16 overflow-hidden transform md:-translate-y-2 xl:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out'>
                           <PrismicImage
-                            className='absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out'
+                            className='grayscale absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out'
                             field={post.data.image}
                             width='540'
                             height='303'
@@ -88,7 +88,7 @@ export default async function Blog() {
                       {post.data.logo && (
                         <Link href={`/partners/${post.uid}`} className='hover:text-gray-100 transition duration-150 ease-in-out'>
                           <figure className='mb-3' data-aos='fade-up' data-aos-delay='300'>
-                            <PrismicImage field={post.data.logo} />
+                            <PrismicImage field={post.data.logo} className="grayscale"/>
                           </figure>
                         </Link>
                       )}
