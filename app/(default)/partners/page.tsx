@@ -3,22 +3,22 @@ import PostTags from '@/components/post-tags'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Our Partners - Dubai Company Setup solutions backed by industry experts',
-    description: 'Latest information and news on Strive&apos;s partnerships with with industry experts in Dubai.',
+    title: 'Partners - Dubai Company Setup solutions backed by industry experts',
+    description: 'Latest information and news on Strive&apos;s exclusive partnerships with with industry experts in Dubai.',
     alternates: {
       canonical: Constants.SiteDomain + '/blog',
     },
     openGraph: {
-      title: 'Our Partners - Dubai Company Setup solutions backed by industry experts',
-      description: 'Latest information and news on Strive&apos;s partnerships with with industry experts in Dubai.',
+      title: 'Partners - Dubai Company Setup solutions backed by industry experts',
+      description: 'Latest information and news on Strive&apos;s exclusive partnerships with with industry experts in Dubai.',
       images: [Constants.SiteDomain + Constants.OpenGraphImage],
       url: Constants.SiteDomain + '/blog',
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Our Partners - Dubai Company Setup solutions backed by industry experts',
-      description: 'Latest information and news on Strive&apos;s partnerships with with industry experts in Dubai.',
+      title: 'Partners - Dubai Company Setup solutions backed by industry experts',
+      description: 'Latest information and news on Strive&apos;s exclusive partnerships with with industry experts in Dubai.',
       siteId: '',
       images: [Constants.SiteDomain + Constants.OpenGraphImage],
     },
@@ -39,7 +39,7 @@ export default async function Blog() {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     url: Constants.SiteDomain + '/partners',
-    name: 'Our Partners - Dubai Company Setup solutions backed by industry experts',
+    name: 'Partners - Dubai Company Setup solutions backed by industry experts',
   }
 
   return (
@@ -50,7 +50,7 @@ export default async function Blog() {
             {/*  Page header */}
             <div className='max-w-3xl pb-12 md:pb-20 text-center md:text-left'>
               <h1 className='h1' data-aos='fade-up'>
-                Partners
+                Exclusive Partners
               </h1>
               <p className='text-xl text-gray-400 mt-5' data-aos='fade-up' data-aos-delay='200'>
                 We&apos;re proud to collaborate with some of the most respected and experienced professionals in Dubai and across the globe. These strategic partnerships are not just about

@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getPartnerPost, getPartnerPostsAll, getPartnerPostsPaged } from '@/lib/cms'
-import { PrismicImage, PrismicLink, PrismicRichText, SliceZone } from '@prismicio/react'
+import { PrismicImage, PrismicLink, PrismicRichText } from '@prismicio/react'
 import { Constants } from '@/app/constants'
 import { linkResolver } from '@/prismicio'
 import SchemaTag from '@/components/schema'
 import BreadCrumbs from '@/components/breadcrumbs'
 import Link from 'next/link'
-import PostItem from '@/components/post-item'
 import ShareBar from '@/components/share-bar'
 import TickIcon from '@/components/tickIcon'
 import PartnerReferralForm from '@/components/partner-referral-form'
@@ -57,7 +56,7 @@ export default async function SinglePartnerPost({ params }: { params: { slug: st
 
   let schema = {
     '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
+    '@type': 'Organization',
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': Constants.SiteDomain + linkResolver(post),
@@ -169,55 +168,18 @@ export default async function SinglePartnerPost({ params }: { params: { slug: st
                     </h4>
                     <PartnerReferralForm pipeDriveLabel={post.data.pipedrive_label ?? ''} />
 
-                    <div className='bg-gray-800 p-4 rounded-lg mt-10'>
-                      <h3 className='text-base font-semibold text-foreground mb-1'>Partner with us</h3>
-                      <p className='text-sm text-muted-foreground mb-3'>
+                    <div className='bg-gray-700 p-4 rounded-lg mt-10'>
+                      <h3 className='h4 font-semibold text-foreground mb-3'>Partner with us</h3>
+                      <p className='text-muted-foreground mb-3'>
                         Join the Strive partner programme to reach more customers in the UAE.{' '}
-                        <Link href='/contact' className='inline-block text-sm text-primary hover:underline'>
+                        <Link href='/contact' className='inline-block text-primary underline'>
                           Learn more
                         </Link>
                       </p>
                     </div>
                   </div>
                 </div>
-                {/* <div className='md:grid md:grid-cols-12 md:gap-6 items-center'>
-                  <div className={`max-w-xl md:max-w-none col-span-7 lg:col-span-8 self-start`}>
-                      <PrismicRichText
-                      field={post.data.body}
-                      components={{
-                        heading2: ({ children }) => <h2 className='h3 my-5'>{children}</h2>,
-                        heading3: ({ children }) => <h3 className='h4 my-5'>{children}</h3>,
-                        paragraph: ({ children }) => (
-                          <p className='prose my-6 text-gray-400 max-w-none prose-lg prose-invert prose-p:leading-normal prose-headings:text-gray-200 prose-a:text-gray-200 prose-a:underline hover:prose-a:no-underline prose-a:font-normal prose-strong:font-medium prose-strong:text-gray-200 prose-blockquote:italic prose-blockquote:pl-4 prose-blockquote:border-l-2 prose-blockquote:border-gray-200 prose-blockquote:font-normal prose-blockquote:text-gray-400'>
-                            {children}
-                          </p>
-                        ),
-                        list: ({ children }) => <ul>{children}</ul>,
-                        listItem: ({ children }) => (
-                          <li className='flex items-center text-lg text-gray-400 mt-4'>
-                            <TickIcon />
-                            {children}
-                          </li>
-                        ),
-                        oList: ({ children }) => <ul>{children}</ul>,
-                        oListItem: ({ children }) => (
-                          <li className='flex items-center text-lg text-gray-400 mt-4'>
-                            <TickIcon />
-                            {children}
-                          </li>
-                        ),
-                      }}
-                    />
-                  </div>
-                  <div className='col-span-5 lg:col-span-4  self-start'>
-                    <h4 className='h4 mb-4' data-aos='fade-up' data-aos-delay='200'>Contact {post.data.title}</h4>
-                    <PartnerReferralForm label='Partner' pipeDriveLabel={post.data.pipedrive_label ?? ''} />
-
-                    <div>PARTNER WITH US</div>
-                  </div>
-                </div> */}
-
-                {/* Article footer */}
+               
                 <footer>
                   <div className='text-end'>
                     <ShareBar title={post.data.title?.toString()} url={shareUrl} />
@@ -227,7 +189,6 @@ export default async function SinglePartnerPost({ params }: { params: { slug: st
             </div>
           </div>
         </div>
-        {/* <SliceZone slices={post.data.slices} components={components} /> */}
         <SchemaTag schemaJson={schema} />
       </section>
     </>

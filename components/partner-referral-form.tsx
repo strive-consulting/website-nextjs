@@ -1,9 +1,6 @@
 'use client'
-import { LinkField, asLink } from '@prismicio/client'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
-import { linkResolver } from '@/prismicio'
-import { Constants } from '@/app/constants'
 
 interface PartnerReferralFormProps {
   pipeDriveLabel?: string
