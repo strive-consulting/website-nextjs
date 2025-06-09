@@ -41,6 +41,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   })
 
   //Partner pages
+  transformedCmsPages.push({
+    url: baseUrl + '/partners',
+    lastModified: new Date(),
+  })
+  
   const transformedPartnerPages = partnerPosts.map((partner) => ({
     url: baseUrl + linkResolver(partner),
     lastModified: new Date(),
@@ -56,6 +61,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: baseUrl + '/tools/business-name-checker',
     lastModified: new Date(),
   })
+
+  
 
   transformedCmsPages.push({
     url: baseUrl + '',
