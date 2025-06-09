@@ -304,3 +304,76 @@ const communityPosts = await client
     prev_page: communityPosts.prev_page ? true : false,
   }
 }
+export async function getPartnerPostsAll() {
+  const client = createClient()
+
+  const posts = await client
+    .getByType('partner_post', {
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.uid', 'author.author_description'],
+      orderings: [{ field: 'my.partner_post.published_date', direction: 'desc' }],
+    })
+    .catch(() => notFound())
+
+  return posts.results
+}
+
+export async function getPartnerPost(name: string) {
+  const client = createClient()
+
+  const post = await client
+    .getByUID('partner_post', name, {
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.uid', 'author.author_description'],
+    })
+    .catch(() => notFound())
+
+  return post
+}
+
+export async function getPartnerPostsPaged(pagenum: number = 1, pageSize?: number, tag?: string, blogPostToExcludeUid?: string) {
+  const client = createClient()
+
+  //PageSize is only set when we are fetching a few posts for a slice.
+  pageSize = pageSize ? pageSize : pagenum === 1 ? 13 : 12
+
+  //note, Tags are case sensitive in Prismic so we must follow the title case convention to make this work.
+
+  const filters: string[] = []
+  const tagFilter = tag && filters.push(prismic.filter.at('document.tags', [blogTagNameCleaner(tag)]))
+  const postExcludeFilter = blogPostToExcludeUid && filters.push(prismic.filter.not('my.partner_post.uid', blogPostToExcludeUid.toString()))
+  // console.log(filters)
+  const communityPosts = await client
+    .getByType('partner_post', {
+      fetchLinks: ['author.name', 'author.job_title', 'author.avatar', 'author.linkedin_url', 'author.uid', 'author.author_description'],
+      orderings: [{ field: 'my.partner_post.published_date', direction: 'desc' }],
+      // filters: tag && [prismic.filter.at('document.tags', [toTitleCase(tag)])],
+
+      filters: filters,
+      // predicates: [predicate.at("my.community.most_popular",
+      // {
+      //   { orderings : '[document.first_publication_date desc]' }
+      // })],
+      pageSize: pageSize,
+      page: pagenum,
+    })
+    .catch(() => notFound())
+
+  //   Note, non paged
+  // const popularPosts = await client.getAllByType("community", {
+  //   predicates: [predicate.at("my.community.most_popular", true)],
+  //   orderings: [{ field: "my.community.published_date", direction: "desc" }],
+  // });
+
+  // console.log(communityPosts.results);
+
+  //console.log('pages=', communityPosts.results.length)
+
+  return {
+    generalPosts: communityPosts.results,
+    // popularPosts,
+
+    active_page: pagenum,
+    total_pages: communityPosts.total_pages,
+    next_page: communityPosts.next_page ? true : false,
+    prev_page: communityPosts.prev_page ? true : false,
+  }
+}

@@ -717,6 +717,142 @@ interface LandingpageDocumentData {
 export type LandingpageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<LandingpageDocumentData>, 'landingpage', Lang>
 
 /**
+ * Content for Partner documents
+ */
+interface PartnerPostDocumentData {
+  /**
+   * Title field in *Partner*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_post.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Published Date field in *Partner*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_post.published_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  published_date: prismic.DateField
+
+  /**
+   * Introduction field in *Partner*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_post.introduction
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  introduction: prismic.RichTextField
+
+  /**
+   * Body field in *Partner*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_post.body
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField
+
+  /**
+   * Image field in *Partner*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_post.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+
+  /**
+   * Back Link field in *Partner*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_post.back_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  back_link: prismic.LinkField
+
+  /**
+   * Logo field in *Partner*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_post.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>
+
+  /**
+   * Pipedrive Label field in *Partner*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Must follow the convention "Ref To: PartnerName"
+   * - **API ID Path**: partner_post.pipedrive_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  pipedrive_label: prismic.KeyTextField
+
+  /**
+   * YouTube Video field in *Partner*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_post.youtube_video
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  youtube_video: prismic.EmbedField
+  /**
+   * Meta Title field in *Partner*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_post.meta_title
+   * - **Tab**: Meta
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Partner*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_post.meta_description
+   * - **Tab**: Meta
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+}
+
+/**
+ * Partner document from Prismic
+ *
+ * - **API ID**: `partner_post`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PartnerPostDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<PartnerPostDocumentData>, 'partner_post', Lang>
+
+/**
  * Content for Quote documents
  */
 interface QuoteDocumentData {
@@ -948,6 +1084,7 @@ export type AllDocumentTypes =
   | FreeZoneDocument
   | GlobalNavDocument
   | LandingpageDocument
+  | PartnerPostDocument
   | QuoteDocument
   | ServicepageDocument
   | TestimonialDocument
@@ -2856,6 +2993,8 @@ declare module '@prismicio/client' {
       LandingpageDocument,
       LandingpageDocumentData,
       LandingpageDocumentDataSlicesSlice,
+      PartnerPostDocument,
+      PartnerPostDocumentData,
       QuoteDocument,
       QuoteDocumentData,
       ServicepageDocument,
