@@ -52,6 +52,8 @@ export default function EnquiryForm() {
       utmMedium: utmParamsFromLocalStorage['utm_medium'] ?? undefined,
       utmSource: utmParamsFromLocalStorage['utm_source'] ?? undefined,
       utmTerm: utmParamsFromLocalStorage['utm_term'] ?? undefined,
+      gclid: utmParamsFromLocalStorage['gclid'] ?? undefined,
+      fbclid: utmParamsFromLocalStorage['fbclid'] ?? undefined,
     })
     //console.log(utm)
   }, [])

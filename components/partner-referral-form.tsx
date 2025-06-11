@@ -16,6 +16,8 @@ export default function PartnerReferralForm({ pipeDriveLabel }: PartnerReferralF
     utmMedium: searchParams.get('utm_medium') ?? undefined,
     utmSource: searchParams.get('utm_source') ?? undefined,
     utmTerm: searchParams.get('utm_term') ?? undefined,
+    gclid: searchParams.get('gclid') ?? undefined,
+    fbclid: searchParams.get('fbclid') ?? undefined,
   }
 
   const [submitted, setSubmitted] = useState(false)

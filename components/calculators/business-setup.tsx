@@ -30,6 +30,8 @@ interface FormData {
   utmMedium?: string
   utmSource?: string
   utmTerm?: string
+  gclid?: string
+  fbclid?: string
   deferedDataCapture?: boolean
   backUrl?: string
 }
@@ -193,6 +195,8 @@ const BusinessSetupCalculator: React.FC<SetupProps> = ({ deferedDataCapture }: S
       utmMedium: utmParamsFromLocalStorage['utm_medium'] ?? undefined,
       utmSource: utmParamsFromLocalStorage['utm_source'] ?? undefined,
       utmTerm: utmParamsFromLocalStorage['utm_term'] ?? undefined,
+      gclid: utmParamsFromLocalStorage['gclid'] ?? undefined,
+      fbclid: utmParamsFromLocalStorage['fbclid'] ?? undefined,
     })
   }, [])
 
@@ -224,6 +228,8 @@ const BusinessSetupCalculator: React.FC<SetupProps> = ({ deferedDataCapture }: S
     formData.utmMedium = utm['utm_medium']
     formData.utmSource = utm['utm_source']
     formData.utmTerm = utm['utmTerm']
+    formData.gclid = utm['gclid']
+    formData.fbclid = utm['fbclid']
 
     setFormData({ ...formData })
 

@@ -10,7 +10,7 @@ const UtmStorage = () => {
       const urlParams = new URLSearchParams(window.location.search)
       const utmParams: Record<string, string> = {}
       urlParams.forEach((value, key) => {
-        if (key.startsWith('utm_')) {
+        if (key.startsWith('utm_') || key.startsWith('gclid') || key.startsWith('fbclid')) {
           utmParams[key] = value
         }
       })

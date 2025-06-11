@@ -24,6 +24,8 @@ interface FormData {
   utmMedium?: string
   utmSource?: string
   utmTerm?: string
+  gclid?: string
+  fbclid?: string
   deferedDataCapture?: boolean
 }
 
@@ -69,6 +71,8 @@ export default function UserDataCapture({
       utmMedium: utmParamsFromLocalStorage['utm_medium'] ?? undefined,
       utmSource: utmParamsFromLocalStorage['utm_source'] ?? undefined,
       utmTerm: utmParamsFromLocalStorage['utm_term'] ?? undefined,
+      gclid: utmParamsFromLocalStorage['gclid'] ?? undefined,
+      fbclid: utmParamsFromLocalStorage['fbclid'] ?? undefined,
     })
     //console.log(utm)
   }, [])
@@ -81,6 +85,8 @@ export default function UserDataCapture({
     formData.utmMedium = utm['utmMedium']
     formData.utmSource = utm['utmSource']
     formData.utmTerm = utm['utmTerm']
+    formData.gclid = utm['gclid']
+    formData.fbclid = utm['fbclid']
 
     setFormData({ ...formData })
 
