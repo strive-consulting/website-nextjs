@@ -18,6 +18,8 @@ export default function CalendlyFormPrefill({ calendarUrl, ctaid, formName, redi
     utmMedium: searchParams.get('utm_medium') ?? undefined,
     utmSource: searchParams.get('utm_source') ?? undefined,
     utmTerm: searchParams.get('utm_term') ?? undefined,
+    gclid: searchParams.get('gclid') ?? undefined,
+    fbclid: searchParams.get('fbclid') ?? undefined,
   }
 
   const [formData, setFormData] = useState({
@@ -43,7 +45,7 @@ export default function CalendlyFormPrefill({ calendarUrl, ctaid, formName, redi
     // Note 'a1' is the first custom question in this Calendly form
     const url = `${calendarUrl}?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&a1=${encodeURIComponent(formData.phoneNumber)}&utm_campaign=${
       utm.utmCampaign
-    }&utm_medium=${utm.utmMedium}&utm_source=${utm.utmSource}&utm_term=${utm.utmTerm}`
+    }&utm_medium=${utm.utmMedium}&utm_source=${utm.utmSource}&utm_term=${utm.utmTerm}&gclid=${utm.gclid}&fbclid=${utm.fbclid}`
 
     await fetch('/api/forms/prefill', {
       method: 'POST',

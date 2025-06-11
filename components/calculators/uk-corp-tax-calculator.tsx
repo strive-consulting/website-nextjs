@@ -22,6 +22,8 @@ const UkCorpTaxCalculator = ({ label = 'Form', redirect }: ContactFormSimpleProp
     utmMedium: '',
     utmSource: '',
     utmTerm: '',
+    gclid: '',
+    fbclid: '',
     label: label,
   })
 
@@ -32,6 +34,9 @@ const UkCorpTaxCalculator = ({ label = 'Form', redirect }: ContactFormSimpleProp
     formData.utmMedium = utmParamsFromLocalStorage['utm_medium'] ?? undefined
     formData.utmSource = utmParamsFromLocalStorage['utm_source'] ?? undefined
     formData.utmTerm = utmParamsFromLocalStorage['utm_term'] ?? undefined
+    formData.gclid = utmParamsFromLocalStorage['gclid'] ?? undefined
+    formData.fbclid = utmParamsFromLocalStorage['fbclid'] ?? undefined
+    
   }, [])
 
   const isFormComplete = () => {
