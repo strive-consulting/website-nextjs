@@ -1,20 +1,35 @@
 'use client'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function HrForm() {
   const router = useRouter()
 
-  const searchParams = useSearchParams()
-
   const utm = {
-    utmCampaign: searchParams.get('utm_campaign') ?? undefined,
-    utmMedium: searchParams.get('utm_medium') ?? undefined,
-    utmSource: searchParams.get('utm_source') ?? undefined,
-    utmTerm: searchParams.get('utm_term') ?? undefined,
-    gclid: searchParams.get('gclid') ?? undefined,
-    fbclid: searchParams.get('fbclid') ?? undefined,
+    utmCampaign: '',
+    utmMedium: '',
+    utmSource: '',
+    utmTerm: '',
+    gclid: '',
+    fbclid: '',
   }
+
+  useEffect(() => {
+     const utmParamsFromLocalStorage = JSON.parse(localStorage.getItem('utmParams') || '{}')
+   
+     utm.utmCampaign = utmParamsFromLocalStorage['utm_campaign'] ?? undefined
+     utm.utmMedium = utmParamsFromLocalStorage['utm_medium'] ?? undefined
+     utm.utmSource = utmParamsFromLocalStorage['utm_source'] ?? undefined
+     utm.utmTerm = utmParamsFromLocalStorage['utm_term'] ?? undefined
+     utm.gclid = utmParamsFromLocalStorage['gclid'] ?? undefined
+     utm.fbclid = utmParamsFromLocalStorage['fbclid'] ?? undefined
+     
+     setFormData({
+       ...formData,
+       utm: utm
+     })
+     
+   }, [])
 
   const [submitted, setSubmitted] = useState(false)
 
