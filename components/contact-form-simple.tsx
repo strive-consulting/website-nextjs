@@ -1,7 +1,7 @@
 'use client'
 import { LinkField, asLink } from '@prismicio/client'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { linkResolver } from '@/prismicio'
 import { Constants } from '@/app/constants'
 
@@ -13,15 +13,13 @@ interface ContactFormSimpleProps {
 export default function ContactFormSimple({ label = 'Form', redirect }: ContactFormSimpleProps) {
   const router = useRouter()
 
-  const searchParams = useSearchParams()
-
   const utm = {
-    utmCampaign: searchParams.get('utm_campaign') ?? undefined,
-    utmMedium: searchParams.get('utm_medium') ?? undefined,
-    utmSource: searchParams.get('utm_source') ?? undefined,
-    utmTerm: searchParams.get('utm_term') ?? undefined,
-    gclid: searchParams.get('gclid') ?? undefined,
-    fbclid: searchParams.get('fbclid') ?? undefined,
+    utmCampaign: '',
+    utmMedium: '',
+    utmSource: '',
+    utmTerm: '',
+    gclid: '',
+    fbclid: '',
   }
 
   const [submitted, setSubmitted] = useState(false)
@@ -37,6 +35,25 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
     btnStateClass: 'bg-purple-300',
     btnDisabled: true,
   })
+
+
+  useEffect(() => {
+    const utmParamsFromLocalStorage = JSON.parse(localStorage.getItem('utmParams') || '{}')
+  
+    utm.utmCampaign = utmParamsFromLocalStorage['utm_campaign'] ?? undefined
+    utm.utmMedium = utmParamsFromLocalStorage['utm_medium'] ?? undefined
+    utm.utmSource = utmParamsFromLocalStorage['utm_source'] ?? undefined
+    utm.utmTerm = utmParamsFromLocalStorage['utm_term'] ?? undefined
+    utm.gclid = utmParamsFromLocalStorage['gclid'] ?? undefined
+    utm.fbclid = utmParamsFromLocalStorage['fbclid'] ?? undefined
+    
+    setFormData({
+      ...formData,
+      utm: utm
+    })
+    
+  }, [])
+
 
   const handleChange = (e: any) => {
     formData.btnStateClass = isFormComplete() ? 'bg-purple-600' : 'bg-purple-300'
@@ -56,6 +73,8 @@ export default function ContactFormSimple({ label = 'Form', redirect }: ContactF
     e.preventDefault()
 
     setSubmitted(true)
+
+    console.log('Form data', formData)
 
     await fetch('/api/forms/prefill', {
       method: 'POST',
