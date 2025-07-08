@@ -29,6 +29,10 @@ export default async function Footer() {
                   }}
                 />
               </div>
+              <div className='text-gray-400 mb-6 text-xs'>
+                <strong>Disclaimer</strong>: All business setup and residency visa services are facilitated through legal, approved channels in strict compliance with UAE laws.
+Timeframes, approvals, and tax benefits vary by business activity, licensing body, and client readiness. Speak to one of our specialists for accurate, up-to-date guidance tailored to your specific needs.
+                </div>
               <ul className='flex mb-4 md:order-1 md:ml-0 md:mb-0'>
                 <li className='ml-0'>
                   <Link
@@ -158,10 +162,15 @@ export default async function Footer() {
             </div>
           </div>
           <div className='md:flex md:items-center md:justify-center'>
-            <div className='text-gray-400 text-sm mr-4 text-center'>
-              &copy; strivedubai.com. All rights reserved. <br />
-              <a href='https://strivedubai.com/privacy-policy'>Privacy Policy</a> / <a href='https://strivedubai.com/terms-and-conditions'>Terms and conditions</a> / <a href='https://strivedubai.com/cookies-policy'>Cookie Policy</a>
-            </div> 
+            <div className='text-gray-400 text-xs mr-4 text-center'>
+              &copy; 2025 Strive Corporate Services Provider L.L.C. All rights reserved. Licensed under DED, UAE. License no 1256278
+              <br />
+              Strive Consultants is an independent business consultancy that provides advisory and administrative support for company formation, residency visa applications, and corporate services.
+              <br />
+              We are not affiliated with any UAE government or immigration agency. <br />
+              <br />
+              <a href='/privacy-policy'>Privacy Policy</a> / <a href='/terms-and-conditions'>Terms and conditions</a> / <a href='/cookies-policy'>Cookie Policy</a> / <a href='/contact'>Contact Us</a>
+            </div>
           </div>
         </div>
       </div>
