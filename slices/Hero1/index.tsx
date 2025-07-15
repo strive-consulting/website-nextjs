@@ -45,7 +45,7 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
     const showForm = !showCtaButtons
     const hasBullets = slice.items.length > 0
     const hasBulletsOrForm = hasBullets || showForm
-
+    const ishomepage = slice.primary.is_homepage
     // console.log(slice.primary.form_thank_you_redirect)
 
     return (
@@ -116,7 +116,12 @@ const Hero1 = ({ slice }: Hero1Props): JSX.Element => {
               <div className='pt-32 pb-12 md:pt-40 md:pb-0'>
                 <div className='flex flex-col md:flex-row'>
                   <div className={`w-full md:w-2/3 ${mxAuto} text-center ${titleAlignClass}`}>
+                  {ishomepage && (
+                    <h1 className='h1 mb-4'>{slice.primary.title}</h1>
+                  )}
+                  {!ishomepage && (
                     <h1 className='h2 mb-4'>{slice.primary.title}</h1>
+                  )}
                     <PrismicRichText
                       field={slice.primary.description}
                       components={{
