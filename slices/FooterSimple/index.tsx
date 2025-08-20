@@ -49,7 +49,12 @@ Timeframes, approvals, and tax benefits vary by business activity, licensing bod
               Strive Consultants is an independent business consultancy that provides advisory and administrative support for company formation, residency visa applications, and corporate services.
               <br />
               We are not affiliated with any UAE government or immigration agency. 
+              <br/>This site is not a part of the Google website, Google Inc, Facebook/Meta website, or Meta, Inc. Additionally, This site is NOT endorsed by Google or Meta in any way.
+              <br /><br />
+              <a href='/privacy-policy'>Privacy Policy</a> / <a href='/terms-and-conditions'>Terms and conditions</a> / <a href='/cookies-policy'>Cookie Policy</a> / <a href='/contact'>Contact Us</a>
+            
         </div>
+        
       </div>
     </footer>
   )
