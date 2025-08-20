@@ -17,9 +17,8 @@ const StickyNavigation = ({ slice }: StickyNavigationProps): JSX.Element => {
       <div className='max-w-6xl mx-auto px-4 sm:px-6'>
         <div className='flex items-center justify-between h-20'>
           <div className='shrink-0 mr-4'>
-            <Link href='/' className='block' aria-label='Strive Consultants'>
+      
               <Image src='/images/logo/strive_logo.png' alt='Strive Consultants' width={120} height={44} priority={true} />
-            </Link>
           </div>
 
           {slice.primary.cta_text && (
