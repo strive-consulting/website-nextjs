@@ -30,6 +30,7 @@
     "react-calendly": "^4.3.0",
     "react-country-region-selector": "^3.6.1",
     "react-dom": "18.2.0",
+    "react-google-recaptcha": "^3.1.0",
     "react-phone-input-2": "^2.15.1",
     "react-select": "^5.7.7",
     "react-share": "^5.0.3",

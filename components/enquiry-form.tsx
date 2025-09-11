@@ -1,6 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha';
 
 interface FormData {
   formName: string
@@ -26,6 +27,8 @@ interface FormData {
 export default function EnquiryForm() {
   const router = useRouter()
   const [utm, setUtm] = useState<any>()
+
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const [formData, setFormData] = useState<FormData>({
     formName: 'website-contact-form',
@@ -235,6 +238,14 @@ export default function EnquiryForm() {
               onChange={handleChange}
               value={formData.message}
             ></textarea>
+          </div>
+
+          {/* Google reCAPTCHA */}
+          <div className="w-full my-3">
+            <ReCAPTCHA
+      sitekey="6LeXd8YrAAAAAKrvyj7sLiTei2RVMpSgPN4OmaKi"
+      onChange={(token: string | null) => setCaptchaToken(token)}
+    />
           </div>
 
           <button type='submit' className='mt-3 btn text-white bg-purple-600 hover:bg-purple-700 w-full'>
