@@ -108,6 +108,15 @@
             "label": "Form Title Override",
             "placeholder": ""
           }
+        },
+        "is_homepage": {
+          "type": "Boolean",
+          "config": {
+            "label": "Is Homepage",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
         }
       },
       "items": {

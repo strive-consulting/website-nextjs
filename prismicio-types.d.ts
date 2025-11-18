@@ -2133,6 +2133,17 @@ export interface Hero1SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   form_title_override: prismic.KeyTextField
+
+  /**
+   * Is Homepage field in *Hero1 → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: hero1.primary.is_homepage
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  is_homepage: prismic.BooleanField
 }
 
 /**
